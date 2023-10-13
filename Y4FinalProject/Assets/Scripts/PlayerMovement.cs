@@ -13,21 +13,21 @@ public class PlayerMovement : MonoBehaviour
     public PlayerControls controls;
 
     [Header("Movement Characteristics")]
-    public float maxMoveSpeed;
-    public float accSpeed;
-    public float maxStrafeSpeed;
-    public float accStrafe;
-    public float accSprint;
-    public float maxSprintSpeed;
-    public float slowDownSpeed;
-    public float minimumThresholdSpeed;
+    [Tooltip("The maximum amount of forward speed the player can achieve while walking")] public float maxMoveSpeed;
+    [Tooltip("How quickly the player accelerates forward")] public float accSpeed;
+    [Tooltip("Currently unused in the code.")] public float maxStrafeSpeed;
+    [Tooltip("How quickly the player accelerates sideways")] public float accStrafe;
+    [Tooltip("The multiplier to the player's acceleration while sprinting")] public float accSprint;
+    [Tooltip("The maximum possible speed achievable while sprinting")] public float maxSprintSpeed;
+    [Tooltip("The rate at which the player sheds speed when above maximum")] public float slowDownSpeed;
+    [Tooltip("The minimum horizontal speed at which the player will start moving")] public float minimumThresholdSpeed;
 
     [Space]
-    public float jumpForce;
+    [Tooltip("The force applied to the player when jumping")] public float jumpForce;
 
     [Header("Parkour Characteristics")]
-    public float vaultBoost;
-    public float vaultHeight;
+    [Tooltip("The forward impulse applied when vaulting")] public float vaultBoost;
+    [Tooltip("The upwards impulse applied when vaulting")] public float vaultHeight;
 
     [Space]
     public Transform cameraHolder;
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     bool isAtMaxSprintSpeed;
     bool canJump = true;
     bool isSprinting;
-    [SerializeField] bool isInVaultTrigger;
+    bool isInVaultTrigger;
 
     void Awake()
     {
