@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
     bool isAtMaxSprintSpeed;
     bool canJump = true;
     bool isSprinting;
-    bool isInVaultTrigger;
+    [SerializeField] bool isInVaultTrigger;
 
     void Awake()
     {
@@ -144,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
         //if player is trying to vault
         if (controls.PlayerMovement.Vault.triggered)
         {
-            if (isInVaultTrigger && isSprinting && !playerManager.isOnGround())//and theyre in the vault zone, sprinting, and in the air,
+            if (isInVaultTrigger && /*isSprinting &&*/ !playerManager.isOnGround())//and theyre in the vault zone, sprinting, and in the air,
             {
                 //vault
                 rb.AddForce(transform.forward * vaultBoost, ForceMode.Impulse);
