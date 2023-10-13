@@ -1,32 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rb;
     PlayerManager playerManager;
 
+    public PlayerControls controls;
+
     [Header("Movement Characteristics")]
     public float maxMoveSpeed;
     public float accSpeed;
     public float maxStrafeSpeed;
     public float accStrafe;
+    public float accSprint;
+    public float maxSprintSpeed;
     public float slowDownSpeed;
     public float minimumThresholdSpeed;
 
     [Space]
     public float jumpForce;
 
-    [Space]
-    public float yRotSpeed;
-    public float zRotSpeed;
+    [Header("Parkour Characteristics")]
+    public float vaultBoost;
+    public float vaultHeight;
 
+    [Space]
     public Transform cameraHolder;
 
+    [Header("Debug")]
     [SerializeField] Vector3 HorizontalVelocity;
     [SerializeField] Vector3 MovementVector;
+    public float HorizontalVelocityf;
 
     Vector3 lastPos;
     //[SerializeField] Vector3 HorizontalVelocity;
@@ -34,81 +43,144 @@ public class PlayerMovement : MonoBehaviour
     float xMove;
     float zMove;
 
-    float xRot;
-    float yRot;
-
     bool isAtMaxSpeed;
+    bool isAtMaxSprintSpeed;
     bool canJump = true;
+    bool isSprinting;
+    bool isInVaultTrigger;
 
-    void Start()
+    void Awake()
     {
+        Application.targetFrameRate = 60;
         rb = GetComponent<Rigidbody>();
         playerManager = GetComponent<PlayerManager>();
 
+        //enable controls
+        controls = new PlayerControls();
+        controls.PlayerMovement.Enable();
+        Debug.Log(controls);
+
         canJump = true;
 
+        //
         InvokeRepeating("calculateMovementVector", 0, 0.02f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        zMove = Input.GetAxis("Horizontal");
-        xMove = Input.GetAxis("Vertical");
 
-        xRot = Input.GetAxis("Mouse Y");
-        yRot = Input.GetAxis("Mouse X");
+        movement();
 
+        //get input in
+        // zMove = Input.GetAxis("Horizontal");
+        // xMove = Input.GetAxis("Vertical");
+
+
+
+        //locking the mouse
+        if (Input.GetKeyDown(KeyCode.P)) playerManager.lockMouse();
+    }
+
+    void movement()
+    {
+        //jumping and vaulting
+        JumpAndVault();
+
+        //calculate how fast we're moving along the ground
         HorizontalVelocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+        HorizontalVelocityf = HorizontalVelocity.magnitude;
 
-        if (Mathf.Abs(HorizontalVelocity.magnitude) >= maxMoveSpeed) isAtMaxSpeed = true;
+        //just check if we're moving at maximum speed
+        if (Mathf.Abs(HorizontalVelocityf) >= maxMoveSpeed) isAtMaxSpeed = true;
         else isAtMaxSpeed = false;
 
-        if (Input.GetKeyDown(KeyCode.P)) playerManager.lockMouse();//locking the mouse
-        if (Input.GetKeyDown(KeyCode.Space)) jump();
+        //check if moving at max Sprint speed
+        if (Mathf.Abs(HorizontalVelocityf) >= maxSprintSpeed) isAtMaxSprintSpeed = true;
+        else isAtMaxSprintSpeed = false;
 
+        //input
+        Vector2 movInput = controls.PlayerMovement.Movement.ReadValue<Vector2>();
+        xMove = movInput.y;
+        zMove = movInput.x;
+
+        //sprinting
+        float isSprinting_ = controls.PlayerMovement.Sprint.ReadValue<float>();
+        if (isSprinting_ == 0) isSprinting = false;
+        else isSprinting = true;
+
+        //controls.PlayerMovement.Sprint.started += ctx => isSprinting = ctx.ReadValue<bool>();
+
+        //ismoving
+        if (movInput != Vector2.zero)
+        {
+            if (!isSprinting)
+            {
+                if (!isAtMaxSpeed)//is below max speed and isnt sprinting (walking)
+                {
+                    rb.AddForce(transform.forward * xMove * accSpeed * Time.deltaTime);
+                    rb.AddForce(transform.right * zMove * accStrafe * Time.deltaTime);
+                }
+            }
+            else
+            {
+                if (!isAtMaxSprintSpeed)//is sprinting
+                {
+                    rb.AddForce(transform.forward * xMove * accSprint * accSpeed * Time.deltaTime);
+                    rb.AddForce(transform.right * zMove * accStrafe * Time.deltaTime);
+                }
+            }
+
+        }
+        else
+        {
+            if (Mathf.Abs(HorizontalVelocity.magnitude) > minimumThresholdSpeed)
+                rb.AddForce(-MovementVector * slowDownSpeed * Time.deltaTime);
+        }
     }
 
-    void FixedUpdate()
+    void JumpAndVault()
     {
-        if (!isAtMaxSpeed)
+        //if player is trying to vault
+        if (controls.PlayerMovement.Vault.triggered)
         {
-            rb.AddForce(transform.forward * (xMove * accSpeed));
-            rb.AddForce(transform.right * (zMove * accSpeed));
+            if (isInVaultTrigger && isSprinting && !playerManager.isOnGround())//and theyre in the vault zone, sprinting, and in the air,
+            {
+                //vault
+                rb.AddForce(transform.forward * vaultBoost, ForceMode.Impulse);
+                rb.AddForce(transform.up * vaultHeight, ForceMode.Impulse);
+            }
         }
 
-        //if player is moving faster than a rlly small amount, slow them down
-        if (Mathf.Abs(HorizontalVelocity.magnitude) > minimumThresholdSpeed)
-            rb.AddForce(-MovementVector * slowDownSpeed);
-
-        //transform.Rotate(Vector3.up * yRot * yRotSpeed);
-        //cameraHolder.Rotate(cameraHolder.right * -xRot * zRotSpeed);
-        // cameraHolder.localRotation = quaternion.Euler(cameraHolder.localRotation.x, 0, 0);
+        if (controls.PlayerMovement.Jump.triggered)
+        {
+            if (playerManager.isOnGround())
+            {
+                rb.AddForce(Vector3.up * jumpForce);
+            }
+        }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("VaultTrigger"))
+        {
+            isInVaultTrigger = true;
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("VaultTrigger"))
+        {
+            isInVaultTrigger = false;
+        }
+    }
+
+    //generates a vector that faces the direction the player is moving
+    //is reversed to slow them down
     void calculateMovementVector()
     {
         MovementVector = transform.position - lastPos;
         lastPos = transform.position;
     }
-
-    void jump()
-    {
-        if (canJump)
-        {
-            if (playerManager.isOnGround())
-            {
-                rb.AddForce(Vector3.up * jumpForce);
-                StartCoroutine(jumpWait());
-            }
-        }
-    }
-
-    IEnumerator jumpWait()
-    {
-        canJump = false;
-        yield return new WaitForSeconds(0.5f);
-        canJump = true;
-    }
-
 }

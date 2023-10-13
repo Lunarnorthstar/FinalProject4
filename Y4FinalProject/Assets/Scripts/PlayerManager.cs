@@ -37,7 +37,14 @@ public class PlayerManager : MonoBehaviour
 
         if (Physics.Raycast(transform.position, Vector3.down, out hit, isonGroundClearance))
         {
-            return true;
+            if (!hit.transform.gameObject.CompareTag("VaultTrigger"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         else
         {

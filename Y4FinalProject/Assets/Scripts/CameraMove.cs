@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class CameraMove : MonoBehaviour
 {
+    public Camera mainCam;
+
     PlayerManager playerManager;
+    PlayerMovement playerMovement;
 
     public Transform Player;
     public float Mousesens;
@@ -12,10 +15,25 @@ public class CameraMove : MonoBehaviour
 
     float CamRotY;
 
+    [Header("Camera Settings")]
+    public AnimationCurve FovMuliplier;
+    public float FoV;
+    public float fovSmoothing;
+
     void Start()
     {
         InvokeRepeating("moveCam", 0, 0.01f);
         playerManager = transform.parent.GetComponent<PlayerManager>();
+        playerMovement = transform.parent.GetComponent<PlayerMovement>();
+    }
+
+    void FixedUpdate()
+    {
+        //the fov smoothly lerps between what is is, and a wider view based on speed
+        mainCam.fieldOfView = Mathf.Lerp(
+            mainCam.fieldOfView,
+             FoV * FovMuliplier.Evaluate(playerMovement.HorizontalVelocityf),
+             fovSmoothing);
     }
 
 
