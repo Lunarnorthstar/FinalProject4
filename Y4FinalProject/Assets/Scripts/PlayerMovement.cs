@@ -20,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("The multiplier to the player's acceleration while sprinting")] public float accSprint;
     [Tooltip("The maximum possible speed achievable while sprinting")] public float maxSprintSpeed;
     [Tooltip("The rate at which the player sheds speed when above maximum")] public float slowDownSpeed;
-    [Tooltip("The minimum horizontal speed at which the player will start moving")] public float minimumThresholdSpeed;
+    [Tooltip("The speed the player will slow down to when movement keys are released (not factoring friction)")] public float minimumThresholdSpeed;
 
     [Space]
     [Tooltip("The force applied to the player when jumping")] public float jumpForce;
