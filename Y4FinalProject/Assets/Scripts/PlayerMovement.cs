@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
 {
     Rigidbody rb;
     PlayerManager playerManager;
+    Animator ani;
 
     public PlayerControls controls;
 
@@ -28,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Parkour Characteristics")]
     [Tooltip("The forward impulse applied when vaulting")] public float vaultBoost;
     [Tooltip("The upwards impulse applied when vaulting")] public float vaultHeight;
+    public float standardDrag;
+    public float slidingDrag;
 
     [Space]
     public Transform cameraHolder;
@@ -48,17 +51,21 @@ public class PlayerMovement : MonoBehaviour
     bool canJump = true;
     bool isSprinting;
     bool isInVaultTrigger;
+    public bool isTryingToSlide;
+    public bool isSliding;
 
     void Awake()
     {
         Application.targetFrameRate = 60;
+
+        //assign variables
         rb = GetComponent<Rigidbody>();
         playerManager = GetComponent<PlayerManager>();
+        ani = GetComponent<Animator>();
 
         //enable controls
         controls = new PlayerControls();
         controls.PlayerMovement.Enable();
-        Debug.Log(controls);
 
         canJump = true;
 
@@ -69,14 +76,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         movement();
-
-        //get input in
-        // zMove = Input.GetAxis("Horizontal");
-        // xMove = Input.GetAxis("Vertical");
-
-
 
         //locking the mouse
         if (Input.GetKeyDown(KeyCode.P)) playerManager.lockMouse();
@@ -86,6 +86,7 @@ public class PlayerMovement : MonoBehaviour
     {
         //jumping and vaulting
         JumpAndVault();
+        sliding();
 
         //calculate how fast we're moving along the ground
         HorizontalVelocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
@@ -103,6 +104,11 @@ public class PlayerMovement : MonoBehaviour
         Vector2 movInput = controls.PlayerMovement.Movement.ReadValue<Vector2>();
         xMove = movInput.y;
         zMove = movInput.x;
+
+        //sliding
+        float isSlide = controls.PlayerMovement.Slide.ReadValue<float>();
+        if (isSlide != 0) isTryingToSlide = true;
+        else isTryingToSlide = false;
 
         //sprinting
         float isSprinting_ = controls.PlayerMovement.Sprint.ReadValue<float>();
@@ -158,6 +164,30 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.AddForce(Vector3.up * jumpForce);
             }
+        }
+    }
+
+    public void sliding()
+    {
+        if (isTryingToSlide)
+        {
+            if (HorizontalVelocityf <= minimumThresholdSpeed)//if moving too slow
+                isSliding = false;//stop sliding, or dont activate in first place
+            else
+                isSliding = true;//otherwise slide
+        }
+        else
+            isSliding = false;//stop sliding once player not trying to
+
+        if (isSliding)
+        {
+            ani.SetBool("slide", true);
+            rb.drag = slidingDrag;
+        }
+        else
+        {
+            ani.SetBool("slide", false);
+            rb.drag = standardDrag;
         }
     }
 

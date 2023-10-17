@@ -23,17 +23,17 @@ public class CameraMove : MonoBehaviour
     void Start()
     {
         InvokeRepeating("moveCam", 0, 0.01f);
-        playerManager = transform.parent.GetComponent<PlayerManager>();
-        playerMovement = transform.parent.GetComponent<PlayerMovement>();
+        playerManager = transform.parent.parent.GetComponent<PlayerManager>();
+        playerMovement = transform.parent.parent.GetComponent<PlayerMovement>();
     }
 
     void FixedUpdate()
     {
         //the fov smoothly lerps between what is is, and a wider view based on speed
-        mainCam.fieldOfView = Mathf.Lerp(
-            mainCam.fieldOfView,
-             FoV * FovMuliplier.Evaluate(playerMovement.HorizontalVelocityf),
-             fovSmoothing);
+        // mainCam.fieldOfView = Mathf.Lerp(
+        //     mainCam.fieldOfView,
+        //      FoV * FovMuliplier.Evaluate(playerMovement.HorizontalVelocityf),
+        //      fovSmoothing);
     }
 
 
