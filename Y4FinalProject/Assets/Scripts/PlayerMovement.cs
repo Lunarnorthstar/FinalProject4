@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("The maximum possible speed achievable while sprinting")] public float maxSprintSpeed;
     [Tooltip("The rate at which the player sheds speed when above maximum")] public float slowDownSpeed;
     [Tooltip("The speed the player will slow down to when movement keys are released (not factoring friction)")] public float minimumThresholdSpeed;
+    [Tooltip("The speed you must acheive to initiate a slide")] public float minSlideSpeed;
+    [Tooltip("The speed at which the player automatically stops sliding")] public float slideStopSpeed;
 
     [Space]
     [Tooltip("The force applied to the player when jumping")] public float jumpForce;
@@ -53,6 +55,7 @@ public class PlayerMovement : MonoBehaviour
     bool isInVaultTrigger;
     public bool isTryingToSlide;
     public bool isSliding;
+    bool SlideReset;
 
     void Awake()
     {
@@ -100,15 +103,18 @@ public class PlayerMovement : MonoBehaviour
         if (Mathf.Abs(HorizontalVelocityf) >= maxSprintSpeed) isAtMaxSprintSpeed = true;
         else isAtMaxSprintSpeed = false;
 
-        //input
-        Vector2 movInput = controls.PlayerMovement.Movement.ReadValue<Vector2>();
-        xMove = movInput.y;
-        zMove = movInput.x;
-
         //sliding
         float isSlide = controls.PlayerMovement.Slide.ReadValue<float>();
         if (isSlide != 0) isTryingToSlide = true;
         else isTryingToSlide = false;
+
+        //input
+        Vector2 movInput = controls.PlayerMovement.Movement.ReadValue<Vector2>();
+        if (!isSliding)//if youre sliding, then you're sliding and not walking - thus nullify any input.
+            xMove = movInput.y;
+        else
+            xMove = 0;
+        zMove = movInput.x;
 
         //sprinting
         float isSprinting_ = controls.PlayerMovement.Sprint.ReadValue<float>();
@@ -136,7 +142,6 @@ public class PlayerMovement : MonoBehaviour
                     rb.AddForce(transform.right * zMove * accStrafe * Time.deltaTime);
                 }
             }
-
         }
         else
         {
@@ -169,15 +174,27 @@ public class PlayerMovement : MonoBehaviour
 
     public void sliding()
     {
-        if (isTryingToSlide)
+        if (isTryingToSlide)//is button being pressed?
         {
-            if (HorizontalVelocityf <= minimumThresholdSpeed)//if moving too slow
-                isSliding = false;//stop sliding, or dont activate in first place
-            else
-                isSliding = true;//otherwise slide
+            if (isSprinting && HorizontalVelocityf >= minSlideSpeed)//are you sprinting and moving faster than minimum?
+            {
+                isSliding = true;
+            }
+            else//if all this is not the case but button is pressed, no slide for u 
+            {
+                isSliding = false;
+            }
         }
-        else
-            isSliding = false;//stop sliding once player not trying to
+        else// if button isnt even being pressed, then no slide
+        {
+            isSliding = false;
+        }
+
+        if (isSliding && HorizontalVelocityf <= slideStopSpeed)//if currently sliding but then go too slow, no slide for u  
+        {
+            isSliding = false;
+        }
+
 
         if (isSliding)
         {

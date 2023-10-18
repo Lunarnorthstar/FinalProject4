@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 8274787254578409782}
   - component: {fileID: 1229920195457663423}
   - component: {fileID: 2145039691673562739}
-  - component: {fileID: 1059242301710262162}
+  - component: {fileID: 6538387291205231066}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -134,7 +134,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3550727781045000992}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &2145039691673562739
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -177,8 +177,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &1059242301710262162
-BoxCollider:
+--- !u!136 &6538387291205231066
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -195,8 +195,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 2
+  m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4706490676563740343
 GameObject:
@@ -228,7 +230,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 16.79, y: 0, z: -32.67}
-  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8274787254578409782}
@@ -257,10 +259,14 @@ MonoBehaviour:
   jumpForce: 500
   vaultBoost: 15
   vaultHeight: 5
+  standardDrag: 0
+  slidingDrag: 0
   cameraHolder: {fileID: 3636353023608081983}
   HorizontalVelocity: {x: 0, y: 0, z: 0}
   MovementVector: {x: 0, y: 0, z: 0}
   HorizontalVelocityf: 0
+  isTryingToSlide: 0
+  isSliding: 0
 --- !u!114 &2917278174082418578
 MonoBehaviour:
   m_ObjectHideFlags: 0
