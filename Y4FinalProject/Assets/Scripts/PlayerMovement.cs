@@ -55,7 +55,7 @@ public class PlayerMovement : MonoBehaviour
     bool isInVaultTrigger;
     public bool isTryingToSlide;
     public bool isSliding;
-    bool SlideReset;
+    public bool hasSlid;
 
     void Awake()
     {
@@ -90,6 +90,7 @@ public class PlayerMovement : MonoBehaviour
         //jumping and vaulting
         JumpAndVault();
         sliding();
+        dragControl();
 
         //calculate how fast we're moving along the ground
         HorizontalVelocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
@@ -106,7 +107,7 @@ public class PlayerMovement : MonoBehaviour
         //sliding
         float isSlide = controls.PlayerMovement.Slide.ReadValue<float>();
         if (isSlide != 0) isTryingToSlide = true;
-        else isTryingToSlide = false;
+        else { isTryingToSlide = false; hasSlid = false; }
 
         //input
         Vector2 movInput = controls.PlayerMovement.Movement.ReadValue<Vector2>();
@@ -128,11 +129,8 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!isSprinting)
             {
-                if (!isAtMaxSpeed)//is below max speed and isnt sprinting (walking)
-                {
-                    rb.AddForce(transform.forward * xMove * accSpeed * Time.deltaTime);
-                    rb.AddForce(transform.right * zMove * accStrafe * Time.deltaTime);
-                }
+                rb.AddForce(transform.forward * xMove * accSpeed * Time.deltaTime);
+                rb.AddForce(transform.right * zMove * accStrafe * Time.deltaTime);
             }
             else
             {
@@ -145,8 +143,8 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            if (Mathf.Abs(HorizontalVelocity.magnitude) > minimumThresholdSpeed)
-                rb.AddForce(-MovementVector * slowDownSpeed * Time.deltaTime);
+            // if (Mathf.Abs(HorizontalVelocity.magnitude) > minimumThresholdSpeed)
+            //     rb.AddForce(-MovementVector * slowDownSpeed * Time.deltaTime);
         }
     }
 
@@ -176,11 +174,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isTryingToSlide)//is button being pressed?
         {
-            if (isSprinting && HorizontalVelocityf >= minSlideSpeed)//are you sprinting and moving faster than minimum?
+            if (isSprinting && HorizontalVelocityf >= minSlideSpeed && !hasSlid)//are you sprinting, moving faster than minimum and havent just exited a slide?
             {
                 isSliding = true;
             }
-            else//if all this is not the case but button is pressed, no slide for u 
+            else if (!isSliding)//if all this is not the case and is not currently in a slide, no slide for u (you can slide when below the start speed, just not start a slide)
             {
                 isSliding = false;
             }
@@ -188,23 +186,23 @@ public class PlayerMovement : MonoBehaviour
         else// if button isnt even being pressed, then no slide
         {
             isSliding = false;
+            // hasSlid = true; //you were just in a slide - only way for variable to change is with a release of the slide button
         }
 
         if (isSliding && HorizontalVelocityf <= slideStopSpeed)//if currently sliding but then go too slow, no slide for u  
         {
             isSliding = false;
+            hasSlid = true; //you were just in a slide - only way for variable to change is with a release of the slide button
         }
 
 
         if (isSliding)
         {
             ani.SetBool("slide", true);
-            rb.drag = slidingDrag;
         }
         else
         {
             ani.SetBool("slide", false);
-            rb.drag = standardDrag;
         }
     }
 
@@ -220,6 +218,35 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("VaultTrigger"))
         {
             isInVaultTrigger = false;
+        }
+    }
+
+    void dragControl()
+    {
+        if (!playerManager.isOnGround())
+        {
+            rb.drag = 0;
+        }
+        else
+        {
+            rb.drag = standardDrag;
+        }
+
+        if (!isSprinting)
+        {
+            if (HorizontalVelocityf == maxMoveSpeed)
+            {
+                Vector3 limitedVel = HorizontalVelocity.normalized * maxMoveSpeed;
+                rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+            }
+        }
+        else
+        {
+            if (HorizontalVelocityf == maxSprintSpeed)
+            {
+                Vector3 limitedVel = HorizontalVelocity.normalized * maxSprintSpeed;
+                rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+            }
         }
     }
 

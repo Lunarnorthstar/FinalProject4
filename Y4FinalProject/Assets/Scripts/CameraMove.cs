@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class CameraMove : MonoBehaviour
@@ -9,11 +10,16 @@ public class CameraMove : MonoBehaviour
 
     public Transform Player;
     public float Mousesens;
+    public float mouseSmooth;
     //public float Smoothing;
     Vector2 MouseLook;
     Vector2 SmoothV;
 
     float CamRotY;
+    float CamRotX;
+
+    float sCamRotX;
+    float sCamRotY;
 
     [Header("Camera Settings")]
     public AnimationCurve FovMuliplier;
@@ -41,14 +47,16 @@ public class CameraMove : MonoBehaviour
     {
         if (!playerManager.isMouseLocked) return;
 
-        float CamRotX = Input.GetAxis("Mouse X") * Mousesens;
-
+        CamRotX += Input.GetAxis("Mouse X") * Mousesens;
         CamRotY += Input.GetAxis("Mouse Y") * Mousesens;
 
         CamRotY = Mathf.Clamp(CamRotY, -80, 80);
 
-        Player.transform.Rotate(0, CamRotX, 0);
+        sCamRotX = Mathf.Lerp(sCamRotX, CamRotX, mouseSmooth);
+        sCamRotY = Mathf.Lerp(sCamRotY, CamRotY, mouseSmooth);
 
-        transform.rotation = Quaternion.Euler(-CamRotY, transform.eulerAngles.y, 0);
+        Player.transform.rotation = Quaternion.Euler(0, sCamRotX, 0);
+
+        transform.rotation = Quaternion.Euler(-sCamRotY, transform.eulerAngles.y, 0);
     }
 }

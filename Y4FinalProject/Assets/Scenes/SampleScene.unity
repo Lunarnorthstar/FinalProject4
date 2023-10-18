@@ -1171,7 +1171,7 @@ MeshCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1212573212}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: e61e0c7d0c6e86047ae9bba0a017b411, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1652,6 +1652,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2709394782556014409, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3885461676509155875, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: m_HDR
       value: 0
@@ -1665,6 +1669,18 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4986535402992014780, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      propertyPath: accSprint
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986535402992014780, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      propertyPath: jumpForce
+      value: 750
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986535402992014780, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      propertyPath: standardDrag
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4986535402992014780, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: minSlideSpeed
       value: 5
       objectReference: {fileID: 0}
@@ -1672,6 +1688,14 @@ PrefabInstance:
       propertyPath: slideStopSpeed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6488904081909846901, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      propertyPath: mouseSmooth
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6538387291205231066, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: e61e0c7d0c6e86047ae9bba0a017b411, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
