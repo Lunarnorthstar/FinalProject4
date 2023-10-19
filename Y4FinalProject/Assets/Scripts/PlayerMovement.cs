@@ -7,11 +7,17 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Rigidbody rb;
-    PlayerManager playerManager;
-    Animator ani;
+    public CameraMove cam;
+
+    [Tooltip("a list of animation names that when playing, the camera should stop moving")]
+    public string[] camPauseAniStates;
 
     public PlayerControls controls;
+    public Collider col;
+
+    Animator ani;
+    Rigidbody rb;
+    PlayerManager playerManager;
 
     [Header("Movement Characteristics")]
     [Tooltip("The maximum amount of forward speed the player can achieve while walking")] public float maxMoveSpeed;
@@ -21,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("The multiplier to the player's acceleration while sprinting")] public float accSprint;
     [Tooltip("The maximum possible speed achievable while sprinting")] public float maxSprintSpeed;
     [Tooltip("The rate at which the player sheds speed when above maximum")] public float slowDownSpeed;
+    [Tooltip("How fast you're going in the air")] public float airSpeedMultiplier;
     [Tooltip("The speed the player will slow down to when movement keys are released (not factoring friction)")] public float minimumThresholdSpeed;
     [Tooltip("The speed you must acheive to initiate a slide")] public float minSlideSpeed;
     [Tooltip("The speed at which the player automatically stops sliding")] public float slideStopSpeed;
@@ -29,10 +36,11 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("The force applied to the player when jumping")] public float jumpForce;
 
     [Header("Parkour Characteristics")]
-    [Tooltip("The forward impulse applied when vaulting")] public float vaultBoost;
+    [Tooltip("The forward impulse applied when vaulting [DOESNT WORK]")] public float vaultBoost;
     [Tooltip("The upwards impulse applied when vaulting")] public float vaultHeight;
     public float standardDrag;
     public float slidingDrag;
+    public float crouchingDrag;
 
     [Space]
     public Transform cameraHolder;
@@ -56,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isTryingToSlide;
     public bool isSliding;
     public bool hasSlid;
+    public bool isOnGround;
 
     void Awake()
     {
@@ -72,19 +81,36 @@ public class PlayerMovement : MonoBehaviour
 
         canJump = true;
 
-        //
         InvokeRepeating("calculateMovementVector", 0, 0.02f);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.M)) resetInput();
         movement();
+        isOnGround = playerManager.isOnGround();
 
+        cam.shouldHoldCam = false;
+        for (int i = 0; i < camPauseAniStates.Length; i++)
+        {
+            if (ani.GetCurrentAnimatorStateInfo(0).IsName(camPauseAniStates[i]))
+            {
+                cam.shouldHoldCam = true;
+            }
+        }
         //locking the mouse
         if (Input.GetKeyDown(KeyCode.P)) playerManager.lockMouse();
+
     }
 
+
+    void resetInput()
+    {
+        //
+        controls = new PlayerControls();
+        controls.PlayerMovement.Enable();
+    }
     void movement()
     {
         //jumping and vaulting
@@ -129,16 +155,32 @@ public class PlayerMovement : MonoBehaviour
         {
             if (!isSprinting)
             {
-                rb.AddForce(transform.forward * xMove * accSpeed * Time.deltaTime);
-                rb.AddForce(transform.right * zMove * accStrafe * Time.deltaTime);
+                if (isOnGround)
+                {
+                    rb.AddForce(transform.forward * xMove * accSpeed * Time.deltaTime);
+                    rb.AddForce(transform.right * zMove * accStrafe * Time.deltaTime);
+                }
+                else
+                {
+                    rb.AddForce(transform.forward * xMove * accSpeed * airSpeedMultiplier * Time.deltaTime);
+                    rb.AddForce(transform.right * zMove * accStrafe * airSpeedMultiplier * Time.deltaTime);
+                }
             }
             else
             {
-                if (!isAtMaxSprintSpeed)//is sprinting
+                // if (!isAtMaxSprintSpeed)//is sprinting
+                // {
+                if (isOnGround)
                 {
                     rb.AddForce(transform.forward * xMove * accSprint * accSpeed * Time.deltaTime);
                     rb.AddForce(transform.right * zMove * accStrafe * Time.deltaTime);
                 }
+                else
+                {
+                    rb.AddForce(transform.forward * xMove * accSprint * airSpeedMultiplier * accSpeed * Time.deltaTime);
+                    rb.AddForce(transform.right * zMove * accStrafe * airSpeedMultiplier * Time.deltaTime);
+                }
+                // }
             }
         }
         else
@@ -148,12 +190,24 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    void smallVault()
+    {
+        if (isSprinting)
+        {
+            rb.AddForce(transform.forward * vaultBoost, ForceMode.Impulse);
+            rb.AddForce(transform.up * vaultHeight, ForceMode.Impulse);
+            ani.Play("Vault");
+            // StartCoroutine(resetVault());
+            //  col.enabled = false;
+        }
+    }
+
     void JumpAndVault()
     {
         //if player is trying to vault
         if (controls.PlayerMovement.Vault.triggered)
         {
-            if (isInVaultTrigger && /*isSprinting &&*/ !playerManager.isOnGround())//and theyre in the vault zone, sprinting, and in the air,
+            if (isInVaultTrigger && /*isSprinting &&*/ !isOnGround)//and theyre in the vault zone, sprinting, and in the air,
             {
                 //vault
                 rb.AddForce(transform.forward * vaultBoost, ForceMode.Impulse);
@@ -161,11 +215,14 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
-        if (controls.PlayerMovement.Jump.triggered)
+        if (controls.PlayerMovement.Jump.ReadValue<float>() != 0)
         {
-            if (playerManager.isOnGround())
+            if (isOnGround && canJump)
             {
+                canJump = false;
+                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
                 rb.AddForce(Vector3.up * jumpForce);
+                Invoke("resetJump", 0.1f);
             }
         }
     }
@@ -211,6 +268,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("VaultTrigger"))
         {
             isInVaultTrigger = true;
+            smallVault();
         }
     }
     private void OnTriggerExit(Collider other)
@@ -223,31 +281,51 @@ public class PlayerMovement : MonoBehaviour
 
     void dragControl()
     {
-        if (!playerManager.isOnGround())
+        if (!isOnGround)//is in air
         {
             rb.drag = 0;
         }
-        else
+        else if (!isTryingToSlide)//is simply on ground
         {
             rb.drag = standardDrag;
+        }
+        else if (isSliding)//is sliding
+        {
+            rb.drag = slidingDrag;
+        }
+        else if (isTryingToSlide && !isSliding && !isSprinting)//is crouching (pressing button but not sliding and sprinting)
+        {
+            rb.drag = crouchingDrag;
         }
 
         if (!isSprinting)
         {
-            if (HorizontalVelocityf == maxMoveSpeed)
+            if (HorizontalVelocityf > maxMoveSpeed)
             {
-                Vector3 limitedVel = HorizontalVelocity.normalized * maxMoveSpeed;
+                Vector3 limitedVel = HorizontalVelocity.normalized * (maxMoveSpeed - 0.1f);
                 rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
             }
         }
         else
         {
-            if (HorizontalVelocityf == maxSprintSpeed)
+            if (HorizontalVelocityf > maxSprintSpeed)
             {
-                Vector3 limitedVel = HorizontalVelocity.normalized * maxSprintSpeed;
+                Vector3 limitedVel = HorizontalVelocity.normalized * (maxSprintSpeed - 0.1f);
                 rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
             }
         }
+    }
+
+    void resetJump()
+    {
+        canJump = true;
+    }
+    IEnumerator resetVault()
+    {
+        yield return new WaitForSeconds(0.05f);
+        ani.ResetTrigger("vault");
+        yield return new WaitForSeconds(0.2f);
+        col.enabled = true;
     }
 
     //generates a vector that faces the direction the player is moving

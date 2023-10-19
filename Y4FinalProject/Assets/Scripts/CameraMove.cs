@@ -5,8 +5,11 @@ public class CameraMove : MonoBehaviour
 {
     public Camera mainCam;
 
-    PlayerManager playerManager;
+    public bool shouldHoldCam;
+
+    public PlayerManager playerManager;
     PlayerMovement playerMovement;
+    public Animator ani;
 
     public Transform Player;
     public float Mousesens;
@@ -29,8 +32,8 @@ public class CameraMove : MonoBehaviour
     void Start()
     {
         InvokeRepeating("moveCam", 0, 0.01f);
-        playerManager = transform.parent.parent.GetComponent<PlayerManager>();
-        playerMovement = transform.parent.parent.GetComponent<PlayerMovement>();
+        // playerManager = transform.parent.parent.GetComponent<PlayerManager>();
+        //  playerMovement = transform.parent.parent.GetComponent<PlayerMovement>();
     }
 
     void FixedUpdate()
@@ -45,6 +48,8 @@ public class CameraMove : MonoBehaviour
 
     void moveCam()
     {
+        if (shouldHoldCam) return;
+
         if (!playerManager.isMouseLocked) return;
 
         CamRotX += Input.GetAxis("Mouse X") * Mousesens;
