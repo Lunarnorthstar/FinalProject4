@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("The force applied to the player when jumping")] public float jumpForce;
 
     [Header("Parkour Characteristics")]
-    [Tooltip("The forward impulse applied when vaulting [DOESNT WORK]")] public float vaultBoost;
+    [HideInInspector][Tooltip("The forward impulse applied when vaulting [DOESNT WORK]")] public float vaultBoost;
     [Tooltip("The upwards impulse applied when vaulting")] public float vaultHeight;
     public float standardDrag;
     public float slidingDrag;
