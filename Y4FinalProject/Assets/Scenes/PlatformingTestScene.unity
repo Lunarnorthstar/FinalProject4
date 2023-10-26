@@ -333,6 +333,32 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26745477}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &31448194 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4231093574885797238, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+  m_PrefabInstance: {fileID: 476351721}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &31448196
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31448194}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2309260f6bd5e6d42986abe9912dfeab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &54294512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1682,6 +1708,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4706490676563740343, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4986535402992014780, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: jumpForce
       value: 1200
@@ -1689,7 +1719,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4231093574885797238, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 31448196}
   m_SourcePrefab: {fileID: 100100000, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
 --- !u!1 &478611724
 GameObject:
