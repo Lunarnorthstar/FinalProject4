@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     Animator ani;
     Rigidbody rb;
     PlayerManager playerManager;
+    IKControl playerIK;
 
     [Header("Movement Characteristics")]
     [Tooltip("The maximum amount of forward speed the player can achieve while walking")] public float maxMoveSpeed;
@@ -60,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
     bool isAtMaxSprintSpeed;
     bool canJump = true;
     bool isSprinting;
-    bool isInVaultTrigger;
+    [SerializeField] bool isInVaultTrigger;
     public bool isTryingToSlide;
     public bool isSliding;
     public bool hasSlid;
@@ -74,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerManager = GetComponent<PlayerManager>();
         ani = GetComponent<Animator>();
+        playerIK = GetComponentInChildren<IKControl>();
 
         //enable controls
         controls = new PlayerControls();
@@ -197,6 +199,7 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(transform.forward * vaultBoost, ForceMode.Impulse);
             rb.AddForce(transform.up * vaultHeight, ForceMode.Impulse);
             ani.Play("Vault");
+            playerIK.ikActive = true; //Touch stuff
             // StartCoroutine(resetVault());
             //  col.enabled = false;
         }
@@ -263,11 +266,36 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void GetIKTarget(GameObject vault)
+    {
+        GameObject grabPoint = null;
+        float grabDist = 100;
+        foreach (GameObject point in vault.GetComponentInParent<VaultTargetHandler>().Targets)
+        {
+            if (math.distance(gameObject.transform.position, point.transform.position) <= grabDist)
+            {
+                grabPoint = point;
+                grabDist = math.distance(gameObject.transform.position, point.transform.position);
+            }
+        }
+        
+        if (grabPoint == null)
+        {
+            playerIK.ikActive = false;
+        }
+        else
+        {
+            playerIK.vaultObject = grabPoint.transform;
+        }
+    }
+    
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("VaultTrigger"))
         {
             isInVaultTrigger = true;
+            GetIKTarget(other.gameObject);
             smallVault();
         }
     }
@@ -276,6 +304,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("VaultTrigger"))
         {
             isInVaultTrigger = false;
+            playerIK.ikActive = false; //Stop touching stuff.
         }
     }
 
