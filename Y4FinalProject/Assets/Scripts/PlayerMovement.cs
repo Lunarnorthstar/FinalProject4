@@ -33,6 +33,9 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("The speed you must acheive to initiate a slide")] public float minSlideSpeed;
     [Tooltip("The speed at which the player automatically stops sliding")] public float slideStopSpeed;
 
+    [Tooltip("The amount of time the player model 'grabs' something")]
+    public float IKGrabTime = 0.2f;
+
     [Space]
     [Tooltip("The force applied to the player when jumping")] public float jumpForce;
 
@@ -295,7 +298,8 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("VaultTrigger"))
         {
             isInVaultTrigger = true;
-            GetIKTarget(other.gameObject);
+            GetIKTarget(other.gameObject); //Find the point you grab
+            playerIK.IKTime = IKGrabTime; //Reset the player's grab time
             smallVault();
         }
     }
@@ -304,7 +308,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("VaultTrigger"))
         {
             isInVaultTrigger = false;
-            playerIK.ikActive = false; //Stop touching stuff.
+            //playerIK.ikActive = false; //Stop touching stuff.
         }
     }
 

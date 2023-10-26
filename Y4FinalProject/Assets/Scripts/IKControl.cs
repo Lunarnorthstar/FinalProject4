@@ -10,6 +10,8 @@ public class IKControl : MonoBehaviour
 
     public bool ikActive = false;
     public Transform vaultObject = null;
+
+    public float IKTime = 0;
     
     // Start is called before the first frame update
     void Start()
@@ -55,6 +57,13 @@ public class IKControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (ikActive)
+        {
+            IKTime -= Time.deltaTime;
+            if (IKTime <= 0)
+            {
+                ikActive = false;
+            }
+        }
     }
 }

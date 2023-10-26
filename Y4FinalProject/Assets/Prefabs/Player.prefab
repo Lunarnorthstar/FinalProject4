@@ -303,6 +303,7 @@ MonoBehaviour:
   minimumThresholdSpeed: 0
   minSlideSpeed: 5
   slideStopSpeed: 1
+  IKGrabTime: 0.5
   jumpForce: 600
   vaultBoost: 0
   vaultHeight: 10
@@ -313,6 +314,7 @@ MonoBehaviour:
   HorizontalVelocity: {x: 0, y: 0, z: 0}
   MovementVector: {x: 0, y: 0, z: 0}
   HorizontalVelocityf: 0
+  isInVaultTrigger: 0
   isTryingToSlide: 0
   isSliding: 0
   hasSlid: 0
