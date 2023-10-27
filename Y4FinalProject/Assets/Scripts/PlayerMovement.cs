@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.Intrinsics;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.HighDefinition;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -13,7 +16,6 @@ public class PlayerMovement : MonoBehaviour
     public string[] camPauseAniStates;
 
     public PlayerControls controls;
-    public Collider col;
 
     Animator ani;
     Rigidbody rb;
@@ -38,16 +40,27 @@ public class PlayerMovement : MonoBehaviour
 
     [Space]
     [Tooltip("The force applied to the player when jumping")] public float jumpForce;
+    [Tooltip("the force applied when wallRunning")] public float wallJumpForce;
 
     [Header("Parkour Characteristics")]
-    [HideInInspector][Tooltip("The forward impulse applied when vaulting [DOESNT WORK]")] public float vaultBoost;
+    [Tooltip("The forward impulse applied when vaulting")] public float vaultBoost;
     [Tooltip("The upwards impulse applied when vaulting")] public float vaultHeight;
+    public float ClimbUpForce;
+    public float ClimbForwardsForce;
+    public float WallRunSideBoost;
+    public float WallRunUpBoost;
+
+    [Space]
     public float standardDrag;
+    public float inAirDrag;
     public float slidingDrag;
     public float crouchingDrag;
+    public float GrapplingDrag;
 
     [Space]
     public Transform cameraHolder;
+    public Transform ClimbLookTarget;
+    public Transform hangPos;
 
     [Header("Debug")]
     [SerializeField] Vector3 HorizontalVelocity;
@@ -62,13 +75,21 @@ public class PlayerMovement : MonoBehaviour
 
     bool isAtMaxSpeed;
     bool isAtMaxSprintSpeed;
+    bool isClimbing;
     bool canJump = true;
-    bool isSprinting;
-    [SerializeField] bool isInVaultTrigger;
+    bool isInVaultTrigger;
+    bool hasJustBeenAgainstWall;
+    bool hasJustVaulted;
+
+    public bool isSprinting;
+    public bool isAgainstLedge;
+    public bool isHangingOnWall;
     public bool isTryingToSlide;
     public bool isSliding;
     public bool hasSlid;
     public bool isOnGround;
+    public bool isFacingWall;
+    public int wallRunDir;
 
     void Awake()
     {
@@ -94,7 +115,16 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M)) resetInput();
         movement();
-        isOnGround = playerManager.isOnGround();
+        if (!isHangingOnWall)
+            isOnGround = playerManager.isOnGround();
+        else isOnGround = false;
+
+        isFacingWall = playerManager.isTouchingWall(transform.forward);
+
+        //if youre touching a wall to the left then its 1, right = 2 and if not then 0
+        if (playerManager.isTouchingWall(-transform.right)) wallRunDir = 1;
+        else if (playerManager.isTouchingWall(transform.right)) wallRunDir = 2;
+        else wallRunDir = 0;
 
         cam.shouldHoldCam = false;
         for (int i = 0; i < camPauseAniStates.Length; i++)
@@ -106,13 +136,10 @@ public class PlayerMovement : MonoBehaviour
         }
         //locking the mouse
         if (Input.GetKeyDown(KeyCode.P)) playerManager.lockMouse();
-
     }
-
 
     void resetInput()
     {
-        //
         controls = new PlayerControls();
         controls.PlayerMovement.Enable();
     }
@@ -149,14 +176,32 @@ public class PlayerMovement : MonoBehaviour
         zMove = movInput.x;
 
         //sprinting
-        float isSprinting_ = controls.PlayerMovement.Sprint.ReadValue<float>();
-        if (isSprinting_ == 0) isSprinting = false;
-        else isSprinting = true;
 
+        float isSprinting_ = controls.PlayerMovement.Sprint.ReadValue<float>();
+        if (isSprinting_ != 0)//if u are holding sprint rn
+        {
+            isSprinting = true;
+        }
+        else//this will remain true until you slow down too much
+        {
+            if (HorizontalVelocityf <= maxMoveSpeed || !isOnGround)
+            {
+                isSprinting = false;
+            }
+        }
+
+        if (movInput == Vector2.zero) isSprinting = false;
         //controls.PlayerMovement.Sprint.started += ctx => isSprinting = ctx.ReadValue<bool>();
 
+        //teleport player to hang pos and go no further in script (so player can't move)
+        if (isHangingOnWall && hangPos != null)
+        {
+            transform.position = Vector3.Lerp(transform.position, hangPos.position, 0.2f);
+            return;
+        }
+
         //ismoving
-        if (movInput != Vector2.zero)
+        if (movInput != Vector2.zero && !hasJustVaulted)
         {
             if (!isSprinting)
             {
@@ -173,8 +218,6 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                // if (!isAtMaxSprintSpeed)//is sprinting
-                // {
                 if (isOnGround)
                 {
                     rb.AddForce(transform.forward * xMove * accSprint * accSpeed * Time.deltaTime);
@@ -185,7 +228,6 @@ public class PlayerMovement : MonoBehaviour
                     rb.AddForce(transform.forward * xMove * accSprint * airSpeedMultiplier * accSpeed * Time.deltaTime);
                     rb.AddForce(transform.right * zMove * accStrafe * airSpeedMultiplier * Time.deltaTime);
                 }
-                // }
             }
         }
         else
@@ -197,15 +239,17 @@ public class PlayerMovement : MonoBehaviour
 
     void smallVault()
     {
-        if (isSprinting)
-        {
-            rb.AddForce(transform.forward * vaultBoost, ForceMode.Impulse);
-            rb.AddForce(transform.up * vaultHeight, ForceMode.Impulse);
-            ani.Play("Vault");
-            playerIK.ikActive = true; //Touch stuff
-            // StartCoroutine(resetVault());
-            //  col.enabled = false;
-        }
+        rb.AddForce(transform.forward * vaultBoost, ForceMode.Impulse);
+        rb.AddForce(transform.up * vaultHeight, ForceMode.Impulse);
+
+        ani.Play("Vault");
+
+        playerIK.ikActive = true; //Touch stuff
+
+        hasJustVaulted = true;
+        InvokeRepeating("resetVaultBoost", 0, 0.05f);
+        // StartCoroutine(resetVault());
+        //  col.enabled = false;
     }
 
     void JumpAndVault()
@@ -216,8 +260,9 @@ public class PlayerMovement : MonoBehaviour
             if (isInVaultTrigger && /*isSprinting &&*/ !isOnGround)//and theyre in the vault zone, sprinting, and in the air,
             {
                 //vault
-                rb.AddForce(transform.forward * vaultBoost, ForceMode.Impulse);
-                rb.AddForce(transform.up * vaultHeight, ForceMode.Impulse);
+                // rb.AddForce(transform.forward * vaultBoost, ForceMode.Impulse);
+                // rb.AddForce(transform.up * vaultHeight, ForceMode.Impulse);
+                smallVault();
             }
         }
 
@@ -230,6 +275,68 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(Vector3.up * jumpForce);
                 Invoke("resetJump", 0.1f);
             }
+        }
+
+        //wallRunning
+        if (isFacingWall && !isOnGround && !hasJustBeenAgainstWall)
+        {
+            if (controls.PlayerMovement.Jump.triggered)
+            {
+                rb.velocity = new Vector3(0, 0, 0);
+                rb.AddForce(Vector3.up * wallJumpForce, ForceMode.Impulse);
+
+                hasJustBeenAgainstWall = true;
+            }
+        }
+        if (hasJustBeenAgainstWall && isOnGround) hasJustBeenAgainstWall = false;
+
+        //side wall jump
+        if (!isOnGround && wallRunDir != 0)//if in air and touching a wall
+        {
+            //if u jump
+            if (controls.PlayerMovement.Jump.triggered && canJump)
+            {
+                switch (wallRunDir)
+                {
+                    case 1://the wall is on the left, boost right
+                        rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);//zero vertical velocity for consitency
+                        rb.AddForce(transform.right * WallRunSideBoost, ForceMode.Impulse);
+                        rb.AddForce(transform.up * WallRunUpBoost, ForceMode.Impulse);
+                        break;
+                    case 2://the wall is on the right, boost left
+                        rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);//zero vertical velocity for consitency
+                        rb.AddForce(-transform.right * WallRunSideBoost, ForceMode.Impulse);
+                        rb.AddForce(transform.up * WallRunUpBoost, ForceMode.Impulse);
+                        break;
+                }
+
+                Invoke("resetJump", 0.1f);
+            }
+        }
+
+        //ledge grabbing
+        //is pressing crouch button, is next to a hangable ledge, is facing the wall and isnt actually climbing it,
+        if (isTryingToSlide && isAgainstLedge && isFacingWall && !isClimbing)
+        {
+            // ani.SetBool("Climb", true);
+            isHangingOnWall = true;//hold player against wall
+
+            if (controls.PlayerMovement.Jump.triggered)//if they jump, then
+            {
+                //  ani.SetTrigger("Pull Up");
+                isHangingOnWall = false;//release them from wall
+
+                rb.velocity = new Vector3(0, 0, 0);//zero current velocity
+                rb.AddForce(transform.forward * ClimbForwardsForce, ForceMode.Impulse);//boost them above wall
+
+                isClimbing = true;//ensure they wont immediatley stick back to wall
+                Invoke("resetClimb", 1f);//reset ^that bool in 1 second (when theyve cleared it)
+            }
+        }
+        else
+        {
+            isHangingOnWall = false;
+            ani.SetBool("Climb", false);
         }
     }
 
@@ -281,7 +388,7 @@ public class PlayerMovement : MonoBehaviour
                 grabDist = math.distance(gameObject.transform.position, point.transform.position);
             }
         }
-        
+
         if (grabPoint == null)
         {
             playerIK.ikActive = false;
@@ -291,16 +398,33 @@ public class PlayerMovement : MonoBehaviour
             playerIK.vaultObject = grabPoint.transform;
         }
     }
-    
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("VaultTrigger"))
         {
             isInVaultTrigger = true;
+
             GetIKTarget(other.gameObject); //Find the point you grab
             playerIK.IKTime = IKGrabTime; //Reset the player's grab time
-            smallVault();
+        }
+
+        if (other.gameObject.CompareTag("ClimbTrigger"))
+        {
+            Transform[] childrenTransforms = other.transform.GetComponentsInChildren<Transform>();
+            for (int i = 0; i < childrenTransforms.Length; i++)
+            {
+                switch (childrenTransforms[i].name)
+                {
+                    case "ClimbLookTarget":
+                        ClimbLookTarget = childrenTransforms[i];
+                        break;
+                    case "HangPos":
+                        hangPos = childrenTransforms[i];
+                        break;
+                }
+            }
+            isAgainstLedge = true;
         }
     }
     private void OnTriggerExit(Collider other)
@@ -310,13 +434,24 @@ public class PlayerMovement : MonoBehaviour
             isInVaultTrigger = false;
             //playerIK.ikActive = false; //Stop touching stuff.
         }
+
+        if (other.gameObject.CompareTag("ClimbTrigger"))
+        {
+            ClimbLookTarget = null;
+            hangPos = null;
+            isAgainstLedge = false;
+        }
     }
 
     void dragControl()
     {
-        if (!isOnGround)//is in air
+        if (isHangingOnWall)
         {
-            rb.drag = 0;
+            rb.drag = GrapplingDrag;
+        }
+        else if (!isOnGround)//is in air
+        {
+            rb.drag = inAirDrag;
         }
         else if (!isTryingToSlide)//is simply on ground
         {
@@ -331,20 +466,23 @@ public class PlayerMovement : MonoBehaviour
             rb.drag = crouchingDrag;
         }
 
-        if (!isSprinting)
+        if (!hasJustVaulted)
         {
-            if (HorizontalVelocityf > maxMoveSpeed)
+            if (!isSprinting)
             {
-                Vector3 limitedVel = HorizontalVelocity.normalized * (maxMoveSpeed - 0.1f);
-                rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+                if (HorizontalVelocityf > maxMoveSpeed)
+                {
+                    Vector3 limitedVel = HorizontalVelocity.normalized * (maxMoveSpeed - 0.1f);
+                    rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+                }
             }
-        }
-        else
-        {
-            if (HorizontalVelocityf > maxSprintSpeed)
+            else
             {
-                Vector3 limitedVel = HorizontalVelocity.normalized * (maxSprintSpeed - 0.1f);
-                rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+                if (HorizontalVelocityf > maxSprintSpeed)
+                {
+                    Vector3 limitedVel = HorizontalVelocity.normalized * (maxSprintSpeed - 0.1f);
+                    rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+                }
             }
         }
     }
@@ -353,12 +491,20 @@ public class PlayerMovement : MonoBehaviour
     {
         canJump = true;
     }
-    IEnumerator resetVault()
+
+    void resetVaultBoost()
     {
-        yield return new WaitForSeconds(0.05f);
-        ani.ResetTrigger("vault");
-        yield return new WaitForSeconds(0.2f);
-        col.enabled = true;
+        if (isOnGround)
+        {
+            hasJustVaulted = false;
+            CancelInvoke("resetVaultBoost");
+        }
+    }
+
+    void resetClimb()
+    {
+        isClimbing = false;
+        ani.ResetTrigger("Pull Up");
     }
 
     //generates a vector that faces the direction the player is moving

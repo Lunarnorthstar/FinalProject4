@@ -1,4 +1,6 @@
 using Unity.Mathematics;
+using UnityEditor.Callbacks;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class CameraMove : MonoBehaviour
@@ -8,7 +10,7 @@ public class CameraMove : MonoBehaviour
     public bool shouldHoldCam;
 
     public PlayerManager playerManager;
-    PlayerMovement playerMovement;
+    public PlayerMovement playerMovement;
     public Animator ani;
 
     public Transform Player;
@@ -25,9 +27,9 @@ public class CameraMove : MonoBehaviour
     float sCamRotY;
 
     [Header("Camera Settings")]
-    public AnimationCurve FovMuliplier;
-    public float FoV;
-    public float fovSmoothing;
+    public float defaultFOV;
+    public float sprintFOV;
+    public float fovSmooth;
 
     void Start()
     {
@@ -36,19 +38,45 @@ public class CameraMove : MonoBehaviour
         //  playerMovement = transform.parent.parent.GetComponent<PlayerMovement>();
     }
 
-    void FixedUpdate()
+    void Update()
     {
         //the fov smoothly lerps between what is is, and a wider view based on speed
-        // mainCam.fieldOfView = Mathf.Lerp(
-        //     mainCam.fieldOfView,
-        //      FoV * FovMuliplier.Evaluate(playerMovement.HorizontalVelocityf),
-        //      fovSmoothing);
+
+        if (playerMovement.isSprinting)
+        {
+            mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, sprintFOV, fovSmooth * Time.deltaTime);
+        }
+        else
+        {
+            mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, defaultFOV, fovSmooth * Time.deltaTime);
+        }
     }
 
 
     void moveCam()
     {
-        if (shouldHoldCam) return;
+        if (shouldHoldCam && playerMovement.ClimbLookTarget == null) return; //if is in animation then lock cam
+        // else if (playerMovement.ClimbLookTarget != null && playerMovement.isHangingOnWall)//if isnt in animation but is tryna climb
+        // {
+        //     Transform target = playerMovement.ClimbLookTarget;//assign the target
+
+        //     //move the target to directly in front (no unwanted left to right camera movement)
+        //    // target.position = new Vector3(target.position.x, target.position.y, transform.position.z);
+        //    // transform.LookAt(target.position);
+
+        //     //Vector3 directionVector = target.position - transform.right;//get a vector pointing towards the target (should be up and down)
+        //     //transform.rotation = quaternion.Euler(directionVector);
+        //     //directionVector.Normalize();
+
+        //     // float rotAmount = Vector3.Cross(directionVector, transform.forward).z;
+
+
+        //     // Quaternion lookRot = quaternion.LookRotation(directionVector, Vector3.up);
+        //     // transform.rotation = lookRot;//
+        //     //Quaternion.Lerp(transform.rotation, lookRot, 0.2f);
+        //     //transform.rotation = quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, 0, 0));
+        //     return;
+        // }
 
         if (!playerManager.isMouseLocked) return;
 
