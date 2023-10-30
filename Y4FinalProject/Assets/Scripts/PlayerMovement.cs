@@ -266,6 +266,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        //flatground jumping
         if (controls.PlayerMovement.Jump.ReadValue<float>() != 0)
         {
             if (isOnGround && canJump)
@@ -310,7 +311,7 @@ public class PlayerMovement : MonoBehaviour
                         break;
                 }
 
-                Invoke("resetJump", 0.1f);
+                Invoke("resetJump", 0.2f);
             }
         }
 
