@@ -71,6 +71,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reset Timer"",
+                    ""type"": ""Button"",
+                    ""id"": ""162e7baa-5f21-4829-8ee1-14a3a5ebf217"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -91,7 +100,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -102,7 +111,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -113,7 +122,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -124,7 +133,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -135,7 +144,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard;Controller"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -146,7 +155,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Sprint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -157,7 +166,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -168,7 +177,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Vault"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -179,8 +188,19 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""path"": ""<Keyboard>/ctrl"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
+                    ""groups"": ""Keyboard"",
                     ""action"": ""Slide"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9906feea-bedb-4f24-8b32-df9ad0e7e274"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Reset Timer"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -247,7 +267,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ""id"": ""35ed2833-8d55-4789-af05-084aae760046"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""Reset Timer"",
                     ""type"": ""Button"",
                     ""id"": ""685d7eff-6862-47e5-98d1-49b4f147ba2a"",
                     ""expectedControlType"": ""Button"",
@@ -260,18 +280,29 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""4079c518-9e1a-4a28-8690-70588353a0f7"",
-                    ""path"": """",
+                    ""path"": ""<Keyboard>/l"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""New action"",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Reset Timer"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
             ]
         }
     ],
-    ""controlSchemes"": []
+    ""controlSchemes"": [
+        {
+            ""name"": ""Controller"",
+            ""bindingGroup"": ""Controller"",
+            ""devices"": []
+        },
+        {
+            ""name"": ""Keyboard"",
+            ""bindingGroup"": ""Keyboard"",
+            ""devices"": []
+        }
+    ]
 }");
         // Player Movement
         m_PlayerMovement = asset.FindActionMap("Player Movement", throwIfNotFound: true);
@@ -280,6 +311,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_PlayerMovement_Jump = m_PlayerMovement.FindAction("Jump", throwIfNotFound: true);
         m_PlayerMovement_Vault = m_PlayerMovement.FindAction("Vault", throwIfNotFound: true);
         m_PlayerMovement_Slide = m_PlayerMovement.FindAction("Slide", throwIfNotFound: true);
+        m_PlayerMovement_ResetTimer = m_PlayerMovement.FindAction("Reset Timer", throwIfNotFound: true);
         // Parkour Actions
         m_ParkourActions = asset.FindActionMap("Parkour Actions", throwIfNotFound: true);
         m_ParkourActions_Newaction = m_ParkourActions.FindAction("New action", throwIfNotFound: true);
@@ -288,7 +320,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_Mouse_MouseLook = m_Mouse.FindAction("Mouse Look", throwIfNotFound: true);
         // bb
         m_bb = asset.FindActionMap("bb", throwIfNotFound: true);
-        m_bb_Newaction = m_bb.FindAction("New action", throwIfNotFound: true);
+        m_bb_ResetTimer = m_bb.FindAction("Reset Timer", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -355,6 +387,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerMovement_Jump;
     private readonly InputAction m_PlayerMovement_Vault;
     private readonly InputAction m_PlayerMovement_Slide;
+    private readonly InputAction m_PlayerMovement_ResetTimer;
     public struct PlayerMovementActions
     {
         private @PlayerControls m_Wrapper;
@@ -364,6 +397,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_PlayerMovement_Jump;
         public InputAction @Vault => m_Wrapper.m_PlayerMovement_Vault;
         public InputAction @Slide => m_Wrapper.m_PlayerMovement_Slide;
+        public InputAction @ResetTimer => m_Wrapper.m_PlayerMovement_ResetTimer;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -388,6 +422,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Slide.started += instance.OnSlide;
             @Slide.performed += instance.OnSlide;
             @Slide.canceled += instance.OnSlide;
+            @ResetTimer.started += instance.OnResetTimer;
+            @ResetTimer.performed += instance.OnResetTimer;
+            @ResetTimer.canceled += instance.OnResetTimer;
         }
 
         private void UnregisterCallbacks(IPlayerMovementActions instance)
@@ -407,6 +444,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Slide.started -= instance.OnSlide;
             @Slide.performed -= instance.OnSlide;
             @Slide.canceled -= instance.OnSlide;
+            @ResetTimer.started -= instance.OnResetTimer;
+            @ResetTimer.performed -= instance.OnResetTimer;
+            @ResetTimer.canceled -= instance.OnResetTimer;
         }
 
         public void RemoveCallbacks(IPlayerMovementActions instance)
@@ -520,12 +560,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     // bb
     private readonly InputActionMap m_bb;
     private List<IBbActions> m_BbActionsCallbackInterfaces = new List<IBbActions>();
-    private readonly InputAction m_bb_Newaction;
+    private readonly InputAction m_bb_ResetTimer;
     public struct BbActions
     {
         private @PlayerControls m_Wrapper;
         public BbActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_bb_Newaction;
+        public InputAction @ResetTimer => m_Wrapper.m_bb_ResetTimer;
         public InputActionMap Get() { return m_Wrapper.m_bb; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -535,16 +575,16 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_BbActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_BbActionsCallbackInterfaces.Add(instance);
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
+            @ResetTimer.started += instance.OnResetTimer;
+            @ResetTimer.performed += instance.OnResetTimer;
+            @ResetTimer.canceled += instance.OnResetTimer;
         }
 
         private void UnregisterCallbacks(IBbActions instance)
         {
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
+            @ResetTimer.started -= instance.OnResetTimer;
+            @ResetTimer.performed -= instance.OnResetTimer;
+            @ResetTimer.canceled -= instance.OnResetTimer;
         }
 
         public void RemoveCallbacks(IBbActions instance)
@@ -562,6 +602,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         }
     }
     public BbActions @bb => new BbActions(this);
+    private int m_ControllerSchemeIndex = -1;
+    public InputControlScheme ControllerScheme
+    {
+        get
+        {
+            if (m_ControllerSchemeIndex == -1) m_ControllerSchemeIndex = asset.FindControlSchemeIndex("Controller");
+            return asset.controlSchemes[m_ControllerSchemeIndex];
+        }
+    }
+    private int m_KeyboardSchemeIndex = -1;
+    public InputControlScheme KeyboardScheme
+    {
+        get
+        {
+            if (m_KeyboardSchemeIndex == -1) m_KeyboardSchemeIndex = asset.FindControlSchemeIndex("Keyboard");
+            return asset.controlSchemes[m_KeyboardSchemeIndex];
+        }
+    }
     public interface IPlayerMovementActions
     {
         void OnMovement(InputAction.CallbackContext context);
@@ -569,6 +627,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnVault(InputAction.CallbackContext context);
         void OnSlide(InputAction.CallbackContext context);
+        void OnResetTimer(InputAction.CallbackContext context);
     }
     public interface IParkourActionsActions
     {
@@ -580,6 +639,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     }
     public interface IBbActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnResetTimer(InputAction.CallbackContext context);
     }
 }
