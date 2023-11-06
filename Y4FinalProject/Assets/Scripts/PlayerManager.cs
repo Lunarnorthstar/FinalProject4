@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -85,6 +86,14 @@ public class PlayerManager : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "FinishTrigger")
+        {
+            gameObject.SendMessage("StopTimer");
         }
     }
 }

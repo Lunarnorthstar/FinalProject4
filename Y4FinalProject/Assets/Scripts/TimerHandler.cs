@@ -7,6 +7,7 @@ public class TimerHandler : MonoBehaviour
 {
     private float levelTime = 0;
     public GameObject timerDisplay;
+    public bool timerActive = true;
 
     [Header("Debug")]
     [SerializeField] private bool timerSpeedMultx60 = false;
@@ -15,22 +16,24 @@ public class TimerHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        timerActive = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (timerSpeedMultx60)
+        if (timerActive)
         {
-            levelTime += Time.deltaTime * 60;
-        }
-        else
-        {
-            levelTime += Time.deltaTime;
+            if (timerSpeedMultx60)
+            {
+                levelTime += Time.deltaTime * 60;
+            }
+            else
+            {
+                levelTime += Time.deltaTime;
+            }
         }
         
-
         string timeReadable = Mathf.Floor(levelTime / 60) + ":";
         if (Mathf.Floor(levelTime % 60) < 10)
         {
@@ -45,5 +48,11 @@ public class TimerHandler : MonoBehaviour
     public void ResetTimer()
     {
         levelTime = 0;
+    }
+
+    public void StopTimer()
+    {
+        timerActive = false;
+        timerDisplay.GetComponent<TextMeshProUGUI>().color = Color.green;
     }
 }

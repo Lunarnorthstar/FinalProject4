@@ -7,6 +7,7 @@ using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.HighDefinition;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -113,6 +114,13 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (controls.PlayerMovement.Reset.triggered)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+        
+        
+        
         if (Input.GetKeyDown(KeyCode.M)) resetInput();
         movement();
         if (!isHangingOnWall)
