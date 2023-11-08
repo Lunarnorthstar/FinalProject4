@@ -79,6 +79,7 @@ public class PlayerMovement : MonoBehaviour
     bool isClimbing;
     [SerializeField] bool canJump = true;
     [SerializeField] bool jumpCheck;
+    bool wallRunCheck;
     bool canSideJump = true;
     bool isInVaultTrigger;
     bool hasJustBeenAgainstWall;
@@ -90,6 +91,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isTryingToSlide;
     public bool isSliding;
     public bool isWallRunning;
+    public bool hasJustWallRun;
     public bool hasSlid;
     public bool isOnGround;
     public bool isFacingWall;
@@ -127,8 +129,6 @@ public class PlayerMovement : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
-
-
         movement();
 
         if (!isHangingOnWall)
@@ -142,14 +142,6 @@ public class PlayerMovement : MonoBehaviour
         else if (playerManager.isTouchingWall(transform.right)) wallRunDir = 2;
         else wallRunDir = 0;
 
-        cam.shouldHoldCam = false;
-        for (int i = 0; i < camPauseAniStates.Length; i++)
-        {
-            if (ani.GetCurrentAnimatorStateInfo(0).IsName(camPauseAniStates[i]))
-            {
-                cam.shouldHoldCam = true;
-            }
-        }
         //locking the mouse
         if (Input.GetKeyDown(KeyCode.P)) playerManager.lockMouse();
     }
@@ -372,10 +364,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void wallSliding()
     {
-        if (isTryingToSlide)//is the buttom being pressed?
+
+        if (isTryingToSlide && controls.PlayerMovement.Jump.ReadValue<float>() == 0)//is the buttom being pressed and not jumping?
         {
-            //are u moving fast enough, touching a wall with your side and in the air
-            if (HorizontalVelocityf >= minSlideSpeed && wallRunDir != 0 && !isOnGround)
+            //are u moving fast enough, touching a wall with your side and in the air and not trying to jump off said wall, and have you not just jumped off a wall?
+            if (HorizontalVelocityf >= minSlideSpeed && wallRunDir != 0 && !isOnGround && canSideJump)
             {
                 isWallRunning = true;
             }
@@ -389,24 +382,23 @@ public class PlayerMovement : MonoBehaviour
             isWallRunning = false;
         }
 
+
         if (isWallRunning && HorizontalVelocityf < slideStopSpeed)
         {
             isWallRunning = false;
         }
 
+        if (!isWallRunning && !hasJustWallRun) InvokeRepeating("resetWallRun", 0, 0.02f);
 
         if (isWallRunning)
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-
-            if (!isOnGround && isTryingToSlide && wallRunDir != 0)
-            {
-                if (HorizontalVelocityf > minSlideSpeed)
-                {
-
-                    isWallRunning = true;
-                }
-            }
+            if (wallRunDir == 1) ani.SetInteger("WallSlide", 1);
+            if (wallRunDir == 2) ani.SetInteger("WallSlide", 2);
+        }
+        else
+        {
+            ani.SetInteger("WallSlide", 0);
         }
     }
 
@@ -414,7 +406,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isTryingToSlide)//is button being pressed?
         {
-            if (isSprinting && HorizontalVelocityf >= minSlideSpeed && !hasSlid)//are you sprinting, moving faster than minimum and havent just exited a slide?
+            if (isOnGround && isSprinting && HorizontalVelocityf >= minSlideSpeed && !hasSlid)//are you sprinting, moving faster than minimum and havent just exited a slide?
             {
                 isSliding = true;
             }
@@ -555,6 +547,15 @@ public class PlayerMovement : MonoBehaviour
                 }
             }
         }
+    }
+
+    void resetWallRun()
+    {
+        if (wallRunDir != 0 && !wallRunCheck) hasJustWallRun = true;
+        if (wallRunDir == 0 && !wallRunCheck) wallRunCheck = true;
+        if (wallRunDir != 0 && wallRunCheck) hasJustWallRun = false;
+
+        if (hasJustWallRun) CancelInvoke("resetWallRun");
     }
 
     void resetJump()

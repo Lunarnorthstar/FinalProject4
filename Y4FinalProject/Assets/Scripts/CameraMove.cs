@@ -7,8 +7,6 @@ public class CameraMove : MonoBehaviour
 {
     public Camera mainCam;
 
-    public bool shouldHoldCam;
-
     public PlayerManager playerManager;
     public PlayerMovement playerMovement;
     public Animator ani;
@@ -55,29 +53,6 @@ public class CameraMove : MonoBehaviour
 
     void moveCam()
     {
-        if (shouldHoldCam && playerMovement.ClimbLookTarget == null) return; //if is in animation then lock cam
-        // else if (playerMovement.ClimbLookTarget != null && playerMovement.isHangingOnWall)//if isnt in animation but is tryna climb
-        // {
-        //     Transform target = playerMovement.ClimbLookTarget;//assign the target
-
-        //     //move the target to directly in front (no unwanted left to right camera movement)
-        //    // target.position = new Vector3(target.position.x, target.position.y, transform.position.z);
-        //    // transform.LookAt(target.position);
-
-        //     //Vector3 directionVector = target.position - transform.right;//get a vector pointing towards the target (should be up and down)
-        //     //transform.rotation = quaternion.Euler(directionVector);
-        //     //directionVector.Normalize();
-
-        //     // float rotAmount = Vector3.Cross(directionVector, transform.forward).z;
-
-
-        //     // Quaternion lookRot = quaternion.LookRotation(directionVector, Vector3.up);
-        //     // transform.rotation = lookRot;//
-        //     //Quaternion.Lerp(transform.rotation, lookRot, 0.2f);
-        //     //transform.rotation = quaternion.Euler(new Vector3(transform.rotation.eulerAngles.x, 0, 0));
-        //     return;
-        // }
-
         if (!playerManager.isMouseLocked) return;
 
         CamRotX += Input.GetAxis("Mouse X") * Mousesens;
@@ -90,6 +65,6 @@ public class CameraMove : MonoBehaviour
 
         Player.transform.rotation = Quaternion.Euler(0, sCamRotX, 0);
 
-        transform.rotation = Quaternion.Euler(-sCamRotY, transform.eulerAngles.y, 0);
+        transform.localRotation = Quaternion.Euler(-sCamRotY, transform.localEulerAngles.y, 0);
     }
 }
