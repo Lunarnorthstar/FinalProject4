@@ -77,7 +77,9 @@ public class PlayerMovement : MonoBehaviour
     bool isAtMaxSpeed;
     bool isAtMaxSprintSpeed;
     bool isClimbing;
-    bool canJump = true;
+    [SerializeField] bool canJump = true;
+    [SerializeField] bool jumpCheck;
+    bool canSideJump = true;
     bool isInVaultTrigger;
     bool hasJustBeenAgainstWall;
     bool hasJustVaulted;
@@ -87,10 +89,12 @@ public class PlayerMovement : MonoBehaviour
     public bool isHangingOnWall;
     public bool isTryingToSlide;
     public bool isSliding;
+    public bool isWallRunning;
     public bool hasSlid;
     public bool isOnGround;
     public bool isFacingWall;
     public int wallRunDir;
+    public int lastRunDir;
 
     void Awake()
     {
@@ -106,6 +110,7 @@ public class PlayerMovement : MonoBehaviour
         controls = new PlayerControls();
         controls.PlayerMovement.Enable();
 
+        canSideJump = true;
         canJump = true;
 
         InvokeRepeating("calculateMovementVector", 0, 0.02f);
@@ -114,15 +119,18 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //if you reload the script, pressing M will get rid of the error with input
+        if (Input.GetKeyDown(KeyCode.M)) resetInput();
+
         if (controls.PlayerMovement.Reset.triggered)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        
-        
-        
-        if (Input.GetKeyDown(KeyCode.M)) resetInput();
+
+
+
         movement();
+
         if (!isHangingOnWall)
             isOnGround = playerManager.isOnGround();
         else isOnGround = false;
@@ -280,13 +288,16 @@ public class PlayerMovement : MonoBehaviour
             if (isOnGround && canJump)
             {
                 canJump = false;
+                jumpCheck = false;
                 rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-                rb.AddForce(Vector3.up * jumpForce);
-                Invoke("resetJump", 0.1f);
+
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+
+                InvokeRepeating("resetJump", 0, 0.02f);
             }
         }
 
-        //wallRunning
+        //wallRunning (vertical, up a wall)
         if (isFacingWall && !isOnGround && !hasJustBeenAgainstWall)
         {
             if (controls.PlayerMovement.Jump.triggered)
@@ -299,29 +310,39 @@ public class PlayerMovement : MonoBehaviour
         }
         if (hasJustBeenAgainstWall && isOnGround) hasJustBeenAgainstWall = false;
 
-        //side wall jump
+        //side wall jump (along the side of a wall)
         if (!isOnGround && wallRunDir != 0)//if in air and touching a wall
         {
-            //if u jump
-            if (controls.PlayerMovement.Jump.triggered && canJump)
+            //if u jump, havent jumped in the last 0.2 secs and arent trying to jjump off a wall you just jumped off
+            if (controls.PlayerMovement.Jump.triggered && canSideJump && lastRunDir != wallRunDir)
             {
+                canSideJump = false;
                 switch (wallRunDir)
                 {
                     case 1://the wall is on the left, boost right
                         rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);//zero vertical velocity for consitency
                         rb.AddForce(transform.right * WallRunSideBoost, ForceMode.Impulse);
                         rb.AddForce(transform.up * WallRunUpBoost, ForceMode.Impulse);
+
+                        lastRunDir = wallRunDir;
                         break;
                     case 2://the wall is on the right, boost left
                         rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);//zero vertical velocity for consitency
                         rb.AddForce(-transform.right * WallRunSideBoost, ForceMode.Impulse);
                         rb.AddForce(transform.up * WallRunUpBoost, ForceMode.Impulse);
+
+                        lastRunDir = wallRunDir;
                         break;
                 }
 
-                Invoke("resetJump", 0.2f);
+                Invoke("resetSideJump", 0.2f);
             }
         }
+        if (isOnGround && lastRunDir != 0) lastRunDir = 0;//when player touches ground, they can now wall run off the same side wall
+
+        //wall sliding
+        // if player is beside wall, in the air and holding slide, then attach em to that wall and slow them down like it's a slide.
+        wallSliding();
 
         //ledge grabbing
         //is pressing crouch button, is next to a hangable ledge, is facing the wall and isnt actually climbing it,
@@ -346,6 +367,46 @@ public class PlayerMovement : MonoBehaviour
         {
             isHangingOnWall = false;
             ani.SetBool("Climb", false);
+        }
+    }
+
+    public void wallSliding()
+    {
+        if (isTryingToSlide)//is the buttom being pressed?
+        {
+            //are u moving fast enough, touching a wall with your side and in the air
+            if (HorizontalVelocityf >= minSlideSpeed && wallRunDir != 0 && !isOnGround)
+            {
+                isWallRunning = true;
+            }
+            else if (!isWallRunning || wallRunDir == 0)
+            {
+                isWallRunning = false;
+            }
+        }
+        else
+        {
+            isWallRunning = false;
+        }
+
+        if (isWallRunning && HorizontalVelocityf < slideStopSpeed)
+        {
+            isWallRunning = false;
+        }
+
+
+        if (isWallRunning)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+
+            if (!isOnGround && isTryingToSlide && wallRunDir != 0)
+            {
+                if (HorizontalVelocityf > minSlideSpeed)
+                {
+
+                    isWallRunning = true;
+                }
+            }
         }
     }
 
@@ -466,7 +527,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.drag = standardDrag;
         }
-        else if (isSliding)//is sliding
+        else if (isSliding || isWallRunning)//is sliding or running horizontally across a wall
         {
             rb.drag = slidingDrag;
         }
@@ -498,7 +559,16 @@ public class PlayerMovement : MonoBehaviour
 
     void resetJump()
     {
-        canJump = true;
+        if (isOnGround && !jumpCheck) canJump = false;//if Youre on the ground but havent left the ground yet, you can't jump again.
+        if (!jumpCheck && !isOnGround) jumpCheck = true;//if you arent on ground but the bool hasnt updated, then update the bool
+        if (isOnGround && jumpCheck) canJump = true;// if youre on the ground and youve been checked to be in air, then you can jump again
+
+        if (canJump) CancelInvoke("resetJump");//if you can jump, stop looping this function
+    }
+
+    void resetSideJump()
+    {
+        canSideJump = true;
     }
 
     void resetVaultBoost()
