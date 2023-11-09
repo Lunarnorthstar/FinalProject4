@@ -251,34 +251,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Parkour Actions"",
-            ""id"": ""bf674131-6b50-43f7-9a0a-1aa4855c05d3"",
-            ""actions"": [
-                {
-                    ""name"": ""New action"",
-                    ""type"": ""Value"",
-                    ""id"": ""c673cc24-4c56-4abc-b87a-3edf07282823"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""1f9f049b-af0c-4a06-820e-68c327ef7c05"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""New action"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
             ""name"": ""Mouse"",
             ""id"": ""948da741-4865-4dc0-99f3-6d1d58ca120b"",
             ""actions"": [
@@ -356,9 +328,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_PlayerMovement_Vault = m_PlayerMovement.FindAction("Vault", throwIfNotFound: true);
         m_PlayerMovement_Slide = m_PlayerMovement.FindAction("Slide", throwIfNotFound: true);
         m_PlayerMovement_Reset = m_PlayerMovement.FindAction("Reset", throwIfNotFound: true);
-        // Parkour Actions
-        m_ParkourActions = asset.FindActionMap("Parkour Actions", throwIfNotFound: true);
-        m_ParkourActions_Newaction = m_ParkourActions.FindAction("New action", throwIfNotFound: true);
         // Mouse
         m_Mouse = asset.FindActionMap("Mouse", throwIfNotFound: true);
         m_Mouse_MouseLook = m_Mouse.FindAction("Mouse Look", throwIfNotFound: true);
@@ -509,52 +478,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     }
     public PlayerMovementActions @PlayerMovement => new PlayerMovementActions(this);
 
-    // Parkour Actions
-    private readonly InputActionMap m_ParkourActions;
-    private List<IParkourActionsActions> m_ParkourActionsActionsCallbackInterfaces = new List<IParkourActionsActions>();
-    private readonly InputAction m_ParkourActions_Newaction;
-    public struct ParkourActionsActions
-    {
-        private @PlayerControls m_Wrapper;
-        public ParkourActionsActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_ParkourActions_Newaction;
-        public InputActionMap Get() { return m_Wrapper.m_ParkourActions; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(ParkourActionsActions set) { return set.Get(); }
-        public void AddCallbacks(IParkourActionsActions instance)
-        {
-            if (instance == null || m_Wrapper.m_ParkourActionsActionsCallbackInterfaces.Contains(instance)) return;
-            m_Wrapper.m_ParkourActionsActionsCallbackInterfaces.Add(instance);
-            @Newaction.started += instance.OnNewaction;
-            @Newaction.performed += instance.OnNewaction;
-            @Newaction.canceled += instance.OnNewaction;
-        }
-
-        private void UnregisterCallbacks(IParkourActionsActions instance)
-        {
-            @Newaction.started -= instance.OnNewaction;
-            @Newaction.performed -= instance.OnNewaction;
-            @Newaction.canceled -= instance.OnNewaction;
-        }
-
-        public void RemoveCallbacks(IParkourActionsActions instance)
-        {
-            if (m_Wrapper.m_ParkourActionsActionsCallbackInterfaces.Remove(instance))
-                UnregisterCallbacks(instance);
-        }
-
-        public void SetCallbacks(IParkourActionsActions instance)
-        {
-            foreach (var item in m_Wrapper.m_ParkourActionsActionsCallbackInterfaces)
-                UnregisterCallbacks(item);
-            m_Wrapper.m_ParkourActionsActionsCallbackInterfaces.Clear();
-            AddCallbacks(instance);
-        }
-    }
-    public ParkourActionsActions @ParkourActions => new ParkourActionsActions(this);
-
     // Mouse
     private readonly InputActionMap m_Mouse;
     private List<IMouseActions> m_MouseActionsCallbackInterfaces = new List<IMouseActions>();
@@ -672,10 +595,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnVault(InputAction.CallbackContext context);
         void OnSlide(InputAction.CallbackContext context);
         void OnReset(InputAction.CallbackContext context);
-    }
-    public interface IParkourActionsActions
-    {
-        void OnNewaction(InputAction.CallbackContext context);
     }
     public interface IMouseActions
     {
