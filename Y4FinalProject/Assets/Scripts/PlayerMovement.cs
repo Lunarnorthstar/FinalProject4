@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
     PlayerManager playerManager;
     IKControl playerIK;
+    private CameraMove playerCamera;
 
     [Header("Movement Characteristics")]
     [Tooltip("The maximum amount of forward speed the player can achieve while walking")] public float maxMoveSpeed;
@@ -107,6 +108,7 @@ public class PlayerMovement : MonoBehaviour
         playerManager = GetComponent<PlayerManager>();
         ani = GetComponent<Animator>();
         playerIK = GetComponentInChildren<IKControl>();
+        playerCamera = GetComponentInChildren<CameraMove>();
 
         //enable controls
         controls = new PlayerControls();
@@ -122,14 +124,16 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
 
-        if (rb.velocity.y > 0)
+        /*if (rb.velocity.y > 0)
         {
             Debug.Log(rb.velocity.y);
             Debug.Log(rb.drag);
-        }
-        
-        
-        
+        }*/ // Debug stuff
+
+
+        playerCamera.joyCamera = controls.PlayerMovement.Look.ReadValue<Vector2>();
+
+
         //if you reload the script, pressing M will get rid of the error with input
         if (Input.GetKeyDown(KeyCode.M)) resetInput();
 

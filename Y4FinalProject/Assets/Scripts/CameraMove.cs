@@ -2,6 +2,7 @@ using Unity.Mathematics;
 using UnityEditor.Callbacks;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraMove : MonoBehaviour
 {
@@ -18,6 +19,9 @@ public class CameraMove : MonoBehaviour
     Vector2 MouseLook;
     Vector2 SmoothV;
 
+
+    public Vector2 joyCamera;
+    
     float CamRotY;
     float CamRotX;
 
@@ -55,8 +59,8 @@ public class CameraMove : MonoBehaviour
     {
         if (!playerManager.isMouseLocked) return;
 
-        CamRotX += Input.GetAxis("Mouse X") * Mousesens;
-        CamRotY += Input.GetAxis("Mouse Y") * Mousesens;
+        CamRotX += Input.GetAxis("Mouse X") + joyCamera.x * Mousesens;
+        CamRotY += Input.GetAxis("Mouse Y") + joyCamera.y * Mousesens;
 
         CamRotY = Mathf.Clamp(CamRotY, -80, 80);
 
