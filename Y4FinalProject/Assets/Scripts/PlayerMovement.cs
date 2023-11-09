@@ -121,6 +121,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (rb.velocity.y > 0)
+        {
+            Debug.Log(rb.velocity.y);
+            Debug.Log(rb.drag);
+        }
+        
+        
+        
         //if you reload the script, pressing M will get rid of the error with input
         if (Input.GetKeyDown(KeyCode.M)) resetInput();
 
@@ -281,10 +290,10 @@ public class PlayerMovement : MonoBehaviour
             {
                 canJump = false;
                 jumpCheck = false;
+                rb.drag = inAirDrag; //Make sure the drag is set consistently - if you're jumping you are by definition going to be in the air.
                 rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
 
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-
                 InvokeRepeating("resetJump", 0, 0.02f);
             }
         }
@@ -305,7 +314,7 @@ public class PlayerMovement : MonoBehaviour
         //side wall jump (along the side of a wall)
         if (!isOnGround && wallRunDir != 0)//if in air and touching a wall
         {
-            //if u jump, havent jumped in the last 0.2 secs and arent trying to jjump off a wall you just jumped off
+            //if u jump, haven't jumped in the last 0.2 secs and arent trying to jump off a wall you just jumped off
             if (controls.PlayerMovement.Jump.triggered && canSideJump && lastRunDir != wallRunDir)
             {
                 canSideJump = false;
@@ -514,6 +523,7 @@ public class PlayerMovement : MonoBehaviour
         else if (!isOnGround)//is in air
         {
             rb.drag = inAirDrag;
+            
         }
         else if (!isTryingToSlide)//is simply on ground
         {
