@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("The speed the player will slow down to when movement keys are released (not factoring friction)")] public float minimumThresholdSpeed;
     [Tooltip("The speed you must acheive to initiate a slide")] public float minSlideSpeed;
     [Tooltip("The speed at which the player automatically stops sliding")] public float slideStopSpeed;
+    public float slideDeadzone;
 
     [Tooltip("The amount of time the player model 'grabs' something")]
     public float IKGrabTime = 0.2f;
@@ -123,18 +124,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        /*if (rb.velocity.y > 0)
-        {
-            Debug.Log(rb.velocity.y);
-            Debug.Log(rb.drag);
-        }*/ // Debug stuff
-
-
-        playerCamera.joyCamera = controls.PlayerMovement.Look.ReadValue<Vector2>();
-
-
-        //if you reload the script, pressing M will get rid of the error with input
         if (Input.GetKeyDown(KeyCode.M)) resetInput();
 
         if (controls.PlayerMovement.Reset.triggered)
@@ -142,8 +131,11 @@ public class PlayerMovement : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
+        playerCamera.joyCamera = controls.PlayerMovement.Look.ReadValue<Vector2>();
+
         movement();
 
+        //wall detection
         if (!isHangingOnWall)
             isOnGround = playerManager.isOnGround();
         else isOnGround = false;
@@ -167,9 +159,10 @@ public class PlayerMovement : MonoBehaviour
     void movement()
     {
         //jumping and vaulting
+        dragControl();
         JumpAndVault();
         sliding();
-        dragControl();
+
 
         //calculate how fast we're moving along the ground
         HorizontalVelocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
@@ -190,11 +183,17 @@ public class PlayerMovement : MonoBehaviour
 
         //input
         Vector2 movInput = controls.PlayerMovement.Movement.ReadValue<Vector2>();
-        if (!isSliding)//if youre sliding, then you're sliding and not walking - thus nullify any input.
+        if (!isSliding)
+        {//if youre sliding, then you're sliding and not walking - thus nullify any input.
             xMove = movInput.y;
+            zMove = movInput.x;
+        }
         else
+        {
             xMove = 0;
-        zMove = movInput.x;
+            zMove = 0;
+        }
+
 
         //sprinting
 
@@ -419,7 +418,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isTryingToSlide)//is button being pressed?
         {
-            if (isOnGround && isSprinting && HorizontalVelocityf >= minSlideSpeed && !hasSlid)//are you sprinting, moving faster than minimum and havent just exited a slide?
+            bool isStraight;
+
+            if (zMove > -slideDeadzone && zMove < slideDeadzone) isStraight = true;
+            else isStraight = false;
+            if (isOnGround && isSprinting && HorizontalVelocityf >= minSlideSpeed && !hasSlid && isStraight)//are you sprinting, moving faster than minimum and havent just exited a slide?
             {
                 isSliding = true;
             }
@@ -524,10 +527,10 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.drag = GrapplingDrag;
         }
-        else if (!isOnGround)//is in air
+        else if (!isOnGround || !canJump)//is in air
         {
             rb.drag = inAirDrag;
-            
+
         }
         else if (!isTryingToSlide)//is simply on ground
         {
