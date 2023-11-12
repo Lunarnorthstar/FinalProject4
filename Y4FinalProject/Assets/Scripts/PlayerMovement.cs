@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
@@ -405,8 +406,16 @@ public class PlayerMovement : MonoBehaviour
         if (isWallRunning)
         {
             rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
-            if (wallRunDir == 1) ani.SetInteger("WallSlide", 1);
-            if (wallRunDir == 2) ani.SetInteger("WallSlide", 2);
+            if (wallRunDir == 1)
+            {
+                ani.SetInteger("WallSlide", 1);
+                GetIKTarget("wallRunR"); //Find the point you grab and grab it
+            }
+            if (wallRunDir == 2)
+            {
+                ani.SetInteger("WallSlide", 2);
+                GetIKTarget("wallRunL"); //Find the point you grab and grab it
+            }
         }
         else
         {
@@ -454,9 +463,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void GetIKTarget(GameObject vault)
+    private void GetIKTarget(String type)
     {
-        GameObject grabPoint = null;
+        /*GameObject grabPoint = null;
         float grabDist = 100;
         foreach (GameObject point in vault.GetComponentInParent<VaultTargetHandler>().Targets)
         {
@@ -474,6 +483,38 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             playerIK.vaultObject = grabPoint.transform;
+        }*/
+
+        switch (type)
+        {
+            case "vault":
+                RaycastHit hit;
+                Physics.Raycast(transform.position, transform.forward - transform.up, out hit, 10.0f);
+                playerIK.vaultPoint = hit.point;
+                playerIK.IKTime = IKGrabTime;
+                playerIK.ikActive = true;
+                break;
+            case "climb":
+                RaycastHit climbHit;
+                Physics.Raycast(transform.position, transform.forward, out climbHit, 10.0f);
+                playerIK.vaultPoint = climbHit.point;
+                playerIK.IKTime = IKGrabTime;
+                playerIK.ikActive = true;
+                break;
+            case "wallRunR":
+                RaycastHit WallRHit;
+                Physics.Raycast(transform.position, transform.forward + transform.right, out WallRHit, 10.0f);
+                playerIK.vaultPoint = WallRHit.point;
+                playerIK.IKTime = IKGrabTime;
+                playerIK.ikActive = true;
+                break;
+            case "wallRunL":
+                RaycastHit WallLHit;
+                Physics.Raycast(transform.position, transform.forward - transform.right, out WallLHit, 10.0f);
+                playerIK.vaultPoint = WallLHit.point;
+                playerIK.IKTime = IKGrabTime;
+                playerIK.ikActive = true;
+                break;
         }
     }
 
@@ -483,8 +524,7 @@ public class PlayerMovement : MonoBehaviour
         {
             isInVaultTrigger = true;
 
-            GetIKTarget(other.gameObject); //Find the point you grab
-            playerIK.IKTime = IKGrabTime; //Reset the player's grab time
+            GetIKTarget("vault"); //Find the point you grab and grab it
         }
 
         if (other.gameObject.CompareTag("ClimbTrigger"))

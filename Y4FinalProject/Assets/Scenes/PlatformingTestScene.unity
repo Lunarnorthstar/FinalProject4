@@ -326,7 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ikActive: 0
-  vaultObject: {fileID: 0}
+  vaultPoint: {x: 0, y: 0, z: 0}
   IKTime: 0
 --- !u!1 &45325383
 GameObject:
@@ -462,13 +462,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 54294512}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -126.89697, y: -58.157265, z: 28.693375}
-  m_LocalScale: {x: 20, y: 5, z: 20}
+  m_LocalRotation: {x: -0, y: -0, z: 0.122418806, w: 0.99247855}
+  m_LocalPosition: {x: -136.64, y: -59.58, z: 28.72}
+  m_LocalScale: {x: 28.154, y: 5, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1585032342}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 14.063}
 --- !u!1 &60734028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1959,7 +1959,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -11.82, y: -7.63}
+  m_AnchoredPosition: {x: -11.82, y: -3.49}
   m_SizeDelta: {x: 20, y: 3.3231}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &214416839
@@ -4220,7 +4220,7 @@ PrefabInstance:
       objectReference: {fileID: 13400000, guid: e61e0c7d0c6e86047ae9bba0a017b411, type: 2}
     - target: {fileID: 1821299892066166978, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.3
+      value: -18.24
       objectReference: {fileID: 0}
     - target: {fileID: 1821299892066166978, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7883,8 +7883,8 @@ Transform:
   m_GameObject: {fileID: 1128688857}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -224.19698, y: -62.657265, z: 28.693375}
-  m_LocalScale: {x: 50, y: 5, z: 20}
+  m_LocalPosition: {x: -229.9399, y: -62.657265, z: 28.693375}
+  m_LocalScale: {x: 61.484997, y: 5, z: 20}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1585032342}
