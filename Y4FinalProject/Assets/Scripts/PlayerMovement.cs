@@ -409,12 +409,12 @@ public class PlayerMovement : MonoBehaviour
             if (wallRunDir == 1)
             {
                 ani.SetInteger("WallSlide", 1);
-                GetIKTarget("wallRunR"); //Find the point you grab and grab it
+                GetIKTarget("wallRunL"); //Find the point you grab and grab it
             }
             if (wallRunDir == 2)
             {
                 ani.SetInteger("WallSlide", 2);
-                GetIKTarget("wallRunL"); //Find the point you grab and grab it
+                GetIKTarget("wallRunR"); //Find the point you grab and grab it
             }
         }
         else
