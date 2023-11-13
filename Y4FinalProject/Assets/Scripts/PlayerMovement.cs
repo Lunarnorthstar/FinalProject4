@@ -150,6 +150,13 @@ public class PlayerMovement : MonoBehaviour
 
         //locking the mouse
         if (Input.GetKeyDown(KeyCode.P)) playerManager.lockMouse();
+        
+        
+        
+        
+        
+        
+        
     }
 
     void resetInput()
@@ -339,6 +346,7 @@ public class PlayerMovement : MonoBehaviour
                         lastRunDir = wallRunDir;
                         break;
                 }
+                GetIKTarget("release");
 
                 Invoke("resetSideJump", 0.2f);
             }
@@ -355,17 +363,23 @@ public class PlayerMovement : MonoBehaviour
         {
             // ani.SetBool("Climb", true);
             isHangingOnWall = true;//hold player against wall
+            GetIKTarget("climb");
 
             if (controls.PlayerMovement.Jump.triggered)//if they jump, then
             {
                 //  ani.SetTrigger("Pull Up");
                 isHangingOnWall = false;//release them from wall
+                GetIKTarget("release");
 
                 rb.velocity = new Vector3(0, 0, 0);//zero current velocity
                 rb.AddForce(transform.forward * ClimbForwardsForce, ForceMode.Impulse);//boost them above wall
 
                 isClimbing = true;//ensure they wont immediatley stick back to wall
                 Invoke("resetClimb", 1f);//reset ^that bool in 1 second (when theyve cleared it)
+            }
+            else if (controls.PlayerMovement.Slide.WasReleasedThisFrame())
+            {
+                GetIKTarget("release");
             }
         }
         else
@@ -498,22 +512,25 @@ public class PlayerMovement : MonoBehaviour
                 RaycastHit climbHit;
                 Physics.Raycast(transform.position, transform.forward, out climbHit, 10.0f);
                 playerIK.vaultPoint = climbHit.point;
-                playerIK.IKTime = IKGrabTime;
+                playerIK.IKTime = 10000;
                 playerIK.ikActive = true;
                 break;
             case "wallRunR":
                 RaycastHit WallRHit;
-                Physics.Raycast(transform.position, transform.forward + transform.right, out WallRHit, 10.0f);
+                Physics.Raycast(transform.position + new Vector3(0, 0, 1), transform.forward + transform.right, out WallRHit, 10.0f);
                 playerIK.vaultPoint = WallRHit.point;
                 playerIK.IKTime = IKGrabTime;
                 playerIK.ikActive = true;
                 break;
             case "wallRunL":
                 RaycastHit WallLHit;
-                Physics.Raycast(transform.position, transform.forward - transform.right, out WallLHit, 10.0f);
+                Physics.Raycast(transform.position + new Vector3(0, 0, 1), transform.forward - transform.right, out WallLHit, 10.0f);
                 playerIK.vaultPoint = WallLHit.point;
                 playerIK.IKTime = IKGrabTime;
                 playerIK.ikActive = true;
+                break;
+            case "release":
+                playerIK.ikActive = false;
                 break;
         }
     }
