@@ -212,7 +212,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else//this will remain true until you slow down too much
         {
-            if (HorizontalVelocityf <= maxMoveSpeed || !isOnGround)
+            if (HorizontalVelocityf <= maxMoveSpeed /*|| !isOnGround <- Breaking out of sprint every jump is devastating to gameplay flow*/)
             {
                 isSprinting = false;
             }
@@ -385,7 +385,7 @@ public class PlayerMovement : MonoBehaviour
         else
         {
             isHangingOnWall = false;
-            ani.SetBool("Climb", false);
+            //ani.SetBool("Climb", false);
         }
     }
 
