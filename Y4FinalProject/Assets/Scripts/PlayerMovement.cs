@@ -59,7 +59,6 @@ public class PlayerMovement : MonoBehaviour
     public float inAirDrag;
     public float slidingDrag;
     public float crouchingDrag;
-    public float GrapplingDrag;
 
     [Space]
     public Transform cameraHolder;
@@ -204,19 +203,24 @@ public class PlayerMovement : MonoBehaviour
 
 
         //sprinting
+        if (controls.PlayerMovement.Sprint.triggered)
+        {
+            isSprinting = !isSprinting;
+        }
 
         float isSprinting_ = controls.PlayerMovement.Sprint.ReadValue<float>();
         if (isSprinting_ != 0)//if u are holding sprint rn
         {
             isSprinting = true;
         }
-        else//this will remain true until you slow down too much
-        {
-            if (HorizontalVelocityf <= maxMoveSpeed /*|| !isOnGround <- Breaking out of sprint every jump is devastating to gameplay flow*/)
-            {
-                isSprinting = false;
-            }
-        }
+        //else//this will remain true until you slow down too much
+        //{
+        //    if (HorizontalVelocityf <= maxMoveSpeed /*|| !isOnGround <- Breaking out of sprint every jump is devastating to gameplay flow*/)
+        //    {
+        //        isSprinting = false;
+        //    }
+        //}
+
 
         if (movInput == Vector2.zero) isSprinting = false;
         //controls.PlayerMovement.Sprint.started += ctx => isSprinting = ctx.ReadValue<bool>();
@@ -372,13 +376,14 @@ public class PlayerMovement : MonoBehaviour
                 GetIKTarget("release");
 
                 rb.velocity = new Vector3(0, 0, 0);//zero current velocity
-                rb.AddForce(transform.forward * ClimbForwardsForce, ForceMode.Impulse);//boost them above wall
+                rb.AddForce(transform.up * ClimbUpForce, ForceMode.Impulse);//boost them above wall
 
                 isClimbing = true;//ensure they wont immediatley stick back to wall
                 Invoke("resetClimb", 1f);//reset ^that bool in 1 second (when theyve cleared it)
             }
             else if (controls.PlayerMovement.Slide.WasReleasedThisFrame())
             {
+                
                 GetIKTarget("release");
             }
         }
@@ -580,11 +585,10 @@ public class PlayerMovement : MonoBehaviour
 
     void dragControl()
     {
-        if (isHangingOnWall)
-        {
-            rb.drag = GrapplingDrag;
-        }
-        else if (!isOnGround || !canJump)//is in air
+
+        rb.useGravity = !isHangingOnWall;
+        
+        if (!isOnGround || !canJump)//is in air
         {
             rb.drag = inAirDrag;
 

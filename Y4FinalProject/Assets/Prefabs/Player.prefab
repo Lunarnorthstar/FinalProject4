@@ -46,56 +46,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCam: {fileID: 3885461676509155875}
-  shouldHoldCam: 0
   playerManager: {fileID: 2917278174082418578}
+  playerMovement: {fileID: 0}
   ani: {fileID: 285764467542367482}
   Player: {fileID: 1821299892066166978}
   Mousesens: 1.2
   mouseSmooth: 0.5
-  FovMuliplier:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 8
-      value: 1.1
-      inSlope: 0.013333336
-      outSlope: 0.013333336
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 15
-      value: 1.2
-      inSlope: 0.018181818
-      outSlope: 0.018181818
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 30
-      value: 1.5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 136
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  FoV: 60
-  fovSmoothing: 0.2
+  joyCamera: {x: 0, y: 0}
+  defaultFOV: 0
+  sprintFOV: 0
+  fovSmooth: 0
 --- !u!1 &2178579465216142346
 GameObject:
   m_ObjectHideFlags: 0
@@ -291,7 +251,8 @@ MonoBehaviour:
   - Slide
   - Vault
   - Slide Enter
-  col: {fileID: 6538387291205231066}
+  - SlideLeft
+  - SlideRight
   maxMoveSpeed: 8
   accSpeed: 4000
   maxStrafeSpeed: 50
@@ -299,26 +260,44 @@ MonoBehaviour:
   accSprint: 2
   maxSprintSpeed: 15
   slowDownSpeed: 10000
-  airSpeedMultiplier: 0.5
+  airSpeedMultiplier: 0.2
   minimumThresholdSpeed: 0
   minSlideSpeed: 5
   slideStopSpeed: 1
+  slideDeadzone: 0.3
   IKGrabTime: 0.5
-  jumpForce: 600
-  vaultBoost: 0
-  vaultHeight: 10
-  standardDrag: 6
-  slidingDrag: 1
-  crouchingDrag: 12
+  jumpForce: 20
+  wallJumpForce: 15
+  vaultBoost: 4
+  vaultHeight: 2
+  ClimbUpForce: 3
+  ClimbForwardsForce: 0
+  WallRunSideBoost: 10
+  WallRunUpBoost: 15
+  standardDrag: 10
+  inAirDrag: 2
+  slidingDrag: 0.2
+  crouchingDrag: 15
   cameraHolder: {fileID: 3636353023608081983}
+  ClimbLookTarget: {fileID: 0}
+  hangPos: {fileID: 0}
   HorizontalVelocity: {x: 0, y: 0, z: 0}
   MovementVector: {x: 0, y: 0, z: 0}
   HorizontalVelocityf: 0
-  isInVaultTrigger: 0
+  canJump: 1
+  jumpCheck: 1
+  isSprinting: 0
+  isAgainstLedge: 0
+  isHangingOnWall: 0
   isTryingToSlide: 0
   isSliding: 0
+  isWallRunning: 0
+  hasJustWallRun: 0
   hasSlid: 0
-  isOnGround: 0
+  isOnGround: 1
+  isFacingWall: 0
+  wallRunDir: 0
+  lastRunDir: 0
 --- !u!114 &2917278174082418578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,6 +312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMouseLocked: 0
   isonGroundClearance: 1.1
+  wallRunClearance: 0
 --- !u!54 &2709394782556014409
 Rigidbody:
   m_ObjectHideFlags: 0
