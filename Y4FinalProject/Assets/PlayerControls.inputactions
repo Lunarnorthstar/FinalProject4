@@ -227,10 +227,21 @@
                 {
                     "name": "",
                     "id": "9c07e9cd-bd4c-4206-b8bf-3b7a179ce0d9",
-                    "path": "<Keyboard>/g",
+                    "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard",
+                    "action": "Reset",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3f6751d4-63d4-4e97-b23e-22901ba638bc",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Controller",
                     "action": "Reset",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -243,34 +254,6 @@
                     "processors": "",
                     "groups": "Controller",
                     "action": "Look",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Mouse",
-            "id": "948da741-4865-4dc0-99f3-6d1d58ca120b",
-            "actions": [
-                {
-                    "name": "Mouse Look",
-                    "type": "PassThrough",
-                    "id": "f5368081-5c1a-40c7-a631-98da1391a378",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                }
-            ],
-            "bindings": [
-                {
-                    "name": "",
-                    "id": "187e0b9c-4168-47d7-b275-4ce13c570281",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Mouse Look",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

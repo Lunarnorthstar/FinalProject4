@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Unity.Burst.Intrinsics;
 using Unity.Mathematics;
 using Unity.VisualScripting;
-using UnityEditor.ShaderKeywordFilter;
+//using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.HighDefinition;
@@ -318,7 +318,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (controls.PlayerMovement.Jump.triggered)
             {
-                rb.velocity = new Vector3(0, 0, 0);
+                rb.velocity = new Vector3(0, 4, 0);
                 rb.AddForce(Vector3.up * wallJumpForce, ForceMode.Impulse);
 
                 hasJustBeenAgainstWall = true;
