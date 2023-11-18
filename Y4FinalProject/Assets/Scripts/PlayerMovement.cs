@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("The speed you must acheive to initiate a slide")] public float minSlideSpeed;
     [Tooltip("The speed at which the player automatically stops sliding")] public float slideStopSpeed;
     public float slideDeadzone;
+    public float JoyCamSensitivity = 1.2f;
 
     [Tooltip("The amount of time the player model 'grabs' something")]
     public float IKGrabTime = 0.2f;
@@ -131,7 +132,7 @@ public class PlayerMovement : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
 
-        playerCamera.joyCamera = controls.PlayerMovement.Look.ReadValue<Vector2>();
+        playerCamera.joyCamera = controls.PlayerMovement.Look.ReadValue<Vector2>() * JoyCamSensitivity;
 
         movement();
 
@@ -149,13 +150,13 @@ public class PlayerMovement : MonoBehaviour
 
         //locking the mouse
         if (Input.GetKeyDown(KeyCode.P)) playerManager.lockMouse();
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
     }
 
     void resetInput()
@@ -383,7 +384,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (controls.PlayerMovement.Slide.WasReleasedThisFrame())
             {
-                
+
                 GetIKTarget("release");
             }
         }
@@ -587,7 +588,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         rb.useGravity = !isHangingOnWall;
-        
+
         if (!isOnGround || !canJump)//is in air
         {
             rb.drag = inAirDrag;
