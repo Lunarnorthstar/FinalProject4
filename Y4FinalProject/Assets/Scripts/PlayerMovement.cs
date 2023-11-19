@@ -380,7 +380,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(transform.up * ClimbUpForce, ForceMode.Impulse);//boost them above wall
 
                 isClimbing = true;//ensure they wont immediatley stick back to wall
-                Invoke("resetClimb", 1f);//reset ^that bool in 1 second (when theyve cleared it)
+                Invoke("resetClimb", 0.5f);//reset ^that bool in 1 second (when theyve cleared it)
             }
             else if (controls.PlayerMovement.Slide.WasReleasedThisFrame())
             {
@@ -588,6 +588,8 @@ public class PlayerMovement : MonoBehaviour
     {
 
         rb.useGravity = !isHangingOnWall;
+
+
 
         if (!isOnGround || !canJump)//is in air
         {

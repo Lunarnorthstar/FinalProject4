@@ -207,9 +207,11 @@ GameObject:
   - component: {fileID: 1821299892066166978}
   - component: {fileID: 4986535402992014780}
   - component: {fileID: 2917278174082418578}
+  - component: {fileID: 2594589047151099844}
   - component: {fileID: 2709394782556014409}
   - component: {fileID: 7508105324778979008}
   - component: {fileID: 285764467542367482}
+  - component: {fileID: 2936751698918892207}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -265,6 +267,7 @@ MonoBehaviour:
   minSlideSpeed: 5
   slideStopSpeed: 1
   slideDeadzone: 0.3
+  JoyCamSensitivity: 1.2
   IKGrabTime: 0.5
   jumpForce: 20
   wallJumpForce: 15
@@ -313,6 +316,22 @@ MonoBehaviour:
   isMouseLocked: 0
   isonGroundClearance: 1.1
   wallRunClearance: 0
+--- !u!114 &2594589047151099844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4706490676563740343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da76f9fd363be8b4c9cca82c25b36992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerDisplay: {fileID: 0}
+  timerActive: 1
+  significantDecimals: 2
+  timerSpeedMultx60: 0
 --- !u!54 &2709394782556014409
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -391,6 +410,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2936751698918892207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4706490676563740343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ab6e7222aa87e4ebfb3942c782de7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collected: 0
 --- !u!1 &8825990753119005845
 GameObject:
   m_ObjectHideFlags: 0
