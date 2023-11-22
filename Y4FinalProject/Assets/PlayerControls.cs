@@ -64,15 +64,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Slide"",
-                    ""type"": ""Button"",
-                    ""id"": ""b422c984-2065-4cb0-a5fd-066703c315f8"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Reset"",
                     ""type"": ""Button"",
                     ""id"": ""42605abb-a188-4fe1-8afb-a942ffd4a2ab"",
@@ -86,6 +77,24 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""type"": ""PassThrough"",
                     ""id"": ""0d8166e9-82f8-48e2-9747-8f52b34bde0b"",
                     ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ControlKey"",
+                    ""type"": ""Button"",
+                    ""id"": ""b422c984-2065-4cb0-a5fd-066703c315f8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SpeedKey"",
+                    ""type"": ""Button"",
+                    ""id"": ""3d6a7815-4b63-4148-97bb-4d16828c1009"",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -226,28 +235,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""56bb0e71-b314-4879-95ff-05c9fe15b48b"",
-                    ""path"": ""<Keyboard>/ctrl"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard"",
-                    ""action"": ""Slide"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""851cf09c-6e9e-4d36-984c-215abc0631f4"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Controller"",
-                    ""action"": ""Slide"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""9c07e9cd-bd4c-4206-b8bf-3b7a179ce0d9"",
                     ""path"": ""<Keyboard>/r"",
                     ""interactions"": """",
@@ -276,6 +263,39 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Controller"",
                     ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a2ff288f-2fbf-4933-9583-6e59611ee38f"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SpeedKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""56bb0e71-b314-4879-95ff-05c9fe15b48b"",
+                    ""path"": ""<Keyboard>/ctrl"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""ControlKey"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""851cf09c-6e9e-4d36-984c-215abc0631f4"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Controller"",
+                    ""action"": ""ControlKey"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -329,9 +349,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_PlayerMovement_Sprint = m_PlayerMovement.FindAction("Sprint", throwIfNotFound: true);
         m_PlayerMovement_Jump = m_PlayerMovement.FindAction("Jump", throwIfNotFound: true);
         m_PlayerMovement_Vault = m_PlayerMovement.FindAction("Vault", throwIfNotFound: true);
-        m_PlayerMovement_Slide = m_PlayerMovement.FindAction("Slide", throwIfNotFound: true);
         m_PlayerMovement_Reset = m_PlayerMovement.FindAction("Reset", throwIfNotFound: true);
         m_PlayerMovement_Look = m_PlayerMovement.FindAction("Look", throwIfNotFound: true);
+        m_PlayerMovement_ControlKey = m_PlayerMovement.FindAction("ControlKey", throwIfNotFound: true);
+        m_PlayerMovement_SpeedKey = m_PlayerMovement.FindAction("SpeedKey", throwIfNotFound: true);
         // bb
         m_bb = asset.FindActionMap("bb", throwIfNotFound: true);
         m_bb_ResetTimer = m_bb.FindAction("Reset Timer", throwIfNotFound: true);
@@ -400,9 +421,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerMovement_Sprint;
     private readonly InputAction m_PlayerMovement_Jump;
     private readonly InputAction m_PlayerMovement_Vault;
-    private readonly InputAction m_PlayerMovement_Slide;
     private readonly InputAction m_PlayerMovement_Reset;
     private readonly InputAction m_PlayerMovement_Look;
+    private readonly InputAction m_PlayerMovement_ControlKey;
+    private readonly InputAction m_PlayerMovement_SpeedKey;
     public struct PlayerMovementActions
     {
         private @PlayerControls m_Wrapper;
@@ -411,9 +433,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Sprint => m_Wrapper.m_PlayerMovement_Sprint;
         public InputAction @Jump => m_Wrapper.m_PlayerMovement_Jump;
         public InputAction @Vault => m_Wrapper.m_PlayerMovement_Vault;
-        public InputAction @Slide => m_Wrapper.m_PlayerMovement_Slide;
         public InputAction @Reset => m_Wrapper.m_PlayerMovement_Reset;
         public InputAction @Look => m_Wrapper.m_PlayerMovement_Look;
+        public InputAction @ControlKey => m_Wrapper.m_PlayerMovement_ControlKey;
+        public InputAction @SpeedKey => m_Wrapper.m_PlayerMovement_SpeedKey;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -435,15 +458,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Vault.started += instance.OnVault;
             @Vault.performed += instance.OnVault;
             @Vault.canceled += instance.OnVault;
-            @Slide.started += instance.OnSlide;
-            @Slide.performed += instance.OnSlide;
-            @Slide.canceled += instance.OnSlide;
             @Reset.started += instance.OnReset;
             @Reset.performed += instance.OnReset;
             @Reset.canceled += instance.OnReset;
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
+            @ControlKey.started += instance.OnControlKey;
+            @ControlKey.performed += instance.OnControlKey;
+            @ControlKey.canceled += instance.OnControlKey;
+            @SpeedKey.started += instance.OnSpeedKey;
+            @SpeedKey.performed += instance.OnSpeedKey;
+            @SpeedKey.canceled += instance.OnSpeedKey;
         }
 
         private void UnregisterCallbacks(IPlayerMovementActions instance)
@@ -460,15 +486,18 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Vault.started -= instance.OnVault;
             @Vault.performed -= instance.OnVault;
             @Vault.canceled -= instance.OnVault;
-            @Slide.started -= instance.OnSlide;
-            @Slide.performed -= instance.OnSlide;
-            @Slide.canceled -= instance.OnSlide;
             @Reset.started -= instance.OnReset;
             @Reset.performed -= instance.OnReset;
             @Reset.canceled -= instance.OnReset;
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
+            @ControlKey.started -= instance.OnControlKey;
+            @ControlKey.performed -= instance.OnControlKey;
+            @ControlKey.canceled -= instance.OnControlKey;
+            @SpeedKey.started -= instance.OnSpeedKey;
+            @SpeedKey.performed -= instance.OnSpeedKey;
+            @SpeedKey.canceled -= instance.OnSpeedKey;
         }
 
         public void RemoveCallbacks(IPlayerMovementActions instance)
@@ -556,9 +585,10 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnSprint(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnVault(InputAction.CallbackContext context);
-        void OnSlide(InputAction.CallbackContext context);
         void OnReset(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnControlKey(InputAction.CallbackContext context);
+        void OnSpeedKey(InputAction.CallbackContext context);
     }
     public interface IBbActions
     {

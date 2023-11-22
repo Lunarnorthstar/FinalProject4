@@ -21,7 +21,7 @@ public class CameraMove : MonoBehaviour
 
 
     public Vector2 joyCamera;
-    
+
     float CamRotY;
     float CamRotX;
 
@@ -40,19 +40,19 @@ public class CameraMove : MonoBehaviour
         //  playerMovement = transform.parent.parent.GetComponent<PlayerMovement>();
     }
 
-    void Update()
-    {
-        //the fov smoothly lerps between what is is, and a wider view based on speed
+    // void Update()
+    // {
+    //     //the fov smoothly lerps between what is is, and a wider view based on speed
 
-        if (playerMovement.isSprinting)
-        {
-            mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, sprintFOV, fovSmooth * Time.deltaTime);
-        }
-        else
-        {
-            mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, defaultFOV, fovSmooth * Time.deltaTime);
-        }
-    }
+    //     if (playerMovement.isSprinting)
+    //     {
+    //         mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, sprintFOV, fovSmooth * Time.deltaTime);
+    //     }
+    //     else
+    //     {
+    //         mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, defaultFOV, fovSmooth * Time.deltaTime);
+    //     }
+    // }
 
 
     void moveCam()

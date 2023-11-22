@@ -88,10 +88,12 @@ public class PlayerMovement : MonoBehaviour
     bool hasJustBeenAgainstWall;
     bool hasJustVaulted;
 
-    public bool isSprinting;
+    //public bool isSprinting;
     public bool isAgainstLedge;
     public bool isHangingOnWall;
     public bool isTryingToSlide;
+    public bool isTryingToWallRun;
+    public bool isTryingToCrouch;
     public bool isSliding;
     public bool isWallRunning;
     public bool hasJustWallRun;
@@ -150,13 +152,6 @@ public class PlayerMovement : MonoBehaviour
 
         //locking the mouse
         if (Input.GetKeyDown(KeyCode.P)) playerManager.lockMouse();
-
-
-
-
-
-
-
     }
 
     void resetInput()
@@ -185,9 +180,18 @@ public class PlayerMovement : MonoBehaviour
         else isAtMaxSprintSpeed = false;
 
         //sliding
-        float isSlide = controls.PlayerMovement.Slide.ReadValue<float>();
+        float isSlide = controls.PlayerMovement.SpeedKey.ReadValue<float>();
         if (isSlide != 0) isTryingToSlide = true;
         else { isTryingToSlide = false; hasSlid = false; }
+
+        //wallrunnin
+        float isWallRun = controls.PlayerMovement.SpeedKey.ReadValue<float>();
+        if (isWallRun != 0) isTryingToWallRun = true;
+        else { isTryingToWallRun = false; }
+
+        //crouchin
+        if (controls.PlayerMovement.ControlKey.ReadValue<float>() != 0) isTryingToCrouch = true;
+        else isTryingToCrouch = false;
 
         //input
         Vector2 movInput = controls.PlayerMovement.Movement.ReadValue<Vector2>();
@@ -202,30 +206,6 @@ public class PlayerMovement : MonoBehaviour
             zMove = 0;
         }
 
-
-        //sprinting
-        if (controls.PlayerMovement.Sprint.triggered)
-        {
-            isSprinting = !isSprinting;
-        }
-
-        float isSprinting_ = controls.PlayerMovement.Sprint.ReadValue<float>();
-        if (isSprinting_ != 0)//if u are holding sprint rn
-        {
-            isSprinting = true;
-        }
-        //else//this will remain true until you slow down too much
-        //{
-        //    if (HorizontalVelocityf <= maxMoveSpeed /*|| !isOnGround <- Breaking out of sprint every jump is devastating to gameplay flow*/)
-        //    {
-        //        isSprinting = false;
-        //    }
-        //}
-
-
-        if (movInput == Vector2.zero) isSprinting = false;
-        //controls.PlayerMovement.Sprint.started += ctx => isSprinting = ctx.ReadValue<bool>();
-
         //teleport player to hang pos and go no further in script (so player can't move)
         if (isHangingOnWall && hangPos != null)
         {
@@ -234,39 +214,20 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //ismoving
-        if (movInput != Vector2.zero && !hasJustVaulted)
+        if (movInput != Vector2.zero)
         {
-            if (!isSprinting)
+
+            if (isOnGround)
             {
-                if (isOnGround)
-                {
-                    rb.AddForce(transform.forward * xMove * accSpeed * Time.deltaTime);
-                    rb.AddForce(transform.right * zMove * accStrafe * Time.deltaTime);
-                }
-                else
-                {
-                    rb.AddForce(transform.forward * xMove * accSpeed * airSpeedMultiplier * Time.deltaTime);
-                    rb.AddForce(transform.right * zMove * accStrafe * airSpeedMultiplier * Time.deltaTime);
-                }
+                rb.AddForce(transform.forward * xMove * accSpeed * Time.deltaTime);
+                rb.AddForce(transform.right * zMove * accStrafe * Time.deltaTime);
             }
             else
             {
-                if (isOnGround)
-                {
-                    rb.AddForce(transform.forward * xMove * accSprint * accSpeed * Time.deltaTime);
-                    rb.AddForce(transform.right * zMove * accStrafe * Time.deltaTime);
-                }
-                else
-                {
-                    rb.AddForce(transform.forward * xMove * accSprint * airSpeedMultiplier * accSpeed * Time.deltaTime);
-                    rb.AddForce(transform.right * zMove * accStrafe * airSpeedMultiplier * Time.deltaTime);
-                }
+                rb.AddForce(transform.forward * xMove * accSpeed * airSpeedMultiplier * Time.deltaTime);
+                rb.AddForce(transform.right * zMove * accStrafe * airSpeedMultiplier * Time.deltaTime);
             }
-        }
-        else
-        {
-            // if (Mathf.Abs(HorizontalVelocity.magnitude) > minimumThresholdSpeed)
-            //     rb.AddForce(-MovementVector * slowDownSpeed * Time.deltaTime);
+
         }
     }
 
@@ -364,7 +325,7 @@ public class PlayerMovement : MonoBehaviour
 
         //ledge grabbing
         //is pressing crouch button, is next to a hangable ledge, is facing the wall and isnt actually climbing it,
-        if (isTryingToSlide && isAgainstLedge && isFacingWall && !isClimbing)
+        if (isTryingToCrouch && isAgainstLedge && isFacingWall && !isClimbing)
         {
             // ani.SetBool("Climb", true);
             isHangingOnWall = true;//hold player against wall
@@ -382,9 +343,8 @@ public class PlayerMovement : MonoBehaviour
                 isClimbing = true;//ensure they wont immediatley stick back to wall
                 Invoke("resetClimb", 0.5f);//reset ^that bool in 1 second (when theyve cleared it)
             }
-            else if (controls.PlayerMovement.Slide.WasReleasedThisFrame())
+            else if (controls.PlayerMovement.SpeedKey.WasReleasedThisFrame())
             {
-
                 GetIKTarget("release");
             }
         }
@@ -398,7 +358,7 @@ public class PlayerMovement : MonoBehaviour
     public void wallSliding()
     {
 
-        if (isTryingToSlide && controls.PlayerMovement.Jump.ReadValue<float>() == 0)//is the buttom being pressed and not jumping?
+        if (isTryingToWallRun && controls.PlayerMovement.Jump.ReadValue<float>() == 0)//is the buttom being pressed and not jumping?
         {
             //are u moving fast enough, touching a wall with your side and in the air and not trying to jump off said wall, and have you not just jumped off a wall?
             if (HorizontalVelocityf >= minSlideSpeed && wallRunDir != 0 && !isOnGround && canSideJump)
@@ -451,7 +411,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (zMove > -slideDeadzone && zMove < slideDeadzone) isStraight = true;
             else isStraight = false;
-            if (isOnGround && isSprinting && HorizontalVelocityf >= minSlideSpeed && !hasSlid && isStraight)//are you sprinting, moving faster than minimum and havent just exited a slide?
+            if (isOnGround && /*isSprinting &&*/ HorizontalVelocityf >= minSlideSpeed && !hasSlid && isStraight)//are you sprinting, moving faster than minimum and havent just exited a slide?
             {
                 isSliding = true;
             }
@@ -586,17 +546,13 @@ public class PlayerMovement : MonoBehaviour
 
     void dragControl()
     {
-
         rb.useGravity = !isHangingOnWall;
-
-
 
         if (!isOnGround || !canJump)//is in air
         {
             rb.drag = inAirDrag;
-
         }
-        else if (!isTryingToSlide)//is simply on ground
+        else if (!isTryingToSlide && !isTryingToCrouch)//is simply on ground
         {
             rb.drag = standardDrag;
         }
@@ -604,28 +560,17 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.drag = slidingDrag;
         }
-        else if (isTryingToSlide && !isSliding && !isSprinting)//is crouching (pressing button but not sliding and sprinting)
+        else if (isTryingToCrouch)//is crouching
         {
             rb.drag = crouchingDrag;
         }
 
         if (!hasJustVaulted)
         {
-            if (!isSprinting)
+            if (HorizontalVelocityf > maxMoveSpeed)
             {
-                if (HorizontalVelocityf > maxMoveSpeed)
-                {
-                    Vector3 limitedVel = HorizontalVelocity.normalized * (maxMoveSpeed - 0.1f);
-                    rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
-                }
-            }
-            else
-            {
-                if (HorizontalVelocityf > maxSprintSpeed)
-                {
-                    Vector3 limitedVel = HorizontalVelocity.normalized * (maxSprintSpeed - 0.1f);
-                    rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
-                }
+                Vector3 limitedVel = HorizontalVelocity.normalized * (maxMoveSpeed - 0.1f);
+                rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
             }
         }
     }
