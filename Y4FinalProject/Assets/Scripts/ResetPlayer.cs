@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class ResetPlayer : MonoBehaviour
 {
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
-
+        if (other.gameObject.CompareTag("Player") == true)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 }
