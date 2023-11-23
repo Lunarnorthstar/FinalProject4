@@ -65,6 +65,10 @@ public class PlayerMovement : MonoBehaviour
     public Transform cameraHolder;
     public Transform ClimbLookTarget;
     public Transform hangPos;
+    [Space] [Header("Terrain")] 
+    public float moveSpeedMult = 1;
+    public float jumpHeightMult = 1;
+    public float fricitonMult = 1;
 
     [Header("Debug")]
     [SerializeField] Vector3 HorizontalVelocity;
@@ -127,6 +131,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+
         if (Input.GetKeyDown(KeyCode.M)) resetInput();
 
         if (controls.PlayerMovement.Reset.triggered)
@@ -172,11 +178,11 @@ public class PlayerMovement : MonoBehaviour
         HorizontalVelocityf = HorizontalVelocity.magnitude;
 
         //just check if we're moving at maximum speed
-        if (Mathf.Abs(HorizontalVelocityf) >= maxMoveSpeed) isAtMaxSpeed = true;
+        if (Mathf.Abs(HorizontalVelocityf) >= maxMoveSpeed * moveSpeedMult) isAtMaxSpeed = true;
         else isAtMaxSpeed = false;
 
         //check if moving at max Sprint speed
-        if (Mathf.Abs(HorizontalVelocityf) >= maxSprintSpeed) isAtMaxSprintSpeed = true;
+        if (Mathf.Abs(HorizontalVelocityf) >= maxSprintSpeed * moveSpeedMult) isAtMaxSprintSpeed = true;
         else isAtMaxSprintSpeed = false;
 
         //sliding
@@ -219,13 +225,13 @@ public class PlayerMovement : MonoBehaviour
 
             if (isOnGround)
             {
-                rb.AddForce(transform.forward * xMove * accSpeed * Time.deltaTime);
-                rb.AddForce(transform.right * zMove * accStrafe * Time.deltaTime);
+                rb.AddForce(transform.forward * xMove * accSpeed * moveSpeedMult * Time.deltaTime);
+                rb.AddForce(transform.right * zMove * accStrafe *  moveSpeedMult * Time.deltaTime);
             }
             else
             {
-                rb.AddForce(transform.forward * xMove * accSpeed * airSpeedMultiplier * Time.deltaTime);
-                rb.AddForce(transform.right * zMove * accStrafe * airSpeedMultiplier * Time.deltaTime);
+                rb.AddForce(transform.forward * xMove * accSpeed * airSpeedMultiplier * moveSpeedMult * Time.deltaTime);
+                rb.AddForce(transform.right * zMove * accStrafe * airSpeedMultiplier * moveSpeedMult * Time.deltaTime);
             }
 
         }
@@ -270,7 +276,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.drag = inAirDrag; //Make sure the drag is set consistently - if you're jumping you are by definition going to be in the air.
                 rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
 
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                rb.AddForce(Vector3.up * jumpForce * jumpHeightMult, ForceMode.Impulse);
                 InvokeRepeating("resetJump", 0, 0.02f);
             }
         }
@@ -281,7 +287,7 @@ public class PlayerMovement : MonoBehaviour
             if (controls.PlayerMovement.Jump.triggered)
             {
                 rb.velocity = new Vector3(0, 4, 0);
-                rb.AddForce(Vector3.up * wallJumpForce, ForceMode.Impulse);
+                rb.AddForce(Vector3.up * wallJumpForce * jumpHeightMult, ForceMode.Impulse);
 
                 hasJustBeenAgainstWall = true;
             }
@@ -445,26 +451,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void GetIKTarget(String type)
     {
-        /*GameObject grabPoint = null;
-        float grabDist = 100;
-        foreach (GameObject point in vault.GetComponentInParent<VaultTargetHandler>().Targets)
-        {
-            if (math.distance(gameObject.transform.position, point.transform.position) <= grabDist)
-            {
-                grabPoint = point;
-                grabDist = math.distance(gameObject.transform.position, point.transform.position);
-            }
-        }
-
-        if (grabPoint == null)
-        {
-            playerIK.ikActive = false;
-        }
-        else
-        {
-            playerIK.vaultObject = grabPoint.transform;
-        }*/
-
         switch (type)
         {
             case "vault":
@@ -554,15 +540,15 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (!isTryingToSlide && !isTryingToCrouch)//is simply on ground
         {
-            rb.drag = standardDrag;
+            rb.drag = standardDrag * fricitonMult;
         }
         else if (isSliding || isWallRunning)//is sliding or running horizontally across a wall
         {
-            rb.drag = slidingDrag;
+            rb.drag = slidingDrag * fricitonMult;
         }
         else if (isTryingToCrouch)//is crouching
         {
-            rb.drag = crouchingDrag;
+            rb.drag = crouchingDrag * fricitonMult;
         }
 
         if (!hasJustVaulted)
@@ -586,9 +572,11 @@ public class PlayerMovement : MonoBehaviour
 
     void resetJump()
     {
-        if (isOnGround && !jumpCheck) canJump = false;//if Youre on the ground but havent left the ground yet, you can't jump again.
-        if (!jumpCheck && !isOnGround) jumpCheck = true;//if you arent on ground but the bool hasnt updated, then update the bool
-        if (isOnGround && jumpCheck) canJump = true;// if youre on the ground and youve been checked to be in air, then you can jump again
+        //if (isOnGround && !jumpCheck) canJump = false;//if Youre on the ground but havent left the ground yet, you can't jump again.
+        //if (!jumpCheck && !isOnGround) jumpCheck = true;//if you arent on ground but the bool hasnt updated, then update the bool
+        //if (isOnGround && jumpCheck) canJump = true;// if youre on the ground and youve been checked to be in air, then you can jump again
+
+        canJump = isOnGround; //Not sure why we needed something so complicated, but it was causing problems so this will do.
 
         if (canJump) CancelInvoke("resetJump");//if you can jump, stop looping this function
     }

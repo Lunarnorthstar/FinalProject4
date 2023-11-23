@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 6538387291205231066}
   m_Layer: 0
   m_Name: Body
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 2936751698918892207}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -256,7 +256,7 @@ MonoBehaviour:
   - SlideLeft
   - SlideRight
   maxMoveSpeed: 8
-  accSpeed: 4000
+  accSpeed: 8000
   maxStrafeSpeed: 50
   accStrafe: 5000
   accSprint: 2
@@ -284,15 +284,19 @@ MonoBehaviour:
   cameraHolder: {fileID: 3636353023608081983}
   ClimbLookTarget: {fileID: 0}
   hangPos: {fileID: 0}
+  moveSpeedMult: 1
+  jumpHeightMult: 1
+  fricitonMult: 1
   HorizontalVelocity: {x: 0, y: 0, z: 0}
   MovementVector: {x: 0, y: 0, z: 0}
   HorizontalVelocityf: 0
   canJump: 1
   jumpCheck: 1
-  isSprinting: 0
   isAgainstLedge: 0
   isHangingOnWall: 0
   isTryingToSlide: 0
+  isTryingToWallRun: 0
+  isTryingToCrouch: 0
   isSliding: 0
   isWallRunning: 0
   hasJustWallRun: 0
@@ -314,7 +318,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMouseLocked: 0
-  isonGroundClearance: 1.1
+  isonGroundClearance: 1.05
   wallRunClearance: 0
 --- !u!114 &2594589047151099844
 MonoBehaviour:
@@ -423,6 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collected: 0
+  UIDisplay: {fileID: 0}
 --- !u!1 &8825990753119005845
 GameObject:
   m_ObjectHideFlags: 0
