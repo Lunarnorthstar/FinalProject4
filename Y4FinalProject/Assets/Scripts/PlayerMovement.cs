@@ -23,7 +23,8 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody rb;
     PlayerManager playerManager;
     IKControl playerIK;
-    private CameraMove playerCamera;
+    CameraMove playerCamera;
+    Powerups powerUps;
 
     [Header("Movement Characteristics")]
     [Tooltip("The maximum amount of forward speed the player can achieve while walking")] public float maxMoveSpeed;
@@ -65,7 +66,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform cameraHolder;
     public Transform ClimbLookTarget;
     public Transform hangPos;
-    [Space] [Header("Terrain")] 
+    [Space]
+    [Header("Terrain")]
     public float moveSpeedMult = 1;
     public float jumpHeightMult = 1;
     public float fricitonMult = 1;
@@ -117,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
         ani = GetComponent<Animator>();
         playerIK = GetComponentInChildren<IKControl>();
         playerCamera = GetComponentInChildren<CameraMove>();
+        powerUps = GetComponent<Powerups>();
 
         //enable controls
         controls = new PlayerControls();
@@ -226,7 +229,7 @@ public class PlayerMovement : MonoBehaviour
             if (isOnGround)
             {
                 rb.AddForce(transform.forward * xMove * accSpeed * moveSpeedMult * Time.deltaTime);
-                rb.AddForce(transform.right * zMove * accStrafe *  moveSpeedMult * Time.deltaTime);
+                rb.AddForce(transform.right * zMove * accStrafe * moveSpeedMult * Time.deltaTime);
             }
             else
             {
@@ -234,6 +237,12 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(transform.right * zMove * accStrafe * airSpeedMultiplier * moveSpeedMult * Time.deltaTime);
             }
 
+        }
+
+        //abilities
+        if (controls.PlayerMovement.Ability.triggered)
+        {
+            powerUps.ActivatePowerup();
         }
     }
 

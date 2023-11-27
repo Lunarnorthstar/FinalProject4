@@ -23,7 +23,7 @@ public class CameraMove : MonoBehaviour
     public Vector2 joyCamera;
 
     float CamRotY;
-    float CamRotX;
+    public float CamRotX;
 
     float sCamRotX;
     float sCamRotY;
@@ -32,6 +32,7 @@ public class CameraMove : MonoBehaviour
     public float defaultFOV;
     public float sprintFOV;
     public float fovSmooth;
+    public float defaultRot;
 
     void Start()
     {
@@ -40,19 +41,13 @@ public class CameraMove : MonoBehaviour
         //  playerMovement = transform.parent.parent.GetComponent<PlayerMovement>();
     }
 
-    // void Update()
-    // {
-    //     //the fov smoothly lerps between what is is, and a wider view based on speed
-
-    //     if (playerMovement.isSprinting)
-    //     {
-    //         mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, sprintFOV, fovSmooth * Time.deltaTime);
-    //     }
-    //     else
-    //     {
-    //         mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, defaultFOV, fovSmooth * Time.deltaTime);
-    //     }
-    // }
+    public void changeFov(float amount)
+    {
+        if (amount == 0)
+            mainCam.fieldOfView = defaultFOV;
+        else
+            mainCam.fieldOfView = defaultFOV + amount;
+    }
 
 
     void moveCam()
@@ -67,7 +62,7 @@ public class CameraMove : MonoBehaviour
         sCamRotX = Mathf.Lerp(sCamRotX, CamRotX, mouseSmooth);
         sCamRotY = Mathf.Lerp(sCamRotY, CamRotY, mouseSmooth);
 
-        Player.transform.rotation = Quaternion.Euler(0, sCamRotX, 0);
+        Player.transform.rotation = Quaternion.Euler(0, sCamRotX + defaultRot, 0);
 
         transform.localRotation = Quaternion.Euler(-sCamRotY, transform.localEulerAngles.y, 0);
     }
