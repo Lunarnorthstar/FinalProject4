@@ -21,7 +21,7 @@ public class TimerHandler : MonoBehaviour
 
     //public GameScore SOManager;
     
-    private float levelTime = 0;
+    public float levelTime = 0;
     public GameObject timerDisplay;
     public bool timerActive = true;
     public int significantDecimals = 2;
