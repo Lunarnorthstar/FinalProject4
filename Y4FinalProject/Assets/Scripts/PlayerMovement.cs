@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Burst.Intrinsics;
 using Unity.Mathematics;
 using Unity.VisualScripting;
@@ -9,6 +10,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Rendering.HighDefinition;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -66,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform cameraHolder;
     public Transform ClimbLookTarget;
     public Transform hangPos;
+
     [Space]
     [Header("Terrain")]
     public float moveSpeedMult = 1;
@@ -73,8 +76,11 @@ public class PlayerMovement : MonoBehaviour
     public float fricitonMult = 1;
 
     [Header("Debug")]
-    [SerializeField] Vector3 HorizontalVelocity;
-    [SerializeField] Vector3 MovementVector;
+    public Slider speedSlider;
+    public TextMeshProUGUI speedText;
+
+    Vector3 HorizontalVelocity;
+    Vector3 MovementVector;
     public float HorizontalVelocityf;
 
     Vector3 lastPos;
@@ -86,15 +92,14 @@ public class PlayerMovement : MonoBehaviour
     bool isAtMaxSpeed;
     bool isAtMaxSprintSpeed;
     bool isClimbing;
-    [SerializeField] bool canJump = true;
-    [SerializeField] bool jumpCheck;
+    bool canJump = true;
+    bool jumpCheck;
     bool wallRunCheck;
     bool canSideJump = true;
     bool isInVaultTrigger;
     bool hasJustBeenAgainstWall;
     bool hasJustVaulted;
 
-    //public bool isSprinting;
     public bool isAgainstLedge;
     public bool isHangingOnWall;
     public bool isTryingToSlide;
@@ -109,9 +114,11 @@ public class PlayerMovement : MonoBehaviour
     public int wallRunDir;
     public int lastRunDir;
 
+    public string wallFacingTag;
+
     void Awake()
     {
-        Application.targetFrameRate = 60;
+        //Application.targetFrameRate = 60;
 
         //assign variables
         rb = GetComponent<Rigidbody>();
@@ -134,17 +141,10 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-
         if (Input.GetKeyDown(KeyCode.M)) resetInput();
 
-        if (controls.PlayerMovement.Reset.triggered)
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
-
-        playerCamera.joyCamera = controls.PlayerMovement.Look.ReadValue<Vector2>() * JoyCamSensitivity;
-
+        //manage input and movement
+        input();
         movement();
 
         //wall detection
@@ -152,21 +152,39 @@ public class PlayerMovement : MonoBehaviour
             isOnGround = playerManager.isOnGround();
         else isOnGround = false;
 
-        isFacingWall = playerManager.isTouchingWall(transform.forward);
+        //this method returns both a bool for if it is and a string for the tag.
+        var wallInfo = playerManager.isTouchingWall(transform.forward);
+        isFacingWall = wallInfo.Item1;
+        wallFacingTag = wallInfo.Item2;
 
         //if youre touching a wall to the left then its 1, right = 2 and if not then 0
-        if (playerManager.isTouchingWall(-transform.right)) wallRunDir = 1;
-        else if (playerManager.isTouchingWall(transform.right)) wallRunDir = 2;
+        if (playerManager.isTouchingWall(-transform.right).Item1) wallRunDir = 1;
+        else if (playerManager.isTouchingWall(transform.right).Item1) wallRunDir = 2;
         else wallRunDir = 0;
-
-        //locking the mouse
-        if (Input.GetKeyDown(KeyCode.P)) playerManager.lockMouse();
     }
 
     void resetInput()
     {
         controls = new PlayerControls();
         controls.PlayerMovement.Enable();
+    }
+
+    void input()
+    {
+        //reset scene if R is pressed
+        if (controls.PlayerMovement.Reset.triggered)
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        //send input to camera
+        playerCamera.joyCamera = controls.PlayerMovement.Look.ReadValue<Vector2>() * JoyCamSensitivity;
+
+        //change ability
+        if (controls.PlayerMovement.ChangeAbility.triggered) powerUps.changePowerUp(true);
+
+        //locking the mouse
+        if (Input.GetKeyDown(KeyCode.P)) playerManager.lockMouse();
     }
     void movement()
     {
@@ -175,10 +193,12 @@ public class PlayerMovement : MonoBehaviour
         JumpAndVault();
         sliding();
 
-
         //calculate how fast we're moving along the ground
         HorizontalVelocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
         HorizontalVelocityf = HorizontalVelocity.magnitude;
+
+        speedSlider.value = HorizontalVelocityf;
+        speedText.text = HorizontalVelocityf.ToString("0");
 
         //just check if we're moving at maximum speed
         if (Mathf.Abs(HorizontalVelocityf) >= maxMoveSpeed * moveSpeedMult) isAtMaxSpeed = true;
@@ -560,11 +580,13 @@ public class PlayerMovement : MonoBehaviour
             rb.drag = crouchingDrag * fricitonMult;
         }
 
-        if (!hasJustVaulted)
+        //if is in air and not vaulting and not dashing then use this as speed limit
+
+        if (!hasJustVaulted || !powerUps.isDashing)
         {
             if (HorizontalVelocityf > maxMoveSpeed)
             {
-                Vector3 limitedVel = HorizontalVelocity.normalized * (maxMoveSpeed - 0.1f);
+                Vector3 limitedVel = HorizontalVelocity.normalized * (maxMoveSpeed);
                 rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
             }
         }

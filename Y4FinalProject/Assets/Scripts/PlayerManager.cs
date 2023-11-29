@@ -54,7 +54,7 @@ public class PlayerManager : MonoBehaviour
         }
     }
 
-    public bool isTouchingWall(Vector3 dir)
+    public (bool, string) isTouchingWall(Vector3 dir)
     {
         RaycastHit hit;
 
@@ -64,11 +64,11 @@ public class PlayerManager : MonoBehaviour
         {
             if (!hit.transform.gameObject.CompareTag("VaultTrigger"))
             {
-                return true;
+                return (true, hit.transform.gameObject.tag);
             }
             else
             {
-                return false;
+                return (false, string.Empty);
             }
         }
 
@@ -76,16 +76,16 @@ public class PlayerManager : MonoBehaviour
         {
             if (!hit.transform.gameObject.CompareTag("VaultTrigger"))
             {
-                return true;
+                return (true, hit.transform.gameObject.tag);
             }
             else
             {
-                return false;
+                return (false, string.Empty);
             }
         }
         else
         {
-            return false;
+            return (false, string.Empty);
         }
     }
 

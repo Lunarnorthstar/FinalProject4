@@ -19,7 +19,6 @@ public class CameraMove : MonoBehaviour
     Vector2 MouseLook;
     Vector2 SmoothV;
 
-
     public Vector2 joyCamera;
 
     float CamRotY;
@@ -30,13 +29,14 @@ public class CameraMove : MonoBehaviour
 
     [Header("Camera Settings")]
     public float defaultFOV;
-    public float sprintFOV;
     public float fovSmooth;
     public float defaultRot;
+    public float targetFov;
 
     void Start()
     {
         InvokeRepeating("moveCam", 0, 0.01f);
+        changeFov(0);
         // playerManager = transform.parent.parent.GetComponent<PlayerManager>();
         //  playerMovement = transform.parent.parent.GetComponent<PlayerMovement>();
     }
@@ -44,9 +44,14 @@ public class CameraMove : MonoBehaviour
     public void changeFov(float amount)
     {
         if (amount == 0)
-            mainCam.fieldOfView = defaultFOV;
+            targetFov = defaultFOV;
         else
-            mainCam.fieldOfView = defaultFOV + amount;
+            targetFov = defaultFOV + amount;
+    }
+
+    void Update()
+    {
+        mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, targetFov, fovSmooth * Time.deltaTime);
     }
 
 
