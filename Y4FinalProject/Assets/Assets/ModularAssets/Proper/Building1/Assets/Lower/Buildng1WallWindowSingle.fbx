@@ -8,11 +8,11 @@ FBXHeaderExtension:  {
 		Version: 1000
 		Year: 2023
 		Month: 11
-		Day: 24
-		Hour: 13
-		Minute: 18
-		Second: 40
-		Millisecond: 279
+		Day: 30
+		Hour: 11
+		Minute: 31
+		Second: 27
+		Millisecond: 476
 	}
 	Creator: "FBX SDK/FBX Plugins version 2020.3.1"
 }
@@ -110,8 +110,8 @@ Objects:  {
 			Property: "ScalingMaxX", "bool", "",0
 			Property: "ScalingMaxY", "bool", "",0
 			Property: "ScalingMaxZ", "bool", "",0
-			Property: "GeometricTranslation", "Vector3D", "",-4.23192977905273e-06,3.57627777702874e-06,-2.6702880859375e-05
-			Property: "GeometricRotation", "Vector3D", "",0,0,0
+			Property: "GeometricTranslation", "Vector3D", "",0,0,0
+			Property: "GeometricRotation", "Vector3D", "",-90,-0,0
 			Property: "GeometricScaling", "Vector3D", "",1,1,1
 			Property: "MinDampRangeX", "double", "",0
 			Property: "MinDampRangeY", "double", "",0
@@ -135,8 +135,8 @@ Objects:  {
 			Property: "DefaultAttributeIndex", "int", "",0
 			Property: "Freeze", "bool", "",0
 			Property: "LODBox", "bool", "",0
-			Property: "Lcl Translation", "Lcl Translation", "A",8.07813549041748,3.10270476341248,23.7957744598389
-			Property: "Lcl Rotation", "Lcl Rotation", "A",90.0000025044781,-0,90.0000025044781
+			Property: "Lcl Translation", "Lcl Translation", "A",8.10932445526123,3.10270476341248,23.7957744598389
+			Property: "Lcl Rotation", "Lcl Rotation", "A",90.0000025044781,-0,0
 			Property: "Lcl Scaling", "Lcl Scaling", "A",1,1,1
 			Property: "Visibility", "Visibility", "A",1
 			Property: "MaxHandle", "int", "UH",229
@@ -151,15 +151,15 @@ Objects:  {
 		MultiTake: 0
 		Shading: T
 		Culling: "CullingOff"
-		Vertices: -0.356674611568451,3.03837871551514,-1.83540403842926,-0.356675028800964,3.03837871551514,1.83545804023743,2.81338157037681e-06
-        ,3.03837871551514,1.83545804023743,3.23627318721265e-06,3.03837871551514,-1.83540403842926,3.23627364196e-06,-3.03838610649109
-        ,-1.83540427684784,-0.356674611568451,-3.03838610649109,-1.83540427684784,-0.356674700975418,-2.22167778015137,-1.22422909736633
-        ,-0.356674700975418,2.49678325653076,-1.22422969341278,-0.35667496919632,2.49678373336792,1.30182015895844,-0.35667496919632
-        ,-2.22167754173279,1.30182075500488,-0.356675028800964,-3.03838610649109,1.83545780181885,2.81338157037681e-06,-3.03838610649109
-        ,1.83545780181885,0.356680661439896,3.03837871551514,1.83545804023743,0.356681078672409,3.03837871551514,-1.83540403842926
-        ,0.356681078672409,-3.03838610649109,-1.83540427684784,0.356680661439896,-3.03838610649109,1.83545780181885,0.356680989265442
-        ,-2.22167778015137,-1.22422909736633,0.35668072104454,-2.22167754173279,1.30182075500488,0.35668072104454,2.49678373336792
-        ,1.30182015895844,0.356680989265442,2.49678325653076,-1.22422969341278
+		Vertices: -1.83543062210083,-0.356678932905197,3.03838229179382,1.83543145656586,-0.356679171323776,3.03838229179382,1.83543145656586
+        ,-1.33831917992211e-06,3.03838229179382,-1.83543062210083,-1.07588607534126e-06,3.03838229179382,-1.83543109893799
+        ,-1.07588562059391e-06,-3.0383825302124,-1.83543109893799,-0.356678932905197,-3.0383825302124,-1.22425591945648,-0.356678992509842
+        ,-2.22167420387268,-1.22425627708435,-0.356678992509842,2.49678683280945,1.30179357528687,-0.356679141521454,2.49678730964661
+        ,1.30179393291473,-0.356679141521454,-2.2216739654541,1.8354309797287,-0.356679171323776,-3.0383825302124,1.8354309797287
+        ,-1.33831917992211e-06,-3.0383825302124,1.83543145656586,0.356676518917084,3.03838229179382,-1.83543062210083,0.356676757335663
+        ,3.03838229179382,-1.83543109893799,0.356676757335663,-3.0383825302124,1.8354309797287,0.356676518917084,-3.0383825302124
+        ,-1.22425591945648,0.356676697731018,-2.22167420387268,1.30179393291473,0.356676548719406,-2.2216739654541,1.30179357528687
+        ,0.356676548719406,2.49678730964661,-1.22425627708435,0.356676697731018,2.49678683280945
 		PolygonVertexIndex: 1,2,-4,3,0,-2,3,4,-6,5,0,-4,0,5,-7,0,6,-8,1,0,-8,1,7,-9,9,6,-6,9,5,-11,8,9,-11,1,8,-11,1,10,-12,11,2,-2,12,13,-4,3
         ,2,-13,13,14,-5,4,3,-14,4,11,-11,10,5,-5,2,11,-16,15,12,-3,15,14,-17,15,16,-18,12,15,-18,12,17,-19,13,12,-19,13,18
         ,-20,13,19,-17,13,16,-15,14,15,-12,11,4,-15,9,17,-17,16,6,-10,19,7,-7,6,16,-20,8,18,-18,17,9,-9,7,19,-19,18,8,-8
@@ -171,41 +171,42 @@ Objects:  {
 			Name: ""
 			MappingInformationType: "ByPolygonVertex"
 			ReferenceInformationType: "Direct"
-			Normals: 0,1,0,0,1,0,0,1,0,0,1,0,0,0.999999940395355,0,0,1,0,0,3.92344574606796e-08,-0.999999940395355,0,3.92344574606796e-08
-             ,-1,0,3.92344610133932e-08,-1,0,3.92344610133932e-08,-1,0,3.92344574606796e-08,-1,0,3.92344574606796e-08,-0.999999940395355
-             ,-1,1.69960152618387e-08,-1.3122605935223e-07,-1,-1.30798483155559e-08,-1.23796965567635e-07,-1,-1.40956046834617e-08
-             ,-1.27451130538248e-07,-1,1.69960152618387e-08,-1.3122605935223e-07,-1,-1.40956046834617e-08,-1.27451130538248e-07
-             ,-1,1.73092882249648e-08,-1.29278490135221e-07,-1,1.97068650287235e-09,-1.09746594034732e-07,-1,1.69960152618387e-08
-             ,-1.3122605935223e-07,-1,1.73092882249648e-08,-1.29278490135221e-07,-1,1.97068650287235e-09,-1.09746594034732e-07
-             ,-1,1.73092882249648e-08,-1.29278490135221e-07,-1,-2.70746336461514e-09,-1.08947098453882e-07,-1,-2.13840611884564e-09
-             ,-1.12187507284034e-07,-1,-1.40956046834617e-08,-1.27451130538248e-07,-1,-1.30798483155559e-08,-1.23796965567635e-07
-             ,-1,-2.13840611884564e-09,-1.12187507284034e-07,-1,-1.30798483155559e-08,-1.23796965567635e-07,-1,-8.11099354347533e-10
-             ,-1.12936426432952e-07,-1,-2.70746336461514e-09,-1.08947098453882e-07,-1,-2.13840611884564e-09,-1.12187507284034e-07
-             ,-1,-8.11099354347533e-10,-1.12936426432952e-07,-1,1.97068650287235e-09,-1.09746594034732e-07,-1,-2.70746336461514e-09
-             ,-1.08947098453882e-07,-1,-8.11099354347533e-10,-1.12936426432952e-07,0,-3.92344610133932e-08,1,0,-3.92344574606796e-08
-             ,1,0,-3.92344574606796e-08,0.999999940395355,0,-3.92344574606796e-08,0.999999940395355,0,-3.92344574606796e-08
-             ,0.999999940395355,0,-3.92344610133932e-08,1,0,0.999999940395355,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0.999999940395355
-             ,0,0,3.92344610133932e-08,-1,0,3.92344574606796e-08,-1,0,3.92344574606796e-08,-1,0,3.92344574606796e-08,-1,0
-             ,3.92344574606796e-08,-0.999999940395355,0,3.92344610133932e-08,-1,0,-1,0,0,-1,0,0,-1,0,0,-1,0,0,-0.999999940395355
-             ,0,0,-1,0,0,-3.92344574606796e-08,0.999999940395355,0,-3.92344574606796e-08,0.999999940395355,0,-3.92344610133932e-08
-             ,1,0,-3.92344610133932e-08,1,0,-3.92344574606796e-08,1,0,-3.92344574606796e-08,0.999999940395355,1,2.37757658005933e-09
-             ,1.09455172037087e-07,1,1.44298883952843e-08,1.27004440741985e-07,1,9.91622162160866e-09,1.30549651089495e-07
-             ,1,2.37757658005933e-09,1.09455172037087e-07,1,9.91622162160866e-09,1.30549651089495e-07,1,-1.64319136075619e-09
-             ,1.09180270158049e-07,1,-9.77528946677353e-10,1.1268705435441e-07,1,2.37757658005933e-09,1.09455172037087e-07
-             ,1,-1.64319136075619e-09,1.09180270158049e-07,1,-9.77528946677353e-10,1.1268705435441e-07,1,-1.64319136075619e-09
-             ,1.09180270158049e-07,1,-2.53690357610026e-09,1.1240339148344e-07,1,-1.61772479856381e-08,1.28587643644096e-07
-             ,1,-9.77528946677353e-10,1.1268705435441e-07,1,-2.53690357610026e-09,1.1240339148344e-07,1,-1.61772479856381e-08
-             ,1.28587643644096e-07,1,-2.53690357610026e-09,1.1240339148344e-07,1,-2.32077432826827e-08,1.25721513200006e-07
-             ,1,-1.61772479856381e-08,1.28587643644096e-07,1,-2.32077432826827e-08,1.25721513200006e-07,1,9.91622162160866e-09
-             ,1.30549651089495e-07,1,-1.61772479856381e-08,1.28587643644096e-07,1,9.91622162160866e-09,1.30549651089495e-07
-             ,1,1.44298883952843e-08,1.27004440741985e-07,0,-1,0,0,-0.999999940395355,0,0,-1,0,0,-1,0,0,-1,0,0,-1,0,0,1,-9.43839708611449e-08
-             ,0,0.999999940395355,-9.43839566502902e-08,0,1,-9.43839708611449e-08,0,1,-9.43839708611449e-08,0,0.999999940395355
-             ,-9.43839566502902e-08,0,1,-9.43839708611449e-08,0,1.26322206028817e-07,0.999999940395355,0,1.26322206028817e-07
-             ,1,0,1.26322206028817e-07,0.999999940395355,0,1.26322206028817e-07,0.999999940395355,0,1.26322206028817e-07,1
-             ,0,1.26322206028817e-07,0.999999940395355,0,-1.26322206028817e-07,-0.999999940395355,0,-1.26322206028817e-07
-             ,-1,0,-1.26322206028817e-07,-0.999999940395355,0,-1.26322206028817e-07,-0.999999940395355,0,-1.26322206028817e-07
-             ,-1,0,-1.26322206028817e-07,-0.999999940395355,0,-1,1.8876794172229e-07,0,-1,1.8876794172229e-07,0,-1,1.8876794172229e-07
-             ,0,-1,1.8876794172229e-07,0,-1,1.8876794172229e-07,0,-1,1.8876794172229e-07
+			Normals: 0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,-0.999999940395355,0,7.84689149213591e-08,-1,0,7.84689149213591e-08,-1,0
+             ,7.84689220267865e-08,-1,0,7.84689220267865e-08,-1,0,7.84689149213591e-08,-0.999999940395355,0,7.84689149213591e-08
+             ,-8.24870554083645e-08,-1,1.69696079410642e-08,-7.57163505227254e-08,-0.999999940395355,-1.33317934469801e-08
+             ,-7.94263499415138e-08,-1,-1.35436781789622e-08,-8.24870554083645e-08,-1,1.69696079410642e-08,-7.94263499415138e-08
+             ,-1,-1.35436781789622e-08,-8.05985891361161e-08,-1,1.75991434758771e-08,-5.80981449616047e-08,-1,5.3174500358466e-09
+             ,-8.24870554083645e-08,-1,1.69696079410642e-08,-8.05985891361161e-08,-1,1.75991434758771e-08,-5.80981449616047e-08
+             ,-1,5.3174500358466e-09,-8.05985891361161e-08,-1,1.75991434758771e-08,-5.74137821729437e-08,-1,1.54329793389252e-09
+             ,-5.96771059235834e-08,-1,-3.94972987649567e-09,-7.94263499415138e-08,-1,-1.35436781789622e-08,-7.57163505227254e-08
+             ,-0.999999940395355,-1.33317934469801e-08,-5.96771059235834e-08,-1,-3.94972987649567e-09,-7.57163505227254e-08
+             ,-0.999999940395355,-1.33317934469801e-08,-6.15955215721442e-08,-1,-3.75572373201294e-09,-5.74137821729437e-08
+             ,-1,1.54329793389252e-09,-5.96771059235834e-08,-1,-3.94972987649567e-09,-6.15955215721442e-08,-1,-3.75572373201294e-09
+             ,-5.80981449616047e-08,-1,5.3174500358466e-09,-5.74137821729437e-08,-1,1.54329793389252e-09,-6.15955215721442e-08
+             ,-1,-3.75572373201294e-09,1,0,-7.84689220267865e-08,1,0,-7.84689149213591e-08,0.999999940395355,0,-7.84689149213591e-08
+             ,0.999999940395355,0,-7.84689149213591e-08,0.999999940395355,0,-7.84689149213591e-08,1,0,-7.84689220267865e-08
+             ,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,0,0,1,-1,0,7.84689220267865e-08,-1,0,7.84689149213591e-08,-1,0,7.84689149213591e-08
+             ,-1,0,7.84689149213591e-08,-0.999999940395355,0,7.84689149213591e-08,-1,0,7.84689220267865e-08,0,0,-1,0,0,-1
+             ,0,0,-1,0,0,-1,0,0,-1,0,0,-1,0.999999940395355,0,-7.84689149213591e-08,0.999999940395355,0,-7.84689149213591e-08
+             ,1,0,-7.84689220267865e-08,1,0,-7.84689220267865e-08,1,0,-7.84689149213591e-08,0.999999940395355,0,-7.84689149213591e-08
+             ,5.88216799712882e-08,1,5.00388841473409e-09,7.82720377401347e-08,1,1.44075000818589e-08,8.18952159420405e-08
+             ,1,1.02135748747401e-08,5.88216799712882e-08,1,5.00388841473409e-09,8.18952159420405e-08,1,1.02135748747401e-08
+             ,5.72809710774891e-08,1,9.36586919131344e-10,6.04410885785001e-08,1,-4.5261239201011e-09,5.88216799712882e-08
+             ,1,5.00388841473409e-09,5.72809710774891e-08,1,9.36586919131344e-10,6.04410885785001e-08,1,-4.5261239201011e-09
+             ,5.72809710774891e-08,1,9.36586919131344e-10,6.01677356826258e-08,1,-5.72198288750769e-09,8.03848010377806e-08
+             ,1,-1.63172177991555e-08,6.04410885785001e-08,1,-4.5261239201011e-09,6.01677356826258e-08,1,-5.72198288750769e-09
+             ,8.03848010377806e-08,1,-1.63172177991555e-08,6.01677356826258e-08,1,-5.72198288750769e-09,7.77644189042803e-08
+             ,1,-2.22989768872139e-08,8.03848010377806e-08,1,-1.63172177991555e-08,7.77644189042803e-08,1,-2.22989768872139e-08
+             ,8.18952159420405e-08,1,1.02135748747401e-08,8.03848010377806e-08,1,-1.63172177991555e-08,8.18952159420405e-08
+             ,1,1.02135748747401e-08,7.82720377401347e-08,1,1.44075000818589e-08,0,0,-1,0,0,-1,0,0,-1,0,0,-1,0,0,-1,0,0,-1
+             ,-9.43839708611449e-08,0,1,-9.43839566502902e-08,0,1,-9.43839708611449e-08,0,1,-9.43839708611449e-08,0,1,-9.43839566502902e-08
+             ,0,1,-9.43839708611449e-08,0,1,0.999999940395355,0,7.57933307227177e-08,1,0,7.57933307227177e-08,0.999999940395355
+             ,0,7.57933307227177e-08,0.999999940395355,0,7.57933307227177e-08,1,0,7.57933307227177e-08,0.999999940395355,0
+             ,7.57933307227177e-08,-0.999999940395355,0,-7.57933307227177e-08,-1,0,-7.57933307227177e-08,-0.999999940395355
+             ,0,-7.57933307227177e-08,-0.999999940395355,0,-7.57933307227177e-08,-1,0,-7.57933307227177e-08,-0.999999940395355
+             ,0,-7.57933307227177e-08,1.8876794172229e-07,0,-0.999999940395355,1.8876794172229e-07,0,-1,1.8876794172229e-07
+             ,0,-0.999999940395355,1.8876794172229e-07,0,-0.999999940395355,1.8876794172229e-07,0,-1,1.8876794172229e-07,0
+             ,-0.999999940395355
 		}
 		LayerElementColor: 0 {
 			Version: 101
@@ -251,12 +252,12 @@ Objects:  {
              ,24,22,24,23,28,29,19,19,18,28,31,32,33,33,30,31,35,36,37,37,34,35,39,40,41,41,38,39,43,44,45,45,42,43
 		}
 		LayerElementSmoothing: 0 {
-			Version: 102
+			Version: 101
 			Name: ""
-			MappingInformationType: "ByPolygon"
+			MappingInformationType: "ByEdge"
 			ReferenceInformationType: "Direct"
-			Smoothing: 2,2,8,8,64,64,64,64,64,64,64,64,32,32,2,2,8,8,4,4,32,32,16,16,16,16,16,16,16,16,4,4,1,1,2048,2048,512,512,128
-             ,128
+			Smoothing: 0,1,1,0,0,1,0,1,0,1,1,0,1,1,0,1,0,1,0,1,0,1,0,0,1,1,0,0,1,0,0,0,1,1,1,0,1,0,0,1,1,0,1,1,0,1,1,0,1,0,1,1,0,1,0
+             ,0,1,0,1,1
 		}
 		LayerElementVisibility: 0 {
 			Version: 101
@@ -336,20 +337,20 @@ Objects:  {
 			Property: "Original|ApplicationVendor", "KString", "", "Autodesk"
 			Property: "Original|ApplicationName", "KString", "", "3ds Max"
 			Property: "Original|ApplicationVersion", "KString", "", "2023"
-			Property: "Original|DateTime_GMT", "DateTime", "", "24/11/2023 13:18:40.278"
+			Property: "Original|DateTime_GMT", "DateTime", "", "30/11/2023 11:31:27.476"
 			Property: "Original|FileName", "KString", "", "C:\Users\ciara\OneDrive\Documents\3ds Max 2023\export\Building1Lower\NEW\Buildng1WallWindowSingle.fbx"
              
 			Property: "LastSaved", "Compound", ""
 			Property: "LastSaved|ApplicationVendor", "KString", "", "Autodesk"
 			Property: "LastSaved|ApplicationName", "KString", "", "3ds Max"
 			Property: "LastSaved|ApplicationVersion", "KString", "", "2023"
-			Property: "LastSaved|DateTime_GMT", "DateTime", "", "24/11/2023 13:18:40.278"
+			Property: "LastSaved|DateTime_GMT", "DateTime", "", "30/11/2023 11:31:27.476"
 			Property: "Original|ApplicationActiveProject", "KString", "", "C:\Users\ciara\OneDrive\Documents\3ds Max 2023"
 			Property: "Original|ApplicationNativeFile", "KString", "", "C:\Users\ciara\OneDrive\Documents\3ds Max 2023\scenes\BuildingReal1\BuildingReal1.1.max"
              
 		}
 	}
-	Material: "Material::Door", "" {
+	Material: "Material::01 - Default", "" {
 		Version: 102
 		ShadingModel: "unknown"
 		MultiLayer: 0
@@ -364,13 +365,11 @@ Objects:  {
 			Property: "TransparencyFactor", "double", "",0
 			Property: "EmissiveColor", "ColorRGB", "",0,0,0
 			Property: "EmissiveFactor", "double", "",0
-			Property: "3dsMax", "Compound", ""
 			Property: "3dsMax|ClassIDa", "int", "",1030429932
 			Property: "3dsMax|ClassIDb", "int", "",-559038463
 			Property: "3dsMax|SuperClassID", "int", "",3072
-			Property: "3dsMax|Parameters", "Compound", ""
 			Property: "3dsMax|ORIGINAL_MTL", "KString", "", "PHYSICAL_MTL"
-			Property: "3dsMax|Parameters|material_mode", "Integer", "A",0
+			Property: "3dsMax|Parameters|material_mode", "Integer", "A",2
 			Property: "3dsMax|Parameters|base_weight", "Float", "A",1
 			Property: "3dsMax|Parameters|base_color", "ColorAndAlpha", "A",0.5,0.5,0.5,1
 			Property: "3dsMax|Parameters|reflectivity", "Float", "A",1
@@ -485,11 +484,13 @@ Objects:  {
 			Property: "3dsMax|Parameters|displacement_map_amt", "Float", "A",1
 		}
 	}
-	Video: "Video::Map #8", "Clip" {
+	Video: "Video::Map #6", "Clip" {
 		Type: "Clip"
 		Properties60:  {
-			Property: "Path", "KString", "", "C:\Users\ciara\Downloads\frontend-large.jpg"
-			Property: "RelPath", "KString", "", "..\..\..\..\..\..\Downloads\frontend-large.jpg"
+			Property: "Path", "KString", "", "C:\Users\ciara\Downloads\brick-wall-seamless-pattern-background-texture-of-red-orange-cartoon-brick-wall-vector-pattern-illustration-square-old-seamless-brick-texture-background-400-202650319.jpg"
+             
+			Property: "RelPath", "KString", "", "..\..\..\..\..\..\Downloads\brick-wall-seamless-pattern-background-texture-of-red-orange-cartoon-brick-wall-vector-pattern-illustration-square-old-seamless-brick-texture-background-400-202650319.jpg"
+             
 			Property: "Color", "ColorRGB", "",0.8,0.8,0.8
 			Property: "ClipIn", "KTime", "",0
 			Property: "ClipOut", "KTime", "",0
@@ -510,13 +511,15 @@ Objects:  {
 			Property: "InterlaceMode", "enum", "",0
 		}
 		UseMipMap: 0
-		Filename: "C:\Users\ciara\Downloads\frontend-large.jpg"
-		RelativeFilename: "..\..\..\..\..\..\Downloads\frontend-large.jpg"
+		Filename: "C:\Users\ciara\Downloads\brick-wall-seamless-pattern-background-texture-of-red-orange-cartoon-brick-wall-vector-pattern-illustration-square-old-seamless-brick-texture-background-400-202650319.jpg"
+        
+		RelativeFilename: "..\..\..\..\..\..\Downloads\brick-wall-seamless-pattern-background-texture-of-red-orange-cartoon-brick-wall-vector-pattern-illustration-square-old-seamless-brick-texture-background-400-202650319.jpg"
+        
 	}
-	Texture: "Texture::Map #8", "" {
+	Texture: "Texture::Map #6", "" {
 		Type: "TextureVideoClip"
 		Version: 202
-		TextureName: "Texture::Map #8"
+		TextureName: "Texture::Map #6"
 		Properties60:  {
 			Property: "TextureTypeUse", "enum", "",0
 			Property: "Texture alpha", "Number", "A",1
@@ -535,15 +538,17 @@ Objects:  {
 			Property: "UseMaterial", "bool", "",1
 			Property: "UseMipMap", "bool", "",0
 		}
-		Media: "Video::Map #8"
-		FileName: "C:\Users\ciara\Downloads\frontend-large.jpg"
-		RelativeFilename: "..\..\..\..\..\..\Downloads\frontend-large.jpg"
+		Media: "Video::Map #6"
+		FileName: "C:\Users\ciara\Downloads\brick-wall-seamless-pattern-background-texture-of-red-orange-cartoon-brick-wall-vector-pattern-illustration-square-old-seamless-brick-texture-background-400-202650319.jpg"
+        
+		RelativeFilename: "..\..\..\..\..\..\Downloads\brick-wall-seamless-pattern-background-texture-of-red-orange-cartoon-brick-wall-vector-pattern-illustration-square-old-seamless-brick-texture-background-400-202650319.jpg"
+        
 		ModelUVTranslation: 0,0
 		ModelUVScaling: 1,1
 		Texture_Alpha_Source: "None"
 		Cropping: 0,0,0,0
 	}
-	Implementation: "Implementation::Door_Implementation", "" {
+	Implementation: "Implementation::01 - Default_Implementation", "" {
 		Version: 100
 		Properties60:  {
 			Property: "ShaderLanguage", "KString", "", "StandardSSL"
@@ -551,10 +556,9 @@ Objects:  {
 			Property: "RenderAPI", "KString", "", "OSL"
 			Property: "RenderAPIVersion", "KString", "", ""
 			Property: "RootBindingName", "KString", "", "root"
-			Property: "Constants", "Compound", ""
 		}
 	}
-	BindingTable: "BindingTable::root 11", "" {
+	BindingTable: "BindingTable::root 4", "" {
 		Version: 100
 		Properties60:  {
 			Property: "TargetName", "KString", "", "root"
@@ -695,7 +699,7 @@ Objects:  {
 			Property: "UnitScaleFactor", "double", "",100
 			Property: "OriginalUnitScaleFactor", "double", "",100.00000066
 			Property: "AmbientColor", "ColorRGB", "",0,0,0
-			Property: "DefaultCamera", "KString", "", "Producer Perspective"
+			Property: "DefaultCamera", "KString", "", "Producer Front"
 			Property: "TimeMode", "enum", "",6
 			Property: "TimeProtocol", "enum", "",2
 			Property: "SnapOnFrameMode", "enum", "",0
@@ -711,12 +715,12 @@ Objects:  {
 
 Connections:  {
 	Connect: "OO", "Model::Wall013", "Model::Scene"
-	Connect: "OO", "Material::Door", "Model::Wall013"
-	Connect: "OO", "Texture::Map #8", "Model::Wall013"
-	Connect: "OP", "Texture::Map #8", "Material::Door", "3dsMax|Parameters|base_color_map"
-	Connect: "OO", "Video::Map #8", "Texture::Map #8"
-	Connect: "OO", "Material::Door", "Implementation::Door_Implementation"
-	Connect: "OO", "BindingTable::root 11", "Implementation::Door_Implementation"
+	Connect: "OO", "Material::01 - Default", "Model::Wall013"
+	Connect: "OO", "Texture::Map #6", "Model::Wall013"
+	Connect: "OP", "Texture::Map #6", "Material::01 - Default", "3dsMax|Parameters|base_color_map"
+	Connect: "OO", "Video::Map #6", "Texture::Map #6"
+	Connect: "OO", "Material::01 - Default", "Implementation::01 - Default_Implementation"
+	Connect: "OO", "BindingTable::root 4", "Implementation::01 - Default_Implementation"
 }
 ;Version 5 settings
 ;------------------------------------------------------------------
@@ -743,7 +747,7 @@ Version5:  {
 		TimeLineStopTime: 141120000
 	}
 	RendererSetting:  {
-		DefaultCamera: "Producer Perspective"
+		DefaultCamera: "Producer Front"
 		DefaultViewingMode: 0
 	}
 }
