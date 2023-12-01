@@ -79,8 +79,7 @@ public class PlayerMovement : MonoBehaviour
     public Slider speedSlider;
     public TextMeshProUGUI speedText;
 
-    Vector3 HorizontalVelocity;
-    Vector3 MovementVector;
+    public Vector3 HorizontalVelocity;
     public float HorizontalVelocityf;
 
     Vector3 lastPos;
@@ -134,8 +133,6 @@ public class PlayerMovement : MonoBehaviour
 
         canSideJump = true;
         canJump = true;
-
-        InvokeRepeating("calculateMovementVector", 0, 0.02f);
     }
 
     // Update is called once per frame
@@ -630,13 +627,5 @@ public class PlayerMovement : MonoBehaviour
     {
         isClimbing = false;
         ani.ResetTrigger("Pull Up");
-    }
-
-    //generates a vector that faces the direction the player is moving
-    //is reversed to slow them down
-    void calculateMovementVector()
-    {
-        MovementVector = transform.position - lastPos;
-        lastPos = transform.position;
     }
 }
