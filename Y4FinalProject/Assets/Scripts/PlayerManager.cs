@@ -35,7 +35,7 @@ public class PlayerManager : MonoBehaviour
     {
         RaycastHit hit;
 
-        Debug.DrawRay(transform.position, Vector3.down, Color.red, isonGroundClearance);
+        // Debug.DrawRay(transform.position, Vector3.down, Color.red, isonGroundClearance);
 
         if (Physics.Raycast(transform.position, Vector3.down, out hit, isonGroundClearance))
         {
@@ -58,7 +58,7 @@ public class PlayerManager : MonoBehaviour
     {
         RaycastHit hit;
 
-        Debug.DrawRay(transform.position, dir, Color.red, wallRunClearance);
+        //Debug.DrawRay(transform.position, dir, Color.red, wallRunClearance);
 
         if (Physics.Raycast(transform.position - new Vector3(0, 0.8f, 0), dir, out hit, wallRunClearance))
         {

@@ -91,13 +91,14 @@ public class PlayerMovement : MonoBehaviour
     bool isAtMaxSpeed;
     bool isAtMaxSprintSpeed;
     bool isClimbing;
-    bool canJump = true;
+    [SerializeField] bool canJump = true;
     bool jumpCheck;
     bool wallRunCheck;
     bool canSideJump = true;
     bool isInVaultTrigger;
     bool hasJustBeenAgainstWall;
     bool hasJustVaulted;
+    bool hasResetWallRun;
 
     public bool isAgainstLedge;
     public bool isHangingOnWall;
@@ -112,6 +113,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isFacingWall;
     public int wallRunDir;
     public int lastRunDir;
+    public bool isGliding;
 
     public string wallFacingTag;
 
@@ -242,7 +244,6 @@ public class PlayerMovement : MonoBehaviour
         //ismoving
         if (movInput != Vector2.zero)
         {
-
             if (isOnGround)
             {
                 rb.AddForce(transform.forward * xMove * accSpeed * moveSpeedMult * Time.deltaTime);
@@ -253,7 +254,9 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(transform.forward * xMove * accSpeed * airSpeedMultiplier * moveSpeedMult * Time.deltaTime);
                 rb.AddForce(transform.right * zMove * accStrafe * airSpeedMultiplier * moveSpeedMult * Time.deltaTime);
             }
-
+        }
+        else
+        {
         }
 
         //abilities
@@ -300,7 +303,7 @@ public class PlayerMovement : MonoBehaviour
                 canJump = false;
                 jumpCheck = false;
                 rb.drag = inAirDrag; //Make sure the drag is set consistently - if you're jumping you are by definition going to be in the air.
-                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
+                rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);//
 
                 rb.AddForce(Vector3.up * jumpForce * jumpHeightMult, ForceMode.Impulse);
                 InvokeRepeating("resetJump", 0, 0.02f);
@@ -413,7 +416,12 @@ public class PlayerMovement : MonoBehaviour
             isWallRunning = false;
         }
 
-        if (!isWallRunning && !hasJustWallRun) InvokeRepeating("resetWallRun", 0, 0.02f);
+        // if (!isWallRunning && !hasJustWallRun && !hasResetWallRun)
+        // {
+        //     hasResetWallRun = false;
+        //     InvokeRepeating("resetWallRun", 0, 0.02f);
+
+        // }
 
         if (isWallRunning)
         {
@@ -579,11 +587,13 @@ public class PlayerMovement : MonoBehaviour
 
         //if is in air and not vaulting and not dashing then use this as speed limit
 
-        if (!hasJustVaulted || !powerUps.isDashing)
+        if (!hasJustVaulted || !powerUps.isDashing || !isGliding)
         {
+
+            if (isGliding) return;
             if (HorizontalVelocityf > maxMoveSpeed)
             {
-                Vector3 limitedVel = HorizontalVelocity.normalized * (maxMoveSpeed);
+                Vector3 limitedVel = HorizontalVelocity.normalized * (maxMoveSpeed - 0.1f);
                 rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
             }
         }
@@ -591,11 +601,18 @@ public class PlayerMovement : MonoBehaviour
 
     void resetWallRun()
     {
-        if (wallRunDir != 0 && !wallRunCheck) hasJustWallRun = true;
-        if (wallRunDir == 0 && !wallRunCheck) wallRunCheck = true;
+        Debug.Log("Oiewjrebdhv");
+        if (wallRunDir != 0 && !wallRunCheck) hasJustWallRun = true;//currently wallrunnin
+        if (wallRunDir == 0 && !wallRunCheck) wallRunCheck = true;//was but now isnt
         if (wallRunDir != 0 && wallRunCheck) hasJustWallRun = false;
 
-        if (hasJustWallRun) CancelInvoke("resetWallRun");
+        if (hasJustWallRun)
+        {
+            CancelInvoke("resetWallRun");
+
+            hasResetWallRun = true;
+        }
+
     }
 
     void resetJump()

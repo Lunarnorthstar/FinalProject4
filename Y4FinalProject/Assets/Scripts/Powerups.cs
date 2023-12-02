@@ -31,6 +31,7 @@ public class Powerups : MonoBehaviour
     public Color DoneColour;
 
     bool canPowerUp = true;
+    bool isInAbility;
 
     [Header("Blip Settings")]
     [Tooltip("how long the blip will be")] public float maxBlipTime;
@@ -47,10 +48,14 @@ public class Powerups : MonoBehaviour
     public float dashFovChange;
     int currentDashIndex;
 
+    [Header("Glider")]
+    Glider glider;
+
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        glider = GetComponent<Glider>();
 
         changePowerUp(true);
         changePowerUp(true);
@@ -58,7 +63,7 @@ public class Powerups : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (timerSlider.value < timerSlider.maxValue)
+        if (timerSlider.value < timerSlider.maxValue && !isInAbility)
         {
             timerSlider.value++;
             canPowerUp = false;
@@ -91,9 +96,23 @@ public class Powerups : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (glider.isEnabled)
+        {
+            if (playerMovement.isOnGround)
+            {
+                glider.isEnabled = false;
+                isInAbility = false;
+            }
+        }
+    }
+
     public void ActivatePowerup()
     {
         if (!canPowerUp) return;
+
+        isInAbility = true;
 
         switch (currentPowerUp)
         {
@@ -118,6 +137,16 @@ public class Powerups : MonoBehaviour
                 isDashing = true;
 
                 InvokeRepeating("dash", 0, 0.01f);
+
+                break;
+
+            case 3://glider
+                if (!playerMovement.isOnGround)
+                {
+                    glider.isEnabled = true;
+                    timerSlider.value = 0;
+                }
+
                 break;
         }
     }
@@ -139,6 +168,12 @@ public class Powerups : MonoBehaviour
             case 2://dash
                 currentPowerUpText.text = "Dash";
                 break;
+            case 3://glider
+                currentPowerUpText.text = "Glider";
+                break;
+            default:
+                currentPowerUpText.text = "Add me to Code";
+                break;
         }
 
         currentPowerUpText.GetComponent<Animator>().Play("Change State");
@@ -154,6 +189,8 @@ public class Powerups : MonoBehaviour
             CancelInvoke("blip");
 
             cam.changeFov(0);
+
+            isInAbility = false;
 
             return;
         }
@@ -171,6 +208,8 @@ public class Powerups : MonoBehaviour
             cam.changeFov(0);
 
             isDashing = false;
+
+            isInAbility = false;
 
             return;
         }
