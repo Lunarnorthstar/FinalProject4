@@ -10632,7 +10632,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1727309486}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -10857,8 +10857,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1789389889}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -7.14}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -7.1399994}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11963,12 +11963,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repeatsDelay: 1
-  stopAfter: 1
   delay: 10
-  goTo:
-  - {fileID: 1789389890}
-  - {fileID: 1727309487}
-  movespeed: 3
+  waypoints:
+  - location: {fileID: 1789389890}
+    rotation: {x: 0, y: 0, z: 0}
+    toggleActive: []
+    stopHere: 1
+  - location: {fileID: 1727309487}
+    rotation: {x: 0, y: 90, z: 0}
+    toggleActive: []
+    stopHere: 0
+  moveSpeed: 1
 --- !u!65 &2066564831
 BoxCollider:
   m_ObjectHideFlags: 0
