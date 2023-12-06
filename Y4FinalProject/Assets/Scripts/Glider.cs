@@ -11,19 +11,20 @@ public class Glider : MonoBehaviour
     [Space]
     public Transform cam;
     PlayerMovement playerMovement;
+    Powerups powerups;
     Rigidbody rb;
 
     [Space]
-
-
     [Header("Glider CHaracteristics")]
     public float liftCoE;
     public float forwardForce;
+    public float time;
 
     [Space]
     public AnimationCurve liftCurve;
     public AnimationCurve AoTCurve;
     public AnimationCurve SpeedCurve;
+    public AnimationCurve dragOverTime;
     public Vector3 lookVector;
     public Vector3 travelVector;
 
@@ -39,6 +40,7 @@ public class Glider : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         playerMovement = GetComponent<PlayerMovement>();
+        powerups = GetComponent<Powerups>();
     }
 
     // Update is called once per frame
@@ -50,7 +52,10 @@ public class Glider : MonoBehaviour
 
             horVel = playerMovement.HorizontalVelocityf;
             totalVel = rb.velocity.magnitude;
-            totalLift = liftCurve.Evaluate(totalVel) * liftCoE * AoTCurve.Evaluate(angleOfAttack);
+
+            totalLift = liftCurve.Evaluate(totalVel) * SpeedCurve.Evaluate(cam.transform.localRotation.eulerAngles.x) *
+             liftCoE * AoTCurve.Evaluate(angleOfAttack);
+
             //the total lift is affected by
             //1 speed, 2, angle of attack, and 3, lift multiplier (lift CoE)
             //the AOT curve will muliply lift depnding on how far up or down the camera is pointed, pushing u up or down
@@ -59,12 +64,20 @@ public class Glider : MonoBehaviour
 
             lookVector = cam.transform.localRotation.eulerAngles;
 
-            totalForwardsForce = SpeedCurve.Evaluate(cam.transform.localRotation.eulerAngles.x) * forwardForce;
+            totalForwardsForce = SpeedCurve.Evaluate(cam.transform.localRotation.eulerAngles.x) * forwardForce * dragOverTime.Evaluate(time);
             //the forwards force will reduce when you climb (high AOT) and increase when you dive (low AOT)
+
+            if (!powerups.isCountingDown)
+            {
+                isEnabled = false;
+            }
+
+            time++;
         }
         else
         {
             playerMovement.isGliding = false;
+            time = 0;
         }
     }
 

@@ -19,19 +19,23 @@ public class Powerups : MonoBehaviour
     public int currentPowerUp;
     public int maxPowerUps;
     public float powerUpReloadTime;
+    public string[] powerUpList;
 
     [Space]
     public TextMeshProUGUI currentPowerUpText;
     public Slider timerSlider;
+    public Slider countDownSlider;
 
     public Image sliderImage;
     public Image indicatorImage;
+    public Image countDownImage;
 
     public Color notDoneColour;
     public Color DoneColour;
 
     bool canPowerUp = true;
     bool isInAbility;
+    public bool isCountingDown;
 
     [Header("Blip Settings")]
     [Tooltip("how long the blip will be")] public float maxBlipTime;
@@ -50,8 +54,15 @@ public class Powerups : MonoBehaviour
 
     [Header("Glider")]
     Glider glider;
+    public float gliderDuration;
 
+    [Header("Shield")]
+    public bool isShielded;
+    public GameObject shield;
+    public float shieldDuration;
 
+    //to enable a power up, it must be added to the "activatePowerup" method.
+    //then it must evanually be canceled somehow, if by timer then add the "toggleCountdown" method
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -63,6 +74,21 @@ public class Powerups : MonoBehaviour
 
     void FixedUpdate()
     {
+        //if the powerup you have is below 10% duration, it will play animation and go red
+        if (countDownSlider.normalizedValue < 0.3f)
+        {
+            if (isCountingDown)
+            {
+                countDownSlider.GetComponent<Animator>().SetBool("low", true);
+                countDownImage.color = notDoneColour;
+            }
+        }
+        else
+        {
+            countDownImage.color = DoneColour;
+        }
+
+        //if not in an ability and the timer isnt already at max, add to it. otherwise go green.
         if (timerSlider.value < timerSlider.maxValue && !isInAbility)
         {
             timerSlider.value++;
@@ -96,6 +122,39 @@ public class Powerups : MonoBehaviour
         }
     }
 
+    void toggleCountdown(float countDownDuration)
+    {
+        if (!isCountingDown)
+        {
+            countDownSlider.GetComponent<Animator>().Play("Powerup Count Down");
+            isCountingDown = true;
+
+            countDownSlider.maxValue = countDownDuration;
+            countDownSlider.value = countDownDuration;
+
+            InvokeRepeating("advanceCountdown", 0, 0.1f);
+
+            countDownSlider.GetComponent<Animator>().SetBool("low", false);
+        }
+        else
+        {
+            countDownSlider.value = 0;
+            countDownSlider.GetComponent<Animator>().Play("Powerup Count Down 0");
+            isCountingDown = false;
+        }
+    }
+
+    void advanceCountdown()
+    {
+        if (countDownSlider.value > 0)
+            countDownSlider.value--;
+        else
+        {
+            CancelInvoke("advanceCountdown");
+            toggleCountdown(0);
+        }
+    }
+
     void Update()
     {
         if (glider.isEnabled)
@@ -105,6 +164,11 @@ public class Powerups : MonoBehaviour
                 glider.isEnabled = false;
                 isInAbility = false;
             }
+        }
+        if (isShielded && !isCountingDown)//timer has run out
+        {
+            isShielded = false;
+            shield.SetActive(false);
         }
     }
 
@@ -143,9 +207,15 @@ public class Powerups : MonoBehaviour
             case 3://glider
                 if (!playerMovement.isOnGround)
                 {
+                    toggleCountdown(gliderDuration);
                     glider.isEnabled = true;
                     timerSlider.value = 0;
                 }
+                break;
+            case 4: //shield
+                toggleCountdown(shieldDuration);
+                shield.SetActive(true);
+                isShielded = true;
 
                 break;
         }
@@ -153,30 +223,18 @@ public class Powerups : MonoBehaviour
 
     public void changePowerUp(bool up)
     {
-        if (currentPowerUp == maxPowerUps) currentPowerUp = 1;
-        else
+        if (!isInAbility)
         {
-            if (up) currentPowerUp++;
-            else currentPowerUp--;
-        }
+            if (currentPowerUp == maxPowerUps) currentPowerUp = 1;
+            else
+            {
+                if (up) currentPowerUp++;
+                else currentPowerUp--;
+            }
+            currentPowerUpText.text = powerUpList[currentPowerUp - 1];
 
-        switch (currentPowerUp)
-        {
-            case 1://blip
-                currentPowerUpText.text = "Blip";
-                break;
-            case 2://dash
-                currentPowerUpText.text = "Dash";
-                break;
-            case 3://glider
-                currentPowerUpText.text = "Glider";
-                break;
-            default:
-                currentPowerUpText.text = "Add me to Code";
-                break;
+            currentPowerUpText.GetComponent<Animator>().Play("Change State");
         }
-
-        currentPowerUpText.GetComponent<Animator>().Play("Change State");
     }
 
     //this function is called 100times a second (every 0.01sec)
