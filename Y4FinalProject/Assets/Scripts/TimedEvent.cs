@@ -7,7 +7,7 @@ using UnityEngine;
 public struct waypoint
 {
     public Transform location;
-    [Tooltip("CURRENTLY NON-FUNCTIONAL")] public Vector3 rotation;
+    public bool playsAnimation;
     [Tooltip("Objects that are off to turn on, and objects that are on to turn off (post move)")] public GameObject[] toggleActive;
     [Tooltip("Whether the object should stop moving here or continue iterating through the waypoints")] public bool stopHere;
 }
@@ -54,6 +54,17 @@ public class TimedEvent : MonoBehaviour
 
     public void RunBehavior()
     {
+        if (waypoints[goingTo].playsAnimation && !gameObject.GetComponent<Animation>().isPlaying)
+        {
+            gameObject.GetComponent<Animation>().Play();
+        }
+        else if (!waypoints[goingTo].playsAnimation)
+        {
+            gameObject.GetComponent<Animation>().Stop();
+        }
+        
+        
+        
         float travelDistance = math.distance(transform.position, waypoints[goingTo].location.position);
         Vector3 moveIn = waypoints[goingTo].location.position - transform.position; //Get the distance between you and the destination
         moveIn.Normalize(); //Turn it into the direction by normalizing it

@@ -8,10 +8,17 @@ public class MasterDebug : MonoBehaviour
     public bool RunHeightCheck = true;
     private float startY = 0;
     public float maxY = 0;
+    public bool resetLeaderboardTimeOnStart;
     
     // Start is called before the first frame update
     void Start()
     {
+        if (resetLeaderboardTimeOnStart)
+        {
+            gameObject.SendMessage("ResetGameStatus");
+        }
+        
+        
         startY = gameObject.transform.position.y;
     }
 

@@ -4446,6 +4446,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1394294485877672237, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      propertyPath: resetLeaderboardTimeOnStart
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1425419083924610195, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: m_Material
       value: 
@@ -10608,6 +10612,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RunHeightCheck: 1
   maxY: 0
+  resetLeaderboardTimeOnStart: 0
 --- !u!1 &1727309486
 GameObject:
   m_ObjectHideFlags: 0
@@ -11943,6 +11948,7 @@ GameObject:
   - component: {fileID: 2066564832}
   - component: {fileID: 2066564831}
   - component: {fileID: 2066564830}
+  - component: {fileID: 2066564835}
   m_Layer: 0
   m_Name: Timed Test Object
   m_TagString: Untagged
@@ -11966,11 +11972,11 @@ MonoBehaviour:
   delay: 10
   waypoints:
   - location: {fileID: 1789389890}
-    rotation: {x: 0, y: 0, z: 0}
+    playsAnimation: 0
     toggleActive: []
     stopHere: 1
   - location: {fileID: 1727309487}
-    rotation: {x: 0, y: 90, z: 0}
+    playsAnimation: 1
     toggleActive: []
     stopHere: 0
   moveSpeed: 1
@@ -12059,7 +12065,23 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 97341826}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -155.52002, z: 0}
+--- !u!111 &2066564835
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2066564829}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 127b5c2e08660ef42ac7d59601216797, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 127b5c2e08660ef42ac7d59601216797, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &2081839695
 GameObject:
   m_ObjectHideFlags: 0
