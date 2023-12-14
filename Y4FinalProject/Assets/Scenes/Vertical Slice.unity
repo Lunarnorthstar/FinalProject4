@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6638.3135, g: 5076.1997, b: 3480.77, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -334,6 +334,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building1Window (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -578,6 +582,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building1Window (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -698,6 +706,10 @@ PrefabInstance:
       propertyPath: UIDisplay
       value: 
       objectReference: {fileID: 1592830263}
+    - target: {fileID: 3263703780445796182, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      propertyPath: forwardForce
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 4706490676563740343, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: m_Name
       value: Player
@@ -723,9 +735,13 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6670662751945534072, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      propertyPath: maxDashTime
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670662751945534072, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: sliderImage
       value: 
-      objectReference: {fileID: 1798073935}
+      objectReference: {fileID: 726942245}
     - target: {fileID: 6670662751945534072, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: timerSlider
       value: 
@@ -735,9 +751,13 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1232960}
     - target: {fileID: 6670662751945534072, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      propertyPath: gliderDuration
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670662751945534072, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: indicatorImage
       value: 
-      objectReference: {fileID: 317814823}
+      objectReference: {fileID: 2120713589}
     - target: {fileID: 6670662751945534072, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: countDownSlider
       value: 
@@ -748,15 +768,23 @@ PrefabInstance:
       objectReference: {fileID: 867420873}
     - target: {fileID: 6670662751945534072, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: powerUpList.Array.size
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6670662751945534072, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: powerUpList.Array.data[0]
-      value: 
+      value: Blip
       objectReference: {fileID: 0}
     - target: {fileID: 6670662751945534072, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: powerUpList.Array.data[1]
-      value: 
+      value: Dash
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670662751945534072, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      propertyPath: powerUpList.Array.data[2]
+      value: Gider
+      objectReference: {fileID: 0}
+    - target: {fileID: 6670662751945534072, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      propertyPath: powerUpList.Array.data[3]
+      value: Shield
       objectReference: {fileID: 0}
     - target: {fileID: 6859293792050001075, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1009,6 +1037,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building1Window (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1076,6 +1108,10 @@ PrefabInstance:
     - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
       propertyPath: m_Name
       value: Building1Window (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1741,17 +1777,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 37c39fb97e257054ab93e674d3142a35, type: 3}
---- !u!114 &317814823 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3491008129702819981, guid: 00c55ef519019434d87bf54728021438, type: 3}
-  m_PrefabInstance: {fileID: 726942244}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &318591898
 GameObject:
   m_ObjectHideFlags: 0
@@ -2492,6 +2517,10 @@ PrefabInstance:
     - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
       propertyPath: m_Name
       value: Building1Window (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3511,6 +3540,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building1Window (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3760,6 +3793,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building1Window (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3894,6 +3931,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00c55ef519019434d87bf54728021438, type: 3}
+--- !u!114 &726942245 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8508140424113795847, guid: 00c55ef519019434d87bf54728021438, type: 3}
+  m_PrefabInstance: {fileID: 726942244}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &731102517
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4052,6 +4100,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building1Window (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4124,6 +4176,10 @@ PrefabInstance:
     - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
       propertyPath: m_Name
       value: Building1Window (16)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4755,6 +4811,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building1Window (23)
       objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4785,7 +4845,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7352270448905634160, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -138.7
+      value: -139.08
       objectReference: {fileID: 0}
     - target: {fileID: 7352270448905634160, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4822,6 +4882,10 @@ PrefabInstance:
     - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
       propertyPath: m_Name
       value: Building1Window (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5041,6 +5105,10 @@ PrefabInstance:
     - target: {fileID: 9039284467390505860, guid: bcf26bcca5798324dbf6bbdbeb441a06, type: 3}
       propertyPath: m_Name
       value: Building1HalfWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 9039284467390505860, guid: bcf26bcca5798324dbf6bbdbeb441a06, type: 3}
+      propertyPath: m_TagString
+      value: blip
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6558,6 +6626,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building1Window (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7767,6 +7839,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building1HalfWall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 9039284467390505860, guid: bcf26bcca5798324dbf6bbdbeb441a06, type: 3}
+      propertyPath: m_TagString
+      value: blip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7865,6 +7941,10 @@ PrefabInstance:
     - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
       propertyPath: m_Name
       value: Building1Window (24)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8409,6 +8489,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building1Window (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8481,6 +8565,10 @@ PrefabInstance:
     - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
       propertyPath: m_Name
       value: Building1Window
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9444,6 +9532,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building1Window (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10273,6 +10365,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building1Window (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10346,6 +10442,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building1Window (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10385,17 +10485,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.718372, y: 3.104455, z: 0.87238187}
   m_Center: {x: 0, y: 0.00000756979, z: -0.00000041723263}
---- !u!114 &1798073935 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8088402434157504745, guid: 00c55ef519019434d87bf54728021438, type: 3}
-  m_PrefabInstance: {fileID: 726942244}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1801667136 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2559407603842242097, guid: 952cf7491aa500346a18f50165bcaa16, type: 3}
@@ -10630,6 +10719,10 @@ PrefabInstance:
     - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
       propertyPath: m_Name
       value: Building1Window (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11008,6 +11101,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building1Window (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11225,6 +11322,10 @@ PrefabInstance:
     - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
       propertyPath: m_Name
       value: Building1Window (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11881,6 +11982,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building1Window (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11953,6 +12058,10 @@ PrefabInstance:
     - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
       propertyPath: m_Name
       value: Building1Window (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7873228556559391690, guid: 1bbbb118036d0a048bad94606937f676, type: 3}
+      propertyPath: m_TagString
+      value: blip
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12510,6 +12619,17 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.6708632, y: 6.076766, z: 0.71335614}
   m_Center: {x: 0, y: 0.00000011920929, z: -0.00000010430813}
+--- !u!114 &2120713589 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5773295863145339731, guid: 00c55ef519019434d87bf54728021438, type: 3}
+  m_PrefabInstance: {fileID: 726942244}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2139351739 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1783624079494027086, guid: 7c7fa2ca76b137440b6616bb3480e213, type: 3}
