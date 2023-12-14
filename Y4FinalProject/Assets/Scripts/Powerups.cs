@@ -272,7 +272,7 @@ public class Powerups : MonoBehaviour
             return;
         }
 
-        rb.AddForce(transform.forward * dashForce, ForceMode.Force);
+        rb.velocity = gameObject.GetComponentInChildren<Camera>().transform.forward * dashForce;
         currentDashIndex++;
     }
 }

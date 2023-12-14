@@ -19,6 +19,8 @@ public class TimedEvent : MonoBehaviour
 
     [Tooltip("Whether the object activates once every set period (True) or acts continuously once the time is reached (False)")] 
     public bool repeatsDelay = false;
+    public bool onceOnly = true;
+    private bool wentOnce = false;
     [Tooltip("How long between/until activation")] public float delay;
     private bool active = false;
 
@@ -46,7 +48,7 @@ public class TimedEvent : MonoBehaviour
             active = true;
         }
         
-        if (active)
+        if ((active && !onceOnly) || (active && !wentOnce))
         {
             RunBehavior();
         }
@@ -54,14 +56,20 @@ public class TimedEvent : MonoBehaviour
 
     public void RunBehavior()
     {
-        if (waypoints[goingTo].playsAnimation && !gameObject.GetComponent<Animation>().isPlaying)
+        if (gameObject.GetComponent<Animation>() != null)
         {
-            gameObject.GetComponent<Animation>().Play();
+            if (waypoints[goingTo].playsAnimation && !gameObject.GetComponent<Animation>().isPlaying)
+            {
+                gameObject.GetComponent<Animation>().Play();
+            }
+            else if (!waypoints[goingTo].playsAnimation || !active)
+            {
+                gameObject.GetComponent<Animation>().Stop();
+            }
         }
-        else if (!waypoints[goingTo].playsAnimation)
-        {
-            gameObject.GetComponent<Animation>().Stop();
-        }
+        
+        
+        
         
         
         
@@ -86,12 +94,12 @@ public class TimedEvent : MonoBehaviour
             if (waypoints[goingTo].stopHere) //If you're told to stop, stop.
             {
                 active = false;
+                wentOnce = true;
             }
             goingTo++; //Switch to the next target.
-            if (goingTo >= waypoints.Length && active) //If there is no next target and you haven't already stopped...
+            if (goingTo >= waypoints.Length - 1) //If there is no next target and you haven't already stopped...
             {
                 goingTo = 0; //Go back to the first one.
-                active = !repeatsDelay; //If you need to wait again, stop being active.
             }
             
         }
