@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 6346565200077273636}
   - component: {fileID: 8051412461577385345}
   - component: {fileID: 5213105341795516747}
+  - component: {fileID: 2661346389838717678}
   m_Layer: 0
   m_Name: Building1UpperWindowSilll
   m_TagString: Untagged
@@ -191,6 +192,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2661346389838717678
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6005646585726656670}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2239972958216944008, guid: 961d3e7903161cf47a6365d705abeedf, type: 3}
 --- !u!1 &6511864892009961602
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +225,7 @@ GameObject:
   - component: {fileID: 5842604896505233976}
   - component: {fileID: 7402441864519355805}
   - component: {fileID: 4710262656227408215}
+  - component: {fileID: 5164686611330441912}
   m_Layer: 0
   m_Name: Building1Window (2)
   m_TagString: Untagged
@@ -274,6 +298,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5164686611330441912
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6511864892009961602}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5646758126827862573, guid: 2cd5f0e06738c1447917fb311432fa1f, type: 3}
 --- !u!1 &8771102459030160693
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,7 +347,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8771102459030160693}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.000000021855694, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3.672005, y: 8.720001, z: 0.40664673}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
