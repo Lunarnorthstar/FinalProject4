@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Glider : MonoBehaviour
 {
@@ -15,10 +17,14 @@ public class Glider : MonoBehaviour
     Rigidbody rb;
 
     [Space]
-    [Header("Glider CHaracteristics")]
+    [Header("Glider Characteristics")]
     public float liftCoE;
     public float forwardForce;
-    public float time;
+    private float time;
+    public float glideDuration = 8;
+    public float glideCooldown = 4;
+    private bool isCoolingDown = false;
+    private float cooldownTimer = 0;
 
     [Space]
     public AnimationCurve liftCurve;
@@ -66,18 +72,48 @@ public class Glider : MonoBehaviour
 
             totalForwardsForce = SpeedCurve.Evaluate(cam.transform.localRotation.eulerAngles.x) * forwardForce * dragOverTime.Evaluate(time);
             //the forwards force will reduce when you climb (high AOT) and increase when you dive (low AOT)
+            
+            time += Time.deltaTime;
 
-            if (!powerups.isCountingDown)
+            if (time >= glideDuration)
             {
                 isEnabled = false;
+                isCoolingDown = true;
             }
-
-            time++;
         }
         else
         {
             playerMovement.isGliding = false;
             time = 0;
+        }
+
+        if (isCoolingDown)
+        {
+            cooldownTimer += Time.deltaTime;
+            if (cooldownTimer >= glideCooldown)
+            {
+                cooldownTimer = 0;
+                isCoolingDown = false;
+            }
+        }
+        
+        UpdateUI();
+    }
+    
+    public TextMeshProUGUI countdown;
+    public Slider slider;
+    public void UpdateUI()
+    {
+        if (isCoolingDown && !isEnabled)
+        {
+            countdown.text = cooldownTimer.ToString();
+            slider.value = cooldownTimer / glideCooldown;
+        }
+
+        if (isEnabled)
+        {
+            countdown.text = time.ToString();
+            slider.value = time / glideCooldown;
         }
     }
 
@@ -91,6 +127,14 @@ public class Glider : MonoBehaviour
 
             rb.AddForce(transform.forward * totalForwardsForce);
             rb.AddForce(Vector3.up * totalLift);
+        }
+    }
+
+    public void Activate()
+    {
+        if (!isCoolingDown)
+        {
+            isEnabled = true;
         }
     }
 }

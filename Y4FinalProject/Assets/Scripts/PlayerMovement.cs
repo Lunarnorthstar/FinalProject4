@@ -180,7 +180,7 @@ public class PlayerMovement : MonoBehaviour
         playerCamera.joyCamera = controls.PlayerMovement.Look.ReadValue<Vector2>() * JoyCamSensitivity;
 
         //change ability
-        if (controls.PlayerMovement.ChangeAbility.triggered) powerUps.changePowerUp(true);
+        if (controls.PlayerMovement.ChangeAbility.triggered) powerUps.SwitchPowerup();
 
         //locking the mouse
         if (Input.GetKeyDown(KeyCode.P)) playerManager.lockMouse();
@@ -587,7 +587,7 @@ public class PlayerMovement : MonoBehaviour
 
         //if is in air and not vaulting and not dashing then use this as speed limit
 
-        if (!hasJustVaulted || !powerUps.isDashing || !isGliding)
+        if (!hasJustVaulted || /*!powerUps.isDashing ||*/ !isGliding)
         {
 
             if (isGliding) return;

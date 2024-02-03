@@ -11,268 +11,60 @@ using UnityEngine.UI;
 
 public class Powerups : MonoBehaviour
 {
-    public CameraMove cam;
-    public PlayerMovement playerMovement;
-    Rigidbody rb;
+    //Following the changes, this script now only handles whether a powerup is equipped or not, and handles the UI. Individual powerups have been moved to their own scripts for readability's sake.
+    
+    public Dash dash;
+    public Glider glider;
+    public Blink blink;
+    public GameObject blinkShadow;
+    public GameObject camera;
+    public Shield shield;
+    [Space] 
+    public List<string> equippedPowerups;
 
-    [Space]
-    public int currentPowerUp;
-    public int maxPowerUps;
-    public float powerUpReloadTime;
-    public string[] powerUpList;
+    private int slotSelected = 0;
 
-    [Space]
-    public TextMeshProUGUI currentPowerUpText;
-    public Slider timerSlider;
-    public Slider countDownSlider;
-
-    public Image sliderImage;
-    public Image indicatorImage;
-    public Image countDownImage;
-
-    public Color notDoneColour;
-    public Color DoneColour;
-
-    bool canPowerUp = true;
-    bool isInAbility;
-    public bool isCountingDown;
-
-    [Header("Blip Settings")]
-    [Tooltip("how long the blip will be")] public float maxBlipTime;
-    [Tooltip("how fast you will blip")] public float blipForce;
-    [Tooltip("the fov thats added when blipping")] public float blipFovAdd;
-    [Tooltip("the tag the object must have to blip through it")] public string blipTag;
-    bool canBlip;
-    int currentBlipIndex;
-
-    [Header("Dash Settings")]
-    public bool isDashing;
-    public float maxDashTime;
-    public float dashForce;
-    public float dashFovChange;
-    int currentDashIndex;
-
-    [Header("Glider")]
-    Glider glider;
-    public float gliderDuration;
-
-    [Header("Shield")]
-    public bool isShielded;
-    public GameObject shield;
-    public float shieldDuration;
-
-    //to enable a power up, it must be added to the "activatePowerup" method.
-    //then it must evanually be canceled somehow, if by timer then add the "toggleCountdown" method
-    void Start()
+    private void Update()
     {
-        rb = GetComponent<Rigidbody>();
-        glider = GetComponent<Glider>();
-
-        changePowerUp(true);
-        changePowerUp(true);
-    }
-
-    void FixedUpdate()
-    {
-        //if the powerup you have is below 10% duration, it will play animation and go red
-        if (countDownSlider.normalizedValue < 0.3f)
+        if (equippedPowerups[slotSelected] == "blink")
         {
-            if (isCountingDown)
-            {
-                countDownSlider.GetComponent<Animator>().SetBool("low", true);
-                countDownImage.color = notDoneColour;
-            }
+            blinkShadow.SetActive(true);
+            blinkShadow.transform.position =
+                gameObject.transform.position + (blink.blinkDistance * camera.transform.forward);
         }
         else
         {
-            countDownImage.color = DoneColour;
+            blinkShadow.SetActive(false);
         }
-
-        //if not in an ability and the timer isnt already at max, add to it. otherwise go green.
-        if (timerSlider.value < timerSlider.maxValue && !isInAbility)
-        {
-            timerSlider.value++;
-            canPowerUp = false;
-            sliderImage.color = notDoneColour;
-        }
-        else
-        {
-            canPowerUp = true;
-            sliderImage.color = DoneColour;
-        }
-        timerSlider.maxValue = powerUpReloadTime;
-
-        //change indicator colour
-        if (currentPowerUp == 1)
-        {
-            if (playerMovement.wallFacingTag == blipTag)
-            {
-                canBlip = true;
-                indicatorImage.color = DoneColour;
-            }
-            else
-            {
-                canBlip = false;
-                indicatorImage.color = notDoneColour;
-            }
-        }
-        else//blip is the only one that has conditions
-        {
-            indicatorImage.color = DoneColour;
-        }
+        
+        updateUI();
     }
 
-    void toggleCountdown(float countDownDuration)
+
+    public TextMeshProUGUI powerupText;
+    public void updateUI()
     {
-        if (!isCountingDown)
-        {
-            countDownSlider.GetComponent<Animator>().Play("Powerup Count Down");
-            isCountingDown = true;
-
-            countDownSlider.maxValue = countDownDuration;
-            countDownSlider.value = countDownDuration;
-
-            InvokeRepeating("advanceCountdown", 0, 0.1f);
-
-            countDownSlider.GetComponent<Animator>().SetBool("low", false);
-        }
-        else
-        {
-            countDownSlider.value = 0;
-            countDownSlider.GetComponent<Animator>().Play("Powerup Count Down 0");
-            isCountingDown = false;
-        }
+        powerupText.text = equippedPowerups[slotSelected];
     }
 
-    void advanceCountdown()
+    public void SwitchPowerup()
     {
-        if (countDownSlider.value > 0)
-            countDownSlider.value--;
-        else
+        slotSelected++;
+        if (slotSelected > equippedPowerups.Count - 1)
         {
-            CancelInvoke("advanceCountdown");
-            toggleCountdown(0);
-        }
-    }
-
-    void Update()
-    {
-        if (glider.isEnabled)
-        {
-            if (playerMovement.isOnGround)
-            {
-                glider.isEnabled = false;
-                isInAbility = false;
-            }
-        }
-        if (isShielded && !isCountingDown)//timer has run out
-        {
-            isShielded = false;
-            shield.SetActive(false);
+            slotSelected = 0;
         }
     }
 
     public void ActivatePowerup()
     {
-        if (!canPowerUp) return;
-
-        isInAbility = true;
-
-        switch (currentPowerUp)
+        switch (equippedPowerups[slotSelected])
         {
-            case 1://blip
-                if (canBlip)
-                {
-                    currentBlipIndex = 0;
-                    cam.changeFov(blipFovAdd);
-
-                    timerSlider.value = 0;
-
-                    InvokeRepeating("blip", 0, 0.01f);
-                }
-                break;
-
-            case 2://dash
-                timerSlider.value = 0;
-
-                currentDashIndex = 0;
-                cam.changeFov(dashFovChange);
-
-                isDashing = true;
-
-                InvokeRepeating("dash", 0, 0.01f);
-
-                break;
-
-            case 3://glider
-                if (!playerMovement.isOnGround)
-                {
-                    toggleCountdown(gliderDuration);
-                    glider.isEnabled = true;
-                    timerSlider.value = 0;
-                }
-                break;
-            case 4: //shield
-                toggleCountdown(shieldDuration);
-                shield.SetActive(true);
-                isShielded = true;
-
-                break;
+            case "dash": dash.Activate(); break;
+            case "glider": glider.Activate(); break;
+            case "blink": if(blinkShadow.GetComponent<Valid>().validPosition)  blink.Activate(); break;
+            case "shield": shield.Activate(); break;
+            default: break;
         }
-    }
-
-    public void changePowerUp(bool up)
-    {
-        if (!isInAbility)
-        {
-            if (currentPowerUp == maxPowerUps) currentPowerUp = 1;
-            else
-            {
-                if (up) currentPowerUp++;
-                else currentPowerUp--;
-            }
-            currentPowerUpText.text = powerUpList[currentPowerUp - 1];
-
-            currentPowerUpText.GetComponent<Animator>().Play("Change State");
-        }
-    }
-
-    //this function is called 100times a second (every 0.01sec)
-    //every time its called the "current blip index" goes up. once reaching the maxBliptime x 100 it will stop.
-    //while its called it will translate you forward based on the blip force
-    public void blip()
-    {
-        if (currentBlipIndex > (maxBlipTime * 100))//100 because this function is called 100 times a sec
-        {
-            CancelInvoke("blip");
-
-            cam.changeFov(0);
-
-            isInAbility = false;
-
-            return;
-        }
-
-        transform.Translate(0, 0, blipForce);
-        currentBlipIndex++;
-    }
-
-    public void dash()
-    {
-        if (currentDashIndex > (maxDashTime * 100))//100 because this function is called 100 times a sec
-        {
-            CancelInvoke("dash");
-
-            cam.changeFov(0);
-
-            isDashing = false;
-
-            isInAbility = false;
-
-            return;
-        }
-
-        rb.velocity = gameObject.GetComponentInChildren<Camera>().transform.forward * dashForce;
-        currentDashIndex++;
     }
 }
