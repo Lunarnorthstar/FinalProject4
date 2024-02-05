@@ -426,7 +426,6 @@ GameObject:
   - component: {fileID: 1821299892066166978}
   - component: {fileID: 4986535402992014780}
   - component: {fileID: 2917278174082418578}
-  - component: {fileID: 2594589047151099844}
   - component: {fileID: 2709394782556014409}
   - component: {fileID: 7508105324778979008}
   - component: {fileID: 285764467542367482}
@@ -550,24 +549,6 @@ MonoBehaviour:
   isMouseLocked: 0
   isonGroundClearance: 1.05
   wallRunClearance: 1.5
---- !u!114 &2594589047151099844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4706490676563740343}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da76f9fd363be8b4c9cca82c25b36992, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelTime: 0
-  timerDisplay: {fileID: 0}
-  timerActive: 1
-  significantDecimals: 2
-  leaderboard: {fileID: 0}
-  timerSpeedMultx60: 0
 --- !u!54 &2709394782556014409
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -689,15 +670,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dash: {fileID: 8301325791648496693}
   glider: {fileID: 3263703780445796182}
-  blink: {fileID: 0}
-  blinkShadow: {fileID: 0}
+  blink: {fileID: 6194658183589978215}
+  blinkShadow: {fileID: 7413682697146969665}
   camera: {fileID: 863396635161255571}
-  shield: {fileID: 0}
-  equippedPowerups:
-  - dash
-  - glider
-  - blink
-  - shield
+  shield: {fileID: 5467557053804853745}
+  powerupEquipReadout: {fileID: 0}
+  maxPowerups: 2
+  equippedPowerups: []
   powerupText: {fileID: 0}
 --- !u!114 &8301325791648496693
 MonoBehaviour:

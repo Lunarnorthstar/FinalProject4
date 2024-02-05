@@ -83,7 +83,7 @@ public class Dash : MonoBehaviour
         if (dashing)
         {
             countdown.text = durationTimer.ToString();
-            slider.value = durationTimer / dashDuration;
+            slider.value =  1 - durationTimer / dashDuration;
         }
     }
 

@@ -23,7 +23,7 @@ public class TimerHandler : MonoBehaviour
     
     public float levelTime = 0;
     public GameObject timerDisplay;
-    public bool timerActive = true;
+    public bool timerActive = false;
     public int significantDecimals = 2;
     
     string filePath;
@@ -157,7 +157,6 @@ public class TimerHandler : MonoBehaviour
             //SOManager.highScore = bestTime;
         }
     }
-    //////////////////////////////////////////////////////////
     
     public void UpdateUI()
     {
@@ -213,6 +212,9 @@ public class TimerHandler : MonoBehaviour
         lastTime = dataScore.previousSave;
         
     }
-    
-    
+
+    private void OnTriggerExit(Collider other)
+    {
+        timerActive = true;
+    }
 }

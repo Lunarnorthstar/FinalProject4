@@ -63,7 +63,7 @@ public class Shield : MonoBehaviour
         if (active)
         {
             countdown.text = shieldTimer.ToString();
-            slider.value = shieldTimer / shieldDuration;
+            slider.value = 1 - shieldTimer / shieldDuration;
         }
     }
 

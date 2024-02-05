@@ -131,11 +131,17 @@ public class PlayerMovement : MonoBehaviour
 
         //enable controls
         controls = new PlayerControls();
-        controls.PlayerMovement.Enable();
+        
 
         canSideJump = true;
         canJump = true;
     }
+
+    public void GoNow()
+    {
+        controls.PlayerMovement.Enable();
+    }
+    
 
     // Update is called once per frame
     void Update()

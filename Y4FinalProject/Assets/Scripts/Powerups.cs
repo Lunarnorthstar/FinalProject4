@@ -19,7 +19,14 @@ public class Powerups : MonoBehaviour
     public GameObject blinkShadow;
     public GameObject camera;
     public Shield shield;
-    [Space] 
+
+    [Space]
+    //public Button dashButton;
+    //public Button glideButton;
+    //public Button blinkButton;
+    //public Button shieldButton;
+    public TextMeshProUGUI powerupEquipReadout;
+    public int maxPowerups = 2;
     public List<string> equippedPowerups;
 
     private int slotSelected = 0;
@@ -66,5 +73,28 @@ public class Powerups : MonoBehaviour
             case "shield": shield.Activate(); break;
             default: break;
         }
+    }
+
+    public void EquipPowerup(string powerup)
+    {
+        if (equippedPowerups.Contains(powerup)) //If it's already equipped
+        {
+            equippedPowerups.Remove(powerup);
+        }
+        else
+        {
+            if (equippedPowerups.Count + 1 <= maxPowerups)
+            {
+                equippedPowerups.Add(powerup);
+            }
+        }
+
+        powerupEquipReadout.text = "";
+
+        foreach (var VARIABLE in equippedPowerups)
+        {
+            powerupEquipReadout.text += VARIABLE + " ";
+        }
+       
     }
 }
