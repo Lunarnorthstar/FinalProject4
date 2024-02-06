@@ -483,8 +483,8 @@ MonoBehaviour:
   - Slide Enter
   - SlideLeft
   - SlideRight
-  maxMoveSpeed: 14
-  accSpeed: 8500
+  maxMoveSpeed: 12
+  accSpeed: 8000
   maxStrafeSpeed: 50
   accStrafe: 5000
   accSprint: 2
@@ -693,9 +693,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ab2e0d7fe36a443a7eb56bdd41119e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashForce: 200
+  dashForce: 100
   maxDashSpeed: 200
-  dashDuration: 1
+  dashDuration: 0.75
   verticalLaunchScalar: 3
   dashCooldown: 2
   player: {fileID: 4706490676563740343}
@@ -715,7 +715,7 @@ MonoBehaviour:
   isEnabled: 0
   cam: {fileID: 3636353023608081983}
   liftCoE: 20
-  forwardForce: 40
+  forwardForce: 35
   glideDuration: 4
   glideCooldown: 4
   liftCurve:
@@ -905,8 +905,6 @@ MonoBehaviour:
   timerDisplay: {fileID: 0}
   timerActive: 0
   significantDecimals: 2
-  leaderboard: {fileID: 0}
-  hundredpercentLeaderboard: {fileID: 0}
   handler: {fileID: 2936751698918892207}
   timerSpeedMultx60: 0
 --- !u!1 &7413682697146969665
