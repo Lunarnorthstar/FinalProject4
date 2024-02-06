@@ -35,8 +35,8 @@ public class TimerHandler : MonoBehaviour
     private float bestHundredpercentTime = 10000;
     private float lastTime = 0;
 
-    public GameObject leaderboard;
-    public GameObject hundredpercentLeaderboard;
+    //public GameObject leaderboard;
+    //public GameObject hundredpercentLeaderboard;
     public CollectibleHandler handler;
 
 
@@ -62,7 +62,7 @@ public class TimerHandler : MonoBehaviour
         LoadGameStatus();
         UpdateSceneFromManager();
         
-        UpdateUI();
+        //UpdateUI();
         
         /*
         filePath = Application.persistentDataPath;
@@ -169,7 +169,7 @@ public class TimerHandler : MonoBehaviour
         }
     }
     
-    public void UpdateUI()
+    /*public void UpdateUI()
     {
         if (bestTime > 0)
         {
@@ -187,7 +187,7 @@ public class TimerHandler : MonoBehaviour
             hundredpercentLeaderboard.GetComponent<TextMeshProUGUI>().text =
                 "You: " + CleanTimeConversion(bestHundredpercentTime);
         }
-    }
+    }*/
     
     public void LoadGameStatus()
     {

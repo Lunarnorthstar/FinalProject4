@@ -21,17 +21,18 @@ public class Powerups : MonoBehaviour
     public Shield shield;
     public Slider powerupSlider;
     public TextMeshProUGUI countdownText;
-
-    [Space]
-    //public Button dashButton;
-    //public Button glideButton;
-    //public Button blinkButton;
-    //public Button shieldButton;
-    public TextMeshProUGUI powerupEquipReadout;
-    public int maxPowerups = 2;
+    [Space] 
+    public PowerupData PD;
     public List<string> equippedPowerups;
 
     private int slotSelected = 0;
+
+    private void Start()
+    {
+        equippedPowerups = PD.equippedPowerups;
+        countdownText.text = "0";
+    }
+
 
     private void Update()
     {
@@ -75,28 +76,5 @@ public class Powerups : MonoBehaviour
             case "shield": shield.Activate(); break;
             default: break;
         }
-    }
-
-    public void EquipPowerup(string powerup)
-    {
-        if (equippedPowerups.Contains(powerup)) //If it's already equipped
-        {
-            equippedPowerups.Remove(powerup);
-        }
-        else
-        {
-            if (equippedPowerups.Count + 1 <= maxPowerups)
-            {
-                equippedPowerups.Add(powerup);
-            }
-        }
-
-        powerupEquipReadout.text = "";
-
-        foreach (var VARIABLE in equippedPowerups)
-        {
-            powerupEquipReadout.text += VARIABLE + " ";
-        }
-       
     }
 }
