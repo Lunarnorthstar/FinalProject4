@@ -503,6 +503,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &801521591 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 243001530444969550, guid: 00c55ef519019434d87bf54728021438, type: 3}
+  m_PrefabInstance: {fileID: 801521587}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &801521592 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1915929850089035908, guid: 00c55ef519019434d87bf54728021438, type: 3}
+  m_PrefabInstance: {fileID: 801521587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &834669728
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -551,10 +567,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2936751698918892207, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      propertyPath: UIDisplay
+      value: 
+      objectReference: {fileID: 801521591}
     - target: {fileID: 4706490676563740343, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5566778702289749965, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      propertyPath: timerDisplay
+      value: 
+      objectReference: {fileID: 801521592}
     - target: {fileID: 6670662751945534072, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: powerupText
       value: 
