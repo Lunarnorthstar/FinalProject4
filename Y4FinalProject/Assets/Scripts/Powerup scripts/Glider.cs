@@ -47,6 +47,9 @@ public class Glider : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerMovement = GetComponent<PlayerMovement>();
         powerups = GetComponent<Powerups>();
+        
+        countdown = powerups.countdownText;
+        slider = powerups.powerupSlider;
     }
 
     // Update is called once per frame
@@ -100,8 +103,8 @@ public class Glider : MonoBehaviour
         UpdateUI();
     }
     
-    public TextMeshProUGUI countdown;
-    public Slider slider;
+    private TextMeshProUGUI countdown;
+    private Slider slider;
     public void UpdateUI()
     {
         if (isCoolingDown && !isEnabled)
@@ -112,7 +115,7 @@ public class Glider : MonoBehaviour
 
         if (isEnabled)
         {
-            countdown.text = time.ToString();
+            countdown.text = (glideDuration - time).ToString();
             slider.value = 1 - time / glideCooldown;
         }
     }

@@ -436,6 +436,7 @@ GameObject:
   - component: {fileID: 3263703780445796182}
   - component: {fileID: 6194658183589978215}
   - component: {fileID: 5467557053804853745}
+  - component: {fileID: 5566778702289749965}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -641,6 +642,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collected: 0
   UIDisplay: {fileID: 0}
+  hundredpercent: 0
 --- !u!114 &1394294485877672237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -674,6 +676,8 @@ MonoBehaviour:
   blinkShadow: {fileID: 7413682697146969665}
   camera: {fileID: 863396635161255571}
   shield: {fileID: 5467557053804853745}
+  powerupSlider: {fileID: 0}
+  countdownText: {fileID: 0}
   powerupEquipReadout: {fileID: 0}
   maxPowerups: 2
   equippedPowerups: []
@@ -694,11 +698,9 @@ MonoBehaviour:
   maxDashSpeed: 200
   dashDuration: 1
   verticalLaunchScalar: 3
-  dashCooldown: 1
+  dashCooldown: 2
   player: {fileID: 4706490676563740343}
   camera: {fileID: 863396635161255571}
-  countdown: {fileID: 0}
-  slider: {fileID: 0}
 --- !u!114 &3263703780445796182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -856,8 +858,6 @@ MonoBehaviour:
   totalLift: 0
   angleOfAttack: 0
   totalForwardsForce: 0
-  countdown: {fileID: 0}
-  slider: {fileID: 0}
 --- !u!114 &6194658183589978215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -874,8 +874,6 @@ MonoBehaviour:
   cooldown: 3
   camera: {fileID: 863396635161255571}
   player: {fileID: 4706490676563740343}
-  countdown: {fileID: 0}
-  slider: {fileID: 0}
 --- !u!114 &5467557053804853745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -892,8 +890,26 @@ MonoBehaviour:
   shieldCooldown: 4
   player: {fileID: 4986535402992014780}
   shieldObject: {fileID: 7426260622628379246}
-  countdown: {fileID: 0}
-  slider: {fileID: 0}
+--- !u!114 &5566778702289749965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4706490676563740343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da76f9fd363be8b4c9cca82c25b36992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelTime: 0
+  timerDisplay: {fileID: 0}
+  timerActive: 0
+  significantDecimals: 2
+  leaderboard: {fileID: 0}
+  hundredpercentLeaderboard: {fileID: 0}
+  handler: {fileID: 2936751698918892207}
+  timerSpeedMultx60: 0
 --- !u!1 &7413682697146969665
 GameObject:
   m_ObjectHideFlags: 0

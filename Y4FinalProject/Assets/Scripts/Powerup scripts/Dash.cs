@@ -26,6 +26,9 @@ public class Dash : MonoBehaviour
     void Start()
     {
         rb = player.GetComponent<Rigidbody>();
+
+        countdown = player.GetComponent<Powerups>().countdownText;
+        slider = player.GetComponent<Powerups>().powerupSlider;
     }
 
     // Update is called once per frame
@@ -70,8 +73,8 @@ public class Dash : MonoBehaviour
         UpdateUI();
     }
 
-    public TextMeshProUGUI countdown;
-    public Slider slider;
+    private TextMeshProUGUI countdown;
+    private Slider slider;
     public void UpdateUI()
     {
         if (!ready && !dashing)
@@ -82,7 +85,7 @@ public class Dash : MonoBehaviour
 
         if (dashing)
         {
-            countdown.text = durationTimer.ToString();
+            countdown.text = (dashDuration - durationTimer).ToString();
             slider.value =  1 - durationTimer / dashDuration;
         }
     }

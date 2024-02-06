@@ -14,6 +14,7 @@ public struct LeaderboardStats
 {
     public float previousSave;
     public float highSave;
+    public float highHundredpercentSave;
 }
 
 public class TimerHandler : MonoBehaviour
@@ -30,10 +31,13 @@ public class TimerHandler : MonoBehaviour
     const string FILE_NAME = "PersonalScores.Json"; 
     LeaderboardStats dataScore;
     
-    private float bestTime = 10000; 
+    private float bestTime = 10000;
+    private float bestHundredpercentTime = 10000;
     private float lastTime = 0;
 
     public GameObject leaderboard;
+    public GameObject hundredpercentLeaderboard;
+    public CollectibleHandler handler;
 
 
 
@@ -151,9 +155,16 @@ public class TimerHandler : MonoBehaviour
         if (lastTime < bestTime || bestTime <= 0)
         {
             bestTime = lastTime;
-
+            
             dataScore.highSave = bestTime;
             SaveGameStatus();
+            
+            if (handler.hundredpercent)
+            {
+                bestHundredpercentTime = lastTime;
+                dataScore.highHundredpercentSave = bestHundredpercentTime;
+                SaveGameStatus();
+            }
             //SOManager.highScore = bestTime;
         }
     }
@@ -169,6 +180,12 @@ public class TimerHandler : MonoBehaviour
         else
         {
             leaderboard.GetComponent<TextMeshProUGUI>().text = "\n TheWalkingMan: " + CleanTimeConversion(100000);
+        }
+
+        if (bestHundredpercentTime > 0)
+        {
+            hundredpercentLeaderboard.GetComponent<TextMeshProUGUI>().text =
+                "You: " + CleanTimeConversion(bestHundredpercentTime);
         }
     }
     
@@ -210,11 +227,13 @@ public class TimerHandler : MonoBehaviour
     {
         bestTime = dataScore.highSave;
         lastTime = dataScore.previousSave;
-        
+        bestHundredpercentTime = dataScore.highHundredpercentSave;
+
     }
 
     private void OnTriggerExit(Collider other)
     {
-        timerActive = true;
+        if(other.CompareTag("StartTrigger")) timerActive = true;
+        
     }
 }

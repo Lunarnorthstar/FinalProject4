@@ -19,6 +19,8 @@ public class Powerups : MonoBehaviour
     public GameObject blinkShadow;
     public GameObject camera;
     public Shield shield;
+    public Slider powerupSlider;
+    public TextMeshProUGUI countdownText;
 
     [Space]
     //public Button dashButton;

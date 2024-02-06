@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -14,6 +15,13 @@ public class Shield : MonoBehaviour
     private bool active;
     public PlayerMovement player;
     public GameObject shieldObject;
+
+
+    private void Start()
+    {
+        countdown = player.GetComponent<Powerups>().countdownText;
+        slider = player.GetComponent<Powerups>().powerupSlider;
+    }
 
     // Update is called once per frame
     void Update()
@@ -50,8 +58,8 @@ public class Shield : MonoBehaviour
         UpdateUI();
     }
     
-    public TextMeshProUGUI countdown;
-    public Slider slider;
+    private TextMeshProUGUI countdown;
+    private Slider slider;
     public void UpdateUI()
     {
         if (coolingDown && !active)
@@ -62,7 +70,7 @@ public class Shield : MonoBehaviour
 
         if (active)
         {
-            countdown.text = shieldTimer.ToString();
+            countdown.text = (shieldDuration - shieldTimer).ToString();
             slider.value = 1 - shieldTimer / shieldDuration;
         }
     }

@@ -17,7 +17,8 @@ public class Blink : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        countdown = player.GetComponent<Powerups>().countdownText;
+        slider = player.GetComponent<Powerups>().powerupSlider;
     }
 
     // Update is called once per frame
@@ -36,8 +37,8 @@ public class Blink : MonoBehaviour
         UpdateUI();
     }
     
-    public TextMeshProUGUI countdown;
-    public Slider slider;
+    private TextMeshProUGUI countdown;
+    private Slider slider;
     public void UpdateUI()
     {
         if (coolingDown)

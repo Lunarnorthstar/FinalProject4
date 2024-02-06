@@ -9,9 +9,11 @@ public class CollectibleHandler : MonoBehaviour
     public int collected = 0;
     public TextMeshProUGUI UIDisplay;
     private int maxInStage = 100;
+    public bool hundredpercent = false;
 
     public void Start()
     {
+        hundredpercent = false;
         maxInStage = GameObject.FindGameObjectsWithTag("Collectible").Length;
     }
 
@@ -27,6 +29,11 @@ public class CollectibleHandler : MonoBehaviour
         {
             Destroy(other.gameObject);
             collected++;
+
+            if (collected == maxInStage)
+            {
+                hundredpercent = true;
+            }
         }
     }
 }
