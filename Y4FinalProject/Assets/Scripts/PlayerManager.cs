@@ -88,12 +88,4 @@ public class PlayerManager : MonoBehaviour
             return (false, string.Empty);
         }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "FinishTrigger")
-        {
-            gameObject.SendMessage("StopTimer");
-        }
-    }
 }

@@ -924,7 +924,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 739298476}
+      - m_Target: {fileID: 848610738}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -932,6 +932,18 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 739298476}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1504,6 +1516,7 @@ GameObject:
   - component: {fileID: 516483076}
   - component: {fileID: 516483077}
   - component: {fileID: 516483078}
+  - component: {fileID: 516483079}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1647,6 +1660,7 @@ MonoBehaviour:
   - Wow it's a level description!
   - Wow, look! another one!
   - Can you imagine a world with three level descriptions in it?
+  selection: 0
   levelImage: {fileID: 1514093854}
   title: {fileID: 421740111}
   description: {fileID: 1305885868}
@@ -1665,6 +1679,20 @@ MonoBehaviour:
   PD: {fileID: 11400000, guid: d1f095d2f0fe4434298065f396268c8e, type: 2}
   maxPowerups: 2
   powerupEquipReadout: {fileID: 5621880506945509916}
+--- !u!114 &516483079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516483071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92d5f10152f3b424bac33e0f4a982247, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leaderboard: {fileID: 615374781328417329}
+  hundredpercentLeaderboard: {fileID: 6835941433823513367}
 --- !u!1 &575149775
 GameObject:
   m_ObjectHideFlags: 0
@@ -3572,7 +3600,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Go
+  m_text: Select
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

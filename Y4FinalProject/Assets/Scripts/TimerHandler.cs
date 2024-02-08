@@ -7,6 +7,7 @@ using UnityEngine;
 using System.IO;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.Events;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
 [Serializable]
@@ -26,6 +27,7 @@ public class TimerHandler : MonoBehaviour
     public GameObject timerDisplay;
     public bool timerActive = false;
     public int significantDecimals = 2;
+    public GameObject finishPanel;
     
     string filePath;
     const string FILE_NAME = "PersonalScores.Json"; 
@@ -34,6 +36,7 @@ public class TimerHandler : MonoBehaviour
     private float bestTime = 10000;
     private float bestHundredpercentTime = 10000;
     private float lastTime = 0;
+    private int levelIndex;
 
     //public GameObject leaderboard;
     //public GameObject hundredpercentLeaderboard;
@@ -56,6 +59,7 @@ public class TimerHandler : MonoBehaviour
         
         filePath = Application.dataPath;
         dataScore = new LeaderboardStats();
+        levelIndex = SceneManager.GetActiveScene().buildIndex - 1;
         
         Debug.Log(filePath);
 
@@ -159,13 +163,15 @@ public class TimerHandler : MonoBehaviour
             dataScore.highSave = bestTime;
             SaveGameStatus();
             
-            if (handler.hundredpercent)
-            {
-                bestHundredpercentTime = lastTime;
-                dataScore.highHundredpercentSave = bestHundredpercentTime;
-                SaveGameStatus();
-            }
+            
             //SOManager.highScore = bestTime;
+        }
+        
+        if (handler.hundredpercent && (lastTime < bestHundredpercentTime || bestHundredpercentTime <= 0))
+        {
+            bestHundredpercentTime = lastTime;
+            dataScore.highHundredpercentSave = bestHundredpercentTime;
+            SaveGameStatus();
         }
     }
     
@@ -207,6 +213,7 @@ public class TimerHandler : MonoBehaviour
     public void ResetGameStatus()
     {
         dataScore.highSave = 0;
+        dataScore.highHundredpercentSave = 0;
         dataScore.previousSave = 0;
 
         SaveGameStatus();
@@ -229,6 +236,16 @@ public class TimerHandler : MonoBehaviour
         lastTime = dataScore.previousSave;
         bestHundredpercentTime = dataScore.highHundredpercentSave;
 
+    }
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "FinishTrigger")
+        {
+            StopTimer();
+            finishPanel.SetActive(true);
+            gameObject.GetComponent<PlayerManager>().lockMouse();
+        }
     }
 
     private void OnTriggerExit(Collider other)

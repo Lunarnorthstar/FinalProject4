@@ -13,7 +13,7 @@ public class LevelSelectBehavior : MonoBehaviour
     public String[] levelTitles;
     [TextArea(10,15)]
     public String[] levelDescriptions;
-    private int selection = 0;
+    public int selection = 0;
 
     public RawImage levelImage;
     public TextMeshProUGUI title;

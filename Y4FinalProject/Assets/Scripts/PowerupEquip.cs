@@ -12,6 +12,8 @@ public class PowerupEquip : MonoBehaviour
 
     private void Start()
     {
+        powerupEquipReadout.text = "";
+        
         foreach (var VARIABLE in PD.equippedPowerups)
         {
             powerupEquipReadout.text += VARIABLE + " ";
