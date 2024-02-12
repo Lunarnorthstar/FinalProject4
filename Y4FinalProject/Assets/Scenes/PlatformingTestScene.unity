@@ -3699,7 +3699,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7026962786259887000, guid: e1cc966903a0ea24d9d0812732d36180, type: 3}
   m_PrefabInstance: {fileID: 813650874}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 390091854}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
@@ -3810,6 +3810,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1827136434}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &390091854 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5387502851486488331, guid: e1cc966903a0ea24d9d0812732d36180, type: 3}
+  m_PrefabInstance: {fileID: 813650874}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &418880411
 GameObject:
   m_ObjectHideFlags: 0
@@ -4014,8 +4019,8 @@ Transform:
   m_GameObject: {fileID: 427055889}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -323.99698, y: -92.4, z: 9.1455}
-  m_LocalScale: {x: 20, y: 5, z: 15.940726}
+  m_LocalPosition: {x: -302.9196, y: -92.4, z: 9.1455}
+  m_LocalScale: {x: 62.155495, y: 5, z: 15.940726}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1585032342}
@@ -4483,15 +4488,15 @@ PrefabInstance:
       objectReference: {fileID: 13400000, guid: e61e0c7d0c6e86047ae9bba0a017b411, type: 2}
     - target: {fileID: 1821299892066166978, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.24
+      value: -125.4
       objectReference: {fileID: 0}
     - target: {fileID: 1821299892066166978, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.02
+      value: 14.1
       objectReference: {fileID: 0}
     - target: {fileID: 1821299892066166978, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -85.9
+      value: -185.5
       objectReference: {fileID: 0}
     - target: {fileID: 1821299892066166978, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4581,6 +4586,14 @@ PrefabInstance:
       propertyPath: countdown
       value: 
       objectReference: {fileID: 18175708}
+    - target: {fileID: 5566778702289749965, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      propertyPath: finishPanel
+      value: 
+      objectReference: {fileID: 390091854}
+    - target: {fileID: 5566778702289749965, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      propertyPath: timerDisplay
+      value: 
+      objectReference: {fileID: 145908798}
     - target: {fileID: 6194658183589978215, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: slider
       value: 
@@ -4629,6 +4642,14 @@ PrefabInstance:
       propertyPath: timerSlider
       value: 
       objectReference: {fileID: 1218395864}
+    - target: {fileID: 6670662751945534072, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      propertyPath: countdownText
+      value: 
+      objectReference: {fileID: 1471366843}
+    - target: {fileID: 6670662751945534072, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      propertyPath: powerupSlider
+      value: 
+      objectReference: {fileID: 374786230}
     - target: {fileID: 6670662751945534072, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: indicatorImage
       value: 

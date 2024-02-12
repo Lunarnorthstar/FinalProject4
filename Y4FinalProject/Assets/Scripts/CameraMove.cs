@@ -68,7 +68,7 @@ public class CameraMove : MonoBehaviour
         sCamRotY = Mathf.Lerp(sCamRotY, CamRotY, mouseSmooth);
 
         Player.transform.rotation = Quaternion.Euler(0, sCamRotX + defaultRot, 0);
-
+        
         transform.localRotation = Quaternion.Euler(-sCamRotY, transform.localEulerAngles.y, 0);
     }
 }

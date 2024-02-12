@@ -264,6 +264,11 @@ public class PlayerMovement : MonoBehaviour
         {
             powerUps.ActivatePowerup();
         }
+
+        if (powerUps.grappleHook.Active && controls.PlayerMovement.Jump.triggered)
+        {
+            powerUps.OffBreakGrapple();
+        }
     }
 
     void smallVault()

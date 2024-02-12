@@ -19,6 +19,7 @@ public class Powerups : MonoBehaviour
     public GameObject blinkShadow;
     public GameObject camera;
     public Shield shield;
+    public GrappleHook grappleHook;
     public Slider powerupSlider;
     public TextMeshProUGUI countdownText;
     [Space] 
@@ -74,7 +75,14 @@ public class Powerups : MonoBehaviour
             case "glider": glider.Activate(); break;
             case "blink": if(blinkShadow.GetComponent<Valid>().validPosition)  blink.Activate(); break;
             case "shield": shield.Activate(); break;
+            case "grapple": grappleHook.Activate();
+                break;
             default: break;
         }
+    }
+
+    public void OffBreakGrapple()
+    {
+        grappleHook.DeactivateGrapple();
     }
 }
