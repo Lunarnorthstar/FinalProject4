@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6638.3135, g: 5076.1997, b: 3480.77, a: 1}
+  m_IndirectSpecularColor: {r: 6638.407, g: 5076.114, b: 3480.8208, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -323,17 +323,9 @@ PrefabInstance:
       propertyPath: UIDisplay
       value: 
       objectReference: {fileID: 1592830263}
-    - target: {fileID: 3263703780445796182, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
-      propertyPath: forwardForce
-      value: 35
-      objectReference: {fileID: 0}
     - target: {fileID: 4706490676563740343, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 4986535402992014780, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
-      propertyPath: accSpeed
-      value: 8000
       objectReference: {fileID: 0}
     - target: {fileID: 4986535402992014780, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: pauseMenu
@@ -347,10 +339,6 @@ PrefabInstance:
       propertyPath: speedSlider
       value: 
       objectReference: {fileID: 180593216}
-    - target: {fileID: 4986535402992014780, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
-      propertyPath: maxMoveSpeed
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 5566778702289749965, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: finishPanel
       value: 
@@ -941,7 +929,6 @@ MonoBehaviour:
   repeatsDelay: 0
   onceOnly: 1
   delay: 19
-  active: 0
   waypoints:
   - location: {fileID: 962234882}
     playsAnimation: 0

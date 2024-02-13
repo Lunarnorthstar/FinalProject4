@@ -79,6 +79,7 @@ public class Dash : MonoBehaviour
     {
         if (ready)
         {
+        Debug.Log("test");
             countdown.text = " ";
         }
         
