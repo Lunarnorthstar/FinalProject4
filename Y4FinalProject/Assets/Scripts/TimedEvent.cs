@@ -26,7 +26,7 @@ public class TimedEvent : MonoBehaviour
 
     public waypoint[] waypoints = new waypoint[1];
 
-    private int goingTo = 0;
+    [SerializeField]  private int goingTo = 0;
     public float moveSpeed = 1;
 
 
@@ -86,12 +86,14 @@ public class TimedEvent : MonoBehaviour
             if (waypoints[goingTo].stopHere) //If you're told to stop, stop.
             {
                 active = false;
-                wentOnce = true;
+                
             }
             goingTo++; //Switch to the next target.
-            if (goingTo >= waypoints.Length - 1) //If there is no next target and you haven't already stopped...
+
+            if (goingTo > waypoints.Length - 1) //If there is no next target and you haven't already stopped...
             {
                 goingTo = 0; //Go back to the first one.
+                wentOnce = true;
             }
             
         }

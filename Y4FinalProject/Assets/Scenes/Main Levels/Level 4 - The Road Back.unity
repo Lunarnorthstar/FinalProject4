@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6558.837, g: 4993.9575, b: 3403.5552, a: 1}
+  m_IndirectSpecularColor: {r: 6558.829, g: 4994.0356, b: 3403.52, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4545,7 +4545,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   repeatsDelay: 1
-  onceOnly: 0
+  onceOnly: 1
   delay: 3
   active: 0
   waypoints:
@@ -4557,6 +4557,7 @@ MonoBehaviour:
     playsAnimation: 0
     toggleActive: []
     stopHere: 0
+  goingTo: 0
   moveSpeed: 25
 --- !u!4 &478222605
 Transform:
