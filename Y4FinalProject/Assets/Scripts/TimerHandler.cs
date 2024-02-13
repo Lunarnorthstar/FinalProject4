@@ -150,6 +150,8 @@ public class TimerHandler : MonoBehaviour
 
     public void StopTimer()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         timerActive = false;
         timerDisplay.GetComponent<TextMeshProUGUI>().color = Color.green;
         lastTime = levelTime;

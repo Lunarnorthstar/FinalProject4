@@ -122,7 +122,7 @@ public class Glider : MonoBehaviour
         if (isEnabled)
         {
             countdown.text = (glideDuration - time).ToString();
-            slider.value = 1 - time / glideCooldown;
+            slider.value = 1 - time / glideDuration;
         }
     }
 
