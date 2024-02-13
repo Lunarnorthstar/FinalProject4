@@ -107,9 +107,15 @@ public class Glider : MonoBehaviour
     private Slider slider;
     public void UpdateUI()
     {
+        if (!isCoolingDown)
+        {
+            countdown.text = " ";
+        }
+        
+        
         if (isCoolingDown && !isEnabled)
         {
-            countdown.text = cooldownTimer.ToString();
+            countdown.text = (glideCooldown - cooldownTimer).ToString();
             slider.value = cooldownTimer / glideCooldown;
         }
 

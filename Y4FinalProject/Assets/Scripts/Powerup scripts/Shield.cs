@@ -62,9 +62,14 @@ public class Shield : MonoBehaviour
     private Slider slider;
     public void UpdateUI()
     {
+        if (!coolingDown)
+        {
+            countdown.text = " ";
+        }
+        
         if (coolingDown && !active)
         {
-            countdown.text = cooldownTimer.ToString();
+            countdown.text = (shieldCooldown - cooldownTimer).ToString();
             slider.value = cooldownTimer / shieldCooldown;
         }
 

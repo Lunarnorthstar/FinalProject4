@@ -78,6 +78,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Debug")]
     public Slider speedSlider;
     public TextMeshProUGUI speedText;
+    public GameObject pauseMenu;
 
     public Vector3 HorizontalVelocity;
     public float HorizontalVelocityf;
@@ -183,7 +184,15 @@ public class PlayerMovement : MonoBehaviour
         if (controls.PlayerMovement.ChangeAbility.triggered) powerUps.SwitchPowerup();
 
         //locking the mouse
-        if (Input.GetKeyDown(KeyCode.P)) playerManager.lockMouse();
+        if (Input.GetKeyDown(KeyCode.L)) playerManager.lockMouse();
+
+        if (controls.PlayerMovement.Pause.triggered)
+        {
+            pauseMenu.SetActive(!pauseMenu.activeSelf);
+            playerManager.lockMouse();
+
+            Time.timeScale = 1 - Time.timeScale;
+        }
     }
     void movement()
     {

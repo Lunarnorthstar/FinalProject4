@@ -41,9 +41,11 @@ public class Blink : MonoBehaviour
     private Slider slider;
     public void UpdateUI()
     {
+        countdown.text = " ";
+        
         if (coolingDown)
         {
-            countdown.text = cooldownTimer.ToString();
+            countdown.text = (cooldown - cooldownTimer).ToString();
             slider.value = cooldownTimer / cooldown;
         }
     }

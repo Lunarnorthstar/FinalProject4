@@ -107,6 +107,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""50e38886-c8ae-4cb7-82c2-0439a9a0b0cc"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -318,6 +327,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Change Ability"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""da227d87-d8bb-4134-acad-fc6b2c142b75"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -374,6 +394,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_PlayerMovement_SpeedKey = m_PlayerMovement.FindAction("SpeedKey", throwIfNotFound: true);
         m_PlayerMovement_Ability = m_PlayerMovement.FindAction("Ability", throwIfNotFound: true);
         m_PlayerMovement_ChangeAbility = m_PlayerMovement.FindAction("Change Ability", throwIfNotFound: true);
+        m_PlayerMovement_Pause = m_PlayerMovement.FindAction("Pause", throwIfNotFound: true);
         // bb
         m_bb = asset.FindActionMap("bb", throwIfNotFound: true);
         m_bb_ResetTimer = m_bb.FindAction("Reset Timer", throwIfNotFound: true);
@@ -447,6 +468,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerMovement_SpeedKey;
     private readonly InputAction m_PlayerMovement_Ability;
     private readonly InputAction m_PlayerMovement_ChangeAbility;
+    private readonly InputAction m_PlayerMovement_Pause;
     public struct PlayerMovementActions
     {
         private @PlayerControls m_Wrapper;
@@ -460,6 +482,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @SpeedKey => m_Wrapper.m_PlayerMovement_SpeedKey;
         public InputAction @Ability => m_Wrapper.m_PlayerMovement_Ability;
         public InputAction @ChangeAbility => m_Wrapper.m_PlayerMovement_ChangeAbility;
+        public InputAction @Pause => m_Wrapper.m_PlayerMovement_Pause;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -496,6 +519,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @ChangeAbility.started += instance.OnChangeAbility;
             @ChangeAbility.performed += instance.OnChangeAbility;
             @ChangeAbility.canceled += instance.OnChangeAbility;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IPlayerMovementActions instance)
@@ -527,6 +553,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @ChangeAbility.started -= instance.OnChangeAbility;
             @ChangeAbility.performed -= instance.OnChangeAbility;
             @ChangeAbility.canceled -= instance.OnChangeAbility;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IPlayerMovementActions instance)
@@ -619,6 +648,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnSpeedKey(InputAction.CallbackContext context);
         void OnAbility(InputAction.CallbackContext context);
         void OnChangeAbility(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IBbActions
     {

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6638.2666, g: 5076.192, b: 3480.7349, a: 1}
+  m_IndirectSpecularColor: {r: 6638.3135, g: 5076.1997, b: 3480.77, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -335,6 +335,10 @@ PrefabInstance:
       propertyPath: accSpeed
       value: 8000
       objectReference: {fileID: 0}
+    - target: {fileID: 4986535402992014780, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 726942246}
     - target: {fileID: 4986535402992014780, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: speedText
       value: 
@@ -937,6 +941,7 @@ MonoBehaviour:
   repeatsDelay: 0
   onceOnly: 1
   delay: 19
+  active: 0
   waypoints:
   - location: {fileID: 962234882}
     playsAnimation: 0
@@ -11557,6 +11562,11 @@ PrefabInstance:
 --- !u!1 &726942245 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6495982060690939591, guid: 00c55ef519019434d87bf54728021438, type: 3}
+  m_PrefabInstance: {fileID: 726942244}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &726942246 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 268060833643371857, guid: 00c55ef519019434d87bf54728021438, type: 3}
   m_PrefabInstance: {fileID: 726942244}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &744372485 stripped

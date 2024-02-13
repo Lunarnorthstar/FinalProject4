@@ -77,9 +77,15 @@ public class Dash : MonoBehaviour
     private Slider slider;
     public void UpdateUI()
     {
+        if (ready)
+        {
+            countdown.text = " ";
+        }
+        
+        
         if (!ready && !dashing)
         {
-            countdown.text = cooldownTimer.ToString();
+            countdown.text = (dashCooldown - cooldownTimer).ToString();
             slider.value = cooldownTimer / dashCooldown;
         }
 
@@ -88,6 +94,8 @@ public class Dash : MonoBehaviour
             countdown.text = (dashDuration - durationTimer).ToString();
             slider.value =  1 - durationTimer / dashDuration;
         }
+        
+        
     }
 
     public void Activate()

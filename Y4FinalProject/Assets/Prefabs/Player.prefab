@@ -519,6 +519,7 @@ MonoBehaviour:
   fricitonMult: 1
   speedSlider: {fileID: 0}
   speedText: {fileID: 0}
+  pauseMenu: {fileID: 0}
   HorizontalVelocity: {x: 0, y: 0, z: 0}
   HorizontalVelocityf: 0
   canJump: 1
@@ -696,10 +697,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ab2e0d7fe36a443a7eb56bdd41119e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dashForce: 200
-  maxDashSpeed: 250
+  dashForce: 350
+  maxDashSpeed: 300
   dashDuration: 0.5
-  verticalLaunchScalar: 3
+  verticalLaunchScalar: 6
   dashCooldown: 2
   player: {fileID: 4706490676563740343}
   camera: {fileID: 863396635161255571}
@@ -718,9 +719,9 @@ MonoBehaviour:
   isEnabled: 0
   cam: {fileID: 3636353023608081983}
   liftCoE: 20
-  forwardForce: 35
+  forwardForce: 15
   glideDuration: 4
-  glideCooldown: 4
+  glideCooldown: 8
   liftCurve:
     serializedVersion: 2
     m_Curve:
@@ -872,7 +873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40907490b26315f4594aab6014e1107d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blinkDistance: 3
+  blinkDistance: 5
   cooldown: 3
   camera: {fileID: 863396635161255571}
   player: {fileID: 4706490676563740343}
@@ -888,7 +889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08a8dd1f78ccc7f419ad38a1632949ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shieldDuration: 4
+  shieldDuration: 6
   shieldCooldown: 4
   player: {fileID: 4986535402992014780}
   shieldObject: {fileID: 7426260622628379246}
@@ -924,10 +925,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 3885461676509155875}
-  grappleCooldown: 5
+  grappleCooldown: 8
   grappleRange: 50
   grappleElasticity: 4.5
-  grappleDamper: 7
+  grappleDamper: 4
   grappleMassScale: 4.5
   Active: 0
 --- !u!120 &1970350721999871928

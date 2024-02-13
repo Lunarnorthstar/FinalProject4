@@ -22,7 +22,7 @@ public class TimedEvent : MonoBehaviour
     public bool onceOnly = true;
     private bool wentOnce = false;
     [Tooltip("How long between/until activation")] public float delay;
-    private bool active = false;
+    [SerializeField] private bool active = false;
 
     public waypoint[] waypoints = new waypoint[1];
 
@@ -39,7 +39,7 @@ public class TimedEvent : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (repeatsDelay && timer.levelTime % delay <= 0.1 && repeatsDelay && timer.levelTime % delay >= 0.0)
+        if (repeatsDelay && timer.levelTime % delay <= 0.1 && timer.levelTime % delay >= 0.0 && timer.levelTime > 0.1)
         {
             active = true;
         }
@@ -69,16 +69,8 @@ public class TimedEvent : MonoBehaviour
         }
         
         
-        
-        
-        
-        
-        float travelDistance = math.distance(transform.position, waypoints[goingTo].location.position);
         Vector3 moveIn = waypoints[goingTo].location.position - transform.position; //Get the distance between you and the destination
         moveIn.Normalize(); //Turn it into the direction by normalizing it
-        
-        
-        
         
         transform.Translate(moveIn * moveSpeed * Time.deltaTime); //Move in that direction.
         //transform.Rotate(waypoints[goingTo].rotation * moveSpeed * Time.deltaTime, Space.World);

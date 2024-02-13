@@ -54,8 +54,12 @@ public class GrappleHook : MonoBehaviour
     {
         if (!ready && !Active)
         {
-            countdown.text = cooldownTimer.ToString();
+            countdown.text = (grappleCooldown - cooldownTimer).ToString();
             slider.value = cooldownTimer / grappleCooldown;
+        }
+        else
+        {
+            countdown.text = " ";
         }
     }
 

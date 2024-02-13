@@ -13714,6 +13714,10 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4986535402992014780, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
+      propertyPath: pauseMenu
+      value: 
+      objectReference: {fileID: 2055181402}
+    - target: {fileID: 4986535402992014780, guid: b658cde8103fefd4ba74323f60545b31, type: 3}
       propertyPath: speedText
       value: 
       objectReference: {fileID: 674857233}
@@ -34477,6 +34481,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.5733563, y: 1.8259348, z: 0.12497005}
   m_Center: {x: -0.00000011920932, y: -0.000000059604645, z: 0}
+--- !u!1 &2055181402 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 268060833643371857, guid: 00c55ef519019434d87bf54728021438, type: 3}
+  m_PrefabInstance: {fileID: 801521587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2058132207
 GameObject:
   m_ObjectHideFlags: 0

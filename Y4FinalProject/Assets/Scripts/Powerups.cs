@@ -41,7 +41,7 @@ public class Powerups : MonoBehaviour
         {
             blinkShadow.SetActive(true);
             blinkShadow.transform.position =
-                gameObject.transform.position + (blink.blinkDistance * camera.transform.forward);
+                gameObject.transform.position + (blink.blinkDistance * camera.transform.forward) + new Vector3(0, 0.3f, 0);
         }
         else
         {

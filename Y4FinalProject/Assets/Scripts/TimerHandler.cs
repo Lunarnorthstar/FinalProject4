@@ -212,9 +212,7 @@ public class TimerHandler : MonoBehaviour
     
     public void ResetGameStatus()
     {
-        dataScore.highSave = 0;
-        dataScore.highHundredpercentSave = 0;
-        dataScore.previousSave = 0;
+        dataScore = new LeaderboardStats();
 
         SaveGameStatus();
         Debug.Log("File not found...Creating");
