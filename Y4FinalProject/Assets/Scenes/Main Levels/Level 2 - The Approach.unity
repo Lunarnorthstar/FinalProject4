@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6638.407, g: 5076.114, b: 3480.8208, a: 1}
+  m_IndirectSpecularColor: {r: 6638.3135, g: 5076.1997, b: 3480.77, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -929,12 +929,14 @@ MonoBehaviour:
   repeatsDelay: 0
   onceOnly: 1
   delay: 19
+  active: 0
   waypoints:
   - location: {fileID: 962234882}
     playsAnimation: 0
     toggleActive:
     - {fileID: 357534775}
     stopHere: 1
+  goingTo: 0
   moveSpeed: 8
 --- !u!65 &357534777
 BoxCollider:
@@ -11170,10 +11172,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3027476524504718855, guid: 83485097136bf194a9a89656701ab782, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 61fd408a2bdfcf04bb320e0fc7893494, type: 2}
+    - target: {fileID: 4221844508484207221, guid: 83485097136bf194a9a89656701ab782, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 61fd408a2bdfcf04bb320e0fc7893494, type: 2}
     - target: {fileID: 6494355176049804436, guid: 83485097136bf194a9a89656701ab782, type: 3}
       propertyPath: m_Name
       value: Building1UpperWall1 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8671963770501879699, guid: 83485097136bf194a9a89656701ab782, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b9ce21a21ff7c3647ace5154395c395d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11289,10 +11303,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2102059665503397391, guid: 83485097136bf194a9a89656701ab782, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b9ce21a21ff7c3647ace5154395c395d, type: 2}
+    - target: {fileID: 3027476524504718855, guid: 83485097136bf194a9a89656701ab782, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 61fd408a2bdfcf04bb320e0fc7893494, type: 2}
+    - target: {fileID: 4221844508484207221, guid: 83485097136bf194a9a89656701ab782, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 61fd408a2bdfcf04bb320e0fc7893494, type: 2}
     - target: {fileID: 6494355176049804436, guid: 83485097136bf194a9a89656701ab782, type: 3}
       propertyPath: m_Name
       value: Building1UpperWall1 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8671963770501879699, guid: 83485097136bf194a9a89656701ab782, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b9ce21a21ff7c3647ace5154395c395d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11968,10 +11998,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2102059665503397391, guid: 83485097136bf194a9a89656701ab782, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b9ce21a21ff7c3647ace5154395c395d, type: 2}
+    - target: {fileID: 3027476524504718855, guid: 83485097136bf194a9a89656701ab782, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 61fd408a2bdfcf04bb320e0fc7893494, type: 2}
+    - target: {fileID: 4221844508484207221, guid: 83485097136bf194a9a89656701ab782, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 61fd408a2bdfcf04bb320e0fc7893494, type: 2}
     - target: {fileID: 6494355176049804436, guid: 83485097136bf194a9a89656701ab782, type: 3}
       propertyPath: m_Name
       value: Building1UpperWall1 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8671963770501879699, guid: 83485097136bf194a9a89656701ab782, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b9ce21a21ff7c3647ace5154395c395d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14293,6 +14339,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2102059665503397391, guid: 83485097136bf194a9a89656701ab782, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b9ce21a21ff7c3647ace5154395c395d, type: 2}
     - target: {fileID: 2848043027729250507, guid: 83485097136bf194a9a89656701ab782, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0
@@ -14313,6 +14363,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 3027476524504718855, guid: 83485097136bf194a9a89656701ab782, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 61fd408a2bdfcf04bb320e0fc7893494, type: 2}
+    - target: {fileID: 4221844508484207221, guid: 83485097136bf194a9a89656701ab782, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 61fd408a2bdfcf04bb320e0fc7893494, type: 2}
     - target: {fileID: 4824284502082160983, guid: 83485097136bf194a9a89656701ab782, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0
@@ -14337,6 +14395,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building1UpperWall1 (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 8671963770501879699, guid: 83485097136bf194a9a89656701ab782, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b9ce21a21ff7c3647ace5154395c395d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
