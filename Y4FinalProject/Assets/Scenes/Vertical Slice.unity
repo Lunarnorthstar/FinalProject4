@@ -1914,12 +1914,14 @@ MonoBehaviour:
   repeatsDelay: 0
   onceOnly: 1
   delay: 32
+  active: 0
   waypoints:
   - location: {fileID: 962234882}
     playsAnimation: 0
     toggleActive:
     - {fileID: 357534775}
     stopHere: 1
+  goingTo: 0
   moveSpeed: 4
 --- !u!65 &357534777
 BoxCollider:
@@ -5538,12 +5540,14 @@ MonoBehaviour:
   repeatsDelay: 0
   onceOnly: 1
   delay: 8
+  active: 0
   waypoints:
   - location: {fileID: 1818662297}
     playsAnimation: 0
     toggleActive:
     - {fileID: 1011864809}
     stopHere: 1
+  goingTo: 0
   moveSpeed: 9
 --- !u!1001 &1047766266
 PrefabInstance:
@@ -6739,12 +6743,14 @@ MonoBehaviour:
   repeatsDelay: 0
   onceOnly: 1
   delay: 7
+  active: 0
   waypoints:
   - location: {fileID: 216967350}
     playsAnimation: 0
     toggleActive:
     - {fileID: 399128273}
     stopHere: 1
+  goingTo: 0
   moveSpeed: 9
 --- !u!1 &1289204340 stripped
 GameObject:
@@ -11781,12 +11787,14 @@ MonoBehaviour:
   repeatsDelay: 0
   onceOnly: 1
   delay: 6
+  active: 0
   waypoints:
   - location: {fileID: 1079523293}
     playsAnimation: 0
     toggleActive:
     - {fileID: 1300999185}
     stopHere: 1
+  goingTo: 0
   moveSpeed: 9
 --- !u!1 &2015679459 stripped
 GameObject:
