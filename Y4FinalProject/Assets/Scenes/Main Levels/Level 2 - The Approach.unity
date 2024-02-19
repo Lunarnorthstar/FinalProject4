@@ -926,17 +926,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed45b3f52fb218c4780aec68c6cdf88a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  repeatsDelay: 0
-  onceOnly: 1
-  delay: 19
-  active: 0
   waypoints:
-  - location: {fileID: 962234882}
-    playsAnimation: 0
+  - destination: {fileID: 962234882}
     toggleActive:
     - {fileID: 357534775}
     stopHere: 1
-  goingTo: 0
+    waitForSeconds: 0
+  startActive: 0
+  initialDelay: 3
+  loopInfinitely: 0
+  goalFlexibility: 0.3
   moveSpeed: 8
 --- !u!65 &357534777
 BoxCollider:
@@ -11586,7 +11585,7 @@ Transform:
   m_GameObject: {fileID: 962234881}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -75.16, y: -56.9, z: 0.9}
+  m_LocalPosition: {x: -75.16, y: -84.92, z: 0.9}
   m_LocalScale: {x: 1, y: 6, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12663,6 +12662,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Building1Wall
       objectReference: {fileID: 0}
+    - target: {fileID: 8618542245767427069, guid: 876f3351f647ae846b8117d0446eecef, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8993941545029364039, guid: 876f3351f647ae846b8117d0446eecef, type: 3}
       propertyPath: m_LocalScale.y
       value: 6
@@ -12721,12 +12724,42 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8618542245767427069, guid: 876f3351f647ae846b8117d0446eecef, type: 3}
       insertIndex: -1
       addedObject: {fileID: 357534776}
+    - targetCorrespondingSourceObject: {fileID: 8618542245767427069, guid: 876f3351f647ae846b8117d0446eecef, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1365938403}
   m_SourcePrefab: {fileID: 100100000, guid: 876f3351f647ae846b8117d0446eecef, type: 3}
 --- !u!4 &1365938399 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8993941545029364039, guid: 876f3351f647ae846b8117d0446eecef, type: 3}
   m_PrefabInstance: {fileID: 1365938398}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &1365938403
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357534775}
+  serializedVersion: 4
+  m_Mass: 100000000
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
 --- !u!4 &1376775644 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7028617990935711770, guid: 229a70c5af41d4f4297563b1d38d6a9c, type: 3}

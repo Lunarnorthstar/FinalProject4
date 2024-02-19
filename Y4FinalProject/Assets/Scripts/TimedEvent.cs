@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -6,96 +7,104 @@ using UnityEngine;
 [System.Serializable]
 public struct waypoint
 {
-    public Transform location;
-    public bool playsAnimation;
+    public Transform destination;
     [Tooltip("Objects that are off to turn on, and objects that are on to turn off (post move)")] public GameObject[] toggleActive;
     [Tooltip("Whether the object should stop moving here or continue iterating through the waypoints")] public bool stopHere;
+    public float waitForSeconds;
 }
 
 
 public class TimedEvent : MonoBehaviour
 {
+    public waypoint[] waypoints;
+    
+    public bool startActive = false;
+    public float initialDelay = 3;
+    public bool loopInfinitely = false;
+    [Tooltip("How far from the stopping point this object can be before it stops. Turn up if it doesn't stop at the destination.")] public float goalFlexibility = 0.3f;
+    [Space] public float moveSpeed;
+
+    private Rigidbody RB;
+    private int currentWaypoint = -1;
+    private float eventCountdown = 0;
+    private bool moving = false;
     private TimerHandler timer;
 
-    [Tooltip("Whether the object activates once every set period (True) or acts continuously once the time is reached (False)")] 
-    public bool repeatsDelay = false;
-    public bool onceOnly = true;
-    private bool wentOnce = false;
-    [Tooltip("How long between/until activation")] public float delay;
-    [SerializeField] private bool active = false;
 
-    public waypoint[] waypoints = new waypoint[1];
-
-    [SerializeField]  private int goingTo = 0;
-    public float moveSpeed = 1;
-
-
-    // Start is called before the first frame update
-    void Awake()
+    private void Start()
     {
         timer = GameObject.FindWithTag("Player").GetComponentInParent<TimerHandler>();
+        
+        
+        eventCountdown = initialDelay;
+        RB = GetComponent<Rigidbody>();
+        if (startActive)
+        {
+            moving = true;
+            currentWaypoint = 0;
+        }
     }
+
 
     // Update is called once per frame
     void Update()
     {
-        if (repeatsDelay && timer.levelTime % delay <= 0.1 && timer.levelTime % delay >= 0.0 && timer.levelTime > 0.1)
+        if (!moving && timer.timerActive)
         {
-            active = true;
+            CheckActivate();
+            eventCountdown -= Time.deltaTime; //Decrement the countdown.
         }
-        else if (!repeatsDelay && timer.levelTime >= delay)
+        else if(timer.timerActive)//If you are supposed to be moving...
         {
-            active = true;
+            DoEvent(waypoints[currentWaypoint]);
         }
         
-        if ((active && !onceOnly) || (active && !wentOnce))
+        
+    }
+
+    private void CheckActivate()
+    {
+        if (eventCountdown <= 0) //If the timer has hit zero...
         {
-            RunBehavior();
+            currentWaypoint++; //Increment the waypoint
+
+            if (currentWaypoint >= waypoints.Length) //If you've hit the end of the array...
+            {
+                if (loopInfinitely) //If you're supposed to loop...
+                {
+                    currentWaypoint = 0; //Then go back to zero.
+                }
+                else //If you're not supposed to loop...
+                {
+                    moving = false; //Stop moving
+                    return; //Don't do anything else here.
+                }
+            }
+
+            moving = true; //After checking the validity of the waypoint, start moving.
         }
     }
 
-    public void RunBehavior()
+    private void DoEvent(waypoint target)
     {
-        if (gameObject.GetComponent<Animation>() != null)
+        if (math.distance(target.destination.position, transform.position) < goalFlexibility)
         {
-            if (waypoints[goingTo].playsAnimation && !gameObject.GetComponent<Animation>().isPlaying)
-            {
-                gameObject.GetComponent<Animation>().Play();
-            }
-            else if (!waypoints[goingTo].playsAnimation || !active)
-            {
-                gameObject.GetComponent<Animation>().Stop();
-            }
-        }
-        
-        
-        Vector3 moveIn = waypoints[goingTo].location.position - transform.position; //Get the distance between you and the destination
-        moveIn.Normalize(); //Turn it into the direction by normalizing it
-        
-        transform.Translate(moveIn * moveSpeed * Time.deltaTime); //Move in that direction.
-        //transform.Rotate(waypoints[goingTo].rotation * moveSpeed * Time.deltaTime, Space.World);
-        
-
-        if (math.distance(waypoints[goingTo].location.position, transform.position) <= 0.1) //If you're close enough...
-        {
-            foreach (GameObject item in waypoints[goingTo].toggleActive)
+            foreach (GameObject item in target.toggleActive)
             {
                 item.SetActive(!item.activeSelf);
             }
             
-            if (waypoints[goingTo].stopHere) //If you're told to stop, stop.
-            {
-                active = false;
-                
-            }
-            goingTo++; //Switch to the next target.
-
-            if (goingTo > waypoints.Length - 1) //If there is no next target and you haven't already stopped...
-            {
-                goingTo = 0; //Go back to the first one.
-                wentOnce = true;
-            }
             
+            
+            RB.velocity = Vector3.zero;
+            moving = false;
+            eventCountdown = target.waitForSeconds;
+            return;
         }
+        
+        Vector3 moveDirection = target.destination.position - transform.position;
+        moveDirection.Normalize();
+        
+        RB.velocity = moveDirection * moveSpeed * Time.deltaTime * 50;
     }
 }
