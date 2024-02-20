@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Shield : MonoBehaviour
 {
+    public float minMoveSpeedMult = 1.2f;
     public float shieldDuration = 4;
     public float shieldCooldown = 4;
     private float shieldTimer = 0;
@@ -31,9 +33,9 @@ public class Shield : MonoBehaviour
             shieldObject.SetActive(true);
             shieldTimer += Time.deltaTime;
 
-            if (player.moveSpeedMult < 1) player.moveSpeedMult = 1;
-                
-            if (player.jumpHeightMult < 1) player.jumpHeightMult = 1;
+            player.moveSpeedMult = math.max(player.moveSpeedMult, minMoveSpeedMult);
+
+            player.jumpHeightMult = math.max(player.jumpHeightMult, 1);
             
             player.fricitonMult = 1;
 

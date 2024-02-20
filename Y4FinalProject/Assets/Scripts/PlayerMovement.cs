@@ -28,13 +28,16 @@ public class PlayerMovement : MonoBehaviour
     CameraMove playerCamera;
     Powerups powerUps;
 
-    [Header("Movement Characteristics")]
-    [Tooltip("The maximum amount of forward speed the player can achieve while walking")] public float maxMoveSpeed;
+    [Header("Movement Characteristics")] 
+    [Tooltip("The base maximum movement speed the player starts at")] public float startMaxSpeed = 10;
+    [Tooltip("The rate at which the player's max speed increases")] public float maxSpeedAccel = 1;
+    [Tooltip("The highest maximum speed the player can achieve")] public float totalMaxSpeed = 15;
+    [Tooltip("The maximum amount of forward speed the player can achieve while walking")] private float maxMoveSpeed;
     [Tooltip("How quickly the player accelerates forward")] public float accSpeed;
     [Tooltip("Currently unused in the code.")] public float maxStrafeSpeed;
     [Tooltip("How quickly the player accelerates sideways")] public float accStrafe;
-    [Tooltip("The multiplier to the player's acceleration while sprinting")] public float accSprint;
-    [Tooltip("The maximum possible speed achievable while sprinting")] public float maxSprintSpeed;
+    //[Tooltip("The multiplier to the player's acceleration while sprinting")] public float accSprint;
+    //[Tooltip("The maximum possible speed achievable while sprinting")] public float maxSprintSpeed;
     [Tooltip("The rate at which the player sheds speed when above maximum")] public float slowDownSpeed;
     [Tooltip("How fast you're going in the air")] public float airSpeedMultiplier;
     [Tooltip("The speed the player will slow down to when movement keys are released (not factoring friction)")] public float minimumThresholdSpeed;
@@ -65,15 +68,15 @@ public class PlayerMovement : MonoBehaviour
     public float crouchingDrag;
 
     [Space]
-    public Transform cameraHolder;
-    public Transform ClimbLookTarget;
-    public Transform hangPos;
+    [HideInInspector]  public Transform cameraHolder;
+    [HideInInspector] public Transform ClimbLookTarget;
+    [HideInInspector] public Transform hangPos;
 
     [Space]
     [Header("Terrain")]
-    public float moveSpeedMult = 1;
-    public float jumpHeightMult = 1;
-    public float fricitonMult = 1;
+    [HideInInspector] public float moveSpeedMult = 1;
+    [HideInInspector] public float jumpHeightMult = 1;
+    [HideInInspector] public float fricitonMult = 1;
 
     [Header("Debug")]
     public Slider speedSlider;
@@ -121,6 +124,7 @@ public class PlayerMovement : MonoBehaviour
     void Awake()
     {
         Time.timeScale = 1;
+        maxMoveSpeed = startMaxSpeed;
         //Application.targetFrameRate = 60;
 
         //assign variables
@@ -147,7 +151,7 @@ public class PlayerMovement : MonoBehaviour
         //manage input and movement
         input();
         movement();
-
+        
         //wall detection
         if (!isHangingOnWall)
             isOnGround = playerManager.isOnGround();
@@ -214,8 +218,8 @@ public class PlayerMovement : MonoBehaviour
         else isAtMaxSpeed = false;
 
         //check if moving at max Sprint speed
-        if (Mathf.Abs(HorizontalVelocityf) >= maxSprintSpeed * moveSpeedMult) isAtMaxSprintSpeed = true;
-        else isAtMaxSprintSpeed = false;
+        //if (Mathf.Abs(HorizontalVelocityf) >= maxSprintSpeed * moveSpeedMult) isAtMaxSprintSpeed = true;
+        //else isAtMaxSprintSpeed = false;
 
         //sliding
         float isSlide = controls.PlayerMovement.SpeedKey.ReadValue<float>();
@@ -252,7 +256,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //ismoving
-        if (movInput != Vector2.zero)
+        if (movInput != Vector2.zero && !isAtMaxSpeed)
         {
             if (isOnGround)
             {
@@ -265,9 +269,6 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(transform.right * zMove * accStrafe * airSpeedMultiplier * moveSpeedMult * Time.deltaTime);
             }
         }
-        else
-        {
-        }
 
         //abilities
         if (controls.PlayerMovement.Ability.triggered)
@@ -279,6 +280,17 @@ public class PlayerMovement : MonoBehaviour
         {
             powerUps.OffBreakGrapple();
         }
+        
+        //Top Speed Accel
+        if (movInput != Vector2.zero && maxMoveSpeed < totalMaxSpeed)
+        {
+            maxMoveSpeed += maxSpeedAccel * Time.deltaTime;
+        }
+        else if (movInput == Vector2.zero)
+        {
+            maxMoveSpeed = startMaxSpeed;
+        }
+        
     }
 
     void smallVault()
@@ -601,8 +613,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //if is in air and not vaulting and not dashing then use this as speed limit
-
-        if (!hasJustVaulted || /*!powerUps.isDashing ||*/ !isGliding)
+        /*if (!hasJustVaulted || !isGliding)
         {
 
             if (isGliding) return;
@@ -611,7 +622,8 @@ public class PlayerMovement : MonoBehaviour
                 Vector3 limitedVel = HorizontalVelocity.normalized * (maxMoveSpeed - 0.1f);
                 rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
             }
-        }
+        }*/
+        
     }
 
     void resetWallRun()
