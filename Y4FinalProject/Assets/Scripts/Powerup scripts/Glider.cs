@@ -25,6 +25,8 @@ public class Glider : MonoBehaviour
     public float glideCooldown = 4;
     private bool isCoolingDown = false;
     private float cooldownTimer = 0;
+    [HideInInspector] public bool ready = false;
+    
 
     [Space]
     public AnimationCurve liftCurve;
@@ -47,14 +49,22 @@ public class Glider : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerMovement = GetComponent<PlayerMovement>();
         powerups = GetComponent<Powerups>();
-        
-        countdown = powerups.countdownText;
-        slider = powerups.powerupSlider;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (!isCoolingDown && !isEnabled)
+        {
+            ready = true;
+        }
+        else
+        {
+            ready = false;
+        }
+        
+        
+        
         if (isEnabled)
         {
             playerMovement.isGliding = true;
@@ -100,14 +110,21 @@ public class Glider : MonoBehaviour
             }
         }
         
-        UpdateUI();
+        if (equipped)
+        {
+            UpdateUI();
+        }
     }
     
-    private TextMeshProUGUI countdown;
-    private Slider slider;
+    [HideInInspector] public TextMeshProUGUI countdown;
+    [HideInInspector] public Slider slider;
+    [HideInInspector] public TextMeshProUGUI name;
+    [HideInInspector] public bool equipped = false;
     public void UpdateUI()
     {
-        if (!isCoolingDown)
+        name.text = "Glider";
+        
+        if (ready)
         {
             countdown.text = " ";
         }
@@ -115,13 +132,13 @@ public class Glider : MonoBehaviour
         
         if (isCoolingDown && !isEnabled)
         {
-            countdown.text = (glideCooldown - cooldownTimer).ToString();
+            countdown.text = CleanTimeConversion(glideCooldown - cooldownTimer, 2);
             slider.value = cooldownTimer / glideCooldown;
         }
 
         if (isEnabled)
         {
-            countdown.text = (glideDuration - time).ToString();
+            countdown.text = CleanTimeConversion(glideDuration - time, 2);
             slider.value = 1 - time / glideDuration;
         }
     }
@@ -145,5 +162,17 @@ public class Glider : MonoBehaviour
         {
             isEnabled = true;
         }
+    }
+    
+    public string CleanTimeConversion(float rawTime, int Dplaces)
+    {
+        int minutes = Mathf.FloorToInt(rawTime / 60);
+        int seconds = Mathf.FloorToInt(rawTime - minutes * 60);
+        int milliseconds = Mathf.FloorToInt((rawTime - (minutes * 60) - seconds) * (math.pow(10, Dplaces)));
+        
+        
+        
+        string timeReadable = string.Format("{0:00}.{1:0}", seconds, milliseconds);
+        return timeReadable;
     }
 }

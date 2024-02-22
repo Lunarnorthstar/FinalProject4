@@ -17,17 +17,22 @@ public class Shield : MonoBehaviour
     private bool active;
     public PlayerMovement player;
     public GameObject shieldObject;
-
-
-    private void Start()
-    {
-        countdown = player.GetComponent<Powerups>().countdownText;
-        slider = player.GetComponent<Powerups>().powerupSlider;
-    }
+    [HideInInspector] public bool ready = false;
 
     // Update is called once per frame
     void Update()
     {
+        if (!coolingDown && !active)
+        {
+            ready = true;
+        }
+        else
+        {
+            ready = false;
+        }
+        
+        
+        
         if (active)
         {
             shieldObject.SetActive(true);
@@ -57,27 +62,36 @@ public class Shield : MonoBehaviour
                 coolingDown = false;
             }
         }
-        UpdateUI();
+        if (equipped)
+        {
+            UpdateUI();
+        }
     }
     
-    private TextMeshProUGUI countdown;
-    private Slider slider;
+    [HideInInspector] public TextMeshProUGUI countdown;
+    [HideInInspector] public Slider slider;
+    [HideInInspector] public TextMeshProUGUI name;
+    [HideInInspector] public bool equipped = false;
     public void UpdateUI()
     {
-        if (!coolingDown)
+        
+        name.text = "Shield";
+        
+        
+        if (ready)
         {
             countdown.text = " ";
         }
         
         if (coolingDown && !active)
         {
-            countdown.text = (shieldCooldown - cooldownTimer).ToString();
+            countdown.text = CleanTimeConversion(shieldCooldown - cooldownTimer, 2);
             slider.value = cooldownTimer / shieldCooldown;
         }
 
         if (active)
         {
-            countdown.text = (shieldDuration - shieldTimer).ToString();
+            countdown.text = CleanTimeConversion(shieldDuration - shieldTimer, 2);
             slider.value = 1 - shieldTimer / shieldDuration;
         }
     }
@@ -88,5 +102,17 @@ public class Shield : MonoBehaviour
         {
             active = true;
         }
+    }
+    
+    public string CleanTimeConversion(float rawTime, int Dplaces)
+    {
+        int minutes = Mathf.FloorToInt(rawTime / 60);
+        int seconds = Mathf.FloorToInt(rawTime - minutes * 60);
+        int milliseconds = Mathf.FloorToInt((rawTime - (minutes * 60) - seconds) * (math.pow(10, Dplaces)));
+        
+        
+        
+        string timeReadable = string.Format("{0:00}.{1:0}", seconds, milliseconds);
+        return timeReadable;
     }
 }

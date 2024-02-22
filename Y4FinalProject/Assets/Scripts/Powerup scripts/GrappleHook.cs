@@ -12,7 +12,7 @@ public class GrappleHook : MonoBehaviour
 
     public float grappleCooldown;
     private float cooldownTimer;
-    private bool ready = true;
+    [HideInInspector]public bool ready = true;
 
     public float grappleRange = 20;
     public float grappleElasticity = 4.5f;
@@ -21,14 +21,13 @@ public class GrappleHook : MonoBehaviour
     private Vector3 grapplePoint;
     private SpringJoint joint;
     private LineRenderer lr;
+    
 
     public bool Active;
     // Start is called before the first frame update
     void Start()
     {
         lr = GetComponent<LineRenderer>();
-        countdown = gameObject.GetComponent<Powerups>().countdownText;
-        slider = gameObject.GetComponent<Powerups>().powerupSlider;
     }
 
     // Update is called once per frame
@@ -44,17 +43,26 @@ public class GrappleHook : MonoBehaviour
                 ready = true;
             }
         }
-        UpdateUI();
-        DrawRope();
+        if (equipped)
+        {
+            UpdateUI();
+            DrawRope();
+        }
+        
     }
 
-    private TextMeshProUGUI countdown;
-    private Slider slider;
+    [HideInInspector] public TextMeshProUGUI countdown;
+    [HideInInspector] public Slider slider;
+    [HideInInspector] public TextMeshProUGUI name;
+    [HideInInspector] public bool equipped = false;
     public void UpdateUI()
     {
+        name.text = "Grapple";
+        
+        
         if (!ready && !Active)
         {
-            countdown.text = (grappleCooldown - cooldownTimer).ToString();
+            countdown.text = CleanTimeConversion(grappleCooldown - cooldownTimer, 2);
             slider.value = cooldownTimer / grappleCooldown;
         }
         else
@@ -121,5 +129,17 @@ public class GrappleHook : MonoBehaviour
         
         lr.SetPosition(0, gameObject.transform.position);
         lr.SetPosition(1, grapplePoint);
+    }
+    
+    public string CleanTimeConversion(float rawTime, int Dplaces)
+    {
+        int minutes = Mathf.FloorToInt(rawTime / 60);
+        int seconds = Mathf.FloorToInt(rawTime - minutes * 60);
+        int milliseconds = Mathf.FloorToInt((rawTime - (minutes * 60) - seconds) * (math.pow(10, Dplaces)));
+        
+        
+        
+        string timeReadable = string.Format("{0:00}.{1:0}", seconds, milliseconds);
+        return timeReadable;
     }
 }

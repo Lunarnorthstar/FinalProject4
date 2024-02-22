@@ -8,21 +8,21 @@ using System.IO;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
+using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
 
-[Serializable]
+[System.Serializable]
 public struct LeaderboardStats
 {
     public float previousSave;
     public float highSave;
     public float highHundredpercentSave;
+    public List<float> lastTimes;
+    public List<float> lastTimesHundred;
 }
 
 public class TimerHandler : MonoBehaviour
 {
-
-    //public GameScore SOManager;
-    
     public float levelTime = 0;
     public GameObject timerDisplay;
     public bool timerActive = false;
@@ -30,16 +30,13 @@ public class TimerHandler : MonoBehaviour
     public GameObject finishPanel;
     
     string filePath;
-    const string FILE_NAME = "PersonalScores.Json"; 
-    LeaderboardStats dataScore;
+    const string FILE_NAME = "PersonalScores.Json";
+    private LeaderboardStats[] dataScore;
     
     private float bestTime = 10000;
     private float bestHundredpercentTime = 10000;
     private float lastTime = 0;
     private int levelIndex;
-
-    //public GameObject leaderboard;
-    //public GameObject hundredpercentLeaderboard;
     public CollectibleHandler handler;
 
 
@@ -51,14 +48,22 @@ public class TimerHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        bestTime = SOManager.highScore;
-        lastTime = SOManager.previousScore;
-        timerActive = true;
-        */
-        
         filePath = Application.dataPath;
-        dataScore = new LeaderboardStats();
+        dataScore = new LeaderboardStats[6];
+
+        for (int i = 0; i < dataScore.Length; i++)
+        {
+            dataScore[i] = new LeaderboardStats();
+            dataScore[i].highSave = 0;
+            dataScore[i].previousSave = 0;
+            dataScore[i].highHundredpercentSave = 0;
+            dataScore[i].lastTimes = new List<float>(3);
+            dataScore[i].lastTimesHundred = new List<float>(3);
+        }
+
+
+
+
         levelIndex = SceneManager.GetActiveScene().buildIndex - 1;
         
         Debug.Log(filePath);
@@ -66,50 +71,8 @@ public class TimerHandler : MonoBehaviour
         LoadGameStatus();
         UpdateSceneFromManager();
         
-        //UpdateUI();
         
-        /*
-        filePath = Application.persistentDataPath;
-        if (File.Exists(filePath + "/" + FILE_NAME)) //If the data file exists...
-        {
-            string loadedJson = File.ReadAllText(filePath + "/" + FILE_NAME); //Read all the text into a string
-
-            bestTime = JsonUtility.FromJson<float>(loadedJson); //De-JSON it and pass it into the float
-            
-
-        }
-        else //Otherwise (if it doesn't exist)...
-        {
-            Debug.Log("File not found");
-        }
-        
-        
-
-        if (bestTime > 0)
-        {
-            leaderboard.GetComponent<TextMeshProUGUI>().text = "TheRunningMan: " + CleanTimeConversion(bestTime - 1) + 
-                                                               "\n You: " + CleanTimeConversion(bestTime) +
-                                                               "\n TheWalkingMan: " + CleanTimeConversion(100000);
-        }
-        else
-        {
-            leaderboard.GetComponent<TextMeshProUGUI>().text = "\n TheWalkingMan: " + CleanTimeConversion(100000);
-        }
-        */
-        
-
     }
-
-    /*
-    private void OnApplicationQuit()
-    {
-        Debug.Log(bestTime);
-
-        string gameStatusJSON = JsonUtility.ToJson(bestTime); //Convert your time to JSON
-        Debug.Log(gameStatusJSON);
-        File.WriteAllText(filePath + "/" + FILE_NAME, gameStatusJSON);
-    }
-    */
 
 
     // Update is called once per frame
@@ -127,18 +90,18 @@ public class TimerHandler : MonoBehaviour
             }
         }
 
-        timerDisplay.GetComponent<TextMeshProUGUI>().text = CleanTimeConversion(levelTime);
+        timerDisplay.GetComponent<TextMeshProUGUI>().text = CleanTimeConversion(levelTime, significantDecimals);
     }
 
-    public string CleanTimeConversion(float rawTime)
+    public string CleanTimeConversion(float rawTime, int Dplaces)
     {
         int minutes = Mathf.FloorToInt(rawTime / 60);
         int seconds = Mathf.FloorToInt(rawTime - minutes * 60);
-        int milliseconds = Mathf.FloorToInt((rawTime - (minutes * 60) - seconds) * (math.pow(10, significantDecimals)));
+        int milliseconds = Mathf.FloorToInt((rawTime - (minutes * 60) - seconds) * (math.pow(10, Dplaces)));
         
         
         
-        string timeReadable = string.Format("{0:0}:{1:00}.{2:0}", minutes, seconds, milliseconds);
+        string timeReadable = string.Format("{0:00}.{1:0}", seconds, milliseconds);
         return timeReadable;
     }
     
@@ -155,54 +118,45 @@ public class TimerHandler : MonoBehaviour
         timerActive = false;
         timerDisplay.GetComponent<TextMeshProUGUI>().color = Color.green;
         lastTime = levelTime;
-        dataScore.previousSave = lastTime;
+        dataScore[levelIndex].previousSave = lastTime;
         SaveGameStatus();
-        //SOManager.previousScore = lastTime;
         if (lastTime < bestTime || bestTime <= 0)
         {
             bestTime = lastTime;
             
-            dataScore.highSave = bestTime;
-            SaveGameStatus();
-            
-            
-            //SOManager.highScore = bestTime;
+            dataScore[levelIndex].highSave = bestTime;
+        }
+        else
+        {
+            if (dataScore[levelIndex].lastTimes.Count >= 3)
+            {
+                dataScore[levelIndex].lastTimes.Remove(1);
+            }
+            dataScore[levelIndex].lastTimes.Add(lastTime);
         }
         
         if (handler.hundredpercent && (lastTime < bestHundredpercentTime || bestHundredpercentTime <= 0))
         {
             bestHundredpercentTime = lastTime;
-            dataScore.highHundredpercentSave = bestHundredpercentTime;
-            SaveGameStatus();
-        }
-    }
-    
-    /*public void UpdateUI()
-    {
-        if (bestTime > 0)
-        {
-            leaderboard.GetComponent<TextMeshProUGUI>().text = "TheRunningMan: " + CleanTimeConversion(bestTime - 1) + 
-                                                               "\n You: " + CleanTimeConversion(bestTime) +
-                                                               "\n TheWalkingMan: " + CleanTimeConversion(100000);
+            dataScore[levelIndex].highHundredpercentSave = bestHundredpercentTime;
         }
         else
         {
-            leaderboard.GetComponent<TextMeshProUGUI>().text = "\n TheWalkingMan: " + CleanTimeConversion(100000);
+            if (dataScore[levelIndex].lastTimesHundred.Count >= 3)
+            {
+                dataScore[levelIndex].lastTimes.Remove(1);
+            }
+            dataScore[levelIndex].lastTimes.Add(lastTime);
         }
+        SaveGameStatus();
+    }
 
-        if (bestHundredpercentTime > 0)
-        {
-            hundredpercentLeaderboard.GetComponent<TextMeshProUGUI>().text =
-                "You: " + CleanTimeConversion(bestHundredpercentTime);
-        }
-    }*/
-    
     public void LoadGameStatus()
     {
         if (File.Exists(filePath + "/" + FILE_NAME))
         {
             string loadedJson = File.ReadAllText(filePath + "/" + FILE_NAME);
-            dataScore = JsonUtility.FromJson<LeaderboardStats>(loadedJson);
+            dataScore = JsonHelper.FromJson<LeaderboardStats>(loadedJson);
             Debug.Log("File loaded successfully");
         }
         else
@@ -214,7 +168,7 @@ public class TimerHandler : MonoBehaviour
     
     public void ResetGameStatus()
     {
-        dataScore = new LeaderboardStats();
+        dataScore = new LeaderboardStats[6];
 
         SaveGameStatus();
         Debug.Log("File not found...Creating");
@@ -222,7 +176,7 @@ public class TimerHandler : MonoBehaviour
     
     public void SaveGameStatus()
     {
-        string scoreJson = JsonUtility.ToJson(dataScore);
+        string scoreJson = JsonHelper.ToJson(dataScore, true);
         
         File.WriteAllText(filePath + "/" + FILE_NAME, scoreJson);
 
@@ -232,9 +186,9 @@ public class TimerHandler : MonoBehaviour
     
     public void UpdateSceneFromManager()
     {
-        bestTime = dataScore.highSave;
-        lastTime = dataScore.previousSave;
-        bestHundredpercentTime = dataScore.highHundredpercentSave;
+        bestTime = dataScore[levelIndex].highSave;
+        lastTime = dataScore[levelIndex].previousSave;
+        bestHundredpercentTime = dataScore[levelIndex].highHundredpercentSave;
 
     }
     
@@ -242,9 +196,9 @@ public class TimerHandler : MonoBehaviour
     {
         if (other.tag == "FinishTrigger")
         {
-            StopTimer();
             finishPanel.SetActive(true);
             gameObject.GetComponent<PlayerManager>().lockMouse();
+            StopTimer();
         }
     }
 

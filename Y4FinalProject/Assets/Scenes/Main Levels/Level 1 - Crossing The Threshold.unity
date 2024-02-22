@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6558.829, g: 4994.0356, b: 3403.52, a: 1}
+  m_IndirectSpecularColor: {r: 6558.8447, g: 4993.9575, b: 3403.559, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -854,6 +854,16 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 50c7d67e0c10daf45a2e4a7bc72c6857, type: 3}
+--- !u!1 &193663055 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2777306831678491992, guid: 00c55ef519019434d87bf54728021438, type: 3}
+  m_PrefabInstance: {fileID: 801521587}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &193663056 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6519307521956145568, guid: 00c55ef519019434d87bf54728021438, type: 3}
+  m_PrefabInstance: {fileID: 801521587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &205899470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 169eb79af33c9b14aa71702ae0863330, type: 3}
@@ -7921,6 +7931,14 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5849605951236874918, guid: 00c55ef519019434d87bf54728021438, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5849605951236874918, guid: 00c55ef519019434d87bf54728021438, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6091695451483697461, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -14400,6 +14418,18 @@ PrefabInstance:
       propertyPath: powerupSlider
       value: 
       objectReference: {fileID: 801521589}
+    - target: {fileID: 6694398332962240107, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: powerupUI.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6694398332962240107, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: powerupUI.Array.data[0]
+      value: 
+      objectReference: {fileID: 193663056}
+    - target: {fileID: 6694398332962240107, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: powerupUI.Array.data[1]
+      value: 
+      objectReference: {fileID: 193663055}
     - target: {fileID: 8329050076016796603, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalPosition.x
       value: -76.86

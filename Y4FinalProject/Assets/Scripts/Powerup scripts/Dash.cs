@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,10 +16,11 @@ public class Dash : MonoBehaviour
     private float durationTimer = 0;
     [Tooltip("The time in seconds the powerup cools down for")] public float dashCooldown = 4;
     private float cooldownTimer = 0;
-    private bool ready = true;
+    [HideInInspector]public bool ready = true;
     [Space] 
     public GameObject player;
     public GameObject camera;
+    
 
     private Rigidbody rb;
     
@@ -26,9 +28,6 @@ public class Dash : MonoBehaviour
     void Start()
     {
         rb = player.GetComponent<Rigidbody>();
-
-        countdown = player.GetComponent<Powerups>().countdownText;
-        slider = player.GetComponent<Powerups>().powerupSlider;
     }
 
     // Update is called once per frame
@@ -69,14 +68,21 @@ public class Dash : MonoBehaviour
                 durationTimer = 0;
             }
         }
-        
-        UpdateUI();
+
+        if (equipped)
+        {
+            UpdateUI();
+        }
     }
 
-    private TextMeshProUGUI countdown;
-    private Slider slider;
+    [HideInInspector] public TextMeshProUGUI countdown;
+    [HideInInspector] public Slider slider;
+    [HideInInspector] public TextMeshProUGUI name;
+    [HideInInspector] public bool equipped = false;
     public void UpdateUI()
     {
+        name.text = "Dash";
+        
         if (ready)
         {
             countdown.text = " ";
@@ -85,13 +91,13 @@ public class Dash : MonoBehaviour
         
         if (!ready && !dashing)
         {
-            countdown.text = (dashCooldown - cooldownTimer).ToString();
+            countdown.text = CleanTimeConversion(dashCooldown - cooldownTimer, 2);
             slider.value = cooldownTimer / dashCooldown;
         }
 
         if (dashing)
         {
-            countdown.text = (dashDuration - durationTimer).ToString();
+            countdown.text = CleanTimeConversion(dashDuration - durationTimer, 2);
             slider.value =  1 - durationTimer / dashDuration;
         }
         
@@ -105,5 +111,17 @@ public class Dash : MonoBehaviour
             dashing = true;
             
         }
+    }
+    
+    public string CleanTimeConversion(float rawTime, int Dplaces)
+    {
+        int minutes = Mathf.FloorToInt(rawTime / 60);
+        int seconds = Mathf.FloorToInt(rawTime - minutes * 60);
+        int milliseconds = Mathf.FloorToInt((rawTime - (minutes * 60) - seconds) * (math.pow(10, Dplaces)));
+        
+        
+        
+        string timeReadable = string.Format("{0:00}.{1:0}", seconds, milliseconds);
+        return timeReadable;
     }
 }

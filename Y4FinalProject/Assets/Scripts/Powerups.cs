@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Contracts;
+using System.Linq;
 using System.Timers;
 using Polybrush;
 using TMPro;
@@ -20,8 +21,16 @@ public class Powerups : MonoBehaviour
     public GameObject camera;
     public Shield shield;
     public GrappleHook grappleHook;
-    public Slider powerupSlider;
-    public TextMeshProUGUI countdownText;
+    
+    [Header("UI")]
+    public GameObject[] powerupUI;
+    private TextMeshProUGUI[] countdownText;
+    private Slider[] powerupSlider;
+    private TextMeshProUGUI[] powerupText;
+    private Image[] powerupImage;
+    private Image[] indicatorImage;
+    
+    
     [Space] 
     public PowerupData PD;
     public List<string> equippedPowerups;
@@ -30,8 +39,38 @@ public class Powerups : MonoBehaviour
 
     private void Start()
     {
+        powerupSlider = new Slider[powerupUI.Length];
+        powerupText = new TextMeshProUGUI[powerupUI.Length];
+        countdownText = new TextMeshProUGUI[powerupUI.Length];
+        powerupImage = new Image[powerupUI.Length];
+        indicatorImage = new Image[powerupUI.Length];
+        
+        
+        for (int i = 0; i < powerupUI.Length; i++)
+        {
+            powerupSlider[i] = powerupUI[i].GetComponentInChildren<Slider>();
+            powerupImage[i] = powerupUI[i].GetComponentInChildren<Image>();
+
+            if (i == 0)
+            {
+                powerupText[i] = GameObject.FindWithTag("PowerTextA").GetComponent<TextMeshProUGUI>();
+                countdownText[i] = GameObject.FindWithTag("CountTextA").GetComponent<TextMeshProUGUI>();
+                indicatorImage[i] = GameObject.FindWithTag("IndicatorA").GetComponent<Image>();
+
+            }
+            else
+            {
+                powerupText[i] = GameObject.FindWithTag("PowerTextB").GetComponent<TextMeshProUGUI>();
+                countdownText[i] = GameObject.FindWithTag("CountTextB").GetComponent<TextMeshProUGUI>();
+                indicatorImage[i] = GameObject.FindWithTag("IndicatorB").GetComponent<Image>();
+            }
+            
+            
+        }
         equippedPowerups = PD.equippedPowerups;
-        countdownText.text = "0";
+        
+        
+        updateUI();
     }
 
 
@@ -48,14 +87,85 @@ public class Powerups : MonoBehaviour
             blinkShadow.SetActive(false);
         }
         
-        updateUI();
+        
+        for (int i = 0; i < powerupUI.Length; i++)
+        {
+            switch (equippedPowerups[i])
+            {
+                case "dash":
+                    if (!dash.ready) indicatorImage[i].color = Color.red;
+                    else indicatorImage[i].color = Color.green;
+                    break;
+                case "glider": 
+                    if (!glider.ready) indicatorImage[i].color = Color.red;
+                    else indicatorImage[i].color = Color.green;
+                    break;
+                case "blink":
+                    if (!blink.ready) indicatorImage[i].color = Color.red;
+                    else indicatorImage[i].color = Color.green;
+                    break;
+                case "shield":
+                    if (!shield.ready) indicatorImage[i].color = Color.red;
+                    else indicatorImage[i].color = Color.green;
+                    break;
+                case "grapple":
+                    if (!grappleHook.ready) indicatorImage[i].color = Color.red;
+                    else indicatorImage[i].color = Color.green;
+                    break;
+                default: break;
+            }
+        }
+
+
+        for (int i = 0; i < powerupImage.Length; i++)
+        {
+            powerupImage[i].color = Color.white;
+        }
+        
+        powerupImage[slotSelected].color = Color.green;
     }
 
-
-    public TextMeshProUGUI powerupText;
+    
     public void updateUI()
     {
-        powerupText.text = equippedPowerups[slotSelected];
+        for (int i = 0; i < powerupUI.Length; i++)
+        {
+            //This is all so ugly but I have too much tech debt to do it any other way :(
+            switch (equippedPowerups[i])
+            {
+                case "dash":
+                    dash.equipped = true;
+                    dash.name = powerupText[i];
+                    dash.slider = powerupSlider[i];
+                    dash.countdown = countdownText[i];
+                    break;
+                case "glider":
+                    glider.equipped = true;
+                    glider.name = powerupText[i];
+                    glider.slider = powerupSlider[i];
+                    glider.countdown = countdownText[i];
+                    break;
+                case "blink":
+                    blink.equipped = true;
+                    blink.name = powerupText[i];
+                    blink.slider = powerupSlider[i];
+                    blink.countdown = countdownText[i];
+                    break;
+                case "shield":
+                    shield.equipped = true;
+                    shield.name = powerupText[i];
+                    shield.slider = powerupSlider[i];
+                    shield.countdown = countdownText[i];
+                    break;
+                case "grapple":
+                    grappleHook.equipped = true;
+                    grappleHook.name = powerupText[i];
+                    grappleHook.slider = powerupSlider[i];
+                    grappleHook.countdown = countdownText[i];
+                    break;
+                default:  Debug.Log("Oops! " + equippedPowerups[slotSelected] + " is not a valid powerup name. The valid names are; dash, glider, blink, shield, and grapple (case sensitive)"); break;
+            }
+        }
     }
 
     public void SwitchPowerup()

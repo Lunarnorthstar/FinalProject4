@@ -10,7 +10,9 @@ public class LeaderboardDisplay : MonoBehaviour
     string filePath;
     const string FILE_NAME = "PersonalScores.Json";
 
-    private LeaderboardStats dataScore;
+    private LeaderboardStats[] dataScore;
+    private int selector = 0;
+    private LevelSelectBehavior L;
 
     public TextMeshProUGUI leaderboard;
     public TextMeshProUGUI hundredpercentLeaderboard;
@@ -18,19 +20,51 @@ public class LeaderboardDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        dataScore = new LeaderboardStats[6];
+        for (int i = 0; i < dataScore.Length; i++)
+        {
+            dataScore[i] = new LeaderboardStats();
+            dataScore[i].highSave = 0;
+            dataScore[i].previousSave = 0;
+            dataScore[i].highHundredpercentSave = 0;
+            dataScore[i].lastTimes = new List<float>(3);
+            dataScore[i].lastTimesHundred = new List<float>(3);
+        }
+        
+        
+        
+        L = GetComponent<LevelSelectBehavior>();
         filePath = Application.dataPath;
         Debug.Log(filePath);
-        //dataScore.highSave = new float[6];
-        //dataScore.highHundredpercentSave = new float[dataScore.highSave.Length];
         LoadGameStatus();
     }
 
     // Update is called once per frame
     void Update()
     {
-        leaderboard.text = dataScore.highSave.ToString();
-        hundredpercentLeaderboard.text = dataScore.highHundredpercentSave.ToString();
+        selector = L.selection;
 
+
+        leaderboard.text = dataScore[selector].highSave + "\n Last Times";
+
+        foreach (float time in dataScore[selector].lastTimes)
+        {
+            if (time != null)
+            {
+                leaderboard.text += "\n" + time;
+            }
+        }
+
+        hundredpercentLeaderboard.text = dataScore[selector].highHundredpercentSave + "\n Last Times";
+
+        foreach (float time in dataScore[selector].lastTimesHundred)
+        {
+            if (time != null)
+            {
+                leaderboard.text += "\n" + time;
+            }
+        }
+        
 
         if (purgeActive)
         {
@@ -58,7 +92,8 @@ public class LeaderboardDisplay : MonoBehaviour
         if (File.Exists(filePath + "/" + FILE_NAME))
         {
             string loadedJson = File.ReadAllText(filePath + "/" + FILE_NAME);
-            dataScore = JsonUtility.FromJson<LeaderboardStats>(loadedJson);
+            dataScore = JsonHelper.FromJson<LeaderboardStats>(loadedJson);
+
             Debug.Log("File loaded successfully");
         }
         else
@@ -101,9 +136,14 @@ public class LeaderboardDisplay : MonoBehaviour
 
     public void ResetGameStatus()
     {
-        dataScore = new LeaderboardStats();
+        dataScore = new LeaderboardStats[6];
+        for (int i = 0; i < dataScore.Length; i++)
+        {
+            dataScore[i].lastTimes = new List<float>(3);
+            dataScore[i].lastTimesHundred = new List<float>(3);
+        }
 
-        string scoreJson = JsonUtility.ToJson(dataScore);
+        string scoreJson = JsonHelper.ToJson(dataScore, true);
         
         File.WriteAllText(filePath + "/" + FILE_NAME, scoreJson);
 

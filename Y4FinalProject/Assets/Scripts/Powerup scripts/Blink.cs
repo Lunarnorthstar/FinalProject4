@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,18 +13,14 @@ public class Blink : MonoBehaviour
     private bool coolingDown = false;
     public GameObject camera;
     public GameObject player;
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        countdown = player.GetComponent<Powerups>().countdownText;
-        slider = player.GetComponent<Powerups>().powerupSlider;
-    }
+    [HideInInspector] public bool ready = false;
 
     // Update is called once per frame
     void Update()
     {
+        ready = !coolingDown;
+        
+        
         if (coolingDown)
         {
             cooldownTimer += Time.deltaTime;
@@ -34,18 +31,26 @@ public class Blink : MonoBehaviour
                 coolingDown = false;
             }
         }
-        UpdateUI();
+        if (equipped)
+        {
+            UpdateUI();
+        }
     }
     
-    private TextMeshProUGUI countdown;
-    private Slider slider;
+    [HideInInspector] public TextMeshProUGUI countdown;
+    [HideInInspector] public Slider slider;
+    [HideInInspector] public TextMeshProUGUI name;
+    [HideInInspector] public bool equipped = false;
     public void UpdateUI()
     {
+        name.text = "Blink";
+        
+        
         countdown.text = " ";
         
         if (coolingDown)
         {
-            countdown.text = (cooldown - cooldownTimer).ToString();
+            countdown.text = CleanTimeConversion(cooldown - cooldownTimer,2);
             slider.value = cooldownTimer / cooldown;
         }
     }
@@ -60,5 +65,17 @@ public class Blink : MonoBehaviour
 
             coolingDown = true;
         }
+    }
+    
+    public string CleanTimeConversion(float rawTime, int Dplaces)
+    {
+        int minutes = Mathf.FloorToInt(rawTime / 60);
+        int seconds = Mathf.FloorToInt(rawTime - minutes * 60);
+        int milliseconds = Mathf.FloorToInt((rawTime - (minutes * 60) - seconds) * (math.pow(10, Dplaces)));
+        
+        
+        
+        string timeReadable = string.Format("{0:00}.{1:0}", seconds, milliseconds);
+        return timeReadable;
     }
 }
