@@ -23,12 +23,13 @@ public class Powerups : MonoBehaviour
     public GrappleHook grappleHook;
     
     [Header("UI")]
-    public GameObject[] powerupUI;
-    private TextMeshProUGUI[] countdownText;
-    private Slider[] powerupSlider;
-    private TextMeshProUGUI[] powerupText;
-    private Image[] powerupImage;
-    private Image[] indicatorImage;
+    public GameObject[] powerupUI; //The overarching object
+    private TextMeshProUGUI[] countdownText; //The text displaying the cooldown or duration countdown
+    private Slider[] powerupSlider; //The slider displaying the percent of cooldown/countdown
+    private TextMeshProUGUI[] powerupText; //The name of the powerup
+    private Image[] powerupImage; //The white box behind the name
+    private Image[] indicatorImage; //The small green box
+    private String[] letter = new[] {"A", "B"}; //For iterative purposes
     
     
     [Space] 
@@ -43,32 +44,20 @@ public class Powerups : MonoBehaviour
         powerupText = new TextMeshProUGUI[powerupUI.Length];
         countdownText = new TextMeshProUGUI[powerupUI.Length];
         powerupImage = new Image[powerupUI.Length];
-        indicatorImage = new Image[powerupUI.Length];
+        indicatorImage = new Image[powerupUI.Length]; //Initialize all the arrays
         
         
-        for (int i = 0; i < powerupUI.Length; i++)
+        for (int i = 0; i < powerupUI.Length; i++) //Fill all the arrays.
         {
             powerupSlider[i] = powerupUI[i].GetComponentInChildren<Slider>();
             powerupImage[i] = powerupUI[i].GetComponentInChildren<Image>();
 
-            if (i == 0)
-            {
-                powerupText[i] = GameObject.FindWithTag("PowerTextA").GetComponent<TextMeshProUGUI>();
-                countdownText[i] = GameObject.FindWithTag("CountTextA").GetComponent<TextMeshProUGUI>();
-                indicatorImage[i] = GameObject.FindWithTag("IndicatorA").GetComponent<Image>();
-
-            }
-            else
-            {
-                powerupText[i] = GameObject.FindWithTag("PowerTextB").GetComponent<TextMeshProUGUI>();
-                countdownText[i] = GameObject.FindWithTag("CountTextB").GetComponent<TextMeshProUGUI>();
-                indicatorImage[i] = GameObject.FindWithTag("IndicatorB").GetComponent<Image>();
-            }
-            
-            
-        }
+            powerupText[i] = GameObject.FindWithTag("PowerText" + letter[i]).GetComponent<TextMeshProUGUI>();
+            countdownText[i] = GameObject.FindWithTag("CountText" + letter[i]).GetComponent<TextMeshProUGUI>();
+            indicatorImage[i] = GameObject.FindWithTag("Indicator" + letter[i]).GetComponent<Image>(); 
+            //We need tags here because both text objects are in the "child". I wanted to minimize setup which ended up maximizing code.
+        } 
         equippedPowerups = PD.equippedPowerups;
-        
         
         updateUI();
     }
@@ -76,18 +65,29 @@ public class Powerups : MonoBehaviour
 
     private void Update()
     {
-        if (equippedPowerups[slotSelected] == "blink")
+        if (equippedPowerups[slotSelected] == "blink") //If you've got Blink selected...
         {
-            blinkShadow.SetActive(true);
+            blinkShadow.SetActive(true); //Set the shadow object to be enabled so you can see it.
             blinkShadow.transform.position =
-                gameObject.transform.position + (blink.blinkDistance * camera.transform.forward) + new Vector3(0, 0.3f, 0);
+                gameObject.transform.position + (blink.blinkDistance * camera.transform.forward) + new Vector3(0, 0.3f, 0); //Set its position to where you will blink to
         }
         else
         {
-            blinkShadow.SetActive(false);
+            blinkShadow.SetActive(false); //if you don't have blink selected set the shadow object to be inactive so you don't see it anymore.
+        }
+
+        if (equippedPowerups[slotSelected] == "grapple")
+        {
+            grappleHook.grappleShadow.SetActive(true);
+        }
+        else
+        {
+            grappleHook.grappleShadow.SetActive(false);
         }
         
         
+        
+        //Cooldown color changing
         for (int i = 0; i < powerupUI.Length; i++)
         {
             switch (equippedPowerups[i])
@@ -115,23 +115,23 @@ public class Powerups : MonoBehaviour
                 default: break;
             }
         }
-
-
-        for (int i = 0; i < powerupImage.Length; i++)
+        
+        //Selecting color changing
+        for (int i = 0; i < powerupImage.Length; i++) 
         {
             powerupImage[i].color = Color.white;
         }
-        
         powerupImage[slotSelected].color = Color.green;
+        
     }
 
     
     public void updateUI()
     {
-        for (int i = 0; i < powerupUI.Length; i++)
+        for (int i = 0; i < powerupUI.Length; i++) //For each powerup you have...
         {
             //This is all so ugly but I have too much tech debt to do it any other way :(
-            switch (equippedPowerups[i])
+            switch (equippedPowerups[i]) //Hook up all the powerup script's UI elements.
             {
                 case "dash":
                     dash.equipped = true;
@@ -163,7 +163,10 @@ public class Powerups : MonoBehaviour
                     grappleHook.slider = powerupSlider[i];
                     grappleHook.countdown = countdownText[i];
                     break;
-                default:  Debug.Log("Oops! " + equippedPowerups[slotSelected] + " is not a valid powerup name. The valid names are; dash, glider, blink, shield, and grapple (case sensitive)"); break;
+                default:  
+                    Debug.Log("Oops! " + equippedPowerups[slotSelected] + " is not a valid powerup name. The valid names are; dash, glider, blink, shield, and grapple (case sensitive)");
+                    powerupText[i].text = "None";
+                    break;
             }
         }
     }

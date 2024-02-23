@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 //This script goes on the terrain object. It needs a trigger collider that stretches slightly above as well.
@@ -38,20 +39,41 @@ public class TerrainHandler : MonoBehaviour
             
             PlayerMovement target = other.gameObject.GetComponentInParent<PlayerMovement>(); //Get the playermovement script for easy access
 
-            if (modifiesMoveSpeed)
+            if (target.isAffectedByTerrain)
             {
-                target.moveSpeedMult = moveSpeedMult;
-            }
+                if (modifiesMoveSpeed)
+                {
+                    target.moveSpeedMult = moveSpeedMult;
+                }
 
-            if (modifiesJumpHeight)
-            {
-                target.jumpHeightMult = jumpHeightMult;
-            }
+                if (modifiesJumpHeight)
+                {
+                    target.jumpHeightMult = jumpHeightMult;
+                }
 
-            if (modifiesFriction)
-            {
-                target.fricitonMult = frictionMult;
+                if (modifiesFriction)
+                {
+                    target.fricitonMult = frictionMult;
+                }
             }
+            else
+            {
+                if (modifiesMoveSpeed)
+                {
+                    target.moveSpeedMult = math.max(moveSpeedMult, 1);
+                }
+
+                if (modifiesJumpHeight)
+                {
+                    target.jumpHeightMult = math.max(jumpHeightMult, 1);
+                }
+
+                if (modifiesFriction)
+                {
+                    target.fricitonMult = 1;
+                }
+            }
+            
         }
     }
 

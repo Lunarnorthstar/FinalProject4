@@ -118,6 +118,7 @@ public class PlayerMovement : MonoBehaviour
     public int wallRunDir;
     public int lastRunDir;
     public bool isGliding;
+    public bool isAffectedByTerrain = true;
 
     public string wallFacingTag;
 
@@ -217,10 +218,6 @@ public class PlayerMovement : MonoBehaviour
         if (Mathf.Abs(HorizontalVelocityf) >= maxMoveSpeed * moveSpeedMult) isAtMaxSpeed = true;
         else isAtMaxSpeed = false;
 
-        //check if moving at max Sprint speed
-        //if (Mathf.Abs(HorizontalVelocityf) >= maxSprintSpeed * moveSpeedMult) isAtMaxSprintSpeed = true;
-        //else isAtMaxSprintSpeed = false;
-
         //sliding
         float isSlide = controls.PlayerMovement.SpeedKey.ReadValue<float>();
         if (isSlide != 0) isTryingToSlide = true;
@@ -298,7 +295,7 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(transform.forward * vaultBoost, ForceMode.Impulse);
         rb.AddForce(transform.up * vaultHeight, ForceMode.Impulse);
 
-        ani.Play("Vault");
+        //ani.Play("Vault");
 
         playerIK.ikActive = true; //Touch stuff
 

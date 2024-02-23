@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6558.837, g: 4993.9575, b: 3403.5552, a: 1}
+  m_IndirectSpecularColor: {r: 6558.8447, g: 4993.9575, b: 3403.559, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -13293,6 +13293,11 @@ Transform:
   - {fileID: 1386899632}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1 &508680552 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3552419815334131729, guid: 00c55ef519019434d87bf54728021438, type: 3}
+  m_PrefabInstance: {fileID: 801521587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &510263321
 GameObject:
   m_ObjectHideFlags: 0
@@ -15183,6 +15188,10 @@ PrefabInstance:
       propertyPath: speedSlider
       value: 
       objectReference: {fileID: 1537733768}
+    - target: {fileID: 4457539464997032814, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: grappleShadow
+      value: 
+      objectReference: {fileID: 508680552}
     - target: {fileID: 4804837165726689245, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_Name
       value: Player(new)

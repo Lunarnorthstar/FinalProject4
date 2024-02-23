@@ -950,6 +950,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   validPosition: 1
+  validMaterial: {fileID: 2100000, guid: 32015b75e88e94747804ad5e5036ca25, type: 2}
+  invalidMaterial: {fileID: 2100000, guid: b927bb64caa65174681fbe06e926f464, type: 2}
 --- !u!54 &1307862825322434657
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1394,7 +1396,7 @@ MonoBehaviour:
   slideStopSpeed: 6
   slideDeadzone: 0.3
   JoyCamSensitivity: 1.2
-  IKGrabTime: 1
+  IKGrabTime: 0.5
   jumpForce: 20
   wallJumpForce: 15
   vaultBoost: 20
@@ -1433,6 +1435,7 @@ MonoBehaviour:
   wallRunDir: 0
   lastRunDir: 0
   isGliding: 0
+  isAffectedByTerrain: 1
   wallFacingTag: 
 --- !u!114 &7058966617273023747
 MonoBehaviour:
@@ -1576,11 +1579,9 @@ MonoBehaviour:
   camera: {fileID: 1129337796531767501}
   shield: {fileID: 6554611238728626299}
   grappleHook: {fileID: 4457539464997032814}
-  powerupSlider: {fileID: 0}
-  countdownText: {fileID: 0}
+  powerupUI: []
   PD: {fileID: 11400000, guid: d1f095d2f0fe4434298065f396268c8e, type: 2}
   equippedPowerups: []
-  powerupText: {fileID: 0}
 --- !u!114 &3817539225509746752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1598,8 +1599,13 @@ MonoBehaviour:
   dashDuration: 0.5
   verticalLaunchScalar: 5
   dashCooldown: 6
+  ready: 1
   player: {fileID: 4804837165726689245}
   camera: {fileID: 1129337796531767501}
+  countdown: {fileID: 0}
+  slider: {fileID: 0}
+  name: {fileID: 0}
+  equipped: 0
 --- !u!114 &7683079130267281877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1618,6 +1624,7 @@ MonoBehaviour:
   forwardForce: 15
   glideDuration: 3
   glideCooldown: 8
+  ready: 0
   liftCurve:
     serializedVersion: 2
     m_Curve:
@@ -1757,6 +1764,10 @@ MonoBehaviour:
   totalLift: 0
   angleOfAttack: 0
   totalForwardsForce: 0
+  countdown: {fileID: 0}
+  slider: {fileID: 0}
+  name: {fileID: 0}
+  equipped: 0
 --- !u!114 &4912140733957525477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1773,6 +1784,11 @@ MonoBehaviour:
   cooldown: 3
   camera: {fileID: 1129337796531767501}
   player: {fileID: 4804837165726689245}
+  ready: 0
+  countdown: {fileID: 0}
+  slider: {fileID: 0}
+  name: {fileID: 0}
+  equipped: 0
 --- !u!114 &6554611238728626299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1790,6 +1806,11 @@ MonoBehaviour:
   shieldCooldown: 4
   player: {fileID: 745724907302802243}
   shieldObject: {fileID: 5656567766235717760}
+  ready: 0
+  countdown: {fileID: 0}
+  slider: {fileID: 0}
+  name: {fileID: 0}
+  equipped: 0
 --- !u!114 &209428965428089303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1823,11 +1844,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCam: {fileID: 4160944890386891852}
   grappleCooldown: 8
+  ready: 1
   grappleRange: 40
   grappleElasticity: 4.5
   grappleDamper: 4
   grappleMassScale: 4.5
   Active: 0
+  countdown: {fileID: 0}
+  slider: {fileID: 0}
+  name: {fileID: 0}
+  equipped: 0
+  grappleShadow: {fileID: 0}
+  shadowValid: {r: 0, g: 1, b: 0, a: 1}
+  shadowInvalid: {r: 1, g: 0, b: 0, a: 1}
 --- !u!120 &9047786906308234829
 LineRenderer:
   serializedVersion: 2
@@ -2321,7 +2350,6 @@ GameObject:
   - component: {fileID: 7191100764635843225}
   - component: {fileID: 461557173195876720}
   - component: {fileID: 849104678471786454}
-  - component: {fileID: 7606355028467614705}
   m_Layer: 0
   m_Name: HumanBase_TEST
   m_TagString: Player
@@ -2371,21 +2399,6 @@ Animator:
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &849104678471786454
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6235686247477921670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcd114d2c47e2404791630afd53c31d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ikActive: 0
-  vaultPoint: {x: 0, y: 0, z: 0}
-  IKTime: 0
---- !u!114 &7606355028467614705
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -55,8 +55,28 @@ public class GrappleHook : MonoBehaviour
     [HideInInspector] public Slider slider;
     [HideInInspector] public TextMeshProUGUI name;
     [HideInInspector] public bool equipped = false;
+    public GameObject grappleShadow;
+    //public Material shadowValid;
+    //public Material shadowInvalid;
+    
+    public Color shadowValid = Color.green;
+    public Color shadowInvalid = Color.red;
     public void UpdateUI()
     {
+        RaycastHit project;
+        if (Physics.Raycast(transform.position, playerCam.transform.forward, out project, grappleRange))
+        {
+            grappleShadow.GetComponent<RawImage>().color = shadowValid;
+        }
+        else if(Physics.Raycast(transform.position, playerCam.transform.forward, out project))
+        {
+            grappleShadow.GetComponent<RawImage>().color = shadowInvalid;
+        }
+        
+        
+        
+        
+        
         name.text = "Grapple";
         
         
@@ -99,7 +119,7 @@ public class GrappleHook : MonoBehaviour
             
             //The range of distance the grapple will try to keep from the contact point
             joint.maxDistance = distanceFromPoint * 0.8f;
-            joint.minDistance = distanceFromPoint * 0.25f;
+            joint.minDistance = joint.maxDistance * 0.25f;
 
             joint.spring = grappleElasticity;
             joint.damper = grappleDamper;

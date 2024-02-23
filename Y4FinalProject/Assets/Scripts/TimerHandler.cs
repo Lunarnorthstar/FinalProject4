@@ -115,6 +115,10 @@ public class TimerHandler : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        GetComponent<PlayerMovement>().controls.PlayerMovement.Disable();
+        
+        
+        
         timerActive = false;
         timerDisplay.GetComponent<TextMeshProUGUI>().color = Color.green;
         lastTime = levelTime;

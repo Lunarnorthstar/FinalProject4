@@ -38,12 +38,6 @@ public class Shield : MonoBehaviour
             shieldObject.SetActive(true);
             shieldTimer += Time.deltaTime;
 
-            player.moveSpeedMult = math.max(player.moveSpeedMult, minMoveSpeedMult);
-
-            player.jumpHeightMult = math.max(player.jumpHeightMult, 1);
-            
-            player.fricitonMult = 1;
-
             if (shieldTimer >= shieldDuration)
             {
                 shieldObject.SetActive(false);
@@ -52,6 +46,8 @@ public class Shield : MonoBehaviour
                 coolingDown = true;
             }
         }
+        
+        player.isAffectedByTerrain = !active;
 
         if (coolingDown && !active)
         {
