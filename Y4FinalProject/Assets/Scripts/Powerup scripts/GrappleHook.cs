@@ -15,9 +15,11 @@ public class GrappleHook : MonoBehaviour
     [HideInInspector]public bool ready = true;
 
     public float grappleRange = 20;
+    public float reelSpeed = 1;
     public float grappleElasticity = 4.5f;
     public float grappleDamper = 7;
     public float grappleMassScale = 4.5f;
+    public GameObject grappleHead;
     private Vector3 grapplePoint;
     private SpringJoint joint;
     private LineRenderer lr;
@@ -33,6 +35,10 @@ public class GrappleHook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        grappleHead.transform.position = grapplePoint;
+        grappleHead.transform.LookAt(gameObject.transform);
+
+
         if (!Active && !ready)
         {
             cooldownTimer += Time.deltaTime;
@@ -47,6 +53,12 @@ public class GrappleHook : MonoBehaviour
         {
             UpdateUI();
             DrawRope();
+
+
+            if (Active)
+            {
+                joint.maxDistance += gameObject.GetComponent<PlayerMovement>().controls.PlayerMovement.Reel.ReadValue<float>() * reelSpeed * 0.01f;
+            }
         }
         
     }
@@ -73,11 +85,15 @@ public class GrappleHook : MonoBehaviour
             grappleShadow.GetComponent<RawImage>().color = shadowInvalid;
         }
         
-        
-        
-        
-        
         name.text = "Grapple";
+
+
+
+        if (!ready)
+        {
+            grappleShadow.GetComponent<RawImage>().color = shadowInvalid;
+        }
+        
         
         
         if (!ready && !Active)
@@ -114,6 +130,9 @@ public class GrappleHook : MonoBehaviour
             joint.autoConfigureConnectedAnchor = false;
             joint.connectedAnchor = grapplePoint;
 
+            
+            grappleHead.SetActive(true);
+
             float distanceFromPoint = math.distance(gameObject.transform.position, grapplePoint);
 
             
@@ -139,6 +158,7 @@ public class GrappleHook : MonoBehaviour
     public void DeactivateGrapple()
     {
         lr.positionCount = 0;
+        grappleHead.SetActive(false);
         Destroy(joint);
         Active = false;
     }

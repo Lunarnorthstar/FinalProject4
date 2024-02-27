@@ -116,6 +116,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reel"",
+                    ""type"": ""Button"",
+                    ""id"": ""c3529cec-4b32-46a4-a003-8610ffaec684"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -338,6 +347,39 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""ef7afe5b-5b03-4752-b8eb-4c211e9d21ed"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reel"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""b54eb3a6-1eb2-4915-b8d6-e06aa4579549"",
+                    ""path"": ""<Mouse>/scroll/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""ebd63ce7-5c78-42e0-b8fc-79673a57c8b3"",
+                    ""path"": ""<Mouse>/scroll/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reel"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         },
@@ -395,6 +437,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_PlayerMovement_Ability = m_PlayerMovement.FindAction("Ability", throwIfNotFound: true);
         m_PlayerMovement_ChangeAbility = m_PlayerMovement.FindAction("Change Ability", throwIfNotFound: true);
         m_PlayerMovement_Pause = m_PlayerMovement.FindAction("Pause", throwIfNotFound: true);
+        m_PlayerMovement_Reel = m_PlayerMovement.FindAction("Reel", throwIfNotFound: true);
         // bb
         m_bb = asset.FindActionMap("bb", throwIfNotFound: true);
         m_bb_ResetTimer = m_bb.FindAction("Reset Timer", throwIfNotFound: true);
@@ -469,6 +512,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerMovement_Ability;
     private readonly InputAction m_PlayerMovement_ChangeAbility;
     private readonly InputAction m_PlayerMovement_Pause;
+    private readonly InputAction m_PlayerMovement_Reel;
     public struct PlayerMovementActions
     {
         private @PlayerControls m_Wrapper;
@@ -483,6 +527,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Ability => m_Wrapper.m_PlayerMovement_Ability;
         public InputAction @ChangeAbility => m_Wrapper.m_PlayerMovement_ChangeAbility;
         public InputAction @Pause => m_Wrapper.m_PlayerMovement_Pause;
+        public InputAction @Reel => m_Wrapper.m_PlayerMovement_Reel;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -522,6 +567,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @Reel.started += instance.OnReel;
+            @Reel.performed += instance.OnReel;
+            @Reel.canceled += instance.OnReel;
         }
 
         private void UnregisterCallbacks(IPlayerMovementActions instance)
@@ -556,6 +604,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @Reel.started -= instance.OnReel;
+            @Reel.performed -= instance.OnReel;
+            @Reel.canceled -= instance.OnReel;
         }
 
         public void RemoveCallbacks(IPlayerMovementActions instance)
@@ -649,6 +700,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnAbility(InputAction.CallbackContext context);
         void OnChangeAbility(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnReel(InputAction.CallbackContext context);
     }
     public interface IBbActions
     {
