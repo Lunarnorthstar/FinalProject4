@@ -11,18 +11,18 @@ public class LevelSelectBehavior : MonoBehaviour
     [Tooltip("THIS MUST MATCH SCENE NAME EXACTLY")] public String[] levels;
     public Texture[] levelPictures;
     public String[] levelTitles;
-    [TextArea(10,15)]
+    [TextArea(10, 15)]
     public String[] levelDescriptions;
     public int selection = 0;
 
     public RawImage levelImage;
     public TextMeshProUGUI title;
     public TextMeshProUGUI description;
-    
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -46,6 +46,8 @@ public class LevelSelectBehavior : MonoBehaviour
         {
             selection = levels.Length - 1;
         }
+
+        GameObject.FindObjectOfType<AudioManager>().buttonGeneral();
     }
 
     public void BeginLevel()
