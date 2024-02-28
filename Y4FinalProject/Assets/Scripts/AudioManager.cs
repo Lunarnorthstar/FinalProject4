@@ -4,11 +4,17 @@ using System.Security;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class AudioManager : MonoBehaviour
 {
     public float musicVolume = 1;
-    public bool isFXMuted;
+    public float sfxVolume;
+
+    [Space]
+    public Slider musicSlider;
+    public Slider sfxSlider;
+
     [Header("Audio")]
     public AudioClip menuSong;
     public AudioClip gameMusic;
@@ -34,6 +40,23 @@ public class AudioManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //load volume settings
+
+        if (PlayerPrefs.HasKey("musicVol") && PlayerPrefs.HasKey("sfxVol"))
+        {
+            applySliderValues(musicSlider, sfxSlider);
+        }
+
+        if (PlayerPrefs.HasKey("musicVol"))
+            musicVolume = PlayerPrefs.GetFloat("musicVol");
+        else
+            PlayerPrefs.SetFloat("musicVol", 0.7f);
+
+        if (PlayerPrefs.HasKey("sfxVol"))
+            sfxVolume = PlayerPrefs.GetFloat("sfxVol");
+        else
+            PlayerPrefs.SetFloat("sfxVol", 0.7f);
+
         music = GetComponent<AudioSource>();
         switch (currentLevel)
         {
@@ -52,6 +75,24 @@ public class AudioManager : MonoBehaviour
     void Update()
     {
         music.volume = musicVolume;
+
+        musicVolume = PlayerPrefs.GetFloat("musicVol");
+        sfxVolume = PlayerPrefs.GetFloat("sfxVol");
+    }
+
+    public void updateMusicVolume(float amount)
+    {
+        PlayerPrefs.SetFloat("musicVol", amount);
+    }
+    public void updateSFXVolume(float amount)
+    {
+        PlayerPrefs.SetFloat("sfxVol", amount);
+
+    }
+    public void applySliderValues(Slider _musicSlider, Slider _sfxSlider)
+    {
+        _musicSlider.value = PlayerPrefs.GetFloat("musicVol");
+        _sfxSlider.value = PlayerPrefs.GetFloat("sfxVol");
     }
 
     public void powerUpSound(string name)
@@ -96,21 +137,21 @@ public class AudioManager : MonoBehaviour
 
     public void GenerateSound(AudioClip audioClip)
     {
-        if (!isFXMuted)
+        GameObject sound = new GameObject();
+        sound.transform.parent = transform;
+
+        sound.AddComponent<AudioSource>().clip = audioClip;
+        sound.GetComponent<AudioSource>().Play();
+
+        sound.GetComponent<AudioSource>().volume = sfxVolume;
+
+        if (audioClip == levelEnd)
         {
-            GameObject sound = new GameObject();
-            sound.transform.parent = transform;
-
-            sound.AddComponent<AudioSource>().clip = audioClip;
-            sound.GetComponent<AudioSource>().Play();
-
-            if (audioClip == levelEnd)
-            {
-                sound.GetComponent<AudioSource>().volume = 0.5f;
-                GetComponent<AudioSource>().Stop();
-            }
-
-            Destroy(sound, 10f);
+            sound.GetComponent<AudioSource>().volume = sfxVolume / 2;
+            GetComponent<AudioSource>().Stop();
         }
+
+        Destroy(sound, 10f);
     }
 }
+
