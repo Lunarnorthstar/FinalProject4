@@ -16,14 +16,14 @@ public class Dash : MonoBehaviour
     private float durationTimer = 0;
     [Tooltip("The time in seconds the powerup cools down for")] public float dashCooldown = 4;
     private float cooldownTimer = 0;
-    [HideInInspector]public bool ready = true;
-    [Space] 
+    [HideInInspector] public bool ready = true;
+    [Space]
     public GameObject player;
     public GameObject camera;
-    
+
 
     private Rigidbody rb;
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,9 +55,9 @@ public class Dash : MonoBehaviour
             {
                 dashVector.y = dashVector.y / verticalLaunchScalar;
             }
-            
-            
-            
+
+
+
             rb.AddForce(dashVector * dashForce);
             rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxDashSpeed);
 
@@ -82,13 +82,13 @@ public class Dash : MonoBehaviour
     public void UpdateUI()
     {
         name.text = "Dash";
-        
+
         if (ready)
         {
             countdown.text = " ";
         }
-        
-        
+
+
         if (!ready && !dashing)
         {
             countdown.text = CleanTimeConversion(dashCooldown - cooldownTimer, 2);
@@ -98,10 +98,10 @@ public class Dash : MonoBehaviour
         if (dashing)
         {
             countdown.text = CleanTimeConversion(dashDuration - durationTimer, 2);
-            slider.value =  1 - durationTimer / dashDuration;
+            slider.value = 1 - durationTimer / dashDuration;
         }
-        
-        
+
+
     }
 
     public void Activate()
@@ -109,18 +109,19 @@ public class Dash : MonoBehaviour
         if (ready)
         {
             dashing = true;
-            
+
+            GameObject.FindObjectOfType<AudioManager>().powerUpSound("dash");
         }
     }
-    
+
     public string CleanTimeConversion(float rawTime, int Dplaces)
     {
         int minutes = Mathf.FloorToInt(rawTime / 60);
         int seconds = Mathf.FloorToInt(rawTime - minutes * 60);
         int milliseconds = Mathf.FloorToInt((rawTime - (minutes * 60) - seconds) * (math.pow(10, Dplaces)));
-        
-        
-        
+
+
+
         string timeReadable = string.Format("{0:00}.{1:0}", seconds, milliseconds);
         return timeReadable;
     }

@@ -12,7 +12,7 @@ public class GrappleHook : MonoBehaviour
 
     public float grappleCooldown;
     private float cooldownTimer;
-    [HideInInspector]public bool ready = true;
+    [HideInInspector] public bool ready = true;
 
     public float grappleRange = 20;
     public float reelSpeed = 1;
@@ -23,7 +23,7 @@ public class GrappleHook : MonoBehaviour
     private Vector3 grapplePoint;
     private SpringJoint joint;
     private LineRenderer lr;
-    
+
 
     public bool Active;
     // Start is called before the first frame update
@@ -60,7 +60,7 @@ public class GrappleHook : MonoBehaviour
                 joint.maxDistance += gameObject.GetComponent<PlayerMovement>().controls.PlayerMovement.Reel.ReadValue<float>() * reelSpeed * 0.01f;
             }
         }
-        
+
     }
 
     [HideInInspector] public TextMeshProUGUI countdown;
@@ -70,7 +70,7 @@ public class GrappleHook : MonoBehaviour
     public GameObject grappleShadow;
     //public Material shadowValid;
     //public Material shadowInvalid;
-    
+
     public Color shadowValid = Color.green;
     public Color shadowInvalid = Color.red;
     public void UpdateUI()
@@ -80,11 +80,11 @@ public class GrappleHook : MonoBehaviour
         {
             grappleShadow.GetComponent<RawImage>().color = shadowValid;
         }
-        else if(Physics.Raycast(transform.position, playerCam.transform.forward, out project))
+        else if (Physics.Raycast(transform.position, playerCam.transform.forward, out project))
         {
             grappleShadow.GetComponent<RawImage>().color = shadowInvalid;
         }
-        
+
         name.text = "Grapple";
 
 
@@ -93,9 +93,9 @@ public class GrappleHook : MonoBehaviour
         {
             grappleShadow.GetComponent<RawImage>().color = shadowInvalid;
         }
-        
-        
-        
+
+
+
         if (!ready && !Active)
         {
             countdown.text = CleanTimeConversion(grappleCooldown - cooldownTimer, 2);
@@ -124,18 +124,20 @@ public class GrappleHook : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, playerCam.transform.forward, out hit, grappleRange))
         {
+            GameObject.FindObjectOfType<AudioManager>().powerUpSound("grapple");
+
             Debug.Log("Hit something");
             grapplePoint = hit.point;
             joint = gameObject.AddComponent<SpringJoint>();
             joint.autoConfigureConnectedAnchor = false;
             joint.connectedAnchor = grapplePoint;
 
-            
+
             grappleHead.SetActive(true);
 
             float distanceFromPoint = math.distance(gameObject.transform.position, grapplePoint);
 
-            
+
             //The range of distance the grapple will try to keep from the contact point
             joint.maxDistance = distanceFromPoint * 0.8f;
             joint.minDistance = joint.maxDistance * 0.25f;
@@ -166,19 +168,19 @@ public class GrappleHook : MonoBehaviour
     private void DrawRope()
     {
         if (!joint) return;
-        
+
         lr.SetPosition(0, gameObject.transform.position);
         lr.SetPosition(1, grapplePoint);
     }
-    
+
     public string CleanTimeConversion(float rawTime, int Dplaces)
     {
         int minutes = Mathf.FloorToInt(rawTime / 60);
         int seconds = Mathf.FloorToInt(rawTime - minutes * 60);
         int milliseconds = Mathf.FloorToInt((rawTime - (minutes * 60) - seconds) * (math.pow(10, Dplaces)));
-        
-        
-        
+
+
+
         string timeReadable = string.Format("{0:00}.{1:0}", seconds, milliseconds);
         return timeReadable;
     }

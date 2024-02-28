@@ -30,9 +30,9 @@ public class Shield : MonoBehaviour
         {
             ready = false;
         }
-        
-        
-        
+
+
+
         if (active)
         {
             shieldObject.SetActive(true);
@@ -46,7 +46,7 @@ public class Shield : MonoBehaviour
                 coolingDown = true;
             }
         }
-        
+
         player.isAffectedByTerrain = !active;
 
         if (coolingDown && !active)
@@ -63,22 +63,22 @@ public class Shield : MonoBehaviour
             UpdateUI();
         }
     }
-    
+
     [HideInInspector] public TextMeshProUGUI countdown;
     [HideInInspector] public Slider slider;
     [HideInInspector] public TextMeshProUGUI name;
     [HideInInspector] public bool equipped = false;
     public void UpdateUI()
     {
-        
+
         name.text = "Shield";
-        
-        
+
+
         if (ready)
         {
             countdown.text = " ";
         }
-        
+
         if (coolingDown && !active)
         {
             countdown.text = CleanTimeConversion(shieldCooldown - cooldownTimer, 2);
@@ -97,17 +97,19 @@ public class Shield : MonoBehaviour
         if (!coolingDown)
         {
             active = true;
+
+            GameObject.FindObjectOfType<AudioManager>().powerUpSound("shield");
         }
     }
-    
+
     public string CleanTimeConversion(float rawTime, int Dplaces)
     {
         int minutes = Mathf.FloorToInt(rawTime / 60);
         int seconds = Mathf.FloorToInt(rawTime - minutes * 60);
         int milliseconds = Mathf.FloorToInt((rawTime - (minutes * 60) - seconds) * (math.pow(10, Dplaces)));
-        
-        
-        
+
+
+
         string timeReadable = string.Format("{0:00}.{1:0}", seconds, milliseconds);
         return timeReadable;
     }

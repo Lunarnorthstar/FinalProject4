@@ -19,8 +19,8 @@ public class Blink : MonoBehaviour
     void Update()
     {
         ready = !coolingDown;
-        
-        
+
+
         if (coolingDown)
         {
             cooldownTimer += Time.deltaTime;
@@ -36,7 +36,7 @@ public class Blink : MonoBehaviour
             UpdateUI();
         }
     }
-    
+
     [HideInInspector] public TextMeshProUGUI countdown;
     [HideInInspector] public Slider slider;
     [HideInInspector] public TextMeshProUGUI name;
@@ -44,13 +44,13 @@ public class Blink : MonoBehaviour
     public void UpdateUI()
     {
         name.text = "Blink";
-        
-        
+
+
         countdown.text = " ";
-        
+
         if (coolingDown)
         {
-            countdown.text = CleanTimeConversion(cooldown - cooldownTimer,2);
+            countdown.text = CleanTimeConversion(cooldown - cooldownTimer, 2);
             slider.value = cooldownTimer / cooldown;
         }
     }
@@ -64,17 +64,19 @@ public class Blink : MonoBehaviour
             player.transform.position += (blinkDirection * blinkDistance);
 
             coolingDown = true;
+
+            GameObject.FindObjectOfType<AudioManager>().powerUpSound("blink");
         }
     }
-    
+
     public string CleanTimeConversion(float rawTime, int Dplaces)
     {
         int minutes = Mathf.FloorToInt(rawTime / 60);
         int seconds = Mathf.FloorToInt(rawTime - minutes * 60);
         int milliseconds = Mathf.FloorToInt((rawTime - (minutes * 60) - seconds) * (math.pow(10, Dplaces)));
-        
-        
-        
+
+
+
         string timeReadable = string.Format("{0:00}.{1:0}", seconds, milliseconds);
         return timeReadable;
     }

@@ -28,11 +28,11 @@ public class TimerHandler : MonoBehaviour
     public bool timerActive = false;
     public int significantDecimals = 2;
     public GameObject finishPanel;
-    
+
     string filePath;
     const string FILE_NAME = "PersonalScores.Json";
     private LeaderboardStats[] dataScore;
-    
+
     private float bestTime = 10000;
     private float bestHundredpercentTime = 10000;
     private float lastTime = 0;
@@ -43,8 +43,8 @@ public class TimerHandler : MonoBehaviour
 
     [Header("Debug")]
     [SerializeField] private bool timerSpeedMultx60 = false;
-    
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -65,13 +65,13 @@ public class TimerHandler : MonoBehaviour
 
 
         levelIndex = SceneManager.GetActiveScene().buildIndex - 1;
-        
+
         Debug.Log(filePath);
 
         LoadGameStatus();
         UpdateSceneFromManager();
-        
-        
+
+
     }
 
 
@@ -98,13 +98,13 @@ public class TimerHandler : MonoBehaviour
         int minutes = Mathf.FloorToInt(rawTime / 60);
         int seconds = Mathf.FloorToInt(rawTime - minutes * 60);
         int milliseconds = Mathf.FloorToInt((rawTime - (minutes * 60) - seconds) * (math.pow(10, Dplaces)));
-        
-        
-        
+
+
+
         string timeReadable = string.Format("{0:00}.{1:0}", seconds, milliseconds);
         return timeReadable;
     }
-    
+
 
     public void ResetTimer()
     {
@@ -116,9 +116,9 @@ public class TimerHandler : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         GetComponent<PlayerMovement>().controls.PlayerMovement.Disable();
-        
-        
-        
+
+
+
         timerActive = false;
         timerDisplay.GetComponent<TextMeshProUGUI>().color = Color.green;
         lastTime = levelTime;
@@ -127,7 +127,7 @@ public class TimerHandler : MonoBehaviour
         if (lastTime < bestTime || bestTime <= 0)
         {
             bestTime = lastTime;
-            
+
             dataScore[levelIndex].highSave = bestTime;
         }
         else
@@ -138,7 +138,7 @@ public class TimerHandler : MonoBehaviour
             }
             dataScore[levelIndex].lastTimes.Add(lastTime);
         }
-        
+
         if (handler.hundredpercent && (lastTime < bestHundredpercentTime || bestHundredpercentTime <= 0))
         {
             bestHundredpercentTime = lastTime;
@@ -167,9 +167,9 @@ public class TimerHandler : MonoBehaviour
         {
             ResetGameStatus();
         }
-        
+
     }
-    
+
     public void ResetGameStatus()
     {
         dataScore = new LeaderboardStats[6];
@@ -177,17 +177,17 @@ public class TimerHandler : MonoBehaviour
         SaveGameStatus();
         Debug.Log("File not found...Creating");
     }
-    
+
     public void SaveGameStatus()
     {
         string scoreJson = JsonHelper.ToJson(dataScore, true);
-        
+
         File.WriteAllText(filePath + "/" + FILE_NAME, scoreJson);
 
         Debug.Log("File created and saved");
         Debug.Log(scoreJson);
     }
-    
+
     public void UpdateSceneFromManager()
     {
         bestTime = dataScore[levelIndex].highSave;
@@ -195,7 +195,7 @@ public class TimerHandler : MonoBehaviour
         bestHundredpercentTime = dataScore[levelIndex].highHundredpercentSave;
 
     }
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "FinishTrigger")
@@ -203,12 +203,14 @@ public class TimerHandler : MonoBehaviour
             finishPanel.SetActive(true);
             gameObject.GetComponent<PlayerManager>().lockMouse();
             StopTimer();
+
+            GameObject.FindObjectOfType<AudioManager>().endLevel();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if(other.CompareTag("StartTrigger")) timerActive = true;
-        
+        if (other.CompareTag("StartTrigger")) timerActive = true;
+
     }
 }

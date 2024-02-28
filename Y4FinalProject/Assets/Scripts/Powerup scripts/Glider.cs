@@ -26,7 +26,7 @@ public class Glider : MonoBehaviour
     private bool isCoolingDown = false;
     private float cooldownTimer = 0;
     [HideInInspector] public bool ready = false;
-    
+
 
     [Space]
     public AnimationCurve liftCurve;
@@ -62,9 +62,9 @@ public class Glider : MonoBehaviour
         {
             ready = false;
         }
-        
-        
-        
+
+
+
         if (isEnabled)
         {
             playerMovement.isGliding = true;
@@ -85,7 +85,7 @@ public class Glider : MonoBehaviour
 
             totalForwardsForce = SpeedCurve.Evaluate(cam.transform.localRotation.eulerAngles.x) * forwardForce * dragOverTime.Evaluate(time);
             //the forwards force will reduce when you climb (high AOT) and increase when you dive (low AOT)
-            
+
             time += Time.deltaTime;
 
             if (time >= glideDuration)
@@ -109,13 +109,13 @@ public class Glider : MonoBehaviour
                 isCoolingDown = false;
             }
         }
-        
+
         if (equipped)
         {
             UpdateUI();
         }
     }
-    
+
     [HideInInspector] public TextMeshProUGUI countdown;
     [HideInInspector] public Slider slider;
     [HideInInspector] public TextMeshProUGUI name;
@@ -123,13 +123,13 @@ public class Glider : MonoBehaviour
     public void UpdateUI()
     {
         name.text = "Glider";
-        
+
         if (ready)
         {
             countdown.text = " ";
         }
-        
-        
+
+
         if (isCoolingDown && !isEnabled)
         {
             countdown.text = CleanTimeConversion(glideCooldown - cooldownTimer, 2);
@@ -161,17 +161,19 @@ public class Glider : MonoBehaviour
         if (!isCoolingDown)
         {
             isEnabled = true;
+
+            GameObject.FindObjectOfType<AudioManager>().powerUpSound("glider");
         }
     }
-    
+
     public string CleanTimeConversion(float rawTime, int Dplaces)
     {
         int minutes = Mathf.FloorToInt(rawTime / 60);
         int seconds = Mathf.FloorToInt(rawTime - minutes * 60);
         int milliseconds = Mathf.FloorToInt((rawTime - (minutes * 60) - seconds) * (math.pow(10, Dplaces)));
-        
-        
-        
+
+
+
         string timeReadable = string.Format("{0:00}.{1:0}", seconds, milliseconds);
         return timeReadable;
     }

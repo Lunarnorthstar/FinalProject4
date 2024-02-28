@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     CameraMove playerCamera;
     Powerups powerUps;
 
-    [Header("Movement Characteristics")] 
+    [Header("Movement Characteristics")]
     [Tooltip("The base maximum movement speed the player starts at")] public float startMaxSpeed = 10;
     [Tooltip("The rate at which the player's max speed increases")] public float maxSpeedAccel = 1;
     [Tooltip("The highest maximum speed the player can achieve")] public float totalMaxSpeed = 15;
@@ -68,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
     public float crouchingDrag;
 
     [Space]
-    [HideInInspector]  public Transform cameraHolder;
+    [HideInInspector] public Transform cameraHolder;
     [HideInInspector] public Transform ClimbLookTarget;
     [HideInInspector] public Transform hangPos;
 
@@ -152,7 +152,7 @@ public class PlayerMovement : MonoBehaviour
         //manage input and movement
         input();
         movement();
-        
+
         //wall detection
         if (!isHangingOnWall)
             isOnGround = playerManager.isOnGround();
@@ -277,7 +277,7 @@ public class PlayerMovement : MonoBehaviour
         {
             powerUps.OffBreakGrapple();
         }
-        
+
         //Top Speed Accel
         if (movInput != Vector2.zero && maxMoveSpeed < totalMaxSpeed)
         {
@@ -287,7 +287,7 @@ public class PlayerMovement : MonoBehaviour
         {
             maxMoveSpeed = startMaxSpeed;
         }
-        
+
     }
 
     void smallVault()
@@ -620,12 +620,11 @@ public class PlayerMovement : MonoBehaviour
                 rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
             }
         }*/
-        
+
     }
 
     void resetWallRun()
     {
-        Debug.Log("Oiewjrebdhv");
         if (wallRunDir != 0 && !wallRunCheck) hasJustWallRun = true;//currently wallrunnin
         if (wallRunDir == 0 && !wallRunCheck) wallRunCheck = true;//was but now isnt
         if (wallRunDir != 0 && wallRunCheck) hasJustWallRun = false;

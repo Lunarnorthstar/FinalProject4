@@ -13,7 +13,7 @@ using UnityEngine.UI;
 public class Powerups : MonoBehaviour
 {
     //Following the changes, this script now only handles whether a powerup is equipped or not, and handles the UI. Individual powerups have been moved to their own scripts for readability's sake.
-    
+
     public Dash dash;
     public Glider glider;
     public Blink blink;
@@ -21,7 +21,7 @@ public class Powerups : MonoBehaviour
     public GameObject camera;
     public Shield shield;
     public GrappleHook grappleHook;
-    
+
     [Header("UI")]
     public GameObject[] powerupUI; //The overarching object
     private TextMeshProUGUI[] countdownText; //The text displaying the cooldown or duration countdown
@@ -29,10 +29,10 @@ public class Powerups : MonoBehaviour
     private TextMeshProUGUI[] powerupText; //The name of the powerup
     private Image[] powerupImage; //The white box behind the name
     private Image[] indicatorImage; //The small green box
-    private String[] letter = new[] {"A", "B"}; //For iterative purposes
-    
-    
-    [Space] 
+    private String[] letter = new[] { "A", "B" }; //For iterative purposes
+
+
+    [Space]
     public PowerupData PD;
     public List<string> equippedPowerups;
 
@@ -45,8 +45,8 @@ public class Powerups : MonoBehaviour
         countdownText = new TextMeshProUGUI[powerupUI.Length];
         powerupImage = new Image[powerupUI.Length];
         indicatorImage = new Image[powerupUI.Length]; //Initialize all the arrays
-        
-        
+
+
         for (int i = 0; i < powerupUI.Length; i++) //Fill all the arrays.
         {
             powerupSlider[i] = powerupUI[i].GetComponentInChildren<Slider>();
@@ -54,11 +54,11 @@ public class Powerups : MonoBehaviour
 
             powerupText[i] = GameObject.FindWithTag("PowerText" + letter[i]).GetComponent<TextMeshProUGUI>();
             countdownText[i] = GameObject.FindWithTag("CountText" + letter[i]).GetComponent<TextMeshProUGUI>();
-            indicatorImage[i] = GameObject.FindWithTag("Indicator" + letter[i]).GetComponent<Image>(); 
+            indicatorImage[i] = GameObject.FindWithTag("Indicator" + letter[i]).GetComponent<Image>();
             //We need tags here because both text objects are in the "child". I wanted to minimize setup which ended up maximizing code.
-        } 
+        }
         equippedPowerups = PD.equippedPowerups;
-        
+
         updateUI();
     }
 
@@ -84,9 +84,9 @@ public class Powerups : MonoBehaviour
         {
             grappleHook.grappleShadow.SetActive(false);
         }
-        
-        
-        
+
+
+
         //Cooldown color changing
         for (int i = 0; i < powerupUI.Length; i++)
         {
@@ -96,7 +96,7 @@ public class Powerups : MonoBehaviour
                     if (!dash.ready) indicatorImage[i].color = Color.red;
                     else indicatorImage[i].color = Color.green;
                     break;
-                case "glider": 
+                case "glider":
                     if (!glider.ready) indicatorImage[i].color = Color.red;
                     else indicatorImage[i].color = Color.green;
                     break;
@@ -115,17 +115,17 @@ public class Powerups : MonoBehaviour
                 default: break;
             }
         }
-        
+
         //Selecting color changing
-        for (int i = 0; i < powerupImage.Length; i++) 
+        for (int i = 0; i < powerupImage.Length; i++)
         {
             powerupImage[i].color = Color.white;
         }
         powerupImage[slotSelected].color = Color.green;
-        
+
     }
 
-    
+
     public void updateUI()
     {
         for (int i = 0; i < powerupUI.Length; i++) //For each powerup you have...
@@ -163,7 +163,7 @@ public class Powerups : MonoBehaviour
                     grappleHook.slider = powerupSlider[i];
                     grappleHook.countdown = countdownText[i];
                     break;
-                default:  
+                default:
                     Debug.Log("Oops! " + equippedPowerups[slotSelected] + " is not a valid powerup name. The valid names are; dash, glider, blink, shield, and grapple (case sensitive)");
                     powerupText[i].text = "None";
                     break;
@@ -186,9 +186,10 @@ public class Powerups : MonoBehaviour
         {
             case "dash": dash.Activate(); break;
             case "glider": glider.Activate(); break;
-            case "blink": if(blinkShadow.GetComponent<Valid>().validPosition)  blink.Activate(); break;
+            case "blink": if (blinkShadow.GetComponent<Valid>().validPosition) blink.Activate(); break;
             case "shield": shield.Activate(); break;
-            case "grapple": grappleHook.Activate();
+            case "grapple":
+                grappleHook.Activate();
                 break;
             default: break;
         }

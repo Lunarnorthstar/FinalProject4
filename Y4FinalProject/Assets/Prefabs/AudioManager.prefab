@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee1856420c00efc4ab787aab59d5cbc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  musicVolume: 1
+  isFXMuted: 0
   menuSong: {fileID: 8300000, guid: 4de60470f8e84c84eb51d295f45f5131, type: 3}
   gameMusic: {fileID: 8300000, guid: 39ec54870cb0d4d4da72408e165edab7, type: 3}
   buttonClick: {fileID: 8300000, guid: 9d1805af1c88a0b4ea76c7ed6657ddeb, type: 3}
@@ -52,6 +54,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: b63895801458ca349a623ab933998970, type: 3}
   - {fileID: 8300000, guid: 7bc586e1e81805e4caffd9a210757431, type: 3}
   - {fileID: 8300000, guid: ba59176ddfe3dfd47a5d717d387444d4, type: 3}
+  spawnIn: {fileID: 8300000, guid: ff29141b9fdc64e4e87cf1bbd3d3c679, type: 3}
+  levelEnd: {fileID: 8300000, guid: ff29141b9fdc64e4e87cf1bbd3d3c679, type: 3}
+  blinkDeploy: {fileID: 8300000, guid: 67087ec61da81f94f8106619292feada, type: 3}
+  dashDeploy: {fileID: 0}
+  shieldDeploy: {fileID: 8300000, guid: b6cac8e3b3898714c9c94c088f3c1760, type: 3}
+  grappleDeploy: {fileID: 8300000, guid: e902300738c05554a8658ad5114cd4c9, type: 3}
+  glideDeploy: {fileID: 8300000, guid: 1967c7d137e1fac4bbcf00f0b0fad7e2, type: 3}
   currentLevel: 0
 --- !u!82 &3990582819251805620
 AudioSource:
