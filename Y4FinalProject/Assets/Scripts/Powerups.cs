@@ -90,6 +90,12 @@ public class Powerups : MonoBehaviour
         //Cooldown color changing
         for (int i = 0; i < powerupUI.Length; i++)
         {
+            if (equippedPowerups.Count <= i)
+            {
+                indicatorImage[i].color = Color.red;
+                break;
+            }
+            
             switch (equippedPowerups[i])
             {
                 case "dash":
@@ -130,6 +136,12 @@ public class Powerups : MonoBehaviour
     {
         for (int i = 0; i < powerupUI.Length; i++) //For each powerup you have...
         {
+            if (equippedPowerups.Count <= i)
+            {
+                powerupText[i].text = "None";
+                break;
+            }
+            
             //This is all so ugly but I have too much tech debt to do it any other way :(
             switch (equippedPowerups[i]) //Hook up all the powerup script's UI elements.
             {
@@ -188,9 +200,7 @@ public class Powerups : MonoBehaviour
             case "glider": glider.Activate(); break;
             case "blink": if (blinkShadow.GetComponent<Valid>().validPosition) blink.Activate(); break;
             case "shield": shield.Activate(); break;
-            case "grapple":
-                grappleHook.Activate();
-                break;
+            case "grapple": grappleHook.Activate(); break;
             default: break;
         }
     }

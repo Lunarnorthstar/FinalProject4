@@ -25,14 +25,18 @@ public class LeaderboardDisplay : MonoBehaviour
         {
             dataScore[i] = new LeaderboardStats();
             dataScore[i].highSave = 0;
+            dataScore[i].highName = "";
             dataScore[i].previousSave = 0;
             dataScore[i].highHundredpercentSave = 0;
+            dataScore[i].highHundredName = "";
             dataScore[i].lastTimes = new List<float>(3);
+            dataScore[i].lastNames = new List<string>(3);
             dataScore[i].lastTimesHundred = new List<float>(3);
+            dataScore[i].lastHundredNames = new List<string>(3);
         }
-        
-        
-        
+
+
+
         L = GetComponent<LevelSelectBehavior>();
         filePath = Application.dataPath;
         Debug.Log(filePath);
@@ -45,26 +49,35 @@ public class LeaderboardDisplay : MonoBehaviour
         selector = L.selection;
 
 
-        leaderboard.text = dataScore[selector].highSave + "\n Last Times";
+        leaderboard.text = dataScore[selector].highName + " " + dataScore[selector].highSave + "\n Last Times";
 
-        foreach (float time in dataScore[selector].lastTimes)
+        if (dataScore[selector].lastTimes.Count > 0)
         {
-            if (time != null)
+            int i = 0;
+            foreach (float score in dataScore[selector].lastTimes)
             {
-                leaderboard.text += "\n" + time;
+                if (i < dataScore[selector].lastNames.Count)
+                {
+                    leaderboard.text += "\n" + dataScore[selector].lastNames[i] + " " + score;
+                }
+                i++;
             }
         }
 
-        hundredpercentLeaderboard.text = dataScore[selector].highHundredpercentSave + "\n Last Times";
+        hundredpercentLeaderboard.text = dataScore[selector].highHundredName + " " + dataScore[selector].highHundredpercentSave + "\n Last Times";
 
-        foreach (float time in dataScore[selector].lastTimesHundred)
+        if (dataScore[selector].lastTimesHundred.Count > 0)
         {
-            if (time != null)
+            int i = 0;
+            foreach (float score in dataScore[selector].lastTimesHundred)
             {
-                leaderboard.text += "\n" + time;
+                if (i < dataScore[selector].lastHundredNames.Count)
+                {
+                    hundredpercentLeaderboard.text += "\n" + dataScore[selector].lastHundredNames[i] + " " + score;
+                }
+                i++;
             }
         }
-        
 
         if (purgeActive)
         {

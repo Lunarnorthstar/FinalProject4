@@ -5,6 +5,7 @@ using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using System.IO;
+using System.Linq;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
@@ -16,9 +17,14 @@ public struct LeaderboardStats
 {
     public float previousSave;
     public float highSave;
+    public string highName;
     public float highHundredpercentSave;
+    public string highHundredName;
     public List<float> lastTimes;
+    public List<string> lastNames;
     public List<float> lastTimesHundred;
+    public List<string> lastHundredNames;
+
 }
 
 public class TimerHandler : MonoBehaviour
@@ -28,6 +34,7 @@ public class TimerHandler : MonoBehaviour
     public bool timerActive = false;
     public int significantDecimals = 2;
     public GameObject finishPanel;
+    [SerializeField] private GameObject nameInput;
 
     string filePath;
     const string FILE_NAME = "PersonalScores.Json";
@@ -48,6 +55,10 @@ public class TimerHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        nameInput = FindInActiveObjectByTag("NameInput");
+        
+        
         filePath = Application.dataPath;
         dataScore = new LeaderboardStats[6];
 
@@ -55,15 +66,15 @@ public class TimerHandler : MonoBehaviour
         {
             dataScore[i] = new LeaderboardStats();
             dataScore[i].highSave = 0;
+            dataScore[i].highName = "";
             dataScore[i].previousSave = 0;
             dataScore[i].highHundredpercentSave = 0;
+            dataScore[i].highHundredName = "";
             dataScore[i].lastTimes = new List<float>(3);
+            dataScore[i].lastNames = new List<string>(3);
             dataScore[i].lastTimesHundred = new List<float>(3);
+            dataScore[i].lastHundredNames = new List<string>(3);
         }
-
-
-
-
         levelIndex = SceneManager.GetActiveScene().buildIndex - 1;
 
         Debug.Log(filePath);
@@ -74,6 +85,24 @@ public class TimerHandler : MonoBehaviour
 
     }
 
+    GameObject FindInActiveObjectByTag(string tag)
+    {
+
+        Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
+        for (int i = 0; i < objs.Length; i++)
+        {
+            if (objs[i].hideFlags == HideFlags.None)
+            {
+                if (objs[i].CompareTag(tag))
+                {
+                    return objs[i].gameObject;
+                }
+            }
+        }
+        return null;
+    }
+    
+    
 
     // Update is called once per frame
     void Update()
@@ -129,28 +158,34 @@ public class TimerHandler : MonoBehaviour
             bestTime = lastTime;
 
             dataScore[levelIndex].highSave = bestTime;
+            dataScore[levelIndex].highName = "ANON";
         }
         else
         {
             if (dataScore[levelIndex].lastTimes.Count >= 3)
             {
-                dataScore[levelIndex].lastTimes.Remove(1);
+                dataScore[levelIndex].lastTimes.RemoveAt(0);
+                dataScore[levelIndex].lastNames.RemoveAt(0);
             }
             dataScore[levelIndex].lastTimes.Add(lastTime);
+            dataScore[levelIndex].lastNames.Add("ANON");
         }
 
         if (handler.hundredpercent && (lastTime < bestHundredpercentTime || bestHundredpercentTime <= 0))
         {
             bestHundredpercentTime = lastTime;
             dataScore[levelIndex].highHundredpercentSave = bestHundredpercentTime;
+            dataScore[levelIndex].highHundredName = "ANON";
         }
-        else
+        else if(handler.hundredpercent)
         {
             if (dataScore[levelIndex].lastTimesHundred.Count >= 3)
             {
-                dataScore[levelIndex].lastTimes.Remove(1);
+                dataScore[levelIndex].lastTimesHundred.RemoveAt(0);
+                dataScore[levelIndex].lastTimesHundred.RemoveAt(0);
             }
-            dataScore[levelIndex].lastTimes.Add(lastTime);
+            dataScore[levelIndex].lastTimesHundred.Add(lastTime);
+            dataScore[levelIndex].lastHundredNames.Add("ANON");
         }
         SaveGameStatus();
     }
@@ -204,7 +239,7 @@ public class TimerHandler : MonoBehaviour
             gameObject.GetComponent<PlayerManager>().lockMouse();
             StopTimer();
 
-            GameObject.FindObjectOfType<AudioManager>().endLevel();
+            //GameObject.FindObjectOfType<AudioManager>().endLevel();
         }
     }
 
@@ -212,5 +247,31 @@ public class TimerHandler : MonoBehaviour
     {
         if (other.CompareTag("StartTrigger")) timerActive = true;
 
+    }
+
+    public void onNameInput()
+    {
+        string name = nameInput.GetComponent<TMP_InputField>().text;
+        name = name.Substring(0, math.min(name.Length, 4));
+        Debug.Log(name);
+
+        if (lastTime == bestTime || bestTime <= 0)
+        {
+            dataScore[levelIndex].highName = name;
+        }
+        else
+        {
+            dataScore[levelIndex].lastNames[^1] = name; //This gets the last item in the list
+        }
+
+        if (handler.hundredpercent && (lastTime == bestHundredpercentTime || bestHundredpercentTime <= 0))
+        {
+            dataScore[levelIndex].highHundredName = name;
+        }
+        else if(handler.hundredpercent)
+        {
+            dataScore[levelIndex].lastHundredNames[^1] = name;
+        }
+        SaveGameStatus();
     }
 }
