@@ -96,7 +96,7 @@ public class TimedEvent : MonoBehaviour
             
             
             
-            RB.velocity = Vector3.zero;
+            //RB.velocity = Vector3.zero;
             moving = false;
             eventCountdown = target.waitForSeconds;
             return;
@@ -105,6 +105,7 @@ public class TimedEvent : MonoBehaviour
         Vector3 moveDirection = target.destination.position - transform.position;
         moveDirection.Normalize();
         
-        RB.velocity = moveDirection * moveSpeed * Time.deltaTime * 50;
+        //RB.velocity = moveDirection * moveSpeed * Time.deltaTime * 50;
+        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
     }
 }

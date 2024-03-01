@@ -1,7 +1,9 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Video;
 
 public class MovingPlatformLogic : MonoBehaviour
 {
@@ -9,15 +11,16 @@ public class MovingPlatformLogic : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.transform.parent = gameObject.transform.parent;
+            other.transform.parent.SetParent(gameObject.transform.parent);
         }
     }
-
+    
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            other.transform.parent = null;
+            other.transform.parent.SetParent(null);
         }
     }
+    
 }
