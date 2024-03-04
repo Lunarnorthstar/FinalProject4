@@ -192,9 +192,9 @@ public class Powerups : MonoBehaviour
         }
     }
 
-    public void ActivatePowerup()
+    public void ActivatePowerup(int selection)
     {
-        switch (equippedPowerups[slotSelected])
+        switch (equippedPowerups[selection])
         {
             case "dash": dash.Activate(); break;
             case "glider": glider.Activate(); break;

@@ -1814,7 +1814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blinkDistance: 5
-  cooldown: 3
+  cooldown: 5
   camera: {fileID: 1129337796531767501}
   player: {fileID: 4804837165726689245}
   ready: 0
@@ -1835,7 +1835,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minMoveSpeedMult: 1.2
-  shieldDuration: 6
+  shieldDuration: 9
   shieldCooldown: 4
   player: {fileID: 745724907302802243}
   shieldObject: {fileID: 5656567766235717760}
@@ -1861,6 +1861,7 @@ MonoBehaviour:
   timerActive: 0
   significantDecimals: 2
   finishPanel: {fileID: 0}
+  nameInput: {fileID: 0}
   handler: {fileID: 6496619680366919905}
   timerSpeedMultx60: 0
 --- !u!114 &4457539464997032814
@@ -1879,7 +1880,7 @@ MonoBehaviour:
   grappleCooldown: 8
   ready: 1
   grappleRange: 40
-  reelSpeed: 0.4
+  reelSpeed: 1
   grappleElasticity: 4.5
   grappleDamper: 4
   grappleMassScale: 4.5

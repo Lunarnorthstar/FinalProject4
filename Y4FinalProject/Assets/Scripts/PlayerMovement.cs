@@ -219,7 +219,7 @@ public class PlayerMovement : MonoBehaviour
         else isAtMaxSpeed = false;
 
         //sliding
-        float isSlide = controls.PlayerMovement.SpeedKey.ReadValue<float>();
+        float isSlide = controls.PlayerMovement.ControlKey.ReadValue<float>();
         if (isSlide != 0) isTryingToSlide = true;
         else { isTryingToSlide = false; hasSlid = false; }
 
@@ -270,7 +270,12 @@ public class PlayerMovement : MonoBehaviour
         //abilities
         if (controls.PlayerMovement.Ability.triggered)
         {
-            powerUps.ActivatePowerup();
+            powerUps.ActivatePowerup(1);
+        }
+
+        if (controls.PlayerMovement.ChangeAbility.triggered) //Probably could change the name of this or make it some vector2d whatever whatever but this works fine as is.
+        {
+            powerUps.ActivatePowerup(2);
         }
 
         if (powerUps.grappleHook.Active && controls.PlayerMovement.Jump.triggered)
