@@ -85,6 +85,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector3 HorizontalVelocity;
     public float HorizontalVelocityf;
+    public float verticalVelocity;
 
     Vector3 lastPos;
     //[SerializeField] Vector3 HorizontalVelocity;
@@ -187,7 +188,7 @@ public class PlayerMovement : MonoBehaviour
         playerCamera.joyCamera = controls.PlayerMovement.Look.ReadValue<Vector2>() * JoyCamSensitivity;
 
         //change ability
-        if (controls.PlayerMovement.ChangeAbility.triggered) powerUps.SwitchPowerup();
+        //  if (controls.PlayerMovement.ChangeAbility.triggered) powerUps.SwitchPowerup();
 
         //locking the mouse
         if (Input.GetKeyDown(KeyCode.L)) playerManager.lockMouse();
@@ -210,6 +211,8 @@ public class PlayerMovement : MonoBehaviour
         //calculate how fast we're moving along the ground
         HorizontalVelocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
         HorizontalVelocityf = HorizontalVelocity.magnitude;
+
+        verticalVelocity = rb.velocity.y;
 
         speedSlider.value = HorizontalVelocityf;
         speedText.text = HorizontalVelocityf.ToString("0");
@@ -292,7 +295,6 @@ public class PlayerMovement : MonoBehaviour
         {
             maxMoveSpeed = startMaxSpeed;
         }
-
     }
 
     void smallVault()
@@ -503,13 +505,15 @@ public class PlayerMovement : MonoBehaviour
 
 
         if (isSliding)
-        {
             ani.SetBool("slide", true);
-        }
         else
-        {
             ani.SetBool("slide", false);
-        }
+
+        if (hasSlid)
+            ani.SetBool("hasSlid", true);
+        else
+            ani.SetBool("hasSlid", false);
+
     }
 
     private void GetIKTarget(String type)

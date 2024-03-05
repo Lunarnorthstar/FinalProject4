@@ -639,8 +639,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8798262133564478037}
   - component: {fileID: 4160944890386891852}
-  - component: {fileID: 4500387147082942693}
   - component: {fileID: 7621309988144001758}
+  - component: {fileID: 4087600693734435678}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -714,14 +714,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &4500387147082942693
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3049099849578792122}
-  m_Enabled: 1
 --- !u!114 &7621309988144001758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -851,6 +843,19 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!114 &4087600693734435678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3049099849578792122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 4804837165726689245}
 --- !u!1 &3274514516693583797
 GameObject:
   m_ObjectHideFlags: 0
@@ -1367,6 +1372,7 @@ GameObject:
   - component: {fileID: 6554611238728626299}
   - component: {fileID: 209428965428089303}
   - component: {fileID: 4457539464997032814}
+  - component: {fileID: 1602628692272568796}
   - component: {fileID: 9047786906308234829}
   m_Layer: 6
   m_Name: Player(new)
@@ -1893,6 +1899,47 @@ MonoBehaviour:
   grappleShadow: {fileID: 0}
   shadowValid: {r: 0, g: 1, b: 0, a: 1}
   shadowInvalid: {r: 1, g: 0, b: 0, a: 1}
+--- !u!114 &1602628692272568796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4804837165726689245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d219b0fe6cd2abd4cb70abeef6a23703, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMovement: {fileID: 745724907302802243}
+  currentSpeed: 0
+  bobSpeedMutliplier:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 136
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 15
+      value: 1.2
+      inSlope: -0.0003810838
+      outSlope: -0.0003810838
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 1
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  currentBobSpeed: 0
+  isOnGround_: 0
+  walkAni: {fileID: 315422648236467302}
 --- !u!120 &9047786906308234829
 LineRenderer:
   serializedVersion: 2

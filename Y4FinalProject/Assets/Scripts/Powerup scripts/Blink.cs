@@ -65,7 +65,7 @@ public class Blink : MonoBehaviour
 
             coolingDown = true;
 
-            GameObject.FindObjectOfType<AudioManager>().powerUpSound("blink");
+            AudioManager.instance.GenerateSound(AudioReference.instance.blinkDeploy, Vector3.zero);
         }
     }
 

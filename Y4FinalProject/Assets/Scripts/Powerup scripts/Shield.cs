@@ -98,7 +98,7 @@ public class Shield : MonoBehaviour
         {
             active = true;
 
-            GameObject.FindObjectOfType<AudioManager>().powerUpSound("shield");
+            AudioManager.instance.GenerateSound(AudioReference.instance.shieldDeploy, Vector3.zero);
         }
     }
 

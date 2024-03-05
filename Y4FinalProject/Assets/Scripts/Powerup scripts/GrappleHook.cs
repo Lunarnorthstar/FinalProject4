@@ -124,7 +124,7 @@ public class GrappleHook : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, playerCam.transform.forward, out hit, grappleRange))
         {
-            GameObject.FindObjectOfType<AudioManager>().powerUpSound("grapple");
+            AudioManager.instance.GenerateSound(AudioReference.instance.grappleDeploy, Vector3.zero);
 
             Debug.Log("Hit something");
             grapplePoint = hit.point;

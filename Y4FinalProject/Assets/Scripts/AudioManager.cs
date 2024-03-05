@@ -5,9 +5,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using FMODUnity;
+using FMOD.Studio;
 
 public class AudioManager : MonoBehaviour
 {
+    public static AudioManager instance { get; private set; }
+
     public float musicVolume = 1;
     public float sfxVolume;
 
@@ -16,10 +20,11 @@ public class AudioManager : MonoBehaviour
     public Slider sfxSlider;
 
     [Header("Audio")]
+    EventInstance musicEventInstance;
+    StudioEventEmitter musicEmiiter;
+
     public AudioClip menuSong;
     public AudioClip gameMusic;
-    public AudioClip buttonClick;
-    public AudioClip[] pageTurning;
     public AudioClip spawnIn;
     public AudioClip levelEnd;
 
@@ -37,14 +42,27 @@ public class AudioManager : MonoBehaviour
     //PRIVATE VARIABLES
     AudioSource music;
 
+    void Awake()
+    {
+        if (instance != null)
+        {
+            Debug.LogError("There's more than one audio manager in the scene - this script is found on the audio manager object");
+        }
+        instance = this;
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
         //load volume settings
 
-        if (PlayerPrefs.HasKey("musicVol") && PlayerPrefs.HasKey("sfxVol"))
+        if (musicSlider && sfxSlider)
         {
-            applySliderValues(musicSlider, sfxSlider);
+            if (PlayerPrefs.HasKey("musicVol") && PlayerPrefs.HasKey("sfxVol"))
+            {
+                applySliderValues(musicSlider, sfxSlider);
+            }
         }
 
         if (PlayerPrefs.HasKey("musicVol"))
@@ -57,24 +75,24 @@ public class AudioManager : MonoBehaviour
         else
             PlayerPrefs.SetFloat("sfxVol", 0.7f);
 
-        music = GetComponent<AudioSource>();
+        musicEmiiter = GetComponent<StudioEventEmitter>();
         switch (currentLevel)
         {
             case 99:
-                music.clip = menuSong;
+                musicEmiiter.EventReference = AudioReference.instance.menuMusic;
                 break;
             default:
-                music.clip = gameMusic;
-                //                GenerateSound(spawnIn);
+                musicEmiiter.EventReference = AudioReference.instance.gameMusic;
                 break;
         }
 
-        music.Play();
+        musicEmiiter.Play();
+        //musicEventInstance.start();
     }
 
     void Update()
     {
-        music.volume = musicVolume;
+        //        music.volume = musicVolume;
 
         musicVolume = PlayerPrefs.GetFloat("musicVol");
         sfxVolume = PlayerPrefs.GetFloat("sfxVol");
@@ -97,61 +115,63 @@ public class AudioManager : MonoBehaviour
 
     public void powerUpSound(string name)
     {
-        switch (name)
-        {
-            case "dash":
-                GenerateSound(dashDeploy);
-                break;
-            case "blink":
-                GenerateSound(blinkDeploy);
-                break;
-            case "glider":
-                GenerateSound(glideDeploy);
-                break;
-            case "shield":
-                GenerateSound(shieldDeploy);
-                break;
-            case "grapple":
-                GenerateSound(grappleDeploy);
-                break;
-            default:
-                buttonGeneral();
-                break;
-        }
+        // switch (name)
+        // {
+        //     case "dash":
+        //         GenerateSound(dashDeploy);
+        //         break;
+        //     case "blink":
+        //         GenerateSound(blinkDeploy);
+        //         break;
+        //     case "glider":
+        //         GenerateSound(glideDeploy);
+        //         break;
+        //     case "shield":
+        //         GenerateSound(shieldDeploy);
+        //         break;
+        //     case "grapple":
+        //         GenerateSound(grappleDeploy);
+        //         break;
+        //     default:
+        //         buttonGeneral();
+        //         break;
+        // }
     }
 
     public void turnPage()
     {
-        GenerateSound(pageTurning[Random.Range(0, 2)]);
+        GenerateSound(AudioReference.instance.pageTurning, Vector3.zero);
     }
 
     public void endLevel()
     {
-        GenerateSound(levelEnd);
+        //   GenerateSound(levelEnd);
     }
 
     public void buttonGeneral()
     {
-        GenerateSound(buttonClick);
+        GenerateSound(AudioReference.instance.buttonClick, Vector3.zero);
     }
 
-    public void GenerateSound(AudioClip audioClip)
+    public void GenerateSound(EventReference sound, Vector3 worldPos)// AudioClip audioClip)
     {
-        GameObject sound = new GameObject();
-        sound.transform.parent = transform;
+        RuntimeManager.PlayOneShot(sound, worldPos);
 
-        sound.AddComponent<AudioSource>().clip = audioClip;
-        sound.GetComponent<AudioSource>().Play();
+        // GameObject sound = new GameObject();
+        // sound.transform.parent = transform;
 
-        sound.GetComponent<AudioSource>().volume = sfxVolume;
+        // sound.AddComponent<AudioSource>().clip = audioClip;
+        // sound.GetComponent<AudioSource>().Play();
 
-        if (audioClip == levelEnd)
-        {
-            sound.GetComponent<AudioSource>().volume = sfxVolume / 2;
-            GetComponent<AudioSource>().Stop();
-        }
+        // sound.GetComponent<AudioSource>().volume = sfxVolume;
 
-        Destroy(sound, 10f);
+        // if (audioClip == levelEnd)
+        // {
+        //     sound.GetComponent<AudioSource>().volume = sfxVolume / 2;
+        //     GetComponent<AudioSource>().Stop();
+        // }
+
+        // Destroy(sound, 10f);
     }
 }
 

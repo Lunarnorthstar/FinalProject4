@@ -95,7 +95,7 @@ public class Powerups : MonoBehaviour
                 indicatorImage[i].color = Color.red;
                 break;
             }
-            
+
             switch (equippedPowerups[i])
             {
                 case "dash":
@@ -141,7 +141,7 @@ public class Powerups : MonoBehaviour
                 powerupText[i].text = "None";
                 break;
             }
-            
+
             //This is all so ugly but I have too much tech debt to do it any other way :(
             switch (equippedPowerups[i]) //Hook up all the powerup script's UI elements.
             {
@@ -194,7 +194,10 @@ public class Powerups : MonoBehaviour
 
     public void ActivatePowerup(int selection)
     {
-        switch (equippedPowerups[selection])
+        Debug.Log("powerup activated, " + selection);
+        Debug.Log(equippedPowerups.Count);
+
+        switch (equippedPowerups[selection - 1])
         {
             case "dash": dash.Activate(); break;
             case "glider": glider.Activate(); break;

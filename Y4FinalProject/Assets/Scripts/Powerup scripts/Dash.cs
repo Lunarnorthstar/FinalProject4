@@ -110,7 +110,7 @@ public class Dash : MonoBehaviour
         {
             dashing = true;
 
-            GameObject.FindObjectOfType<AudioManager>().powerUpSound("dash");
+            AudioManager.instance.GenerateSound(AudioReference.instance.dashDeploy, Vector3.zero);
         }
     }
 

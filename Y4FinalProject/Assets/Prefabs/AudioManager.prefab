@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9199764695250357205}
   - component: {fileID: 7626760572810959907}
-  - component: {fileID: 3990582819251805620}
+  - component: {fileID: -6877495449786864285}
+  - component: {fileID: 3493322845308732403}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -46,14 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musicVolume: 1
-  isFXMuted: 0
+  sfxVolume: 0
+  musicSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
   menuSong: {fileID: 8300000, guid: 4de60470f8e84c84eb51d295f45f5131, type: 3}
   gameMusic: {fileID: 8300000, guid: 39ec54870cb0d4d4da72408e165edab7, type: 3}
-  buttonClick: {fileID: 8300000, guid: 9d1805af1c88a0b4ea76c7ed6657ddeb, type: 3}
-  pageTurning:
-  - {fileID: 8300000, guid: b63895801458ca349a623ab933998970, type: 3}
-  - {fileID: 8300000, guid: 7bc586e1e81805e4caffd9a210757431, type: 3}
-  - {fileID: 8300000, guid: ba59176ddfe3dfd47a5d717d387444d4, type: 3}
   spawnIn: {fileID: 8300000, guid: ff29141b9fdc64e4e87cf1bbd3d3c679, type: 3}
   levelEnd: {fileID: 8300000, guid: ff29141b9fdc64e4e87cf1bbd3d3c679, type: 3}
   blinkDeploy: {fileID: 8300000, guid: 67087ec61da81f94f8106619292feada, type: 3}
@@ -61,100 +59,110 @@ MonoBehaviour:
   shieldDeploy: {fileID: 8300000, guid: b6cac8e3b3898714c9c94c088f3c1760, type: 3}
   grappleDeploy: {fileID: 8300000, guid: e902300738c05554a8658ad5114cd4c9, type: 3}
   glideDeploy: {fileID: 8300000, guid: 1967c7d137e1fac4bbcf00f0b0fad7e2, type: 3}
-  currentLevel: 0
---- !u!82 &3990582819251805620
-AudioSource:
+  currentLevel: 1
+--- !u!114 &-6877495449786864285
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4531825864731029170}
   m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 593c9cfaf67bf8043b5eeda5246ee92d, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  Event: 
+  PlayEvent: 0
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: -1
+  OverrideMaxDistance: -1
+--- !u!114 &3493322845308732403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4531825864731029170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1171092bc63e44f42a9e0e7ab5736b38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <buttonClick>k__BackingField:
+    Guid:
+      Data1: 1217030155
+      Data2: 1151059439
+      Data3: 1429098132
+      Data4: 1193387506
+    Path: event:/Button
+  <pageTurning>k__BackingField:
+    Guid:
+      Data1: 1620725815
+      Data2: 1332234156
+      Data3: -1369882974
+      Data4: 284420078
+    Path: event:/Page Turn
+  <menuMusic>k__BackingField:
+    Guid:
+      Data1: 804743585
+      Data2: 1081097562
+      Data3: 395264911
+      Data4: -686316488
+    Path: event:/music/Menu Music
+  <gameMusic>k__BackingField:
+    Guid:
+      Data1: -999076283
+      Data2: 1148196811
+      Data3: 1809109948
+      Data4: 1941294078
+    Path: event:/music/Game Music
+  <blinkDeploy>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <dashDeploy>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <shieldDeploy>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <grappleDeploy>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  <glideDeploy>k__BackingField:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 

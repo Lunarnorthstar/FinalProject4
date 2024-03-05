@@ -162,7 +162,7 @@ public class Glider : MonoBehaviour
         {
             isEnabled = true;
 
-            GameObject.FindObjectOfType<AudioManager>().powerUpSound("glider");
+            AudioManager.instance.GenerateSound(AudioReference.instance.glideDeploy, Vector3.zero);
         }
     }
 
