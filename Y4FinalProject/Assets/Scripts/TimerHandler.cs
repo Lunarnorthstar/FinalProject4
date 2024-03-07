@@ -237,6 +237,7 @@ public class TimerHandler : MonoBehaviour
         {
             finishPanel.SetActive(true);
             gameObject.GetComponent<PlayerManager>().lockMouse();
+            gameObject.GetComponent<PlayerMovement>().controls.Disable();
             StopTimer();
 
             //GameObject.FindObjectOfType<AudioManager>().endLevel();
