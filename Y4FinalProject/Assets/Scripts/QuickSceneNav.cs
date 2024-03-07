@@ -25,6 +25,7 @@ public class QuickSceneNav : MonoBehaviour
 
     public void BackToMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("menu");
     }
 }

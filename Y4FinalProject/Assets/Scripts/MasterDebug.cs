@@ -9,6 +9,7 @@ public class MasterDebug : MonoBehaviour
     private float startY = 0;
     public float maxY = 0;
     public bool resetLeaderboardTimeOnStart;
+    public bool goDangit = false;
     
     // Start is called before the first frame update
     void Start()
@@ -17,6 +18,8 @@ public class MasterDebug : MonoBehaviour
         {
             gameObject.SendMessage("ResetGameStatus");
         }
+
+        
         
         
         startY = gameObject.transform.position.y;
@@ -25,6 +28,8 @@ public class MasterDebug : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(goDangit) Debug.Log(Time.timeScale);
+        
         if (RunHeightCheck)
         {
             CheckMaxHeight();

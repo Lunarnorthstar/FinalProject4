@@ -1459,6 +1459,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 0}
   HorizontalVelocity: {x: 0, y: 0, z: 0}
   HorizontalVelocityf: 0
+  verticalVelocity: 0
   canJump: 1
   isAgainstLedge: 0
   isHangingOnWall: 0
@@ -1599,6 +1600,7 @@ MonoBehaviour:
   RunHeightCheck: 1
   maxY: 0
   resetLeaderboardTimeOnStart: 0
+  goDangit: 0
 --- !u!114 &6694398332962240107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1660,7 +1662,7 @@ MonoBehaviour:
   isEnabled: 0
   cam: {fileID: 2841273578517078570}
   liftCoE: 20
-  forwardForce: 15
+  forwardForce: 17
   glideDuration: 3
   glideCooldown: 8
   ready: 0
@@ -1940,6 +1942,9 @@ MonoBehaviour:
   currentBobSpeed: 0
   isOnGround_: 0
   walkAni: {fileID: 315422648236467302}
+  verticalVelocity: 0
+  lowImpactThreshold: 0
+  highImpactTheshold: 0
 --- !u!120 &9047786906308234829
 LineRenderer:
   serializedVersion: 2

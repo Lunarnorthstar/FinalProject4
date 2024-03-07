@@ -121,13 +121,13 @@ public class Powerups : MonoBehaviour
                 default: break;
             }
         }
-
+        /* Obsolete now as we don't switch selected powerups
         //Selecting color changing
         for (int i = 0; i < powerupImage.Length; i++)
         {
             powerupImage[i].color = Color.white;
         }
-        powerupImage[slotSelected].color = Color.green;
+        powerupImage[slotSelected].color = Color.green;*/
 
     }
 

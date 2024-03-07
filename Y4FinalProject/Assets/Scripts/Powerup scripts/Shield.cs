@@ -37,9 +37,11 @@ public class Shield : MonoBehaviour
         {
             shieldObject.SetActive(true);
             shieldTimer += Time.deltaTime;
+            player.moveSpeedMult = minMoveSpeedMult;
 
             if (shieldTimer >= shieldDuration)
             {
+                player.moveSpeedMult = 1;
                 shieldObject.SetActive(false);
                 shieldTimer = 0;
                 active = false;

@@ -140,7 +140,7 @@ public class GrappleHook : MonoBehaviour
 
             //The range of distance the grapple will try to keep from the contact point
             joint.maxDistance = distanceFromPoint * 0.8f;
-            joint.minDistance = joint.maxDistance * 0.25f;
+            joint.minDistance = 1;
 
             joint.spring = grappleElasticity;
             joint.damper = grappleDamper;
