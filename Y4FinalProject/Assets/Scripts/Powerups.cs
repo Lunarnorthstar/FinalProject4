@@ -65,7 +65,7 @@ public class Powerups : MonoBehaviour
 
     private void Update()
     {
-        if (equippedPowerups[slotSelected] == "blink") //If you've got Blink selected...
+        if (equippedPowerups.Contains("blink")) //If you've got Blink selected...
         {
             blinkShadow.SetActive(true); //Set the shadow object to be enabled so you can see it.
             blinkShadow.transform.position =
@@ -76,7 +76,7 @@ public class Powerups : MonoBehaviour
             blinkShadow.SetActive(false); //if you don't have blink selected set the shadow object to be inactive so you don't see it anymore.
         }
 
-        if (equippedPowerups[slotSelected] == "grapple")
+        if (equippedPowerups.Contains("grapple"))
         {
             grappleHook.grappleShadow.SetActive(true);
         }
@@ -180,15 +180,6 @@ public class Powerups : MonoBehaviour
                     powerupText[i].text = "None";
                     break;
             }
-        }
-    }
-
-    public void SwitchPowerup()
-    {
-        slotSelected++;
-        if (slotSelected > equippedPowerups.Count - 1)
-        {
-            slotSelected = 0;
         }
     }
 
