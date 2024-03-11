@@ -185,9 +185,6 @@ public class Powerups : MonoBehaviour
 
     public void ActivatePowerup(int selection)
     {
-        Debug.Log("powerup activated, " + selection);
-        Debug.Log(equippedPowerups.Count);
-
         switch (equippedPowerups[selection - 1])
         {
             case "dash": dash.Activate(); break;

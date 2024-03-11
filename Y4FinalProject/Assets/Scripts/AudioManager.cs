@@ -23,17 +23,17 @@ public class AudioManager : MonoBehaviour
     EventInstance musicEventInstance;
     StudioEventEmitter musicEmiiter;
 
-    public AudioClip menuSong;
-    public AudioClip gameMusic;
-    public AudioClip spawnIn;
-    public AudioClip levelEnd;
+    // public AudioClip menuSong;
+    // public AudioClip gameMusic;
+    // public AudioClip spawnIn;
+    // public AudioClip levelEnd;
 
-    [Space]
-    public AudioClip blinkDeploy;
-    public AudioClip dashDeploy;
-    public AudioClip shieldDeploy;
-    public AudioClip grappleDeploy;
-    public AudioClip glideDeploy;
+    // [Space]
+    // public AudioClip blinkDeploy;
+    // public AudioClip dashDeploy;
+    // public AudioClip shieldDeploy;
+    // public AudioClip grappleDeploy;
+    // public AudioClip glideDeploy;
 
     [Space]
     [Tooltip("use 99 for menu")]

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.Callbacks;
 using UnityEngine;
 
@@ -10,6 +11,7 @@ public class JuiceBehaviours : MonoBehaviour
     public float currentSpeed;
     public AnimationCurve bobSpeedMutliplier;
     public float currentBobSpeed;
+    public float lerpSpeed;
 
     public bool isOnGround_;
 
@@ -20,10 +22,27 @@ public class JuiceBehaviours : MonoBehaviour
     public float highImpactTheshold;
     bool isDueForImpact;
 
-    void Update()
+    [Space]
+    public float defaultFov;
+    public AnimationCurve fovChange;
+    public float fovchangeSpeed;
+    public Camera cam;
+
+    [Space]
+    public ParticleSystem speedParticles;
+    public AnimationCurve speedParticleMulti;
+    public float speedParticleAMount;
+
+    void Start()
+    {
+        cam = Camera.main;
+    }
+
+    void FixedUpdate()
     {
         //set parameters
         currentSpeed = playerMovement.HorizontalVelocityf;
+        lerpSpeed = playerMovement.horizontalVelocityLerp;
         isOnGround_ = playerMovement.isOnGround;
         verticalVelocity = playerMovement.verticalVelocity;
 
@@ -50,6 +69,19 @@ public class JuiceBehaviours : MonoBehaviour
         {
             isDueForImpact = true;
         }
+
+        //fov
+        float fovDiff = fovChange.Evaluate(lerpSpeed);
+        // cam.fieldOfView = Mathf.Lerp(
+        //     cam.fieldOfView,
+        //     defaultFov + fovDiff,
+        //     fovchangeSpeed);
+
+        cam.fieldOfView = defaultFov;
+
+        //particles
+        var emission = speedParticles.emission;
+        emission.rateOverTime = speedParticleMulti.Evaluate(lerpSpeed) * speedParticleAMount;
     }
 
     void playImpact()
@@ -69,7 +101,6 @@ public class JuiceBehaviours : MonoBehaviour
             AudioManager.instance.GenerateSound(AudioReference.instance.landSoft, Vector3.zero);
             walkAni.SetTrigger("soft Landing");
         }
-        Debug.Log(Mathf.Abs(verticalVelocity));
 
     }
 

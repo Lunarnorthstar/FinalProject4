@@ -86,6 +86,8 @@ public class PlayerMovement : MonoBehaviour
     public Vector3 HorizontalVelocity;
     public float HorizontalVelocityf;
     public float verticalVelocity;
+    public float horizontalVelocityLerp;
+    public float velocityLerpSpeed;
 
     Vector3 lastPos;
     //[SerializeField] Vector3 HorizontalVelocity;
@@ -211,6 +213,8 @@ public class PlayerMovement : MonoBehaviour
         //calculate how fast we're moving along the ground
         HorizontalVelocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);
         HorizontalVelocityf = HorizontalVelocity.magnitude;
+
+        horizontalVelocityLerp = Mathf.Lerp(horizontalVelocityLerp, HorizontalVelocityf, velocityLerpSpeed);
 
         verticalVelocity = rb.velocity.y;
 
