@@ -18208,6 +18208,14 @@ PrefabInstance:
       propertyPath: timerDisplay
       value: 
       objectReference: {fileID: 801521592}
+    - target: {fileID: 461557173195876720, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'CATRigLArmCollarbone'\n\tTransform 'CATRigRArmCollarbone'\n\tTransform
+        'CATRigLArmCollarbone'\n\tTransform 'CATRigRArmCollarbone'\n\tFrom animation
+        clip 'Body Run'"
+      objectReference: {fileID: 0}
     - target: {fileID: 745724907302802243, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: pauseMenu
       value: 
@@ -18220,6 +18228,10 @@ PrefabInstance:
       propertyPath: speedSlider
       value: 
       objectReference: {fileID: 1537733768}
+    - target: {fileID: 3062315862892234034, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 5060444177187149915, guid: 149ecbeac707a85418c833044946cf88, type: 3}
     - target: {fileID: 4457539464997032814, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: grappleShadow
       value: 
