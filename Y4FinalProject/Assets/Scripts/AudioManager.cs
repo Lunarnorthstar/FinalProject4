@@ -21,7 +21,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio")]
     EventInstance musicEventInstance;
-    StudioEventEmitter musicEmiiter;
+    //StudioEventEmitter musicEmiiter;
 
     // public AudioClip menuSong;
     // public AudioClip gameMusic;
@@ -75,24 +75,26 @@ public class AudioManager : MonoBehaviour
         else
             PlayerPrefs.SetFloat("sfxVol", 0.7f);
 
-        musicEmiiter = GetComponent<StudioEventEmitter>();
+
         switch (currentLevel)
         {
             case 99:
-                musicEmiiter.EventReference = AudioReference.instance.menuMusic;
+                musicEventInstance = RuntimeManager.CreateInstance(AudioReference.instance.menuMusic);
                 break;
             default:
-                musicEmiiter.EventReference = AudioReference.instance.gameMusic;
+                musicEventInstance = RuntimeManager.CreateInstance(AudioReference.instance.gameMusic);
                 break;
         }
 
-        musicEmiiter.Play();
-        //musicEventInstance.start();
+        musicEventInstance.start();
+        musicEventInstance.release();
     }
 
     void Update()
     {
         //        music.volume = musicVolume;
+        musicEventInstance.setVolume(musicVolume);
+
 
         musicVolume = PlayerPrefs.GetFloat("musicVol");
         sfxVolume = PlayerPrefs.GetFloat("sfxVol");
@@ -155,7 +157,7 @@ public class AudioManager : MonoBehaviour
 
     public void GenerateSound(EventReference sound, Vector3 worldPos)// AudioClip audioClip)
     {
-        RuntimeManager.PlayOneShot(sound, worldPos);
+        RuntimeManager.PlayOneShot(sfxVolume, sound, worldPos);
 
         // GameObject sound = new GameObject();
         // sound.transform.parent = transform;

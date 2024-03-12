@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6558.829, g: 4994.067, b: 3403.4927, a: 1}
+  m_IndirectSpecularColor: {r: 6558.8447, g: 4993.9575, b: 3403.559, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -27534,6 +27534,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: onNameInput
       objectReference: {fileID: 0}
+    - target: {fileID: 673684503859025636, guid: 00c55ef519019434d87bf54728021438, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1367545389}
+    - target: {fileID: 673684503859025636, guid: 00c55ef519019434d87bf54728021438, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: updateMusicVolume
+      objectReference: {fileID: 0}
     - target: {fileID: 1730408947600029858, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -27565,6 +27573,14 @@ PrefabInstance:
     - target: {fileID: 3466988205349030711, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5067579232876817798, guid: 00c55ef519019434d87bf54728021438, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1367545389}
+    - target: {fileID: 5067579232876817798, guid: 00c55ef519019434d87bf54728021438, type: 3}
+      propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: updateSFXVolume
       objectReference: {fileID: 0}
     - target: {fileID: 5695181263023361781, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_LocalScale.x
@@ -43428,6 +43444,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ebb367ecf23f7d40831276afea8242c, type: 3}
+--- !u!114 &1367545389 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7626760572810959907, guid: 3ebb367ecf23f7d40831276afea8242c, type: 3}
+  m_PrefabInstance: {fileID: 1367545388}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee1856420c00efc4ab787aab59d5cbc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1381663225 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1476402648131442758, guid: 0d19d9d19c53dad46ac0a7281d4103ea, type: 3}
