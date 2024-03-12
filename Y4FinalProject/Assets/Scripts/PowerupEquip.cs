@@ -10,6 +10,8 @@ public class PowerupEquip : MonoBehaviour
     public PowerupData PD;
     public int maxPowerups = 2;
     public TextMeshProUGUI powerupEquipReadout;
+    
+    [Space]
 
     public Image[] powerupColorImage = new Image[2];
     public Color dashColor = Color.blue;
@@ -19,8 +21,44 @@ public class PowerupEquip : MonoBehaviour
     public Color grappleColor = Color.gray;
     public Color unequippedColor = Color.white;
 
+    public Button dashButton;
+    public Button glideButton;
+    public Button shieldButton;
+    public Button blinkButton;
+    public Button grappleButton;
+
+    private Button[] allButtons;
+
     private void Start()
     {
+        allButtons = new[] {dashButton, glideButton, shieldButton, blinkButton, grappleButton}; //Put all the buttons in an array for easier access
+        
+        foreach (var equip in PD.equippedPowerups)
+        {
+            switch (equip)
+            {
+                case "None":
+                    break;
+                case "dash":
+                    dashButton.GetComponentInParent<Animator>().Play("DashSelect");
+                    break;
+                case "glider":
+                    glideButton.GetComponentInParent<Animator>().Play("GlideSelect");
+                    break;
+                case "shield":
+                    shieldButton.GetComponentInParent<Animator>().Play("ShieldSelect");
+                    break;
+                case "blink":
+                    blinkButton.GetComponentInParent<Animator>().Play("BlinkSelect");
+                    break;
+                case "grapple":
+                    grappleButton.GetComponentInParent<Animator>().Play("GrappleSelect");
+                    break;
+                default:
+                    break;
+            }
+        }
+
         powerupEquipReadout.text = "";
         
         foreach (var VARIABLE in PD.equippedPowerups)
@@ -31,6 +69,23 @@ public class PowerupEquip : MonoBehaviour
 
     public void Update()
     {
+        if (PD.equippedPowerups.Contains("None"))
+        {
+            foreach (var VARIABLE in allButtons)
+            {
+                VARIABLE.interactable = true;
+            }
+        }
+        else
+        {
+            foreach (var VARIABLE in allButtons)
+            {
+                VARIABLE.interactable = false;
+            }
+        }
+        
+        
+        
         if (powerupColorImage[0] == null || powerupColorImage[1] == null)
         {
             return;
@@ -46,7 +101,7 @@ public class PowerupEquip : MonoBehaviour
                 case "dash":
                     powerupColorImage[i].color = dashColor;
                     break;
-                case "glide":
+                case "glider":
                     powerupColorImage[i].color = glideColor;
                     break;
                 case "shield":
@@ -63,6 +118,15 @@ public class PowerupEquip : MonoBehaviour
                     break;
             }
         }
+        
+        
+        powerupEquipReadout.text = "";
+
+        foreach (var VARIABLE in PD.equippedPowerups)
+        {
+            powerupEquipReadout.text += VARIABLE + " ";
+        }
+        
     }
 
     public void EquipPowerup(string powerup)
@@ -88,13 +152,42 @@ public class PowerupEquip : MonoBehaviour
 
             }
         }
+    }
 
-        powerupEquipReadout.text = "";
+    public void SwapPowerups()
+    {
+        PD.equippedPowerups.Add(PD.equippedPowerups[0]);
+        PD.equippedPowerups.RemoveAt(0);
+    }
 
-        foreach (var VARIABLE in PD.equippedPowerups)
+    public void EjectPowerups()
+    {
+        foreach (var equip in PD.equippedPowerups)
         {
-            powerupEquipReadout.text += VARIABLE + " ";
+            switch (equip)
+            {
+                case "None":
+                    break;
+                case "dash":
+                    dashButton.GetComponentInParent<Animator>().Play("Idle");
+                    break;
+                case "glider":
+                    glideButton.GetComponentInParent<Animator>().Play("Idle");
+                    break;
+                case "shield":
+                    shieldButton.GetComponentInParent<Animator>().Play("Idle");
+                    break;
+                case "blink":
+                    blinkButton.GetComponentInParent<Animator>().Play("Idle");
+                    break;
+                case "grapple":
+                    grappleButton.GetComponentInParent<Animator>().Play("Idle");
+                    break;
+                default:
+                    break;
+            }
         }
-       
+
+        PD.equippedPowerups = new List<string>() {"None", "None"};
     }
 }

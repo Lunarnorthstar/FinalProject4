@@ -121,6 +121,17 @@ public class Powerups : MonoBehaviour
                 default: break;
             }
         }
+        
+        if (!blink.ready)
+        {
+            blinkShadow.GetComponent<Valid>().ready = false;
+        }
+        else
+        {
+            blinkShadow.GetComponent<Valid>().ready = true;
+        }
+
+
         /* Obsolete now as we don't switch selected powerups
         //Selecting color changing
         for (int i = 0; i < powerupImage.Length; i++)
@@ -176,7 +187,7 @@ public class Powerups : MonoBehaviour
                     grappleHook.countdown = countdownText[i];
                     break;
                 default:
-                    Debug.Log("Oops! " + equippedPowerups[slotSelected] + " is not a valid powerup name. The valid names are; dash, glider, blink, shield, and grapple (case sensitive)");
+                    Debug.Log("Oops! " + equippedPowerups[i] + " is not a valid powerup name. The valid names are; dash, glider, blink, shield, and grapple (case sensitive)");
                     powerupText[i].text = "None";
                     break;
             }

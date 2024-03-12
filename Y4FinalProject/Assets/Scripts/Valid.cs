@@ -6,19 +6,30 @@ using UnityEngine;
 public class Valid : MonoBehaviour
 {
     public bool validPosition = true;
+    public bool ready = true;
     public Material validMaterial;
     public Material invalidMaterial;
 
+    private void Update()
+    {
+        if (validPosition && ready)
+        {
+            GetComponent<MeshRenderer>().material = validMaterial;
+        }
+        else
+        {
+            GetComponent<MeshRenderer>().material = invalidMaterial;
+        }
+    }
 
-    private void OnTriggerEnter(Collider other)
+
+    private void OnTriggerStay(Collider other)
     {
         validPosition = false;
-        GetComponent<MeshRenderer>().material = invalidMaterial;
     }
 
     private void OnTriggerExit(Collider other)
     {
         validPosition = true;
-        GetComponent<MeshRenderer>().material = validMaterial;
     }
 }
