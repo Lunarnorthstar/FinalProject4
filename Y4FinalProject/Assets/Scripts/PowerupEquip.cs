@@ -10,6 +10,7 @@ public class PowerupEquip : MonoBehaviour
     public PowerupData PD;
     public int maxPowerups = 2;
     public TextMeshProUGUI powerupEquipReadout;
+    private int floop = 0;
     
     [Space]
 
@@ -45,7 +46,7 @@ public class PowerupEquip : MonoBehaviour
                 case "glider":
                     glideButton.GetComponentInParent<Animator>().Play("GlideSelect");
                     break;
-                case "shield":
+                case "boots":
                     shieldButton.GetComponentInParent<Animator>().Play("ShieldSelect");
                     break;
                 case "blink":
@@ -69,6 +70,7 @@ public class PowerupEquip : MonoBehaviour
 
     public void Update()
     {
+        /*
         if (PD.equippedPowerups.Contains("None"))
         {
             foreach (var VARIABLE in allButtons)
@@ -83,7 +85,7 @@ public class PowerupEquip : MonoBehaviour
                 VARIABLE.interactable = false;
             }
         }
-        
+        */
         
         
         if (powerupColorImage[0] == null || powerupColorImage[1] == null)
@@ -104,7 +106,7 @@ public class PowerupEquip : MonoBehaviour
                 case "glider":
                     powerupColorImage[i].color = glideColor;
                     break;
-                case "shield":
+                case "boots":
                     powerupColorImage[i].color = shieldColor;
                     break;
                 case "blink":
@@ -133,6 +135,7 @@ public class PowerupEquip : MonoBehaviour
     {
         if (PD.equippedPowerups.Contains(powerup)) //If it's already equipped
         {
+            floop = 0;
             PD.equippedPowerups.Remove(powerup);
             PD.equippedPowerups.Add("None");
         }
@@ -140,6 +143,7 @@ public class PowerupEquip : MonoBehaviour
         {
             if (PD.equippedPowerups.Contains("None"))
             {
+                floop = 0;
                 PD.equippedPowerups.Remove("None");
                 if (PD.equippedPowerups.Contains("None")) //If it still contains None (I.E. both slots are empty)
                 {
@@ -150,6 +154,47 @@ public class PowerupEquip : MonoBehaviour
                     PD.equippedPowerups.Add(powerup); //Put it at the end (the right)
                 }
 
+            }
+            else
+            {
+                switch (PD.equippedPowerups[floop])
+                {
+                    case "None":
+                        break;
+                    case "dash":
+                        dashButton.GetComponentInParent<Animator>().Play("Idle");
+                        dashButton.interactable = true;
+                        break;
+                    case "glider":
+                        glideButton.GetComponentInParent<Animator>().Play("Idle");
+                        glideButton.interactable = true;
+                        break;
+                    case "boots":
+                        shieldButton.GetComponentInParent<Animator>().Play("Idle");
+                        shieldButton.interactable = true;
+                        break;
+                    case "blink":
+                        blinkButton.GetComponentInParent<Animator>().Play("Idle");
+                        blinkButton.interactable = true;
+                        break;
+                    case "grapple":
+                        grappleButton.GetComponentInParent<Animator>().Play("Idle");
+                        grappleButton.interactable = true;
+                        break;
+                    default:
+                        break;
+                }
+                PD.equippedPowerups.RemoveAt(floop);
+                PD.equippedPowerups.Insert(floop, powerup);
+
+                if (floop == 0)
+                {
+                    floop++;
+                }
+                else
+                {
+                    floop--;
+                }
             }
         }
     }
@@ -170,18 +215,23 @@ public class PowerupEquip : MonoBehaviour
                     break;
                 case "dash":
                     dashButton.GetComponentInParent<Animator>().Play("Idle");
+                    dashButton.interactable = true;
                     break;
                 case "glider":
                     glideButton.GetComponentInParent<Animator>().Play("Idle");
+                    glideButton.interactable = true;
                     break;
-                case "shield":
+                case "boots":
                     shieldButton.GetComponentInParent<Animator>().Play("Idle");
+                    shieldButton.interactable = true;
                     break;
                 case "blink":
                     blinkButton.GetComponentInParent<Animator>().Play("Idle");
+                    blinkButton.interactable = true;
                     break;
                 case "grapple":
                     grappleButton.GetComponentInParent<Animator>().Play("Idle");
+                    grappleButton.interactable = true;
                     break;
                 default:
                     break;

@@ -284,6 +284,18 @@ public class PlayerMovement : MonoBehaviour
         {
             powerUps.ActivatePowerup(2);
         }
+        
+        if (controls.PlayerMovement.Ability.WasReleasedThisFrame())
+        {
+            powerUps.ReleasePowerup(1);
+        }
+
+        if (controls.PlayerMovement.ChangeAbility.WasReleasedThisFrame())
+        {
+            powerUps.ReleasePowerup(2);
+        }
+        
+
 
         if (powerUps.grappleHook.Active && controls.PlayerMovement.Jump.triggered)
         {

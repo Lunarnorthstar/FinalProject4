@@ -130,7 +130,7 @@ public class TimerHandler : MonoBehaviour
 
 
 
-        string timeReadable = string.Format("{0:00}.{1:0}", seconds, milliseconds);
+        string timeReadable = string.Format("{0:0}:{1:00}.{2:00}", minutes, seconds, milliseconds);
         return timeReadable;
     }
 

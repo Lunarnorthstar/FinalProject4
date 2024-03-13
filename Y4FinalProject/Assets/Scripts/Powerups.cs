@@ -67,7 +67,6 @@ public class Powerups : MonoBehaviour
     {
         if (equippedPowerups.Contains("blink")) //If you've got Blink selected...
         {
-            blinkShadow.SetActive(true); //Set the shadow object to be enabled so you can see it.
             blinkShadow.transform.position =
                 gameObject.transform.position + (blink.blinkDistance * camera.transform.forward) + new Vector3(0, 0.3f, 0); //Set its position to where you will blink to
         }
@@ -110,7 +109,7 @@ public class Powerups : MonoBehaviour
                     if (!blink.ready) indicatorImage[i].color = Color.red;
                     else indicatorImage[i].color = Color.green;
                     break;
-                case "shield":
+                case "boots":
                     if (!shield.ready) indicatorImage[i].color = Color.red;
                     else indicatorImage[i].color = Color.green;
                     break;
@@ -174,7 +173,7 @@ public class Powerups : MonoBehaviour
                     blink.slider = powerupSlider[i];
                     blink.countdown = countdownText[i];
                     break;
-                case "shield":
+                case "boots":
                     shield.equipped = true;
                     shield.name = powerupText[i];
                     shield.slider = powerupSlider[i];
@@ -187,7 +186,7 @@ public class Powerups : MonoBehaviour
                     grappleHook.countdown = countdownText[i];
                     break;
                 default:
-                    Debug.Log("Oops! " + equippedPowerups[i] + " is not a valid powerup name. The valid names are; dash, glider, blink, shield, and grapple (case sensitive)");
+                    Debug.Log("Oops! " + equippedPowerups[i] + " is not a valid powerup name. The valid names are; dash, glider, blink, boots, and grapple (case sensitive)");
                     powerupText[i].text = "None";
                     break;
             }
@@ -200,9 +199,25 @@ public class Powerups : MonoBehaviour
         {
             case "dash": dash.Activate(); break;
             case "glider": glider.Activate(); break;
-            case "blink": if (blinkShadow.GetComponent<Valid>().validPosition) blink.Activate(); break;
-            case "shield": shield.Activate(); break;
+            case "blink": blinkShadow.SetActive(true); break;
+            case "boots": shield.Activate(); break;
             case "grapple": grappleHook.Activate(); break;
+            default: break;
+        }
+    }
+
+    public void ReleasePowerup(int selection)
+    {
+        switch (equippedPowerups[selection - 1])
+        {
+            case "dash": break;
+            case "glider": break;
+            case "blink": 
+                if (blinkShadow.GetComponent<Valid>().validPosition) blink.Activate();
+                blinkShadow.SetActive(false);
+                break;
+            case "boots": break;
+            case "grapple": break;
             default: break;
         }
     }
