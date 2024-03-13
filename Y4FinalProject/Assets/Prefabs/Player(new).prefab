@@ -1404,6 +1404,7 @@ Transform:
   - {fileID: 7637100295541411525}
   - {fileID: 8374823790850392393}
   - {fileID: 5073843047097142671}
+  - {fileID: 6981745787825435599}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &745724907302802243
@@ -1989,6 +1990,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   fovchangeSpeed: 0.3
   cam: {fileID: 4160944890386891852}
+  particleSpawnPoint: {fileID: 6981745787825435599}
   speedParticles: {fileID: 6084096129214287219}
   speedParticleMulti:
     serializedVersion: 2
@@ -2024,6 +2026,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   speedParticleAMount: 400
+  landImpact: {fileID: 0}
+  jumpParticle: {fileID: 0}
 --- !u!120 &9047786906308234829
 LineRenderer:
   serializedVersion: 2
@@ -7670,6 +7674,37 @@ Transform:
   m_Children:
   - {fileID: 4962816714672096543}
   m_Father: {fileID: 1617247018761353769}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9024459295547049189
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6981745787825435599}
+  m_Layer: 6
+  m_Name: ParticleSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6981745787825435599
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9024459295547049189}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8329050076016796603}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1625570920896489035
 PrefabInstance:

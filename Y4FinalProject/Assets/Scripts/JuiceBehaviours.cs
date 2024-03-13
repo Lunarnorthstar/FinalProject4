@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor.Callbacks;
 using UnityEngine;
@@ -29,9 +30,13 @@ public class JuiceBehaviours : MonoBehaviour
     public Camera cam;
 
     [Space]
+    public Transform particleSpawnPoint;
     public ParticleSystem speedParticles;
     public AnimationCurve speedParticleMulti;
     public float speedParticleAMount;
+
+    public GameObject landImpact;
+    public GameObject jumpParticle;
 
     void Start()
     {
@@ -72,12 +77,12 @@ public class JuiceBehaviours : MonoBehaviour
 
         //fov
         float fovDiff = fovChange.Evaluate(lerpSpeed);
-        // cam.fieldOfView = Mathf.Lerp(
-        //     cam.fieldOfView,
-        //     defaultFov + fovDiff,
-        //     fovchangeSpeed);
+        cam.fieldOfView = Mathf.Lerp(
+            cam.fieldOfView,
+            defaultFov + fovDiff,
+            fovchangeSpeed);
 
-        cam.fieldOfView = defaultFov;
+        //cam.fieldOfView = defaultFov;
 
         //particles
         var emission = speedParticles.emission;
@@ -89,17 +94,25 @@ public class JuiceBehaviours : MonoBehaviour
         if (Mathf.Abs(verticalVelocity) >= highImpactTheshold)
         {
             AudioManager.instance.GenerateSound(AudioReference.instance.landHard, Vector3.zero);
-            walkAni.SetTrigger("hard Landing");
+            //walkAni.SetTrigger("hard Landing");
+            GameObject landingParticleTemp = GameObject.Instantiate(landImpact, particleSpawnPoint.position, Quaternion.identity);
+            Destroy(landingParticleTemp, 1f);
         }
         else if (Mathf.Abs(verticalVelocity) >= lowImpactThreshold)
         {
             AudioManager.instance.GenerateSound(AudioReference.instance.landMedium, Vector3.zero);
             walkAni.SetTrigger("medium Landing");
+
+            GameObject landingParticleTemp = GameObject.Instantiate(landImpact, particleSpawnPoint.position, Quaternion.identity);
+            Destroy(landingParticleTemp, 1f);
         }
         else
         {
             AudioManager.instance.GenerateSound(AudioReference.instance.landSoft, Vector3.zero);
             walkAni.SetTrigger("soft Landing");
+
+            GameObject landingParticleTemp = GameObject.Instantiate(landImpact, particleSpawnPoint.position, Quaternion.identity);
+            Destroy(landingParticleTemp, 1f);
         }
 
     }
