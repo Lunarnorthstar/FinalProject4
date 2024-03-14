@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6558.829, g: 4994.067, b: 3403.4927, a: 1}
+  m_IndirectSpecularColor: {r: 6558.829, g: 4994.0356, b: 3403.52, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3362,7 +3362,7 @@ Transform:
   m_GameObject: {fileID: 312010974}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 9.4, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3387,7 +3387,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 150, z: 200}
+  m_Size: {x: 1, y: 150, z: 300}
   m_Center: {x: 0, y: -50, z: 0}
 --- !u!23 &312010977
 MeshRenderer:
@@ -25038,6 +25038,10 @@ PrefabInstance:
       propertyPath: grappleShadow
       value: 
       objectReference: {fileID: 1556199136}
+    - target: {fileID: 4696386564031097509, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: RunHeightCheck
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4804837165726689245, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_Name
       value: Player(new)
@@ -30178,7 +30182,7 @@ Transform:
   m_GameObject: {fileID: 1520704153}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -3.8, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30203,7 +30207,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 150, z: 200}
+  m_Size: {x: 1, y: 150, z: 400}
   m_Center: {x: 0, y: -50, z: 0}
 --- !u!23 &1520704156
 MeshRenderer:
@@ -40548,7 +40552,7 @@ Transform:
   m_GameObject: {fileID: 2069789983}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -8.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -221,9 +221,10 @@ public class PlayerMovement : MonoBehaviour
         speedSlider.value = HorizontalVelocityf;
         speedText.text = HorizontalVelocityf.ToString("0");
 
+        /*
         //just check if we're moving at maximum speed
         if (Mathf.Abs(HorizontalVelocityf) >= maxMoveSpeed * moveSpeedMult) isAtMaxSpeed = true;
-        else isAtMaxSpeed = false;
+        else isAtMaxSpeed = false;*/
 
         //sliding
         float isSlide = controls.PlayerMovement.ControlKey.ReadValue<float>();
@@ -260,7 +261,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //ismoving
-        if (movInput != Vector2.zero && !isAtMaxSpeed)
+        if (movInput != Vector2.zero /*&& !isAtMaxSpeed*/)
         {
             if (isOnGround)
             {
@@ -272,6 +273,8 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(transform.forward * xMove * accSpeed * airSpeedMultiplier * moveSpeedMult * Time.deltaTime);
                 rb.AddForce(transform.right * zMove * accStrafe * airSpeedMultiplier * moveSpeedMult * Time.deltaTime);
             }
+
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxMoveSpeed);
         }
 
         //abilities

@@ -8,6 +8,7 @@ public class MasterDebug : MonoBehaviour
     public bool RunHeightCheck = true;
     private float startY = 0;
     public float maxY = 0;
+    public float speed = 0;
     public bool resetLeaderboardTimeOnStart;
     public bool goDangit = false;
     
@@ -18,16 +19,13 @@ public class MasterDebug : MonoBehaviour
         {
             gameObject.SendMessage("ResetGameStatus");
         }
-
-        
-        
-        
         startY = gameObject.transform.position.y;
     }
 
     // Update is called once per frame
     void Update()
     {
+        speed = Mathf.Abs(GetComponent<PlayerMovement>().HorizontalVelocityf);
         if(goDangit) Debug.Log(Time.timeScale);
         
         if (RunHeightCheck)

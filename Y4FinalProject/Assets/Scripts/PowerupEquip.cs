@@ -17,22 +17,22 @@ public class PowerupEquip : MonoBehaviour
     public Image[] powerupColorImage = new Image[2];
     public Color dashColor = Color.blue;
     public Color glideColor = Color.yellow;
-    public Color shieldColor = Color.green;
+    public Color bootsColor = Color.green;
     public Color blinkColor = Color.magenta;
     public Color grappleColor = Color.gray;
     public Color unequippedColor = Color.white;
 
     public Button dashButton;
     public Button glideButton;
-    public Button shieldButton;
+    public Button bootsButton;
     public Button blinkButton;
     public Button grappleButton;
-
+    
     private Button[] allButtons;
 
     private void Start()
     {
-        allButtons = new[] {dashButton, glideButton, shieldButton, blinkButton, grappleButton}; //Put all the buttons in an array for easier access
+        allButtons = new[] {dashButton, glideButton, bootsButton, blinkButton, grappleButton}; //Put all the buttons in an array for easier access
         
         foreach (var equip in PD.equippedPowerups)
         {
@@ -47,7 +47,7 @@ public class PowerupEquip : MonoBehaviour
                     glideButton.GetComponentInParent<Animator>().Play("GlideSelect");
                     break;
                 case "boots":
-                    shieldButton.GetComponentInParent<Animator>().Play("ShieldSelect");
+                    bootsButton.GetComponentInParent<Animator>().Play("ShieldSelect");
                     break;
                 case "blink":
                     blinkButton.GetComponentInParent<Animator>().Play("BlinkSelect");
@@ -70,24 +70,6 @@ public class PowerupEquip : MonoBehaviour
 
     public void Update()
     {
-        /*
-        if (PD.equippedPowerups.Contains("None"))
-        {
-            foreach (var VARIABLE in allButtons)
-            {
-                VARIABLE.interactable = true;
-            }
-        }
-        else
-        {
-            foreach (var VARIABLE in allButtons)
-            {
-                VARIABLE.interactable = false;
-            }
-        }
-        */
-        
-        
         if (powerupColorImage[0] == null || powerupColorImage[1] == null)
         {
             return;
@@ -107,7 +89,7 @@ public class PowerupEquip : MonoBehaviour
                     powerupColorImage[i].color = glideColor;
                     break;
                 case "boots":
-                    powerupColorImage[i].color = shieldColor;
+                    powerupColorImage[i].color = bootsColor;
                     break;
                 case "blink":
                     powerupColorImage[i].color = blinkColor;
@@ -128,7 +110,6 @@ public class PowerupEquip : MonoBehaviour
         {
             powerupEquipReadout.text += VARIABLE + " ";
         }
-        
     }
 
     public void EquipPowerup(string powerup)
@@ -170,8 +151,8 @@ public class PowerupEquip : MonoBehaviour
                         glideButton.interactable = true;
                         break;
                     case "boots":
-                        shieldButton.GetComponentInParent<Animator>().Play("Idle");
-                        shieldButton.interactable = true;
+                        bootsButton.GetComponentInParent<Animator>().Play("Idle");
+                        bootsButton.interactable = true;
                         break;
                     case "blink":
                         blinkButton.GetComponentInParent<Animator>().Play("Idle");
@@ -222,8 +203,8 @@ public class PowerupEquip : MonoBehaviour
                     glideButton.interactable = true;
                     break;
                 case "boots":
-                    shieldButton.GetComponentInParent<Animator>().Play("Idle");
-                    shieldButton.interactable = true;
+                    bootsButton.GetComponentInParent<Animator>().Play("Idle");
+                    bootsButton.interactable = true;
                     break;
                 case "blink":
                     blinkButton.GetComponentInParent<Animator>().Play("Idle");
