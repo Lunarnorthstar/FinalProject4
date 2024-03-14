@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8018907973937512831}
+  - component: {fileID: 6079227679912918681}
   m_Layer: 0
   m_Name: TopFloor
   m_TagString: Untagged
@@ -53,6 +54,27 @@ Transform:
   - {fileID: 4209836795572350244}
   m_Father: {fileID: 7028617990935711770}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6079227679912918681
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359437135947945194}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 14.258388, y: 5.8594646, z: 12.838921}
+  m_Center: {x: -0.15547146, y: 26.386675, z: -0.19923596}
 --- !u!1 &3239631384511858212
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,6 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4711238469298606619}
+  - component: {fileID: 9212852354117612933}
   m_Layer: 0
   m_Name: Lower
   m_TagString: Untagged
@@ -89,6 +112,27 @@ Transform:
   - {fileID: 4503991401125882644}
   m_Father: {fileID: 7028617990935711770}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &9212852354117612933
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3239631384511858212}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 16.272223, y: 5.8192997, z: 13.817085}
+  m_Center: {x: -0.14152211, y: 2.0903504, z: -0.107946426}
 --- !u!1 &3400226770069620878
 GameObject:
   m_ObjectHideFlags: 0
@@ -98,6 +142,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 947234741505296605}
+  - component: {fileID: 3742745821709588429}
   m_Layer: 0
   m_Name: Floor2
   m_TagString: Untagged
@@ -124,6 +169,27 @@ Transform:
   - {fileID: 605680816147237742}
   m_Father: {fileID: 7028617990935711770}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3742745821709588429
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3400226770069620878}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 14.35216, y: 6.034427, z: 13.084389}
+  m_Center: {x: -0.15534322, y: 14.113235, z: -0.20641522}
 --- !u!1 &4303634269926696737
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,6 +199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6468688608356149350}
+  - component: {fileID: 6365269780209049656}
   m_Layer: 0
   m_Name: Floor1
   m_TagString: Untagged
@@ -159,6 +226,27 @@ Transform:
   - {fileID: 2220408935241127236}
   m_Father: {fileID: 7028617990935711770}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &6365269780209049656
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4303634269926696737}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 14.16488, y: 5.920849, z: 13.0215645}
+  m_Center: {x: -0.20789522, y: 7.8865747, z: -0.20415525}
 --- !u!1 &4654460481309512995
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,6 +293,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1257505254341093910}
+  - component: {fileID: 269360853429791511}
   m_Layer: 0
   m_Name: Floor3
   m_TagString: Untagged
@@ -231,6 +320,27 @@ Transform:
   - {fileID: 2791780564830130802}
   m_Father: {fileID: 7028617990935711770}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &269360853429791511
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5322937254481556119}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 14.258388, y: 5.978245, z: 12.838921}
+  m_Center: {x: -0.15547217, y: 20.35831, z: -0.19923596}
 --- !u!1 &6579907662843747758
 GameObject:
   m_ObjectHideFlags: 0
@@ -240,6 +350,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8686096983799045817}
+  - component: {fileID: 1761386664604980626}
   m_Layer: 0
   m_Name: Floor2 (1)
   m_TagString: Untagged
@@ -266,6 +377,27 @@ Transform:
   - {fileID: 5401558974218216005}
   m_Father: {fileID: 7028617990935711770}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1761386664604980626
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6579907662843747758}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 14.258388, y: 6.0419183, z: 12.838921}
+  m_Center: {x: -0.15547292, y: 14.205247, z: -0.19923596}
 --- !u!1001 &51176379977207882
 PrefabInstance:
   m_ObjectHideFlags: 0
