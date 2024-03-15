@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6558.829, g: 4994.067, b: 3403.4927, a: 1}
+  m_IndirectSpecularColor: {r: 6558.8447, g: 4993.9575, b: 3403.559, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -18366,6 +18366,10 @@ PrefabInstance:
       propertyPath: speedSlider
       value: 
       objectReference: {fileID: 1537733768}
+    - target: {fileID: 1602628692272568796, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: headBobToggle
+      value: 
+      objectReference: {fileID: 2032316909}
     - target: {fileID: 3062315862892234034, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -19858,6 +19862,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3466988205349030711, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5503970713262635436, guid: 00c55ef519019434d87bf54728021438, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5695181263023361781, guid: 00c55ef519019434d87bf54728021438, type: 3}
@@ -27672,6 +27680,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: onNameInput
       objectReference: {fileID: 0}
+    - target: {fileID: 268060833643371857, guid: 00c55ef519019434d87bf54728021438, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 673684503859025636, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -27680,6 +27692,10 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: updateMusicVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 1321969977916782718, guid: 00c55ef519019434d87bf54728021438, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1730408947600029858, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -27687,6 +27703,10 @@ PrefabInstance:
     - target: {fileID: 1730408947600029858, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_LocalScale.y
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2215992300690468636, guid: 00c55ef519019434d87bf54728021438, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3091052467309047843, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_AnchorMax.x
@@ -27720,6 +27740,10 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: updateSFXVolume
       objectReference: {fileID: 0}
+    - target: {fileID: 5503970713262635436, guid: 00c55ef519019434d87bf54728021438, type: 3}
+      propertyPath: m_Name
+      value: Headbob Toggle1
+      objectReference: {fileID: 0}
     - target: {fileID: 5695181263023361781, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_LocalScale.x
       value: 2
@@ -27746,6 +27770,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6495982060690939591, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871206493473913177, guid: 00c55ef519019434d87bf54728021438, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7511968969667714654, guid: 00c55ef519019434d87bf54728021438, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7904777540793682793, guid: 00c55ef519019434d87bf54728021438, type: 3}
@@ -61600,6 +61632,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2032316909 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 991042485315852974, guid: 00c55ef519019434d87bf54728021438, type: 3}
+  m_PrefabInstance: {fileID: 801521587}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2034774437
 PrefabInstance:
   m_ObjectHideFlags: 0

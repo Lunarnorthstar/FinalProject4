@@ -19,6 +19,7 @@ public class AudioManager : MonoBehaviour
     public Slider musicSlider;
     public Slider sfxSlider;
 
+
     [Header("Audio")]
     EventInstance musicEventInstance;
     //StudioEventEmitter musicEmiiter;

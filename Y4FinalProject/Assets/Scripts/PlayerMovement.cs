@@ -287,7 +287,7 @@ public class PlayerMovement : MonoBehaviour
         {
             powerUps.ActivatePowerup(2);
         }
-        
+
         if (controls.PlayerMovement.Ability.WasReleasedThisFrame())
         {
             powerUps.ReleasePowerup(1);
@@ -297,7 +297,7 @@ public class PlayerMovement : MonoBehaviour
         {
             powerUps.ReleasePowerup(2);
         }
-        
+
 
 
         if (powerUps.grappleHook.Active && controls.PlayerMovement.Jump.triggered)
@@ -321,7 +321,7 @@ public class PlayerMovement : MonoBehaviour
         rb.AddForce(transform.forward * vaultBoost, ForceMode.Impulse);
         rb.AddForce(transform.up * vaultHeight, ForceMode.Impulse);
 
-        //ani.Play("Vault");
+        ani.Play("Vault");
 
         playerIK.ikActive = true; //Touch stuff
 
@@ -355,6 +355,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.drag = inAirDrag; //Make sure the drag is set consistently - if you're jumping you are by definition going to be in the air.
                 rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);//
 
+                Debug.Log(rb.velocity);
                 rb.AddForce(Vector3.up * jumpForce * jumpHeightMult, ForceMode.Impulse);
                 InvokeRepeating("resetJump", 0, 0.02f);
             }

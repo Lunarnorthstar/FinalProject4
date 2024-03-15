@@ -4,11 +4,12 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEditor.Callbacks;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class JuiceBehaviours : MonoBehaviour
 {
     public PlayerMovement playerMovement;
 
+    public bool canBob;
     public float currentSpeed;
     public AnimationCurve bobSpeedMutliplier;
     public float currentBobSpeed;
@@ -38,13 +39,49 @@ public class JuiceBehaviours : MonoBehaviour
     public GameObject landImpact;
     public GameObject jumpParticle;
 
+    [Space]
+    public Toggle headBobToggle;
+
     void Start()
     {
         cam = Camera.main;
+
+        //load settings
+        if (headBobToggle)
+        {
+            if (PlayerPrefs.HasKey("headBob"))
+            {
+                if (PlayerPrefs.GetInt("headBob") == 1)
+
+                    headBobToggle.isOn = true;
+                else
+                    headBobToggle.isOn = true;
+            }
+            else
+            {
+                PlayerPrefs.SetInt("headBob", 1);
+                headBobToggle.isOn = true;
+            }
+        }
+
+
     }
 
     void FixedUpdate()
     {
+        //update settings
+        if (PlayerPrefs.GetInt("headBob") == 1)
+            canBob = true;
+        else
+            canBob = false;
+
+
+        if (headBobToggle.isOn)
+
+            PlayerPrefs.SetInt("headBob", 1);
+        else
+            PlayerPrefs.SetInt("headBob", 0);
+
         //set parameters
         currentSpeed = playerMovement.HorizontalVelocityf;
         lerpSpeed = playerMovement.horizontalVelocityLerp;
@@ -52,7 +89,9 @@ public class JuiceBehaviours : MonoBehaviour
         verticalVelocity = playerMovement.verticalVelocity;
 
         //set bobSpeed
-        currentBobSpeed = bobSpeedMutliplier.Evaluate(currentSpeed);
+        if (canBob)
+            currentBobSpeed = bobSpeedMutliplier.Evaluate(currentSpeed);
+        else currentBobSpeed = 0;
 
         //if on the ground set the bob speed to the bob speed
         if (isOnGround_)

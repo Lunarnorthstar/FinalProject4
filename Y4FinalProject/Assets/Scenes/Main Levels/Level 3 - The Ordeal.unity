@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6638.2666, g: 5076.192, b: 3480.7349, a: 1}
+  m_IndirectSpecularColor: {r: 6638.454, g: 5076.1216, b: 3480.809, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -16855,6 +16855,10 @@ PrefabInstance:
       propertyPath: speedSlider
       value: 
       objectReference: {fileID: 180593216}
+    - target: {fileID: 1602628692272568796, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: headBobToggle
+      value: 
+      objectReference: {fileID: 1639480604}
     - target: {fileID: 4457539464997032814, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: grappleShadow
       value: 
@@ -18575,6 +18579,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7756581005535021778, guid: 1dd2acf363c3c274f9cd601309815cdb, type: 3}
   m_PrefabInstance: {fileID: 1637248410}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1639480604 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 991042485315852974, guid: 00c55ef519019434d87bf54728021438, type: 3}
+  m_PrefabInstance: {fileID: 726942244}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9085046f02f69544eb97fd06b6048fe2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1640537698 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 235650371523397440, guid: 83485097136bf194a9a89656701ab782, type: 3}
