@@ -21,7 +21,7 @@ public class PowerupEquip : MonoBehaviour
     public Color blinkColor = Color.magenta;
     public Color grappleColor = Color.gray;
     public Color unequippedColor = Color.white;
-
+    
     public Button dashButton;
     public Button glideButton;
     public Button bootsButton;
@@ -29,6 +29,13 @@ public class PowerupEquip : MonoBehaviour
     public Button grappleButton;
     
     private Button[] allButtons;
+    
+    public Animator dashAnimator;
+    public Animator glideAnimator;
+    public Animator bootsAnimator;
+    public Animator blinkAnimator;
+    public Animator grappleAnimator;
+    
 
     private void Start()
     {
@@ -143,23 +150,23 @@ public class PowerupEquip : MonoBehaviour
                     case "None":
                         break;
                     case "dash":
-                        dashButton.GetComponentInParent<Animator>().Play("Idle");
+                        dashAnimator.Play("Idle");
                         dashButton.interactable = true;
                         break;
                     case "glider":
-                        glideButton.GetComponentInParent<Animator>().Play("Idle");
+                        glideAnimator.Play("Idle");
                         glideButton.interactable = true;
                         break;
                     case "boots":
-                        bootsButton.GetComponentInParent<Animator>().Play("Idle");
+                        bootsAnimator.Play("Idle");
                         bootsButton.interactable = true;
                         break;
                     case "blink":
-                        blinkButton.GetComponentInParent<Animator>().Play("Idle");
+                        blinkAnimator.Play("Idle");
                         blinkButton.interactable = true;
                         break;
                     case "grapple":
-                        grappleButton.GetComponentInParent<Animator>().Play("Idle");
+                        grappleAnimator.Play("Idle");
                         grappleButton.interactable = true;
                         break;
                     default:
@@ -167,7 +174,6 @@ public class PowerupEquip : MonoBehaviour
                 }
                 PD.equippedPowerups.RemoveAt(floop);
                 PD.equippedPowerups.Insert(floop, powerup);
-
                 if (floop == 0)
                 {
                     floop++;
