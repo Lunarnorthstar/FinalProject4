@@ -1605,6 +1605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RunHeightCheck: 1
   maxY: 0
+  speed: 0
   resetLeaderboardTimeOnStart: 0
   goDangit: 0
 --- !u!114 &6694398332962240107
@@ -1896,9 +1897,9 @@ MonoBehaviour:
   grappleCooldown: 8
   ready: 1
   grappleRange: 40
-  reelSpeed: 1
+  reelSpeed: 3
   grappleElasticity: 4.5
-  grappleDamper: 4
+  grappleDamper: 2
   grappleMassScale: 4.5
   grappleHead: {fileID: 3493238621404524808}
   Active: 0
@@ -1922,6 +1923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovement: {fileID: 745724907302802243}
+  canBob: 0
   currentSpeed: 0
   bobSpeedMutliplier:
     serializedVersion: 2
@@ -2028,6 +2030,7 @@ MonoBehaviour:
   speedParticleAMount: 400
   landImpact: {fileID: 0}
   jumpParticle: {fileID: 0}
+  headBobToggle: {fileID: 0}
 --- !u!120 &9047786906308234829
 LineRenderer:
   serializedVersion: 2

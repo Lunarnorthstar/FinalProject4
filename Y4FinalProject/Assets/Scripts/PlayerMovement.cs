@@ -267,14 +267,18 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.AddForce(transform.forward * xMove * accSpeed * moveSpeedMult * Time.deltaTime);
                 rb.AddForce(transform.right * zMove * accStrafe * moveSpeedMult * Time.deltaTime);
+                rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxMoveSpeed);
             }
             else
             {
                 rb.AddForce(transform.forward * xMove * accSpeed * airSpeedMultiplier * moveSpeedMult * Time.deltaTime);
                 rb.AddForce(transform.right * zMove * accStrafe * airSpeedMultiplier * moveSpeedMult * Time.deltaTime);
+                rb.velocity = new Vector3(math.min(rb.velocity.x, maxMoveSpeed), rb.velocity.y,
+                    math.min(rb.velocity.z, maxMoveSpeed));
+
             }
 
-            rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxMoveSpeed);
+            
         }
 
         //abilities
