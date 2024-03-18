@@ -58,6 +58,50 @@ MonoBehaviour:
   fovSmooth: 10
   defaultRot: -90
   targetFov: 0
+--- !u!1 &884329345619516538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5498419156489265806}
+  - component: {fileID: 7674024189735367790}
+  m_Layer: 0
+  m_Name: cm
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5498419156489265806
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884329345619516538}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 44, y: 32.922, z: 103.5}
+  m_LocalScale: {x: 1, y: 2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6740759006428694117}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7674024189735367790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884329345619516538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2178579465216142346
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,12 +529,12 @@ MonoBehaviour:
   - Slide Enter
   - SlideLeft
   - SlideRight
-  maxMoveSpeed: 12
+  startMaxSpeed: 10
+  maxSpeedAccel: 1
+  totalMaxSpeed: 15
   accSpeed: 8000
   maxStrafeSpeed: 50
   accStrafe: 5000
-  accSprint: 2
-  maxSprintSpeed: 15
   slowDownSpeed: 10000
   airSpeedMultiplier: 0.2
   minimumThresholdSpeed: 0
@@ -522,6 +566,9 @@ MonoBehaviour:
   pauseMenu: {fileID: 0}
   HorizontalVelocity: {x: 0, y: 0, z: 0}
   HorizontalVelocityf: 0
+  verticalVelocity: 0
+  horizontalVelocityLerp: 0
+  velocityLerpSpeed: 0
   canJump: 1
   isAgainstLedge: 0
   isHangingOnWall: 0
@@ -537,6 +584,7 @@ MonoBehaviour:
   wallRunDir: 0
   lastRunDir: 0
   isGliding: 0
+  isAffectedByTerrain: 1
   wallFacingTag: 
 --- !u!114 &2917278174082418578
 MonoBehaviour:
@@ -660,7 +708,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RunHeightCheck: 1
   maxY: 0
+  speed: 0
   resetLeaderboardTimeOnStart: 0
+  goDangit: 0
 --- !u!114 &6670662751945534072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -680,11 +730,14 @@ MonoBehaviour:
   camera: {fileID: 863396635161255571}
   shield: {fileID: 5467557053804853745}
   grappleHook: {fileID: 3251137072404300323}
-  powerupSlider: {fileID: 0}
-  countdownText: {fileID: 0}
+  dashImage: {fileID: 0}
+  gliderImage: {fileID: 0}
+  blinkImage: {fileID: 0}
+  bootsImage: {fileID: 0}
+  grappleImage: {fileID: 0}
+  powerupUI: []
   PD: {fileID: 11400000, guid: d1f095d2f0fe4434298065f396268c8e, type: 2}
   equippedPowerups: []
-  powerupText: {fileID: 0}
 --- !u!114 &8301325791648496693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -702,8 +755,12 @@ MonoBehaviour:
   dashDuration: 0.5
   verticalLaunchScalar: 6
   dashCooldown: 2
+  ready: 1
   player: {fileID: 4706490676563740343}
   camera: {fileID: 863396635161255571}
+  countdown: {fileID: 0}
+  slider: {fileID: 0}
+  equipped: 0
 --- !u!114 &3263703780445796182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -722,6 +779,7 @@ MonoBehaviour:
   forwardForce: 15
   glideDuration: 4
   glideCooldown: 8
+  ready: 0
   liftCurve:
     serializedVersion: 2
     m_Curve:
@@ -861,6 +919,9 @@ MonoBehaviour:
   totalLift: 0
   angleOfAttack: 0
   totalForwardsForce: 0
+  countdown: {fileID: 0}
+  slider: {fileID: 0}
+  equipped: 0
 --- !u!114 &6194658183589978215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -875,8 +936,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blinkDistance: 5
   cooldown: 3
+  particles: {fileID: 0}
   camera: {fileID: 863396635161255571}
   player: {fileID: 4706490676563740343}
+  ready: 0
+  countdown: {fileID: 0}
+  slider: {fileID: 0}
+  equipped: 0
 --- !u!114 &5467557053804853745
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -889,10 +955,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08a8dd1f78ccc7f419ad38a1632949ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minMoveSpeedMult: 1.2
   shieldDuration: 6
   shieldCooldown: 4
   player: {fileID: 4986535402992014780}
   shieldObject: {fileID: 7426260622628379246}
+  ready: 0
+  countdown: {fileID: 0}
+  slider: {fileID: 0}
+  equipped: 0
 --- !u!114 &5566778702289749965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -910,6 +981,7 @@ MonoBehaviour:
   timerActive: 0
   significantDecimals: 2
   finishPanel: {fileID: 0}
+  nameInput: {fileID: 0}
   handler: {fileID: 2936751698918892207}
   timerSpeedMultx60: 0
 --- !u!114 &3251137072404300323
@@ -926,11 +998,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCam: {fileID: 3885461676509155875}
   grappleCooldown: 8
+  ready: 1
   grappleRange: 50
+  reelSpeed: 1
   grappleElasticity: 4.5
   grappleDamper: 4
   grappleMassScale: 4.5
+  grappleHead: {fileID: 0}
   Active: 0
+  countdown: {fileID: 0}
+  slider: {fileID: 0}
+  equipped: 0
+  grappleShadow: {fileID: 0}
+  shadowValid: {r: 0, g: 1, b: 0, a: 1}
+  shadowInvalid: {r: 1, g: 0, b: 0, a: 1}
 --- !u!120 &1970350721999871928
 LineRenderer:
   serializedVersion: 2
@@ -1134,6 +1215,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   validPosition: 1
+  ready: 1
+  validMaterial: {fileID: 0}
+  invalidMaterial: {fileID: 0}
 --- !u!54 &1243297597371251676
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1279,6 +1363,7 @@ GameObject:
   - component: {fileID: 3885461676509155875}
   - component: {fileID: 780689001407233555}
   - component: {fileID: 1305424304864549553}
+  - component: {fileID: 4915329400493457616}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1298,7 +1383,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5498419156489265806}
   m_Father: {fileID: 3636353023608081983}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &3885461676509155875
@@ -1489,6 +1575,52 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!114 &4915329400493457616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8825990753119005845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45e653bab7fb20e499bda25e1b646fea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ExcludedPropertiesInInspector:
+  - m_Script
+  m_LockStageInInspector: 
+  m_StreamingVersion: 20170927
+  m_Priority: 10
+  m_StandbyUpdate: 2
+  m_LookAt: {fileID: 0}
+  m_Follow: {fileID: 0}
+  m_Lens:
+    FieldOfView: 40
+    OrthographicSize: 10
+    NearClipPlane: 0.1
+    FarClipPlane: 5000
+    Dutch: 0
+    ModeOverride: 0
+    LensShift: {x: 0, y: 0}
+    GateFit: 2
+    FocusDistance: 10
+    m_SensorSize: {x: 1, y: 1}
+    Iso: 200
+    ShutterSpeed: 0.005
+    Aperture: 16
+    BladeCount: 5
+    Curvature: {x: 2, y: 11}
+    BarrelClipping: 0.25
+    Anamorphism: 0
+  m_Transitions:
+    m_BlendHint: 0
+    m_InheritPosition: 0
+    m_OnCameraLive:
+      m_PersistentCalls:
+        m_Calls: []
+  m_LegacyBlendHint: 0
+  m_ComponentOwner: {fileID: 5498419156489265806}
 --- !u!1001 &8044827667400182838
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1581,6 +1713,14 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 2309260f6bd5e6d42986abe9912dfeab, type: 2}
+    - target: {fileID: 628491204217250176, guid: 646afef5e57d8984a8ef31ad973bffe1, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'CATRigLArmCollarbone'\n\tTransform 'CATRigRArmCollarbone'\n\tTransform
+        'CATRigLArmCollarbone'\n\tTransform 'CATRigRArmCollarbone'\n\tFrom animation
+        clip 'Body Run'"
+      objectReference: {fileID: 0}
     - target: {fileID: 920039489672486565, guid: 646afef5e57d8984a8ef31ad973bffe1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.119999975
