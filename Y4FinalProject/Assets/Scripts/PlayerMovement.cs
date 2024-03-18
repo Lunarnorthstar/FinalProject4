@@ -150,7 +150,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.M)) resetInput();
+        //if (Input.GetKeyDown(KeyCode.M)) resetInput(); I've disabled this because we don't need it anymore and it's causing lots of problems with movement reactivating when it shouldn't.
 
         //manage input and movement
         input();
@@ -193,7 +193,7 @@ public class PlayerMovement : MonoBehaviour
         //  if (controls.PlayerMovement.ChangeAbility.triggered) powerUps.SwitchPowerup();
 
         //locking the mouse
-        if (Input.GetKeyDown(KeyCode.L)) playerManager.lockMouse();
+        //if (Input.GetKeyDown(KeyCode.L)) playerManager.lockMouse(); I've disabled this because it's a debug key anyway, it's replaceable by pressing esc, and it's causing problems in the level end screen.
 
         if (controls.PlayerMovement.Pause.triggered)
         {

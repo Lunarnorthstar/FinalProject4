@@ -14,16 +14,11 @@ public class LevelSelectBehavior : MonoBehaviour
     [TextArea(10, 15)]
     public String[] levelDescriptions;
     public int selection = 0;
+    
 
     public RawImage levelImage;
     public TextMeshProUGUI title;
     public TextMeshProUGUI description;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -31,6 +26,8 @@ public class LevelSelectBehavior : MonoBehaviour
         levelImage.texture = levelPictures[selection];
         title.text = levelTitles[selection];
         description.text = levelDescriptions[selection];
+        
+        
     }
 
     public void Navigate(int move)

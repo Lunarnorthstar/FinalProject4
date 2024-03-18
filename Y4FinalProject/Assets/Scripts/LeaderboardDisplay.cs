@@ -16,7 +16,9 @@ public class LeaderboardDisplay : MonoBehaviour
 
     public TextMeshProUGUI leaderboard;
     public TextMeshProUGUI hundredpercentLeaderboard;
-    
+    public TextMeshProUGUI leaderboardTitle;
+    public TextMeshProUGUI hundredLeaderboardTitle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,8 +48,14 @@ public class LeaderboardDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        selector = L.selection;
+        leaderboardTitle.text = "Best Times (Level" + selector + ")";
+        hundredLeaderboardTitle.text = "Best 100% Times (Level" + selector + ")";
 
+        if (selector == 0)
+        {
+            leaderboardTitle.text = "Best Times (Tutorial)";
+            hundredLeaderboardTitle.text = "Best 100% Times (Tutorial)";
+        }
 
         leaderboard.text = dataScore[selector].highName + " " + dataScore[selector].highSave + "\n Last Times";
 
@@ -99,6 +107,29 @@ public class LeaderboardDisplay : MonoBehaviour
             }
         }
     }
+    
+    
+    public void LeaderboardNavigate(int move)
+    {
+        selector += move;
+        
+        if (selector < 0)
+        {
+            selector = 0;
+        }
+
+        if (selector >= L.levels.Length)
+        {
+            selector = L.levels.Length - 1;
+        }
+        
+        GameObject.FindObjectOfType<AudioManager>().buttonGeneral();
+    }
+    
+    
+    
+    
+    
     
     public void LoadGameStatus()
     {

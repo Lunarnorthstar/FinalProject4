@@ -9,6 +9,8 @@ public class Blink : MonoBehaviour
 {
     [Tooltip("The distance in units the player moves when blinking")] public float blinkDistance = 3;
     [Tooltip("The time in seconds between blinks")] public float cooldown = 3;
+    public ParticleSystem particles;
+
     private float cooldownTimer = 0;
     private bool coolingDown = false;
     public GameObject camera;
@@ -62,6 +64,8 @@ public class Blink : MonoBehaviour
             Vector3 blinkDirection = Vector3.Normalize(camera.transform.forward);
 
             player.transform.position += (blinkDirection * blinkDistance);
+            
+            particles.Play();
 
             coolingDown = true;
 

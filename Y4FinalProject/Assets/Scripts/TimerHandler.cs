@@ -274,5 +274,7 @@ public class TimerHandler : MonoBehaviour
             dataScore[levelIndex].lastHundredNames[^1] = name;
         }
         SaveGameStatus();
+        
+        FindObjectOfType<SecondaryLeaderboard>().LoadGameStatus();
     }
 }
