@@ -1629,11 +1629,18 @@ MonoBehaviour:
   camera: {fileID: 1129337796531767501}
   shield: {fileID: 6554611238728626299}
   grappleHook: {fileID: 4457539464997032814}
+  dashImage: {fileID: 2800000, guid: 72204e0e0a0d5194cabbdd2b0cf6fca5, type: 3}
+  gliderImage: {fileID: 2800000, guid: 187550adfd1cdc34f82fa9fb22eb7798, type: 3}
+  blinkImage: {fileID: 2800000, guid: 7372e12fbfa1a1b4696635fbe481c139, type: 3}
+  bootsImage: {fileID: 2800000, guid: 103d2884b76a6ea4a95b22003fb9c24c, type: 3}
+  grappleImage: {fileID: 2800000, guid: 3ca50782339ced64dba51c6acc1e064d, type: 3}
   powerupUI:
   - {fileID: 0}
   - {fileID: 0}
   PD: {fileID: 11400000, guid: d1f095d2f0fe4434298065f396268c8e, type: 2}
-  equippedPowerups: []
+  equippedPowerups:
+  - dash
+  - shield
 --- !u!114 &3817539225509746752
 MonoBehaviour:
   m_ObjectHideFlags: 0

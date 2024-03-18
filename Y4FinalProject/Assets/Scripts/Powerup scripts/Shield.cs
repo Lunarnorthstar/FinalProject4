@@ -68,14 +68,9 @@ public class Shield : MonoBehaviour
 
     [HideInInspector] public TextMeshProUGUI countdown;
     [HideInInspector] public Slider slider;
-    [HideInInspector] public TextMeshProUGUI name;
     [HideInInspector] public bool equipped = false;
     public void UpdateUI()
     {
-
-        name.text = "Shield";
-
-
         if (ready)
         {
             countdown.text = " ";

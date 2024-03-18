@@ -22,12 +22,17 @@ public class Powerups : MonoBehaviour
     public Shield shield;
     public GrappleHook grappleHook;
 
+    public Texture dashImage;
+    public Texture gliderImage;
+    public Texture blinkImage;
+    public Texture bootsImage;
+    public Texture grappleImage;
+
     [Header("UI")]
     public GameObject[] powerupUI; //The overarching object
     private TextMeshProUGUI[] countdownText; //The text displaying the cooldown or duration countdown
     private Slider[] powerupSlider; //The slider displaying the percent of cooldown/countdown
-    private TextMeshProUGUI[] powerupText; //The name of the powerup
-    private Image[] powerupImage; //The white box behind the name
+    private RawImage[] powerupImage; //The white box behind the name
     private Image[] indicatorImage; //The small green box
     private String[] letter = new[] { "A", "B" }; //For iterative purposes
 
@@ -41,23 +46,54 @@ public class Powerups : MonoBehaviour
     private void Start()
     {
         powerupSlider = new Slider[powerupUI.Length];
-        powerupText = new TextMeshProUGUI[powerupUI.Length];
         countdownText = new TextMeshProUGUI[powerupUI.Length];
-        powerupImage = new Image[powerupUI.Length];
+        powerupImage = new RawImage[powerupUI.Length];
         indicatorImage = new Image[powerupUI.Length]; //Initialize all the arrays
 
 
         for (int i = 0; i < powerupUI.Length; i++) //Fill all the arrays.
         {
             powerupSlider[i] = powerupUI[i].GetComponentInChildren<Slider>();
-            powerupImage[i] = powerupUI[i].GetComponentInChildren<Image>();
+            powerupImage[i] = powerupUI[i].GetComponentInChildren<RawImage>();
 
-            powerupText[i] = GameObject.FindWithTag("PowerText" + letter[i]).GetComponent<TextMeshProUGUI>();
-            countdownText[i] = GameObject.FindWithTag("CountText" + letter[i]).GetComponent<TextMeshProUGUI>();
+            countdownText[i] = powerupUI[i].GetComponentInChildren<TextMeshProUGUI>();
             indicatorImage[i] = GameObject.FindWithTag("Indicator" + letter[i]).GetComponent<Image>();
             //We need tags here because both text objects are in the "child". I wanted to minimize setup which ended up maximizing code.
         }
         equippedPowerups = PD.equippedPowerups;
+        
+        for (int i = 0; i < powerupUI.Length; i++)
+        {
+            if (equippedPowerups.Count <= i)
+            {
+                indicatorImage[i].color = Color.red;
+                break;
+            }
+
+            switch (equippedPowerups[i])
+            {
+                case "dash":
+                    powerupImage[i].texture = dashImage;
+                    break;
+                case "glider":
+                    powerupImage[i].texture = gliderImage;
+                    break;
+                case "blink":
+                    powerupImage[i].texture = blinkImage;
+                    break;
+                case "boots":
+                    powerupImage[i].texture = bootsImage;
+                    break;
+                case "grapple":
+                    powerupImage[i].texture = grappleImage;
+                    break;
+                default: break;
+            }
+        }
+        
+        
+        
+        
 
         updateUI();
     }
@@ -148,7 +184,6 @@ public class Powerups : MonoBehaviour
         {
             if (equippedPowerups.Count <= i)
             {
-                powerupText[i].text = "None";
                 break;
             }
 
@@ -157,37 +192,31 @@ public class Powerups : MonoBehaviour
             {
                 case "dash":
                     dash.equipped = true;
-                    dash.name = powerupText[i];
                     dash.slider = powerupSlider[i];
                     dash.countdown = countdownText[i];
                     break;
                 case "glider":
                     glider.equipped = true;
-                    glider.name = powerupText[i];
                     glider.slider = powerupSlider[i];
                     glider.countdown = countdownText[i];
                     break;
                 case "blink":
                     blink.equipped = true;
-                    blink.name = powerupText[i];
                     blink.slider = powerupSlider[i];
                     blink.countdown = countdownText[i];
                     break;
                 case "boots":
                     shield.equipped = true;
-                    shield.name = powerupText[i];
                     shield.slider = powerupSlider[i];
                     shield.countdown = countdownText[i];
                     break;
                 case "grapple":
                     grappleHook.equipped = true;
-                    grappleHook.name = powerupText[i];
                     grappleHook.slider = powerupSlider[i];
                     grappleHook.countdown = countdownText[i];
                     break;
                 default:
                     Debug.Log("Oops! " + equippedPowerups[i] + " is not a valid powerup name. The valid names are; dash, glider, blink, boots, and grapple (case sensitive)");
-                    powerupText[i].text = "None";
                     break;
             }
         }

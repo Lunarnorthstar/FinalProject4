@@ -77,12 +77,9 @@ public class Dash : MonoBehaviour
 
     [HideInInspector] public TextMeshProUGUI countdown;
     [HideInInspector] public Slider slider;
-    [HideInInspector] public TextMeshProUGUI name;
     [HideInInspector] public bool equipped = false;
     public void UpdateUI()
     {
-        name.text = "Dash";
-
         if (ready)
         {
             countdown.text = " ";

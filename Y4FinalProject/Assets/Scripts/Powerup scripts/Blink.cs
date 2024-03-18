@@ -41,13 +41,9 @@ public class Blink : MonoBehaviour
 
     [HideInInspector] public TextMeshProUGUI countdown;
     [HideInInspector] public Slider slider;
-    [HideInInspector] public TextMeshProUGUI name;
     [HideInInspector] public bool equipped = false;
     public void UpdateUI()
     {
-        name.text = "Blink";
-
-
         countdown.text = " ";
 
         if (coolingDown)

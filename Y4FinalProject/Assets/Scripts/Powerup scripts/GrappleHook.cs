@@ -65,7 +65,6 @@ public class GrappleHook : MonoBehaviour
 
     [HideInInspector] public TextMeshProUGUI countdown;
     [HideInInspector] public Slider slider;
-    [HideInInspector] public TextMeshProUGUI name;
     [HideInInspector] public bool equipped = false;
     public GameObject grappleShadow;
     //public Material shadowValid;
@@ -84,8 +83,6 @@ public class GrappleHook : MonoBehaviour
         {
             grappleShadow.GetComponent<RawImage>().color = shadowInvalid;
         }
-
-        name.text = "Grapple";
 
 
 

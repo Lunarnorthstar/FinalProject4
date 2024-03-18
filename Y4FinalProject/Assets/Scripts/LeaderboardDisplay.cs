@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using TMPro;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -57,7 +58,7 @@ public class LeaderboardDisplay : MonoBehaviour
             hundredLeaderboardTitle.text = "Best 100% Times (Tutorial)";
         }
 
-        leaderboard.text = dataScore[selector].highName + " " + dataScore[selector].highSave + "\n Last Times";
+        leaderboard.text = dataScore[selector].highName + " " + CleanTimeConversion(dataScore[selector].highSave, 2) + "\n Last Times";
 
         if (dataScore[selector].lastTimes.Count > 0)
         {
@@ -66,13 +67,13 @@ public class LeaderboardDisplay : MonoBehaviour
             {
                 if (i < dataScore[selector].lastNames.Count)
                 {
-                    leaderboard.text += "\n" + dataScore[selector].lastNames[i] + " " + score;
+                    leaderboard.text += "\n" + dataScore[selector].lastNames[i] + " " + CleanTimeConversion(score, 2);
                 }
                 i++;
             }
         }
 
-        hundredpercentLeaderboard.text = dataScore[selector].highHundredName + " " + dataScore[selector].highHundredpercentSave + "\n Last Times";
+        hundredpercentLeaderboard.text = dataScore[selector].highHundredName + " " + CleanTimeConversion(dataScore[selector].highHundredpercentSave, 2) + "\n Last Times";
 
         if (dataScore[selector].lastTimesHundred.Count > 0)
         {
@@ -81,7 +82,7 @@ public class LeaderboardDisplay : MonoBehaviour
             {
                 if (i < dataScore[selector].lastHundredNames.Count)
                 {
-                    hundredpercentLeaderboard.text += "\n" + dataScore[selector].lastHundredNames[i] + " " + score;
+                    hundredpercentLeaderboard.text += "\n" + dataScore[selector].lastHundredNames[i] + " " + CleanTimeConversion(score, 2);
                 }
                 i++;
             }
@@ -106,6 +107,18 @@ public class LeaderboardDisplay : MonoBehaviour
                 secondMilestone = 9;
             }
         }
+    }
+    
+    public string CleanTimeConversion(float rawTime, int Dplaces)
+    {
+        int minutes = Mathf.FloorToInt(rawTime / 60);
+        int seconds = Mathf.FloorToInt(rawTime - minutes * 60);
+        int milliseconds = Mathf.FloorToInt((rawTime - (minutes * 60) - seconds) * (math.pow(10, Dplaces)));
+
+
+
+        string timeReadable = string.Format("{0:0}:{1:00}.{2:00}", minutes, seconds, milliseconds);
+        return timeReadable;
     }
     
     
