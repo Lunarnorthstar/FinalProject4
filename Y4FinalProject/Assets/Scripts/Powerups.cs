@@ -224,7 +224,7 @@ public class Powerups : MonoBehaviour
         {
             case "dash": dash.Activate(); break;
             case "glider": glider.Activate(); break;
-            case "blink": blinkShadow.SetActive(true); break;
+            case "blink": blinkShadow.GetComponent<MeshRenderer>().enabled = true; break;
             case "boots": shield.Activate(); break;
             case "grapple": grappleHook.Activate(); break;
             default: break;
@@ -239,7 +239,7 @@ public class Powerups : MonoBehaviour
             case "glider": break;
             case "blink": 
                 if (blinkShadow.GetComponent<Valid>().validPosition) blink.Activate();
-                blinkShadow.SetActive(false);
+                blinkShadow.GetComponent<MeshRenderer>().enabled = false;
                 break;
             case "boots": break;
             case "grapple": break;
