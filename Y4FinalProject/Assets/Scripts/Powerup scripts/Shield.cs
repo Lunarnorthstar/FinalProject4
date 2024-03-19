@@ -93,9 +93,8 @@ public class Shield : MonoBehaviour
     {
         if (!coolingDown)
         {
+            if(!active) AudioManager.instance.GenerateSound(AudioReference.instance.shieldDeploy, Vector3.zero);
             active = true;
-
-            AudioManager.instance.GenerateSound(AudioReference.instance.shieldDeploy, Vector3.zero);
         }
     }
 
