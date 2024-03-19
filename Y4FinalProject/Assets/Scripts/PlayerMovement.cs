@@ -189,9 +189,6 @@ public class PlayerMovement : MonoBehaviour
         //send input to camera
         playerCamera.joyCamera = controls.PlayerMovement.Look.ReadValue<Vector2>() * JoyCamSensitivity;
 
-        //change ability
-        //  if (controls.PlayerMovement.ChangeAbility.triggered) powerUps.SwitchPowerup();
-
         //locking the mouse
         //if (Input.GetKeyDown(KeyCode.L)) playerManager.lockMouse(); I've disabled this because it's a debug key anyway, it's replaceable by pressing esc, and it's causing problems in the level end screen.
 
@@ -412,11 +409,17 @@ public class PlayerMovement : MonoBehaviour
 
         //ledge grabbing
         //is pressing crouch button, is next to a hangable ledge, is facing the wall and isnt actually climbing it,
-        if (isTryingToCrouch && isAgainstLedge && isFacingWall && !isClimbing)
+        if (isTryingToCrouch && isAgainstLedge && /*isFacingWall &&*/ !isClimbing)
         {
             // ani.SetBool("Climb", true);
+            if (!isHangingOnWall)
+            {
+                GetIKTarget("climb");
+            }
+            
+            
             isHangingOnWall = true;//hold player against wall
-            GetIKTarget("climb");
+            
 
             if (controls.PlayerMovement.Jump.triggered)//if they jump, then
             {
@@ -430,7 +433,7 @@ public class PlayerMovement : MonoBehaviour
                 isClimbing = true;//ensure they wont immediatley stick back to wall
                 Invoke("resetClimb", 0.5f);//reset ^that bool in 1 second (when theyve cleared it)
             }
-            else if (controls.PlayerMovement.SpeedKey.WasReleasedThisFrame())
+            else if (controls.PlayerMovement.ControlKey.WasReleasedThisFrame())
             {
                 GetIKTarget("release");
             }
@@ -440,6 +443,7 @@ public class PlayerMovement : MonoBehaviour
             isHangingOnWall = false;
             //ani.SetBool("Climb", false);
         }
+
     }
 
     public void wallSliding()
