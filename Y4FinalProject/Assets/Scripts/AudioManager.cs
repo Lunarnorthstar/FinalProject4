@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Security;
@@ -7,6 +8,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using FMODUnity;
 using FMOD.Studio;
+using STOP_MODE = FMOD.Studio.STOP_MODE;
 
 public class AudioManager : MonoBehaviour
 {
@@ -175,6 +177,11 @@ public class AudioManager : MonoBehaviour
         // }
 
         // Destroy(sound, 10f);
+    }
+
+    private void OnDestroy()
+    {
+        musicEventInstance.stop(STOP_MODE.ALLOWFADEOUT); //This actually stops the music when the scene changes so it doesn't loop and layer infinitely
     }
 }
 

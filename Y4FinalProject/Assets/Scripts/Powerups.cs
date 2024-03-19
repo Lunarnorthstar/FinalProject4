@@ -64,12 +64,6 @@ public class Powerups : MonoBehaviour
         
         for (int i = 0; i < powerupUI.Length; i++)
         {
-            if (equippedPowerups.Count <= i)
-            {
-                indicatorImage[i].color = Color.red;
-                break;
-            }
-
             switch (equippedPowerups[i])
             {
                 case "dash":
@@ -87,7 +81,9 @@ public class Powerups : MonoBehaviour
                 case "grapple":
                     powerupImage[i].texture = grappleImage;
                     break;
-                default: break;
+                default:
+                    powerupUI[i].SetActive(false);
+                    break;
             }
         }
         
