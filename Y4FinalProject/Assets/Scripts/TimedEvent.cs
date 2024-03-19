@@ -22,7 +22,7 @@ public class TimedEvent : MonoBehaviour
     public float initialDelay = 3;
     public bool loopInfinitely = false;
     [Tooltip("How far from the stopping point this object can be before it stops. Turn up if it doesn't stop at the destination.")] public float goalFlexibility = 0.3f;
-    [Space] public float moveSpeed;
+    [Space] public float moveSpeed = 1;
 
     private Rigidbody RB;
     private int currentWaypoint = -1;
@@ -87,7 +87,7 @@ public class TimedEvent : MonoBehaviour
 
     private void DoEvent(waypoint target)
     {
-        if (math.distance(target.destination.position, transform.position) < goalFlexibility)
+        if (math.distance(target.destination.transform.position, transform.position) < goalFlexibility)
         {
             foreach (GameObject item in target.toggleActive)
             {
@@ -101,8 +101,7 @@ public class TimedEvent : MonoBehaviour
             eventCountdown = target.waitForSeconds;
             return;
         }
-        
-        Vector3 moveDirection = target.destination.position - transform.position;
+        Vector3 moveDirection = target.destination.transform.position - transform.position;
         moveDirection.Normalize();
         
         //RB.velocity = moveDirection * moveSpeed * Time.deltaTime * 50;
