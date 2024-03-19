@@ -44,7 +44,7 @@ public class JuiceBehaviours : MonoBehaviour
 
     void Start()
     {
-        cam = Camera.main;
+        //cam = Camera.main;
 
         //load settings
         if (headBobToggle)
