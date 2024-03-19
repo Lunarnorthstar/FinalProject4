@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6866153563749588741}
   - component: {fileID: 718776356692509597}
   - component: {fileID: 5842561067272582341}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: StartZone
   m_TagString: StartTrigger
   m_Icon: {fileID: 0}
@@ -169,6 +169,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ce92550460dc9d545ad3f8d0fc1c3a95, type: 3}
       propertyPath: m_Name
       value: HLandingPad
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ce92550460dc9d545ad3f8d0fc1c3a95, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
