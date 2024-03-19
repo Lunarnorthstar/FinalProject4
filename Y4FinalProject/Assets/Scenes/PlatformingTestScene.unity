@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 5264.2856, g: 3876.141, b: 2529.0627, a: 1}
+  m_IndirectSpecularColor: {r: 5264.2856, g: 3876.1724, b: 2529.0393, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9463,17 +9463,6 @@ Transform:
   - {fileID: 948769902}
   m_Father: {fileID: 494749957}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1471366843 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4396501521088360613, guid: e1cc966903a0ea24d9d0812732d36180, type: 3}
-  m_PrefabInstance: {fileID: 813650874}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1545939286 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cc95a0145c2415a49b16d98964533819, type: 3}
@@ -12257,11 +12246,11 @@ PrefabInstance:
     - target: {fileID: 6694398332962240107, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: powerupText
       value: 
-      objectReference: {fileID: 1471366843}
+      objectReference: {fileID: 0}
     - target: {fileID: 6694398332962240107, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: countdownText
       value: 
-      objectReference: {fileID: 1471366843}
+      objectReference: {fileID: 0}
     - target: {fileID: 6694398332962240107, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: powerupSlider
       value: 
@@ -12301,6 +12290,22 @@ PrefabInstance:
     - target: {fileID: 6694398332962240107, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: equippedPowerups.Array.data[4]
       value: grapple
+      objectReference: {fileID: 0}
+    - target: {fileID: 7092140875933171672, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7092140875933171672, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: lengthInSec
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7092140875933171672, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: InitialModule.size3D
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7092140875933171672, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8329050076016796603, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalPosition.x
