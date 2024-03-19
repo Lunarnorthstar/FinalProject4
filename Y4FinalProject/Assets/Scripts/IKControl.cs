@@ -10,6 +10,7 @@ public class IKControl : MonoBehaviour
 
     public bool ikActive = false;
     public Vector3 vaultPoint;
+    public float handDistance = 0.2f;
 
     public float IKTime = 0;
     
