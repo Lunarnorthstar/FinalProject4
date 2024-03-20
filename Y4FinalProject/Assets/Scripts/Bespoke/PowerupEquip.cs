@@ -150,23 +150,23 @@ public class PowerupEquip : MonoBehaviour
                     case "None":
                         break;
                     case "dash":
-                        dashAnimator.Play("Idle");
+                        dashAnimator.Play("DashIdle");
                         dashButton.interactable = true;
                         break;
                     case "glider":
-                        glideAnimator.Play("Idle");
+                        glideAnimator.Play("GlideIdle");
                         glideButton.interactable = true;
                         break;
                     case "boots":
-                        bootsAnimator.Play("Idle");
+                        bootsAnimator.Play("BootsIdle");
                         bootsButton.interactable = true;
                         break;
                     case "blink":
-                        blinkAnimator.Play("Idle");
+                        blinkAnimator.Play("BlinkIdle");
                         blinkButton.interactable = true;
                         break;
                     case "grapple":
-                        grappleAnimator.Play("Idle");
+                        grappleAnimator.Play("GrappleIdle");
                         grappleButton.interactable = true;
                         break;
                     default:
@@ -199,29 +199,29 @@ public class PowerupEquip : MonoBehaviour
             switch (equip)
             {
                 case "None":
-                    break;
-                case "dash":
-                    dashButton.GetComponentInParent<Animator>().Play("Idle");
-                    dashButton.interactable = true;
-                    break;
-                case "glider":
-                    glideButton.GetComponentInParent<Animator>().Play("Idle");
-                    glideButton.interactable = true;
-                    break;
-                case "boots":
-                    bootsButton.GetComponentInParent<Animator>().Play("Idle");
-                    bootsButton.interactable = true;
-                    break;
-                case "blink":
-                    blinkButton.GetComponentInParent<Animator>().Play("Idle");
-                    blinkButton.interactable = true;
-                    break;
-                case "grapple":
-                    grappleButton.GetComponentInParent<Animator>().Play("Idle");
-                    grappleButton.interactable = true;
-                    break;
-                default:
-                    break;
+                        break;
+                    case "dash":
+                        dashAnimator.Play("DashIdle");
+                        dashButton.interactable = true;
+                        break;
+                    case "glider":
+                        glideAnimator.Play("GlideIdle");
+                        glideButton.interactable = true;
+                        break;
+                    case "boots":
+                        bootsAnimator.Play("BootsIdle");
+                        bootsButton.interactable = true;
+                        break;
+                    case "blink":
+                        blinkAnimator.Play("BlinkIdle");
+                        blinkButton.interactable = true;
+                        break;
+                    case "grapple":
+                        grappleAnimator.Play("GrappleIdle");
+                        grappleButton.interactable = true;
+                        break;
+                    default:
+                        break;
             }
         }
 
