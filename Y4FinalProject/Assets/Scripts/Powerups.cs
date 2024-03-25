@@ -249,6 +249,6 @@ public class Powerups : MonoBehaviour
 
     public void OffBreakGrapple()
     {
-        grappleHook.DeactivateGrapple();
+        //grappleHook.DeactivateGrapple();
     }
 }

@@ -13,6 +13,7 @@ public class SecondaryLeaderboard : MonoBehaviour
 
     private LeaderboardStats[] dataScore;
     private int selector = 0;
+    public int lastTimesSaved = 10;
 
     public TextMeshProUGUI leaderboard;
     public TextMeshProUGUI hundredpercentLeaderboard;
@@ -29,10 +30,10 @@ public class SecondaryLeaderboard : MonoBehaviour
             dataScore[i].previousSave = 0;
             dataScore[i].highHundredpercentSave = 0;
             dataScore[i].highHundredName = "";
-            dataScore[i].lastTimes = new List<float>(3);
-            dataScore[i].lastNames = new List<string>(3);
-            dataScore[i].lastTimesHundred = new List<float>(3);
-            dataScore[i].lastHundredNames = new List<string>(3);
+            dataScore[i].lastTimes = new List<float>(lastTimesSaved);
+            dataScore[i].lastNames = new List<string>(lastTimesSaved);
+            dataScore[i].lastTimesHundred = new List<float>(lastTimesSaved);
+            dataScore[i].lastHundredNames = new List<string>(lastTimesSaved);
         }
         
         filePath = Application.dataPath;

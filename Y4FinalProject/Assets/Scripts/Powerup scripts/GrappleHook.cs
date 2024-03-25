@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class GrappleHook : MonoBehaviour
 {
     public Camera playerCam;
+    public Transform grappleOrigin;
 
     public float grappleCooldown;
     private float cooldownTimer;
@@ -137,7 +138,7 @@ public class GrappleHook : MonoBehaviour
 
             //The range of distance the grapple will try to keep from the contact point
             joint.maxDistance = distanceFromPoint * 0.8f;
-            joint.minDistance = 1;
+            joint.minDistance = 0.01f;
 
             joint.spring = grappleElasticity;
             joint.damper = grappleDamper;
@@ -166,7 +167,7 @@ public class GrappleHook : MonoBehaviour
     {
         if (!joint) return;
 
-        lr.SetPosition(0, gameObject.transform.position);
+        lr.SetPosition(0, grappleOrigin.position);
         lr.SetPosition(1, grapplePoint);
     }
 

@@ -14,6 +14,7 @@ public class LeaderboardDisplay : MonoBehaviour
     private LeaderboardStats[] dataScore;
     private int selector = 0;
     private LevelSelectBehavior L;
+    public int lastTimesSaved = 10;
 
     public TextMeshProUGUI leaderboard;
     public TextMeshProUGUI hundredpercentLeaderboard;
@@ -32,10 +33,10 @@ public class LeaderboardDisplay : MonoBehaviour
             dataScore[i].previousSave = 0;
             dataScore[i].highHundredpercentSave = 0;
             dataScore[i].highHundredName = "";
-            dataScore[i].lastTimes = new List<float>(3);
-            dataScore[i].lastNames = new List<string>(3);
-            dataScore[i].lastTimesHundred = new List<float>(3);
-            dataScore[i].lastHundredNames = new List<string>(3);
+            dataScore[i].lastTimes = new List<float>(lastTimesSaved);
+            dataScore[i].lastNames = new List<string>(lastTimesSaved);
+            dataScore[i].lastTimesHundred = new List<float>(lastTimesSaved);
+            dataScore[i].lastHundredNames = new List<string>(lastTimesSaved);
         }
 
 
@@ -160,33 +161,25 @@ public class LeaderboardDisplay : MonoBehaviour
     }
 
     private float wipeTime = 10;
-    private int secondMilestone = 9;
+    private int secondMilestone = 10;
     private bool purgeActive = false;
     public Button purgeButton;
     public void PurgeScores()
     {
         purgeActive = !purgeActive;
 
-        if (purgeActive)
-        {
-            StartWipe();
-        }
-        else
+        if (!purgeActive)
         {
             AbortWipe();
         }
     }
-
-    private void StartWipe()
-    {
-        Debug.Log("WARNING: ALL LEADERBOARD DATA WILL BE IRREVERSIBLY DELETED IN " + wipeTime + " SECONDS");
-    }
+    
 
     private void AbortWipe()
     {
         purgeActive = false;
         wipeTime = 10;
-        secondMilestone = 9;
+        secondMilestone = 10;
         Debug.Log("Purge aborted. Your data is safe.");
         purgeButton.GetComponentInChildren<TextMeshProUGUI>().text = "Reset Leaderboards";
     }

@@ -178,6 +178,7 @@ public class PlayerMovement : MonoBehaviour
         controls.PlayerMovement.Enable();
     }
 
+    
     void input()
     {
         //reset scene if R is pressed
@@ -197,9 +198,23 @@ public class PlayerMovement : MonoBehaviour
             pauseMenu.SetActive(!pauseMenu.activeSelf);
             playerManager.lockMouse();
 
+            if (controls.PlayerMovement.Ability.enabled) //We have to do it like this because disabling the entire playercontrols makes it impossible to unpause.
+            {
+                controls.PlayerMovement.Ability.Disable();
+                controls.PlayerMovement.ChangeAbility.Disable();
+            }
+            else
+            {
+                controls.PlayerMovement.Ability.Enable();
+                controls.PlayerMovement.ChangeAbility.Enable();
+            }
+            
+            
+
             Time.timeScale = 1 - Time.timeScale;
         }
     }
+
     void movement()
     {
         //jumping and vaulting
