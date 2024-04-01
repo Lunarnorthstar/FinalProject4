@@ -10,7 +10,9 @@ public class IKControl : MonoBehaviour
 
     public bool ikActive = false;
     public Vector3 vaultPoint;
-    public float handDistance = 0.2f;
+    private Vector3 vaultPointR;
+    private Vector3 vaultPointL;
+    public float handDistance = 0.4f;
 
     public float IKTime = 0;
     
@@ -29,13 +31,13 @@ public class IKControl : MonoBehaviour
                 //Right Hand
                     animator.SetIKPositionWeight(AvatarIKGoal.RightHand, 1);
                     //animator.SetIKRotationWeight(AvatarIKGoal.RightHand, 1);
-                    animator.SetIKPosition(AvatarIKGoal.RightHand, vaultPoint);
+                    animator.SetIKPosition(AvatarIKGoal.RightHand, vaultPointR);
                     //animator.SetIKRotation(AvatarIKGoal.RightHand, vaultObject.rotation);
                     
                     //Left Hand
                     animator.SetIKPositionWeight(AvatarIKGoal.LeftHand, 1);
                     //animator.SetIKRotationWeight(AvatarIKGoal.LeftHand, 1);
-                    animator.SetIKPosition(AvatarIKGoal.LeftHand, vaultPoint);
+                    animator.SetIKPosition(AvatarIKGoal.LeftHand, vaultPointL);
                     //animator.SetIKRotation(AvatarIKGoal.LeftHand, vaultObject.rotation);
             }
             else //If IK is not active
@@ -57,6 +59,10 @@ public class IKControl : MonoBehaviour
     {
         if (ikActive)
         {
+            vaultPointR = vaultPoint + transform.right * handDistance;
+            vaultPointL = vaultPoint - transform.right * handDistance;
+            
+            
             IKTime -= Time.deltaTime;
             if (IKTime <= 0)
             {

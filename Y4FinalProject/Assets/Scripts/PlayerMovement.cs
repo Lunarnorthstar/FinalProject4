@@ -125,6 +125,8 @@ public class PlayerMovement : MonoBehaviour
 
     public string wallFacingTag;
 
+    private bool climbCool = false;
+
     void Awake()
     {
         Time.timeScale = 1;
@@ -315,7 +317,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (powerUps.grappleHook.Active && controls.PlayerMovement.Jump.triggered)
         {
-            powerUps.OffBreakGrapple();
+            //powerUps.OffBreakGrapple();
         }
 
         //Top Speed Accel
@@ -374,6 +376,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
 
+        /*
         //wallRunning (vertical, up a wall)
         if (isFacingWall && !isOnGround && !hasJustBeenAgainstWall)
         {
@@ -386,6 +389,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
         if (hasJustBeenAgainstWall && isOnGround) hasJustBeenAgainstWall = false;
+        */
 
         //side wall jump (along the side of a wall)
         if (!isOnGround && wallRunDir != 0)//if in air and touching a wall
@@ -423,48 +427,40 @@ public class PlayerMovement : MonoBehaviour
         wallSliding();
 
         //ledge grabbing
-        //is pressing crouch button, is next to a hangable ledge, is facing the wall and isnt actually climbing it,
-        if (isTryingToCrouch && isAgainstLedge && /*isFacingWall &&*/ !isClimbing)
+        
+        if (isClimbing)
         {
-            // ani.SetBool("Climb", true);
-            if (!isHangingOnWall)
-            {
-                GetIKTarget("climb");
-            }
-            
-            
-            isHangingOnWall = true;//hold player against wall
-            
+            rb.useGravity = false;
+            rb.velocity = Vector3.zero;
+            moveSpeedMult = 0;
 
-            if (controls.PlayerMovement.Jump.triggered)//if they jump, then
-            {
-                //  ani.SetTrigger("Pull Up");
-                isHangingOnWall = false;//release them from wall
-                GetIKTarget("release");
-
-                rb.velocity = new Vector3(0, 0, 0);//zero current velocity
-                rb.AddForce(transform.up * ClimbUpForce, ForceMode.Impulse);//boost them above wall
-
-                isClimbing = true;//ensure they wont immediatley stick back to wall
-                Invoke("resetClimb", 0.5f);//reset ^that bool in 1 second (when theyve cleared it)
-            }
-            else if (controls.PlayerMovement.ControlKey.WasReleasedThisFrame())
+            if (controls.PlayerMovement.Jump.triggered)
             {
                 GetIKTarget("release");
+                isClimbing = false;
+                climbCool = true;
+                rb.useGravity = true;
+                moveSpeedMult = 1;
+                rb.AddForce(transform.up * ClimbUpForce, ForceMode.Impulse);
+                rb.AddForce(transform.forward * ClimbForwardsForce, ForceMode.Impulse);
+                Invoke("resetClimb", 0.5f);
             }
         }
-        else
+        
+        //is pressing grab button and not grounded and in a valid trigger and not already climbing
+        if (controls.PlayerMovement.Grab.triggered && !isOnGround && isAgainstLedge && !isClimbing && !climbCool)
         {
-            isHangingOnWall = false;
-            //ani.SetBool("Climb", false);
+            isClimbing = true;
+            transform.Translate(-transform.forward * 0.1f);
+            
+            GetIKTarget("climb");
         }
-
     }
 
     public void wallSliding()
     {
 
-        if (isTryingToWallRun && controls.PlayerMovement.Jump.ReadValue<float>() == 0)//is the buttom being pressed and not jumping?
+        if (isTryingToWallRun && controls.PlayerMovement.Jump.ReadValue<float>() == 0)//is the button being pressed and not jumping?
         {
             //are u moving fast enough, touching a wall with your side and in the air and not trying to jump off said wall, and have you not just jumped off a wall?
             if (HorizontalVelocityf >= minSlideSpeed && wallRunDir != 0 && !isOnGround && canSideJump)
@@ -605,7 +601,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.CompareTag("ClimbTrigger"))
         {
-            Transform[] childrenTransforms = other.transform.GetComponentsInChildren<Transform>();
+            /*Transform[] childrenTransforms = other.transform.GetComponentsInChildren<Transform>();
             for (int i = 0; i < childrenTransforms.Length; i++)
             {
                 switch (childrenTransforms[i].name)
@@ -617,7 +613,7 @@ public class PlayerMovement : MonoBehaviour
                         hangPos = childrenTransforms[i];
                         break;
                 }
-            }
+            }*/
             isAgainstLedge = true;
         }
     }
@@ -714,7 +710,7 @@ public class PlayerMovement : MonoBehaviour
 
     void resetClimb()
     {
-        isClimbing = false;
+        climbCool = false;
         ani.ResetTrigger("Pull Up");
     }
 }

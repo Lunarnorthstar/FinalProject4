@@ -125,6 +125,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Grab"",
+                    ""type"": ""Button"",
+                    ""id"": ""a1931224-a423-4f21-88a8-3375da53bde6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -380,6 +389,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Reel"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""13c15136-1b3e-43c7-a354-7c0bc736baac"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Grab"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -438,6 +458,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_PlayerMovement_ChangeAbility = m_PlayerMovement.FindAction("Change Ability", throwIfNotFound: true);
         m_PlayerMovement_Pause = m_PlayerMovement.FindAction("Pause", throwIfNotFound: true);
         m_PlayerMovement_Reel = m_PlayerMovement.FindAction("Reel", throwIfNotFound: true);
+        m_PlayerMovement_Grab = m_PlayerMovement.FindAction("Grab", throwIfNotFound: true);
         // bb
         m_bb = asset.FindActionMap("bb", throwIfNotFound: true);
         m_bb_ResetTimer = m_bb.FindAction("Reset Timer", throwIfNotFound: true);
@@ -513,6 +534,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_PlayerMovement_ChangeAbility;
     private readonly InputAction m_PlayerMovement_Pause;
     private readonly InputAction m_PlayerMovement_Reel;
+    private readonly InputAction m_PlayerMovement_Grab;
     public struct PlayerMovementActions
     {
         private @PlayerControls m_Wrapper;
@@ -528,6 +550,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @ChangeAbility => m_Wrapper.m_PlayerMovement_ChangeAbility;
         public InputAction @Pause => m_Wrapper.m_PlayerMovement_Pause;
         public InputAction @Reel => m_Wrapper.m_PlayerMovement_Reel;
+        public InputAction @Grab => m_Wrapper.m_PlayerMovement_Grab;
         public InputActionMap Get() { return m_Wrapper.m_PlayerMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -570,6 +593,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Reel.started += instance.OnReel;
             @Reel.performed += instance.OnReel;
             @Reel.canceled += instance.OnReel;
+            @Grab.started += instance.OnGrab;
+            @Grab.performed += instance.OnGrab;
+            @Grab.canceled += instance.OnGrab;
         }
 
         private void UnregisterCallbacks(IPlayerMovementActions instance)
@@ -607,6 +633,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Reel.started -= instance.OnReel;
             @Reel.performed -= instance.OnReel;
             @Reel.canceled -= instance.OnReel;
+            @Grab.started -= instance.OnGrab;
+            @Grab.performed -= instance.OnGrab;
+            @Grab.canceled -= instance.OnGrab;
         }
 
         public void RemoveCallbacks(IPlayerMovementActions instance)
@@ -701,6 +730,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnChangeAbility(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnReel(InputAction.CallbackContext context);
+        void OnGrab(InputAction.CallbackContext context);
     }
     public interface IBbActions
     {
