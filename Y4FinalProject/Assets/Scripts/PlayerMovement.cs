@@ -451,7 +451,7 @@ public class PlayerMovement : MonoBehaviour
         if (controls.PlayerMovement.Grab.triggered && !isOnGround && isAgainstLedge && !isClimbing && !climbCool)
         {
             isClimbing = true;
-            transform.Translate(-transform.forward * 0.1f);
+            transform.Translate(-transform.forward * 0.5f);
             
             GetIKTarget("climb");
         }
