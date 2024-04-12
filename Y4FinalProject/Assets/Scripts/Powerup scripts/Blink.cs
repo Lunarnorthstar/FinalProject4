@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Blink : MonoBehaviour
 {
+    public Camera playerCam;
     [Tooltip("The distance in units the player moves when blinking")] public float blinkDistance = 3;
     [Tooltip("The time in seconds between blinks")] public float cooldown = 3;
     public ParticleSystem particles;
@@ -50,11 +52,26 @@ public class Blink : MonoBehaviour
         {
             countdown.text = CleanTimeConversion(cooldown - cooldownTimer, 2);
             slider.value = cooldownTimer / cooldown;
+            slider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.red;
+        }
+        else
+        {
+            slider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.green;
         }
     }
 
     public void Activate()
     {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, playerCam.transform.forward, out hit, blinkDistance))
+        {
+            if (hit.collider.CompareTag("Blinkblock"))
+            {
+                return;
+            }
+        }
+        
+        
         if (!coolingDown)
         {
             Vector3 blinkDirection = Vector3.Normalize(camera.transform.forward);

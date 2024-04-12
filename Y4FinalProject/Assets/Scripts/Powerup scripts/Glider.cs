@@ -124,6 +124,7 @@ public class Glider : MonoBehaviour
         if (ready)
         {
             countdown.text = " ";
+            slider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.green;
         }
 
 
@@ -131,6 +132,7 @@ public class Glider : MonoBehaviour
         {
             countdown.text = CleanTimeConversion(glideCooldown - cooldownTimer, 2);
             slider.value = cooldownTimer / glideCooldown;
+            slider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.red;
         }
 
         if (isEnabled)

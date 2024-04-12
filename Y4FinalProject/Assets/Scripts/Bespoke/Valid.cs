@@ -25,11 +25,18 @@ public class Valid : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        validPosition = false;
+        if (!other.CompareTag("StartTrigger"))
+        {
+            validPosition = false;
+        }
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
-        validPosition = true;
+        if (!other.CompareTag("StartTrigger"))
+        {
+            validPosition = true;
+        }
     }
 }

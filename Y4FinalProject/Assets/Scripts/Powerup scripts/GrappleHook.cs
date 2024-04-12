@@ -98,10 +98,12 @@ public class GrappleHook : MonoBehaviour
         {
             countdown.text = CleanTimeConversion(grappleCooldown - cooldownTimer, 2);
             slider.value = cooldownTimer / grappleCooldown;
+            slider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.red;
         }
         else
         {
             countdown.text = " ";
+            slider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.green;
         }
     }
 

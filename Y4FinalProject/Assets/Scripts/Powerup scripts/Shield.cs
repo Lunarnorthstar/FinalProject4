@@ -74,18 +74,22 @@ public class Shield : MonoBehaviour
         if (ready)
         {
             countdown.text = " ";
+            slider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.green;
         }
 
         if (coolingDown && !active)
         {
             countdown.text = CleanTimeConversion(shieldCooldown - cooldownTimer, 2);
             slider.value = cooldownTimer / shieldCooldown;
+            slider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.red;
+
         }
 
         if (active)
         {
             countdown.text = CleanTimeConversion(shieldDuration - shieldTimer, 2);
             slider.value = 1 - shieldTimer / shieldDuration;
+            
         }
     }
 

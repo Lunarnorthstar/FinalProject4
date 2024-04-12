@@ -1885,6 +1885,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40907490b26315f4594aab6014e1107d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCam: {fileID: 4160944890386891852}
   blinkDistance: 5
   cooldown: 5
   particles: {fileID: 7092140875933171672}
@@ -12313,7 +12314,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ikActive: 0
   vaultPoint: {x: 0, y: 0, z: 0}
-  handDistance: {x: 0, y: 0.2, z: 0}
+  handDistance: 0.4
   IKTime: 0
 --- !u!1 &6750153586920859625
 GameObject:
@@ -13434,7 +13435,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ikActive: 0
   vaultPoint: {x: 0, y: 0, z: 0}
-  handDistance: {x: 0.4, y: 0, z: 0}
+  handDistance: 0.4
   IKTime: 0
 --- !u!4 &7894964835133546545 stripped
 Transform:

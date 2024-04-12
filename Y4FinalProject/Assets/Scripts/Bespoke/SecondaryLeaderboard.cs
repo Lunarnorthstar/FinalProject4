@@ -13,7 +13,8 @@ public class SecondaryLeaderboard : MonoBehaviour
 
     private LeaderboardStats[] dataScore;
     private int selector = 0;
-    public int lastTimesSaved = 10;
+    public int lastTimesSaved = 10; 
+    public TextMeshProUGUI lastTimeDisplay;
 
     public TextMeshProUGUI leaderboard;
     public TextMeshProUGUI hundredpercentLeaderboard;
@@ -44,6 +45,7 @@ public class SecondaryLeaderboard : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        lastTimeDisplay.text = CleanTimeConversion(FindObjectOfType<TimerHandler>().levelTime, 2);
         leaderboard.text =  dataScore[selector].highName + " " + CleanTimeConversion(dataScore[selector].highSave, 2) + "\n Last Times";
 
         if (dataScore[selector].lastTimes.Count > 0)

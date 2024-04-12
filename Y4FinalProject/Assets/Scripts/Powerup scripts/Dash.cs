@@ -83,6 +83,7 @@ public class Dash : MonoBehaviour
         if (ready)
         {
             countdown.text = " ";
+            slider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.green;
         }
 
 
@@ -90,6 +91,7 @@ public class Dash : MonoBehaviour
         {
             countdown.text = CleanTimeConversion(dashCooldown - cooldownTimer, 2);
             slider.value = cooldownTimer / dashCooldown;
+            slider.gameObject.transform.Find("Fill Area").Find("Fill").GetComponent<Image>().color = Color.red;
         }
 
         if (dashing)
