@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 
 public class CameraMove : MonoBehaviour
 {
+    public SettingsHolder SH;
     public Camera mainCam;
 
     public PlayerManager playerManager;
@@ -35,6 +36,7 @@ public class CameraMove : MonoBehaviour
 
     void Start()
     {
+
         InvokeRepeating("moveCam", 0, 0.01f);
         //changeFov(0);
         // playerManager = transform.parent.parent.GetComponent<PlayerManager>();
@@ -44,6 +46,7 @@ public class CameraMove : MonoBehaviour
 
     void Update()
     {
+        Mousesens = SH.mouseSensitivity;
         // mainCam.fieldOfView = Mathf.Lerp(mainCam.fieldOfView, targetFov, fovSmooth * Time.deltaTime);
     }
 
@@ -52,8 +55,8 @@ public class CameraMove : MonoBehaviour
     {
         if (!playerManager.isMouseLocked) return;
 
-        CamRotX += Input.GetAxis("Mouse X") + joyCamera.x * Mousesens;
-        CamRotY += Input.GetAxis("Mouse Y") + joyCamera.y * Mousesens;
+        CamRotX += (Input.GetAxis("Mouse X") * Mousesens) + joyCamera.x;
+        CamRotY += (Input.GetAxis("Mouse Y") * Mousesens) + joyCamera.y;
 
         CamRotY = Mathf.Clamp(CamRotY, -80, 80);
 

@@ -14,6 +14,7 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public SettingsHolder SH;
     public CameraMove cam;
 
     [Tooltip("a list of animation names that when playing, the camera should stop moving")]
@@ -41,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     [Tooltip("The rate at which the player sheds speed when above maximum")] public float slowDownSpeed;
     [Tooltip("How fast you're going in the air")] public float airSpeedMultiplier;
     [Tooltip("The speed the player will slow down to when movement keys are released (not factoring friction)")] public float minimumThresholdSpeed;
-    [Tooltip("The speed you must acheive to initiate a slide")] public float minSlideSpeed;
+    [Tooltip("The speed you must achieve to initiate a slide")] public float minSlideSpeed;
     [Tooltip("The speed at which the player automatically stops sliding")] public float slideStopSpeed;
     public float slideDeadzone;
     public float JoyCamSensitivity = 1.2f;
@@ -152,6 +153,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        JoyCamSensitivity = SH.JoySensitivity;
         //if (Input.GetKeyDown(KeyCode.M)) resetInput(); I've disabled this because we don't need it anymore and it's causing lots of problems with movement reactivating when it shouldn't.
 
         //manage input and movement
@@ -245,19 +247,19 @@ public class PlayerMovement : MonoBehaviour
         if (isSlide != 0) isTryingToSlide = true;
         else { isTryingToSlide = false; hasSlid = false; }
 
-        //wallrunnin
+        //wallrunning
         float isWallRun = controls.PlayerMovement.SpeedKey.ReadValue<float>();
         if (isWallRun != 0) isTryingToWallRun = true;
         else { isTryingToWallRun = false; }
 
-        //crouchin
+        //crouching
         if (controls.PlayerMovement.ControlKey.ReadValue<float>() != 0) isTryingToCrouch = true;
         else isTryingToCrouch = false;
 
         //input
         Vector2 movInput = controls.PlayerMovement.Movement.ReadValue<Vector2>();
         if (!isSliding)
-        {//if youre sliding, then you're sliding and not walking - thus nullify any input.
+        {//if you're sliding, then you're sliding and not walking - thus nullify any input.
             xMove = movInput.y;
             zMove = movInput.x;
         }

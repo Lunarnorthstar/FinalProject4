@@ -21,6 +21,7 @@ public class SecondaryLeaderboard : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        TH = FindObjectOfType<TimerHandler>();
         selector = SceneManager.GetActiveScene().buildIndex - 1;
         dataScore = new LeaderboardStats[6];
         for (int i = 0; i < dataScore.Length; i++)
@@ -42,10 +43,11 @@ public class SecondaryLeaderboard : MonoBehaviour
         LoadGameStatus();
     }
 
+    private TimerHandler TH;
     // Update is called once per frame
     void Update()
     {
-        lastTimeDisplay.text = CleanTimeConversion(FindObjectOfType<TimerHandler>().levelTime, 2);
+        lastTimeDisplay.text = CleanTimeConversion(TH.levelTime, 2);
         leaderboard.text =  dataScore[selector].highName + " " + CleanTimeConversion(dataScore[selector].highSave, 2) + "\n Last Times";
 
         if (dataScore[selector].lastTimes.Count > 0)
