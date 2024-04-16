@@ -190,26 +190,31 @@ public class Powerups : MonoBehaviour
                     dash.equipped = true;
                     dash.slider = powerupSlider[i];
                     dash.countdown = countdownText[i];
+                    powerupImage[i].color = PD.dashColor;
                     break;
                 case "glider":
                     glider.equipped = true;
                     glider.slider = powerupSlider[i];
                     glider.countdown = countdownText[i];
+                    powerupImage[i].color = PD.glideColor;
                     break;
                 case "blink":
                     blink.equipped = true;
                     blink.slider = powerupSlider[i];
                     blink.countdown = countdownText[i];
+                    powerupImage[i].color = PD.blinkColor;
                     break;
                 case "boots":
                     shield.equipped = true;
                     shield.slider = powerupSlider[i];
                     shield.countdown = countdownText[i];
+                    powerupImage[i].color = PD.bootsColor;
                     break;
                 case "grapple":
                     grappleHook.equipped = true;
                     grappleHook.slider = powerupSlider[i];
                     grappleHook.countdown = countdownText[i];
+                    powerupImage[i].color = PD.grappleColor;
                     break;
                 default:
                     Debug.Log("Oops! " + equippedPowerups[i] + " is not a valid powerup name. The valid names are; dash, glider, blink, boots, and grapple (case sensitive)");

@@ -15,11 +15,6 @@ public class PowerupEquip : MonoBehaviour
     [Space]
 
     public Image[] powerupColorImage = new Image[2];
-    public Color dashColor = Color.blue;
-    public Color glideColor = Color.yellow;
-    public Color bootsColor = Color.green;
-    public Color blinkColor = Color.magenta;
-    public Color grappleColor = Color.gray;
     public Color unequippedColor = Color.white;
     
     public Button dashButton;
@@ -90,19 +85,19 @@ public class PowerupEquip : MonoBehaviour
                     powerupColorImage[i].color = unequippedColor;
                     break;
                 case "dash":
-                    powerupColorImage[i].color = dashColor;
+                    powerupColorImage[i].color = PD.dashColor;
                     break;
                 case "glider":
-                    powerupColorImage[i].color = glideColor;
+                    powerupColorImage[i].color = PD.glideColor;
                     break;
                 case "boots":
-                    powerupColorImage[i].color = bootsColor;
+                    powerupColorImage[i].color = PD.bootsColor;
                     break;
                 case "blink":
-                    powerupColorImage[i].color = blinkColor;
+                    powerupColorImage[i].color = PD.blinkColor;
                     break;
                 case "grapple":
-                    powerupColorImage[i].color = grappleColor;
+                    powerupColorImage[i].color = PD.grappleColor;
                     break;
                 default:
                     powerupColorImage[i].color = unequippedColor;
