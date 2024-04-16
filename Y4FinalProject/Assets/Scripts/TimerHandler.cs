@@ -62,6 +62,8 @@ public class TimerHandler : MonoBehaviour
         
         filePath = Application.dataPath;
         dataScore = new LeaderboardStats[6];
+        
+        Debug.Log(filePath);
 
         for (int i = 0; i < dataScore.Length; i++)
         {
