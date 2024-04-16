@@ -211,7 +211,7 @@ public class TimerHandler : MonoBehaviour
             {
                 if (dataScore[levelIndex].lastTimes.Count >= lastTimesSaved)
                 {
-                    dataScore[levelIndex].lastTimes.RemoveAt(lastTimesSaved);
+                    dataScore[levelIndex].lastTimes.RemoveAt(lastTimesSaved -1);
                 }
                 dataScore[levelIndex].lastTimes.Insert(i, time);
                 dataScore[levelIndex].lastNames.Insert(i, name);
@@ -244,7 +244,7 @@ public class TimerHandler : MonoBehaviour
             {
                 if (dataScore[levelIndex].lastTimesHundred.Count >= lastTimesSaved)
                 {
-                    dataScore[levelIndex].lastTimesHundred.RemoveAt(lastTimesSaved);
+                    dataScore[levelIndex].lastTimesHundred.RemoveAt(lastTimesSaved - 1);
                 }
                 dataScore[levelIndex].lastTimesHundred.Insert(i, time);
                 dataScore[levelIndex].lastHundredNames.Insert(i, name);
