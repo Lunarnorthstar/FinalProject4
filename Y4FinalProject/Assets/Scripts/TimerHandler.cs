@@ -56,7 +56,6 @@ public class TimerHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         nameInput = FindInActiveObjectByTag("NameInput");
         
         
@@ -321,7 +320,9 @@ public class TimerHandler : MonoBehaviour
     public void onNameInput()
     {
         string name = nameInput.GetComponent<TMP_InputField>().text;
-
+        Debug.Log("PLAYER INPUT THE NAME '" + name + "'");
+        Debug.Log("TEXT FIELD READS '" + nameInput.GetComponent<TMP_InputField>().text + "'");
+        
         if (lastTime == bestTime || bestTime <= 0)
         {
             dataScore[levelIndex].highName = name;
@@ -340,7 +341,6 @@ public class TimerHandler : MonoBehaviour
             dataScore[levelIndex].lastHundredNames[findMe] = name;
         }
         SaveGameStatus();
-        
         FindObjectOfType<SecondaryLeaderboard>().LoadGameStatus();
     }
 }
