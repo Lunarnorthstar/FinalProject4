@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/Assets/Fmod_Holder/Sound System FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638454880371949064
+  lastModified: 638489577117598911
   FileSizes:
   - Name: Desktop
-    Value: 1442
+    Value: 1478
   Exists: 1
 --- !u!114 &-8519541085905371671
 MonoBehaviour:
@@ -224,7 +224,7 @@ MonoBehaviour:
   Path: Assets/Assets/Fmod_Holder/Sound System FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638454880371929109
+  lastModified: 638489577117573883
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -261,12 +261,13 @@ MonoBehaviour:
   - {fileID: -4254822446251685595}
   - {fileID: -5349161694484503965}
   - {fileID: 2855831029487573821}
+  - {fileID: 8175991747421327582}
   EditorParameters: []
   MasterBanks:
   - {fileID: -817147611383966875}
   StringsBanks:
   - {fileID: -8892198496911042209}
-  cacheTime: 638454880372493830
+  cacheTime: 638489577144332406
   cacheVersion: 131616
 --- !u!114 &2630586936725401487
 MonoBehaviour:
@@ -337,7 +338,7 @@ MonoBehaviour:
   Path: Assets/Assets/Fmod_Holder/Sound System FMOD/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638454880372333872
+  lastModified: 638489577139471674
   FileSizes:
   - Name: Desktop
     Value: 1791328
@@ -438,10 +439,10 @@ MonoBehaviour:
   Path: Assets/Assets/Fmod_Holder/Sound System FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638454880372493830
+  lastModified: 638489577144332406
   FileSizes:
   - Name: Desktop
-    Value: 856224
+    Value: 867808
   Exists: 1
 --- !u!114 &7322043629760485573
 MonoBehaviour:
@@ -461,6 +462,33 @@ MonoBehaviour:
     Data2: 1312595529
     Data3: -60908641
     Data4: -2029401568
+  Banks:
+  - {fileID: 6913381890978473037}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &8175991747421327582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/sfx/robot
+  m_EditorClassIdentifier: 
+  Path: event:/sfx/robot
+  Guid:
+    Data1: -417293078
+    Data2: 1098227793
+    Data3: -984664175
+    Data4: 1952785146
   Banks:
   - {fileID: 6913381890978473037}
   IsStream: 0

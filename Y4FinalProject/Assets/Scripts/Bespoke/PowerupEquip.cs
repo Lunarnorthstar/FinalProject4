@@ -11,31 +11,31 @@ public class PowerupEquip : MonoBehaviour
     public int maxPowerups = 2;
     public TextMeshProUGUI powerupEquipReadout;
     private int floop = 0;
-    
+
     [Space]
 
     public Image[] powerupColorImage = new Image[2];
     public Color unequippedColor = Color.white;
-    
+
     public Button dashButton;
     public Button glideButton;
     public Button bootsButton;
     public Button blinkButton;
     public Button grappleButton;
-    
+
     private Button[] allButtons;
-    
+
     public Animator dashAnimator;
     public Animator glideAnimator;
     public Animator bootsAnimator;
     public Animator blinkAnimator;
     public Animator grappleAnimator;
-    
+
 
     private void Start()
     {
-        allButtons = new[] {dashButton, glideButton, bootsButton, blinkButton, grappleButton}; //Put all the buttons in an array for easier access
-        
+        allButtons = new[] { dashButton, glideButton, bootsButton, blinkButton, grappleButton }; //Put all the buttons in an array for easier access
+
         foreach (var equip in PD.equippedPowerups)
         {
             switch (equip)
@@ -44,6 +44,8 @@ public class PowerupEquip : MonoBehaviour
                     break;
                 case "dash":
                     dashButton.GetComponentInParent<Animator>().Play("DashSelect");
+                    Debug.Log("nfdo");
+
                     break;
                 case "glider":
                     glideButton.GetComponentInParent<Animator>().Play("GlideSelect");
@@ -63,7 +65,7 @@ public class PowerupEquip : MonoBehaviour
         }
 
         powerupEquipReadout.text = "";
-        
+
         foreach (var VARIABLE in PD.equippedPowerups)
         {
             powerupEquipReadout.text += VARIABLE + " ";
@@ -104,8 +106,8 @@ public class PowerupEquip : MonoBehaviour
                     break;
             }
         }
-        
-        
+
+
         powerupEquipReadout.text = "";
 
         foreach (var VARIABLE in PD.equippedPowerups)
@@ -194,32 +196,32 @@ public class PowerupEquip : MonoBehaviour
             switch (equip)
             {
                 case "None":
-                        break;
-                    case "dash":
-                        dashAnimator.Play("DashIdle");
-                        dashButton.interactable = true;
-                        break;
-                    case "glider":
-                        glideAnimator.Play("GlideIdle");
-                        glideButton.interactable = true;
-                        break;
-                    case "boots":
-                        bootsAnimator.Play("BootsIdle");
-                        bootsButton.interactable = true;
-                        break;
-                    case "blink":
-                        blinkAnimator.Play("BlinkIdle");
-                        blinkButton.interactable = true;
-                        break;
-                    case "grapple":
-                        grappleAnimator.Play("GrappleIdle");
-                        grappleButton.interactable = true;
-                        break;
-                    default:
-                        break;
+                    break;
+                case "dash":
+                    dashAnimator.Play("DashIdle");
+                    dashButton.interactable = true;
+                    break;
+                case "glider":
+                    glideAnimator.Play("GlideIdle");
+                    glideButton.interactable = true;
+                    break;
+                case "boots":
+                    bootsAnimator.Play("BootsIdle");
+                    bootsButton.interactable = true;
+                    break;
+                case "blink":
+                    blinkAnimator.Play("BlinkIdle");
+                    blinkButton.interactable = true;
+                    break;
+                case "grapple":
+                    grappleAnimator.Play("GrappleIdle");
+                    grappleButton.interactable = true;
+                    break;
+                default:
+                    break;
             }
         }
 
-        PD.equippedPowerups = new List<string>() {"None", "None"};
+        PD.equippedPowerups = new List<string>() { "None", "None" };
     }
 }

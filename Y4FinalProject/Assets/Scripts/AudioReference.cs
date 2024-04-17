@@ -8,6 +8,7 @@ public class AudioReference : MonoBehaviour
     [field: Header("Sound Effects")]
     [field: SerializeField] public EventReference buttonClick { get; private set; }
     [field: SerializeField] public EventReference pageTurning { get; private set; }
+    [field: SerializeField] public EventReference powerupEquip { get; private set; }
 
     [field: Header("Music")]
     [field: SerializeField] public EventReference menuMusic { get; private set; }

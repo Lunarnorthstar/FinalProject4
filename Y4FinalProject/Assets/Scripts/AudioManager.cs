@@ -117,6 +117,16 @@ public class AudioManager : MonoBehaviour
         _musicSlider.value = PlayerPrefs.GetFloat("musicVol");
         _sfxSlider.value = PlayerPrefs.GetFloat("sfxVol");
     }
+    public void queuePowerupEquip()
+    {
+        Invoke("playPowerupEquip", 0.7f);
+
+    }
+    void playPowerupEquip()
+    {
+        GenerateSound(AudioReference.instance.powerupEquip, Vector3.zero);
+    }
+
 
     public void powerUpSound(string name)
     {

@@ -138,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerManager = GetComponent<PlayerManager>();
         ani = GetComponent<Animator>();
-        playerIK = GetComponentInChildren<IKControl>();
+        // playerIK = GetComponentInChildren<IKControl>();
         playerCamera = GetComponentInChildren<CameraMove>();
         powerUps = GetComponent<Powerups>();
 
@@ -182,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
         controls.PlayerMovement.Enable();
     }
 
-    
+
     void input()
     {
         //reset scene if R is pressed
@@ -212,8 +212,8 @@ public class PlayerMovement : MonoBehaviour
                 controls.PlayerMovement.Ability.Enable();
                 controls.PlayerMovement.ChangeAbility.Enable();
             }
-            
-            
+
+
 
             Time.timeScale = 1 - Time.timeScale;
         }
@@ -237,7 +237,7 @@ public class PlayerMovement : MonoBehaviour
         speedSlider.value = HorizontalVelocityf;
         speedText.text = HorizontalVelocityf.ToString("0");
 
-        
+
         //just check if we're moving at maximum speed
         if (Mathf.Abs(HorizontalVelocityf) >= maxMoveSpeed * moveSpeedMult) isAtMaxSpeed = true;
         else isAtMaxSpeed = false;
@@ -285,13 +285,13 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(transform.right * zMove * accStrafe * moveSpeedMult * Time.deltaTime);
                 rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxMoveSpeed);
             }
-            else if(!isAtMaxSpeed)
+            else if (!isAtMaxSpeed)
             {
                 rb.AddForce(transform.forward * xMove * accSpeed * airSpeedMultiplier * moveSpeedMult * Time.deltaTime);
                 rb.AddForce(transform.right * zMove * accStrafe * airSpeedMultiplier * moveSpeedMult * Time.deltaTime);
             }
 
-            
+
         }
 
         //abilities
@@ -340,7 +340,7 @@ public class PlayerMovement : MonoBehaviour
 
         ani.Play("Vault");
 
-        playerIK.ikActive = true; //Touch stuff
+        // playerIK.ikActive = true; //Touch stuff
 
         hasJustVaulted = true;
         InvokeRepeating("resetVaultBoost", 0, 0.05f);
@@ -429,7 +429,7 @@ public class PlayerMovement : MonoBehaviour
         wallSliding();
 
         //ledge grabbing
-        
+
         if (isClimbing)
         {
             rb.useGravity = false;
@@ -448,13 +448,13 @@ public class PlayerMovement : MonoBehaviour
                 Invoke("resetClimb", 0.5f);
             }
         }
-        
+
         //is pressing grab button and not grounded and in a valid trigger and not already climbing
         if (controls.PlayerMovement.Grab.triggered && !isOnGround && isAgainstLedge && !isClimbing && !climbCool)
         {
             isClimbing = true;
             transform.Translate(-transform.forward * 0.5f);
-            
+
             GetIKTarget("climb");
         }
     }
@@ -561,33 +561,33 @@ public class PlayerMovement : MonoBehaviour
             case "vault":
                 RaycastHit hit;
                 Physics.Raycast(transform.position, transform.forward - transform.up, out hit, 10.0f);
-                playerIK.vaultPoint = hit.point;
-                playerIK.IKTime = IKGrabTime;
-                playerIK.ikActive = true;
+                // playerIK.vaultPoint = hit.point;
+                // playerIK.IKTime = IKGrabTime;
+                // playerIK.ikActive = true;
                 break;
             case "climb":
                 RaycastHit climbHit;
                 Physics.Raycast(transform.position, transform.forward, out climbHit, 10.0f);
-                playerIK.vaultPoint = climbHit.point;
-                playerIK.IKTime = 10000;
-                playerIK.ikActive = true;
+                // playerIK.vaultPoint = climbHit.point;
+                // playerIK.IKTime = 10000;
+                // playerIK.ikActive = true;
                 break;
             case "wallRunR":
                 RaycastHit WallRHit;
                 Physics.Raycast(transform.position + new Vector3(0, 0, 1), transform.forward + transform.right, out WallRHit, 10.0f);
-                playerIK.vaultPoint = WallRHit.point;
-                playerIK.IKTime = IKGrabTime;
-                playerIK.ikActive = true;
+                // playerIK.vaultPoint = WallRHit.point;
+                // playerIK.IKTime = IKGrabTime;
+                // playerIK.ikActive = true;
                 break;
             case "wallRunL":
                 RaycastHit WallLHit;
                 Physics.Raycast(transform.position + new Vector3(0, 0, 1), transform.forward - transform.right, out WallLHit, 10.0f);
-                playerIK.vaultPoint = WallLHit.point;
-                playerIK.IKTime = IKGrabTime;
-                playerIK.ikActive = true;
+                // playerIK.vaultPoint = WallLHit.point;
+                // playerIK.IKTime = IKGrabTime;
+                // // playerIK.ikActive = true;
                 break;
             case "release":
-                playerIK.ikActive = false;
+                //                // playerIK.ikActive = false;
                 break;
         }
     }
@@ -624,7 +624,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("VaultTrigger"))
         {
             isInVaultTrigger = false;
-            //playerIK.ikActive = false; //Stop touching stuff.
+            //// playerIK.ikActive = false; //Stop touching stuff.
         }
 
         if (other.gameObject.CompareTag("ClimbTrigger"))
