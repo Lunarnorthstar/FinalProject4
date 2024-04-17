@@ -6,11 +6,13 @@ using Unity.Mathematics;
 using UnityEngine;
 using System.IO;
 using System.Linq;
+using System.Net.Mime;
 using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 using UnityEngine.PlayerLoop;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 [System.Serializable]
 public struct LeaderboardStats
@@ -316,13 +318,23 @@ public class TimerHandler : MonoBehaviour
         if (other.CompareTag("StartTrigger")) timerActive = true;
 
     }
-
+    
+    
+    
     public void onNameInput()
     {
         string name = nameInput.GetComponent<TMP_InputField>().text;
+        
         Debug.Log("PLAYER INPUT THE NAME '" + name + "'");
         Debug.Log("TEXT FIELD READS '" + nameInput.GetComponent<TMP_InputField>().text + "'");
+        Debug.Log("YOUR TIME IS: " + lastTime);
         
+        if ( name != nameInput.GetComponent<TMP_InputField>().text)
+        {
+            name = name = nameInput.GetComponent<TMP_InputField>().text;
+            Debug.Log("Corrected Name");
+        }
+
         if (lastTime == bestTime || bestTime <= 0)
         {
             dataScore[levelIndex].highName = name;
@@ -331,6 +343,8 @@ public class TimerHandler : MonoBehaviour
         {
             dataScore[levelIndex].lastNames[findMe] = name;
         }
+        
+        Debug.Log("WHAT IS THE FINDME: '" + findMe + "'");
 
         if (handler.hundredpercent && (lastTime == bestHundredpercentTime || bestHundredpercentTime <= 0))
         {
