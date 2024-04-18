@@ -75,9 +75,9 @@ public class PlayerMovement : MonoBehaviour
 
     [Space]
     [Header("Terrain")]
-    [HideInInspector] public float moveSpeedMult = 1;
-    [HideInInspector] public float jumpHeightMult = 1;
-    [HideInInspector] public float fricitonMult = 1;
+    public float moveSpeedMult = 1;
+    public float jumpHeightMult = 1;
+    public float fricitonMult = 1;
 
     [Header("Debug")]
     public Slider speedSlider;

@@ -43,7 +43,9 @@ public class TerrainHandler : MonoBehaviour
             {
                 if (modifiesMoveSpeed)
                 {
+                    Debug.Log("MULT:" + moveSpeedMult);
                     target.moveSpeedMult = moveSpeedMult;
+                    Debug.Log("MULTAFTER:" + moveSpeedMult);
                 }
 
                 if (modifiesJumpHeight)
@@ -58,14 +60,14 @@ public class TerrainHandler : MonoBehaviour
             }
             else
             {
-                if (modifiesMoveSpeed)
+                if (modifiesMoveSpeed && moveSpeedMult >= 1)
                 {
-                    target.moveSpeedMult = math.max(moveSpeedMult, 1);
+                    target.moveSpeedMult = moveSpeedMult * target.moveSpeedMult;
                 }
 
-                if (modifiesJumpHeight)
+                if (modifiesJumpHeight && jumpHeightMult >= 1)
                 {
-                    target.jumpHeightMult = math.max(jumpHeightMult, 1);
+                    target.jumpHeightMult = jumpHeightMult * target.jumpHeightMult;
                 }
 
                 if (modifiesFriction)
