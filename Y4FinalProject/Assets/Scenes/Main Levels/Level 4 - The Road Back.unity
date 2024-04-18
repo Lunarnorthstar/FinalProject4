@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6558.829, g: 4994.0356, b: 3403.52, a: 1}
+  m_IndirectSpecularColor: {r: 6558.837, g: 4993.9575, b: 3403.5552, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -19206,7 +19206,7 @@ GameObject:
   - component: {fileID: 429679709}
   m_Layer: 2
   m_Name: COLLIDER
-  m_TagString: Untagged
+  m_TagString: Blinkblock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33031,6 +33031,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3049099849578792122, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
   m_PrefabInstance: {fileID: 626854740}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &626854743 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 745724907302802243, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+  m_PrefabInstance: {fileID: 626854740}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325f7c7baa875eb46b1bf94b65826a72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &626955628 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8036235076720259386, guid: 15f05141d51b2c0428902f0dfa950b79, type: 3}
@@ -33673,7 +33684,7 @@ GameObject:
   - component: {fileID: 643982163}
   m_Layer: 2
   m_Name: COLLIDER
-  m_TagString: Untagged
+  m_TagString: Blinkblock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74519,7 +74530,7 @@ GameObject:
   - component: {fileID: 1386899633}
   m_Layer: 2
   m_Name: COLLIDER
-  m_TagString: Untagged
+  m_TagString: Blinkblock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -86976,7 +86987,7 @@ GameObject:
   - component: {fileID: 1685758170}
   m_Layer: 2
   m_Name: COLLIDER
-  m_TagString: Untagged
+  m_TagString: Blinkblock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100525,6 +100536,7 @@ GameObject:
   - component: {fileID: 1865796752}
   - component: {fileID: 1865796751}
   - component: {fileID: 1865796750}
+  - component: {fileID: 1865796753}
   m_Layer: 0
   m_Name: Level4Sequence
   m_TagString: Untagged
@@ -100603,6 +100615,36 @@ PlayableDirector:
     value: {fileID: 1132898793}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &1865796753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865796748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: c6166b28e30648d4f90f0f8c47551358, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 626854743}
+          m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+          m_MethodName: EndCutscene
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1001 &1868306232
 PrefabInstance:
   m_ObjectHideFlags: 0

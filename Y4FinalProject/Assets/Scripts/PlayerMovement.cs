@@ -127,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
     public string wallFacingTag;
 
     private bool climbCool = false;
-
+    
     void Awake()
     {
         Time.timeScale = 1;
@@ -149,6 +149,8 @@ public class PlayerMovement : MonoBehaviour
         canJump = true;
     }
 
+    private float failsafe = 7;
+    private bool failsafebool = true;
     public void EndCutscene()
     {
         Debug.Log("Called");
@@ -158,6 +160,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        failsafe -= Time.deltaTime;
+        if (failsafe <= 0 && failsafebool)
+        {
+            failsafebool = false;
+            EndCutscene();
+        }
+        
+        
+        
         JoyCamSensitivity = SH.JoySensitivity;
         //if (Input.GetKeyDown(KeyCode.M)) resetInput(); I've disabled this because we don't need it anymore and it's causing lots of problems with movement reactivating when it shouldn't.
 

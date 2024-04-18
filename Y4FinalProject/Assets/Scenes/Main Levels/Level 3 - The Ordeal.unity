@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6638.3135, g: 5076.1997, b: 3480.77, a: 1}
+  m_IndirectSpecularColor: {r: 6638.407, g: 5076.114, b: 3480.8208, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 12061220}
   m_Layer: 2
   m_Name: COLLIDER
-  m_TagString: Untagged
+  m_TagString: Blinkblock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -648,7 +648,7 @@ GameObject:
   - component: {fileID: 125835867}
   m_Layer: 2
   m_Name: COLLIDER
-  m_TagString: Untagged
+  m_TagString: Blinkblock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6346,7 +6346,7 @@ GameObject:
   - component: {fileID: 288973822}
   m_Layer: 2
   m_Name: COLLIDER
-  m_TagString: Untagged
+  m_TagString: Blinkblock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6561,6 +6561,7 @@ GameObject:
   - component: {fileID: 314347153}
   - component: {fileID: 314347152}
   - component: {fileID: 314347151}
+  - component: {fileID: 314347154}
   m_Layer: 0
   m_Name: Level3Sequence
   m_TagString: Untagged
@@ -6641,6 +6642,36 @@ PlayableDirector:
     value: {fileID: 1317687290}
   m_ExposedReferences:
     m_References: []
+--- !u!114 &314347154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314347149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: c6166b28e30648d4f90f0f8c47551358, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1379833876}
+          m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+          m_MethodName: EndCutscene
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &318591898
 GameObject:
   m_ObjectHideFlags: 0
@@ -13392,7 +13423,7 @@ GameObject:
   - component: {fileID: 689282033}
   m_Layer: 2
   m_Name: COLLIDER
-  m_TagString: Untagged
+  m_TagString: Blinkblock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15455,9 +15486,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.1
+  near clip plane: 0.01
   far clip plane: 5000
-  field of view: 60.000004
+  field of view: 75.00001
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -15483,8 +15514,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041833884}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1702834, y: 0.7412692, z: -0.20488822, w: 0.61607176}
-  m_LocalPosition: {x: 15.449728, y: 80.43179, z: -139.93428}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 29.013113, y: 20.569, z: -141.125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17174,7 +17205,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1317687289
 Transform:
   m_ObjectHideFlags: 0
@@ -18073,7 +18104,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3049099849578792122, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3049099849578792122, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_TagString
@@ -18521,6 +18552,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da76f9fd363be8b4c9cca82c25b36992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1379833876 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 745724907302802243, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+  m_PrefabInstance: {fileID: 1379833874}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 442791024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325f7c7baa875eb46b1bf94b65826a72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &1396808379
@@ -34137,6 +34179,7 @@ SceneRoots:
   - {fileID: 1041833889}
   - {fileID: 2106486147}
   - {fileID: 726942244}
+  - {fileID: 1379833874}
   - {fileID: 1821529007}
   - {fileID: 1879531519}
   - {fileID: 920021536}
@@ -34177,7 +34220,6 @@ SceneRoots:
   - {fileID: 1588331131}
   - {fileID: 1170350546}
   - {fileID: 871973546}
-  - {fileID: 1379833874}
   - {fileID: 1293262391}
   - {fileID: 1359979397}
   - {fileID: 2012085539}
