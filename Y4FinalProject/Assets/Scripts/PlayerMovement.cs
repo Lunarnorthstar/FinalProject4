@@ -144,10 +144,15 @@ public class PlayerMovement : MonoBehaviour
 
         //enable controls
         controls = new PlayerControls();
-        controls.PlayerMovement.Enable();
 
         canSideJump = true;
         canJump = true;
+    }
+
+    public void EndCutscene()
+    {
+        Debug.Log("Called");
+        controls.PlayerMovement.Enable();
     }
 
     // Update is called once per frame

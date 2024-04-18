@@ -1490,6 +1490,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 7070420494751756090}
+        m_TargetAssemblyTypeName: TurnOffCinematic, Assembly-CSharp
+        m_MethodName: resetRepeat
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 6881646887437100275}
         m_TargetAssemblyTypeName: QuickSceneNav, Assembly-CSharp
         m_MethodName: BackToMenu
@@ -3284,6 +3296,7 @@ GameObject:
   - component: {fileID: 7300876208928784855}
   - component: {fileID: 4047888034791841011}
   - component: {fileID: 7030503228967221214}
+  - component: {fileID: 7070420494751756090}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -3416,6 +3429,20 @@ MonoBehaviour:
   SH: {fileID: 11400000, guid: c37b0f601671dbb4493ec12dbae8240c, type: 2}
   mouseSensitivitySlider: {fileID: 2666832217424584454}
   joySensitivitySlider: {fileID: 430564143551565560}
+--- !u!114 &7070420494751756090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7904777540793682793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07a1c9f8728c59c4e909a2969bf7780d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PC: {fileID: 11400000, guid: a344158dcdf3c524bad703ccf9505535, type: 2}
+  cinematic: {fileID: 0}
 --- !u!1 &7942960826567716894
 GameObject:
   m_ObjectHideFlags: 0
@@ -4859,6 +4886,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9112600699294765936, guid: e8cbfd6625e358148811db180aa99552, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7070420494751756090}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

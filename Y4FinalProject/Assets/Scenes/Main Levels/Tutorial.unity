@@ -7724,6 +7724,7 @@ GameObject:
   - component: {fileID: 185857982}
   - component: {fileID: 185857981}
   - component: {fileID: 185857980}
+  - component: {fileID: 185857983}
   m_Layer: 0
   m_Name: TutorialSequence1
   m_TagString: Untagged
@@ -7807,6 +7808,36 @@ PlayableDirector:
   m_ExposedReferences:
     m_References:
     - 4adbec2eaa9d1ed4da4a0d6a46fae736: {fileID: 1942119933}
+--- !u!114 &185857983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185857978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: c6166b28e30648d4f90f0f8c47551358, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1772122154}
+          m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
+          m_MethodName: EndCutscene
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &186651046
 GameObject:
   m_ObjectHideFlags: 0
@@ -86199,6 +86230,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4804837165726689245, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
   m_PrefabInstance: {fileID: 1369772051}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1772122154 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 745724907302802243, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+  m_PrefabInstance: {fileID: 1369772051}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772122151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325f7c7baa875eb46b1bf94b65826a72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1772228295 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3305001124089902885, guid: 82682475a368af14bbcbd1578414950e, type: 3}
@@ -101890,11 +101932,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60.000004
+  near clip plane: 0.01
+  far clip plane: 5000
+  field of view: 75.00002
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -101918,8 +101960,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125478826}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.010491928, y: 0.937576, z: -0.028392771, w: -0.34646073}
-  m_LocalPosition: {x: 51.03576, y: -3.751091, z: -102.51041}
+  m_LocalRotation: {x: 0, y: 0.7071023, z: -0, w: -0.70711136}
+  m_LocalPosition: {x: -51.6, y: -22.751, z: -104.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -103554,6 +103596,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7070420494751756090, guid: 00c55ef519019434d87bf54728021438, type: 3}
+      propertyPath: cinematic
+      value: 
+      objectReference: {fileID: 1401529953}
     - target: {fileID: 7213715520673700097, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

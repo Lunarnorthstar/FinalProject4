@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    
     public bool isMouseLocked = true;
     public float isonGroundClearance;
     public float wallRunClearance;

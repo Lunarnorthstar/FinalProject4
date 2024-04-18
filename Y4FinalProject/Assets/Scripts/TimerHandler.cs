@@ -31,6 +31,7 @@ public struct LeaderboardStats
 
 public class TimerHandler : MonoBehaviour
 {
+    public PersistanceCounter PC;
     public float levelTime = 0;
     public GameObject timerDisplay;
     public bool timerActive = false;
@@ -58,6 +59,13 @@ public class TimerHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (PC.repeat)
+        {
+            gameObject.GetComponent<PlayerMovement>().EndCutscene();
+        }
+        
+        
+        PC.repeat = true;
         nameInput = FindInActiveObjectByTag("NameInput");
         
         
@@ -146,6 +154,7 @@ public class TimerHandler : MonoBehaviour
 
     public void StopTimer()
     {
+        ResetRepeat();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         GetComponent<PlayerMovement>().controls.PlayerMovement.Disable();
@@ -356,5 +365,16 @@ public class TimerHandler : MonoBehaviour
         }
         SaveGameStatus();
         FindObjectOfType<SecondaryLeaderboard>().LoadGameStatus();
+    }
+
+    public void ResetRepeat()
+    {
+        PC.repeat = false;
+    }
+
+    private void OnApplicationQuit()
+    {
+        Debug.Log("aww");
+        ResetRepeat();
     }
 }

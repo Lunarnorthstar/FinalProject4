@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 4
+  m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -13560,6 +13560,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7070420494751756090, guid: 00c55ef519019434d87bf54728021438, type: 3}
+      propertyPath: cinematic
+      value: 
+      objectReference: {fileID: 2012085538}
     - target: {fileID: 7904777540793682793, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -18153,7 +18157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4804837165726689245, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4819031205547772604, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalPosition.x
