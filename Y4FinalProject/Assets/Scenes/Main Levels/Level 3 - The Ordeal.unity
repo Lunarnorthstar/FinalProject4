@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -15268,7 +15268,7 @@ MonoBehaviour:
   m_UpdateMethod: 2
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
-    m_Style: 0
+    m_Style: 2
     m_Time: 2
     m_CustomCurve:
       serializedVersion: 2
@@ -15480,7 +15480,7 @@ Transform:
   m_GameObject: {fileID: 1041833884}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1702834, y: 0.7412692, z: -0.20488822, w: 0.61607176}
-  m_LocalPosition: {x: 15.426334, y: 80.433365, z: -139.93034}
+  m_LocalPosition: {x: 15.449728, y: 80.43179, z: -139.93428}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17224,7 +17224,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 11
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
@@ -18153,7 +18153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4804837165726689245, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4819031205547772604, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalPosition.x
@@ -18278,6 +18278,10 @@ PrefabInstance:
     - target: {fileID: 5907174768458892058, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.49999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 6074003040290857044, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 75.00001
       objectReference: {fileID: 0}
     - target: {fileID: 6496619680366919905, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: UIDisplay
@@ -19180,9 +19184,9 @@ MonoBehaviour:
     width: 0.2
   m_Looped: 0
   m_Waypoints:
-  - position: {x: -17.569006, y: 0, z: -0.49230003}
+  - position: {x: -0.15, y: 5.47, z: -0.49230003}
     roll: 0
-  - position: {x: -33.416, y: 0, z: 5}
+  - position: {x: -33.416, y: 5.47, z: 5}
     roll: 0
   - position: {x: -82.94891, y: 12.211815, z: -3.2689934}
     roll: 0
@@ -32532,7 +32536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 1452719334}
-  m_PathPosition: 4.999243
+  m_PathPosition: 4.999847
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0

@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -19120,7 +19120,7 @@ Transform:
   m_GameObject: {fileID: 424931378}
   serializedVersion: 2
   m_LocalRotation: {x: -0.012658624, y: 0.9691344, z: -0.05092888, w: -0.24088311}
-  m_LocalPosition: {x: -1.3606873, y: 118.79089, z: -41.44095}
+  m_LocalPosition: {x: -1.3608856, y: 118.79087, z: -41.440804}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19145,7 +19145,7 @@ MonoBehaviour:
   m_UpdateMethod: 2
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
-    m_Style: 0
+    m_Style: 2
     m_Time: 2
     m_CustomCurve:
       serializedVersion: 2
@@ -32841,6 +32841,10 @@ PrefabInstance:
     - target: {fileID: 6074003040290857044, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6074003040290857044, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 75.00001
       objectReference: {fileID: 0}
     - target: {fileID: 6496619680366919905, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: UIDisplay
@@ -100111,7 +100115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 62903991}
-  m_PathPosition: 7
+  m_PathPosition: 6.999991
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0

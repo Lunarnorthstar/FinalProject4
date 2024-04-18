@@ -682,15 +682,13 @@ MonoBehaviour:
     width: 0.2
   m_Looped: 0
   m_Waypoints:
-  - position: {x: 0, y: 0, z: -5}
+  - position: {x: -12.135658, y: -190.19809, z: 36.320007}
     roll: 0
-  - position: {x: 17.98043, y: 12.81153, z: -3.112938}
+  - position: {x: -68.8, y: -183.88295, z: 38.125763}
     roll: 0
-  - position: {x: 73.54214, y: 59.57249, z: -19.85932}
+  - position: {x: -137.4, y: -177.81621, z: 90.35362}
     roll: 0
-  - position: {x: 61.23818, y: 64.12735, z: -114.4036}
-    roll: 0
-  - position: {x: -67.2039, y: 64.65978, z: -87.96165}
+  - position: {x: -134.11, y: -178.33153, z: 116.18757}
     roll: 0
 --- !u!4 &269312614
 Transform:
@@ -12567,6 +12565,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7028617990935711770, guid: 229a70c5af41d4f4297563b1d38d6a9c, type: 3}
   m_PrefabInstance: {fileID: 703373824}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &718483495 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6855290115760218767, guid: e3ed7c3b2124c4b4fb204a58fd738da1, type: 3}
+  m_PrefabInstance: {fileID: 852648846}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &722834132 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3287354397308148845, guid: 0c5a8c91402235c47b5aee27b5c84c54, type: 3}
@@ -13071,7 +13074,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1024828037}
     m_Modifications:
     - target: {fileID: 1719715718029402333, guid: e3ed7c3b2124c4b4fb204a58fd738da1, type: 3}
       propertyPath: m_Name
@@ -13549,6 +13552,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 718483495}
   - {fileID: 1729398231}
   - {fileID: 269312614}
   - {fileID: 1395109281}
@@ -13738,7 +13742,7 @@ MonoBehaviour:
   m_UpdateMethod: 2
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
-    m_Style: 0
+    m_Style: 2
     m_Time: 2
     m_CustomCurve:
       serializedVersion: 2
@@ -13950,7 +13954,7 @@ Transform:
   m_GameObject: {fileID: 1066220121}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1116743, y: -0.4549443, z: 0.057628296, w: 0.8816085}
-  m_LocalPosition: {x: 3.9981155, y: 302.77856, z: -273.0625}
+  m_LocalPosition: {x: -62.910004, y: 59.787308, z: -68.91244}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17098,7 +17102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 269312613}
-  m_PathPosition: 3.999987
+  m_PathPosition: 3
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
@@ -29088,7 +29092,6 @@ SceneRoots:
   - {fileID: 1363348153}
   - {fileID: 921266980}
   - {fileID: 674476426}
-  - {fileID: 852648846}
   - {fileID: 1141547462}
   - {fileID: 944763223}
   - {fileID: 1701867231}

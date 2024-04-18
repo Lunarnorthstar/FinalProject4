@@ -15568,6 +15568,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ea9fcbf6cc887554d9de53b4e28d37ed, type: 3}
+--- !u!1 &623527504 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 101849701308101718, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+  m_PrefabInstance: {fileID: 1972076604}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &633884967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24710,6 +24715,8 @@ PlayableDirector:
     value: {fileID: 1972076606}
   - key: {fileID: 218713865695442025, guid: b08ab1654fb42014b9fc7e71694f1408, type: 2}
     value: {fileID: 169494751}
+  - key: {fileID: 7781976501447851120, guid: b08ab1654fb42014b9fc7e71694f1408, type: 2}
+    value: {fileID: 623527504}
   m_ExposedReferences:
     m_References: []
 --- !u!1001 &1432301695
@@ -38170,7 +38177,7 @@ MonoBehaviour:
   m_UpdateMethod: 2
   m_BlendUpdateMethod: 1
   m_DefaultBlend:
-    m_Style: 0
+    m_Style: 2
     m_Time: 2
     m_CustomCurve:
       serializedVersion: 2
@@ -38382,7 +38389,7 @@ Transform:
   m_GameObject: {fileID: 1896109099}
   serializedVersion: 2
   m_LocalRotation: {x: 0.3929771, y: -0.57677406, z: 0.36943415, w: 0.6135301}
-  m_LocalPosition: {x: -61.703896, y: 96.54978, z: -104.001656}
+  m_LocalPosition: {x: -61.702057, y: 96.54974, z: -104.00242}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -39755,6 +39762,10 @@ PrefabInstance:
     - target: {fileID: 5907174768458892058, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.49999976
+      objectReference: {fileID: 0}
+    - target: {fileID: 6074003040290857044, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: m_Lens.FieldOfView
+      value: 75.00004
       objectReference: {fileID: 0}
     - target: {fileID: 6496619680366919905, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: UIDisplay
@@ -46536,7 +46547,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 1302844177}
-  m_PathPosition: 4
+  m_PathPosition: 3.999988
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
