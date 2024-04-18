@@ -682,17 +682,15 @@ MonoBehaviour:
     width: 0.2
   m_Looped: 0
   m_Waypoints:
-  - position: {x: -12.79393, y: -200.96075, z: 38.087997}
+  - position: {x: 0, y: 0, z: -5}
     roll: 0
-  - position: {x: -112.09548, y: -200.9608, z: 38.529297}
+  - position: {x: 17.98043, y: 12.81153, z: -3.112938}
     roll: 0
-  - position: {x: -133.34665, y: -200.9608, z: 73.317055}
+  - position: {x: 73.54214, y: 59.57249, z: -19.85932}
     roll: 0
-  - position: {x: -137.00626, y: -200.9608, z: 154.95097}
+  - position: {x: 61.23818, y: 64.12735, z: -114.4036}
     roll: 0
-  - position: {x: -109.32264, y: -168.23326, z: 182.89032}
-    roll: 0
-  - position: {x: -64.56952, y: -167.04492, z: 181.48987}
+  - position: {x: -67.2039, y: 64.65978, z: -87.96165}
     roll: 0
 --- !u!4 &269312614
 Transform:
@@ -7041,7 +7039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6074003040290857044, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_Lens.FieldOfView
-      value: 60
+      value: 75.00001
       objectReference: {fileID: 0}
     - target: {fileID: 6496619680366919905, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: UIDisplay
@@ -12964,6 +12962,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7028617990935711770, guid: 229a70c5af41d4f4297563b1d38d6a9c, type: 3}
   m_PrefabInstance: {fileID: 1413981994}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &783459177 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5067579232876817798, guid: 00c55ef519019434d87bf54728021438, type: 3}
+  m_PrefabInstance: {fileID: 726942244}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &783459178 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 673684503859025636, guid: 00c55ef519019434d87bf54728021438, type: 3}
+  m_PrefabInstance: {fileID: 726942244}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &784432115 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2546537147174366739, guid: 0c5a8c91402235c47b5aee27b5c84c54, type: 3}
@@ -13238,6 +13258,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7626760572810959907, guid: 3ebb367ecf23f7d40831276afea8242c, type: 3}
+      propertyPath: sfxSlider
+      value: 
+      objectReference: {fileID: 783459177}
+    - target: {fileID: 7626760572810959907, guid: 3ebb367ecf23f7d40831276afea8242c, type: 3}
+      propertyPath: musicSlider
+      value: 
+      objectReference: {fileID: 783459178}
     - target: {fileID: 9199764695250357205, guid: 3ebb367ecf23f7d40831276afea8242c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -86.1
@@ -13893,11 +13921,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.1
-  far clip plane: 5000
+  near clip plane: 0.3
+  far clip plane: 1000
   field of view: 60.000004
   orthographic: 0
-  orthographic size: 10
+  orthographic size: 5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -13922,7 +13950,7 @@ Transform:
   m_GameObject: {fileID: 1066220121}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1116743, y: -0.4549443, z: 0.057628296, w: 0.8816085}
-  m_LocalPosition: {x: 57.444836, y: 37.151794, z: -147.04831}
+  m_LocalPosition: {x: 3.9981155, y: 302.77856, z: -273.0625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15777,9 +15805,9 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60.000004
-    OrthographicSize: 10
-    NearClipPlane: 0.1
-    FarClipPlane: 5000
+    OrthographicSize: 5
+    NearClipPlane: 0.3
+    FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
@@ -17070,7 +17098,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 269312613}
-  m_PathPosition: 0.008045866
+  m_PathPosition: 3.999987
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0

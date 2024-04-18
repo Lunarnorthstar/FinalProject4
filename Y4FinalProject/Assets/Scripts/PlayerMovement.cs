@@ -372,9 +372,12 @@ public class PlayerMovement : MonoBehaviour
                 rb.drag = inAirDrag; //Make sure the drag is set consistently - if you're jumping you are by definition going to be in the air.
                 rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);//
 
-                Debug.Log(rb.velocity);
+                GetComponent<JuiceBehaviours>().playJumpAnimation();
+
                 rb.AddForce(Vector3.up * jumpForce * jumpHeightMult, ForceMode.Impulse);
-                InvokeRepeating("resetJump", 0, 0.02f);
+                InvokeRepeating("resetJump", 0f, 0.02f);
+
+                //Debug.Log("jump");
             }
         }
 

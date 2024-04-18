@@ -89,7 +89,7 @@ public class Shield : MonoBehaviour
         {
             countdown.text = CleanTimeConversion(shieldDuration - shieldTimer, 2);
             slider.value = 1 - shieldTimer / shieldDuration;
-            
+
         }
     }
 
@@ -97,8 +97,14 @@ public class Shield : MonoBehaviour
     {
         if (!coolingDown)
         {
-            if(!active) AudioManager.instance.GenerateSound(AudioReference.instance.shieldDeploy, Vector3.zero);
+            GetComponent<JuiceBehaviours>().playPowerupAni(true);
+
+            if (!active) AudioManager.instance.GenerateSound(AudioReference.instance.shieldDeploy, Vector3.zero);
             active = true;
+        }
+        else
+        {
+            GetComponent<JuiceBehaviours>().playPowerupAni(false);
         }
     }
 

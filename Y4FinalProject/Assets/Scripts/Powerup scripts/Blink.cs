@@ -67,22 +67,29 @@ public class Blink : MonoBehaviour
         {
             if (hit.collider.CompareTag("Blinkblock"))
             {
+                GetComponent<JuiceBehaviours>().playPowerupAni(false);
                 return;
             }
         }
-        
-        
+
+
         if (!coolingDown)
         {
+            GetComponent<JuiceBehaviours>().playPowerupAni(true);
+
             Vector3 blinkDirection = Vector3.Normalize(camera.transform.forward);
 
             player.transform.position += (blinkDirection * blinkDistance);
-            
+
             particles.Play();
 
             coolingDown = true;
 
             AudioManager.instance.GenerateSound(AudioReference.instance.blinkDeploy, Vector3.zero);
+        }
+        else
+        {
+            GetComponent<JuiceBehaviours>().playPowerupAni(false);
         }
     }
 

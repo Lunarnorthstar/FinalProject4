@@ -124,6 +124,8 @@ public class GrappleHook : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, playerCam.transform.forward, out hit, grappleRange))
         {
+            GetComponent<JuiceBehaviours>().playPowerupAni(true);
+
             AudioManager.instance.GenerateSound(AudioReference.instance.grappleDeploy, Vector3.zero);
 
             Debug.Log("Hit something");
@@ -153,6 +155,7 @@ public class GrappleHook : MonoBehaviour
         }
         else
         {
+            GetComponent<JuiceBehaviours>().playPowerupAni(false);
             Debug.Log("Didn't hit anything");
         }
     }

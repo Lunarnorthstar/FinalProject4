@@ -107,9 +107,15 @@ public class Dash : MonoBehaviour
     {
         if (ready)
         {
+            GetComponent<JuiceBehaviours>().playPowerupAni(true);
+
             dashing = true;
 
             AudioManager.instance.GenerateSound(AudioReference.instance.dashDeploy, Vector3.zero);
+        }
+        else
+        {
+            GetComponent<JuiceBehaviours>().playPowerupAni(false);
         }
     }
 

@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using Unity.Mathematics;
 using Unity.VisualScripting;
-//using UnityEditor.Callbacks;
+using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.UI;
 public class JuiceBehaviours : MonoBehaviour
@@ -28,7 +29,7 @@ public class JuiceBehaviours : MonoBehaviour
     public float defaultFov;
     public AnimationCurve fovChange;
     public float fovchangeSpeed;
-    public Camera cam;
+    public CinemachineVirtualCamera cam;
 
     [Space]
     public Transform particleSpawnPoint;
@@ -41,6 +42,9 @@ public class JuiceBehaviours : MonoBehaviour
 
     [Space]
     public Toggle headBobToggle;
+    public MeshRenderer powerUpIndicator;
+    public Material powerupIndicatorGood;
+    public Material powerupIndicatorNoGood;
 
     void Start()
     {
@@ -63,11 +67,9 @@ public class JuiceBehaviours : MonoBehaviour
                 headBobToggle.isOn = true;
             }
         }
-
-
     }
 
-    void FixedUpdate()
+    void Update()
     {
         //update settings
         if (PlayerPrefs.GetInt("headBob") == 1)
@@ -111,13 +113,14 @@ public class JuiceBehaviours : MonoBehaviour
         }
         if (!isOnGround_ && !isDueForImpact)
         {
+            walkAni.SetBool("jump", false);
             isDueForImpact = true;
         }
 
         //fov
         float fovDiff = fovChange.Evaluate(lerpSpeed);
-        cam.fieldOfView = Mathf.Lerp(
-            cam.fieldOfView,
+        cam.m_Lens.FieldOfView = Mathf.Lerp(
+            cam.m_Lens.FieldOfView,
             defaultFov + fovDiff,
             fovchangeSpeed);
 
@@ -130,6 +133,7 @@ public class JuiceBehaviours : MonoBehaviour
 
     void playImpact()
     {
+
         if (Mathf.Abs(verticalVelocity) >= highImpactTheshold)
         {
             AudioManager.instance.GenerateSound(AudioReference.instance.landHard, Vector3.zero);
@@ -154,6 +158,22 @@ public class JuiceBehaviours : MonoBehaviour
             Destroy(landingParticleTemp, 1f);
         }
 
+    }
+
+    public void playPowerupAni(bool ready)
+    {
+        if (ready)
+            powerUpIndicator.material = powerupIndicatorGood;
+        else
+            powerUpIndicator.material = powerupIndicatorNoGood;
+
+        walkAni.SetTrigger("powerup");
+    }
+
+    public void playJumpAnimation()
+    {
+        walkAni.SetBool("jump", true);
+        Debug.Log(walkAni.GetBool("jump"));
     }
 
     public void playfootStep()

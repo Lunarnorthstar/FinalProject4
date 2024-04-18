@@ -61,7 +61,7 @@ public class Powerups : MonoBehaviour
             //We need tags here because both text objects are in the "child". I wanted to minimize setup which ended up maximizing code.
         }
         equippedPowerups = PD.equippedPowerups;
-        
+
         for (int i = 0; i < powerupUI.Length; i++)
         {
             switch (equippedPowerups[i])
@@ -86,10 +86,10 @@ public class Powerups : MonoBehaviour
                     break;
             }
         }
-        
-        
-        
-        
+
+
+
+
 
         updateUI();
     }
@@ -152,7 +152,7 @@ public class Powerups : MonoBehaviour
                 default: break;
             }
         }
-        
+
         if (!blink.ready)
         {
             blinkShadow.GetComponent<Valid>().ready = false;
@@ -242,7 +242,7 @@ public class Powerups : MonoBehaviour
         {
             case "dash": break;
             case "glider": break;
-            case "blink": 
+            case "blink":
                 if (blinkShadow.GetComponent<Valid>().validPosition) blink.Activate();
                 blinkShadow.GetComponent<MeshRenderer>().enabled = false;
                 break;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 6558.829, g: 4994.0356, b: 3403.52, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -45392,6 +45392,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &801521590 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5067579232876817798, guid: 00c55ef519019434d87bf54728021438, type: 3}
+  m_PrefabInstance: {fileID: 801521587}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &801521591 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 243001530444969550, guid: 00c55ef519019434d87bf54728021438, type: 3}
@@ -45408,6 +45419,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1915929850089035908, guid: 00c55ef519019434d87bf54728021438, type: 3}
   m_PrefabInstance: {fileID: 801521587}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &801521593 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 673684503859025636, guid: 00c55ef519019434d87bf54728021438, type: 3}
+  m_PrefabInstance: {fileID: 801521587}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &804967690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -73664,6 +73686,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7626760572810959907, guid: 3ebb367ecf23f7d40831276afea8242c, type: 3}
+      propertyPath: sfxSlider
+      value: 
+      objectReference: {fileID: 801521590}
+    - target: {fileID: 7626760572810959907, guid: 3ebb367ecf23f7d40831276afea8242c, type: 3}
+      propertyPath: musicSlider
+      value: 
+      objectReference: {fileID: 801521593}
     - target: {fileID: 9199764695250357205, guid: 3ebb367ecf23f7d40831276afea8242c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -47.946484

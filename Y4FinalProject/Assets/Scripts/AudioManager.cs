@@ -101,6 +101,15 @@ public class AudioManager : MonoBehaviour
 
         musicVolume = PlayerPrefs.GetFloat("musicVol");
         sfxVolume = PlayerPrefs.GetFloat("sfxVol");
+
+        if (musicSlider)
+        {
+            PlayerPrefs.SetFloat("musicVol", musicSlider.value);
+        }
+        if (sfxSlider)
+        {
+            PlayerPrefs.SetFloat("sfxVol", sfxSlider.value);
+        }
     }
 
     public void updateMusicVolume(float amount)
