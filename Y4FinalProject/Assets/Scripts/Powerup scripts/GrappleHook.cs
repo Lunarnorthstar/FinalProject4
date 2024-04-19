@@ -27,9 +27,12 @@ public class GrappleHook : MonoBehaviour
 
 
     public bool Active;
+
+    private LayerMask mask;
     // Start is called before the first frame update
     void Start()
     {
+        mask = ~LayerMask.GetMask("MovingObject");
         lr = GetComponent<LineRenderer>();
     }
 
@@ -76,11 +79,11 @@ public class GrappleHook : MonoBehaviour
     public void UpdateUI()
     {
         RaycastHit project;
-        if (Physics.Raycast(transform.position, playerCam.transform.forward, out project, grappleRange))
+        if (Physics.Raycast(transform.position, playerCam.transform.forward, out project, grappleRange, mask)) //If it's hitting something you can grapple to...
         {
             grappleShadow.GetComponent<RawImage>().color = shadowValid;
         }
-        else if (Physics.Raycast(transform.position, playerCam.transform.forward, out project))
+        else if (Physics.Raycast(transform.position, playerCam.transform.forward, out project)) //Otherwise, if it's hitting anything at all...
         {
             grappleShadow.GetComponent<RawImage>().color = shadowInvalid;
         }
@@ -122,19 +125,17 @@ public class GrappleHook : MonoBehaviour
     private void ActivateGrapple()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, playerCam.transform.forward, out hit, grappleRange))
+        if (Physics.Raycast(transform.position, playerCam.transform.forward, out hit, grappleRange, mask))
         {
             GetComponent<JuiceBehaviours>().playPowerupAni(true);
 
             AudioManager.instance.GenerateSound(AudioReference.instance.grappleDeploy, Vector3.zero);
-
-            Debug.Log("Hit something");
+            
             grapplePoint = hit.point;
             joint = gameObject.AddComponent<SpringJoint>();
             joint.autoConfigureConnectedAnchor = false;
             joint.connectedAnchor = grapplePoint;
-
-
+            
             grappleHead.SetActive(true);
 
             float distanceFromPoint = math.distance(gameObject.transform.position, grapplePoint);
