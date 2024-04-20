@@ -26,11 +26,11 @@ public struct LeaderboardStats
     public List<string> lastNames;
     public List<float> lastTimesHundred;
     public List<string> lastHundredNames;
-
 }
 
 public class TimerHandler : MonoBehaviour
 {
+    public float bandaidStopTimer = 0;
     public PersistanceCounter PC;
     public float levelTime = 0;
     public GameObject timerDisplay;
@@ -163,36 +163,46 @@ public class TimerHandler : MonoBehaviour
         timerDisplay.GetComponent<TextMeshProUGUI>().color = Color.green;
         lastTime = levelTime;
         dataScore[levelIndex].previousSave = lastTime;
-        
-        
-        if (lastTime < bestTime || bestTime <= 0) //If the time you just got is better than the best...
+
+        //StopTimer is being called twice
+        if (bandaidStopTimer == 0)
         {
-            bestTime = lastTime;
+            if (lastTime < bestTime || bestTime <= 0) //If the time you just got is better than the best...
+            {
+                bestTime = lastTime;
 
-            InsertLastTime(dataScore[levelIndex].highSave, dataScore[levelIndex].highName); //Shunt the previous best to the list.
-            
-            dataScore[levelIndex].highSave = bestTime; //Convert your new time into the new best
-            dataScore[levelIndex].highName = "ANON"; //Placehold the name
-        }
-        else //If it's not the new best time...
-        {
-            InsertLastTime(lastTime, "Anon"); //Shunt the time into the list (with placeholder name)
-        }
-
-        if (handler.hundredpercent && (lastTime < bestHundredpercentTime || bestHundredpercentTime <= 0))
-        {
-            
-            InsertLastHundredTime(dataScore[levelIndex].highHundredpercentSave, dataScore[levelIndex].highHundredName); //Same as above but for hundred% times
+                InsertLastTime(dataScore[levelIndex].highSave, dataScore[levelIndex].highName); //Shunt the previous best to the list.
 
 
+                dataScore[levelIndex].highSave = bestTime; //Convert your new time into the new best
+                dataScore[levelIndex].highName = "ANON"; //Placehold the name
+
+            }
+            else if (dataScore[levelIndex].lastTimes.Count != 0)//If it's not the new best time...
+            {
+                Debug.Log("Not the best time is being called");
+
+                InsertLastTime(lastTime, "Anon"); //Shunt the time into the list (with placeholder name)
+
+            }
+
+            if (handler.hundredpercent && (lastTime < bestHundredpercentTime || bestHundredpercentTime <= 0))
+            {
+
+                bestHundredpercentTime = lastTime;
+                InsertLastHundredTime(dataScore[levelIndex].highHundredpercentSave, dataScore[levelIndex].highHundredName); //Same as above but for hundred% times
 
 
-            dataScore[levelIndex].highHundredpercentSave = bestHundredpercentTime;
-            dataScore[levelIndex].highHundredName = "ANON";
-        }
-        else if(handler.hundredpercent)
-        {
-            InsertLastHundredTime(lastTime, "ANON");
+
+
+                dataScore[levelIndex].highHundredpercentSave = bestHundredpercentTime;
+                dataScore[levelIndex].highHundredName = "ANON";
+            }
+            else if (handler.hundredpercent)
+            {
+                InsertLastHundredTime(lastTime, "Anon");
+            }
+            bandaidStopTimer = 1;
         }
         SaveGameStatus();
     }
@@ -217,8 +227,16 @@ public class TimerHandler : MonoBehaviour
             findMe = 0;
             return;
         }
-        
-        
+
+        Debug.Log("WEEEEEEEEEEWOOOOOOOOOWEEEEEEEEEWOOOOOOOO WORST TIME IS: " + dataScore[levelIndex].lastTimes[^1]);
+        if (time > dataScore[levelIndex].lastTimes[^1])
+        {
+            dataScore[levelIndex].lastNames.Add(name);
+            dataScore[levelIndex].lastTimes.Add(time);
+            return;
+        }
+
+
         for (int i = 0; i < dataScore[levelIndex].lastTimes.Count; i++)
         {
             if (time < dataScore[levelIndex].lastTimes[i])
@@ -227,6 +245,7 @@ public class TimerHandler : MonoBehaviour
                 {
                     dataScore[levelIndex].lastTimes.RemoveAt(lastTimesSaved -1);
                 }
+                Debug.Log(name);
                 dataScore[levelIndex].lastTimes.Insert(i, time);
                 dataScore[levelIndex].lastNames.Insert(i, name);
                 findMe = i;
@@ -234,13 +253,32 @@ public class TimerHandler : MonoBehaviour
             }
         }
     }
-    
+
     private void InsertLastHundredTime(float time, string name)
     {
         if (time == 0)
         {
             return;
         }
+
+
+        if (dataScore[levelIndex].lastTimesHundred.Count == 0)
+        {
+            dataScore[levelIndex].lastTimesHundred.Insert(0, time);
+            dataScore[levelIndex].lastHundredNames.Insert(0, name);
+            findMeHundred = 0;
+            return;
+        }
+
+
+
+        if (time > dataScore[levelIndex].lastTimesHundred[^1])
+        {
+            dataScore[levelIndex].lastHundredNames.Add(name);
+            dataScore[levelIndex].lastTimesHundred.Add(time);
+            return;
+        }
+
 
 
         int fluff = dataScore[levelIndex].lastTimesHundred.Count;
@@ -351,10 +389,14 @@ public class TimerHandler : MonoBehaviour
         }
 
         Debug.Log("WHAT IS THE FINDME: '" + findMe + "'");
-        
+
         if (lastTime == bestTime || bestTime <= 0)
         {
             dataScore[levelIndex].highName = name;
+        }
+        else if (dataScore[levelIndex].lastNames[^1] == "Anon")
+        {
+            dataScore[levelIndex].lastNames[^1] = name;
         }
         else
         {
@@ -367,9 +409,13 @@ public class TimerHandler : MonoBehaviour
         {
             dataScore[levelIndex].highHundredName = name;
         }
+        else if (handler.hundredpercent && (dataScore[levelIndex].lastHundredNames[^1] == "Anon"))
+        {
+            dataScore[levelIndex].lastHundredNames[^1] = name;
+        }
         else if(handler.hundredpercent)
         {
-            dataScore[levelIndex].lastHundredNames[findMe] = name;
+            dataScore[levelIndex].lastHundredNames[findMeHundred] = name;
         }
         SaveGameStatus();
         FindObjectOfType<SecondaryLeaderboard>().LoadGameStatus();
