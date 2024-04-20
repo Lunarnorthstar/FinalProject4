@@ -7,12 +7,13 @@ public class Valid : MonoBehaviour
 {
     public bool validPosition = true;
     public bool ready = true;
+    public bool unblocked = true;
     public Material validMaterial;
     public Material invalidMaterial;
 
     private void Update()
     {
-        if (validPosition && ready)
+        if (validPosition && ready && unblocked)
         {
             GetComponent<MeshRenderer>().material = validMaterial;
         }
@@ -21,8 +22,7 @@ public class Valid : MonoBehaviour
             GetComponent<MeshRenderer>().material = invalidMaterial;
         }
     }
-
-
+    
     private void OnTriggerStay(Collider other)
     {
         if (!other.CompareTag("StartTrigger"))

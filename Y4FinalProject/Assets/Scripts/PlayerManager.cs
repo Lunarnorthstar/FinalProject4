@@ -84,9 +84,34 @@ public class PlayerManager : MonoBehaviour
                 return (false, string.Empty);
             }
         }
-        else
+        
+        //These two are to keep you on the wall when you're looking towards it
+        if (Physics.Raycast(transform.position + new Vector3(0.6f, 0.8f, 0), dir, out hit, wallRunClearance))
         {
-            return (false, string.Empty);
+            if (!hit.transform.gameObject.CompareTag("VaultTrigger"))
+            {
+                return (true, hit.transform.gameObject.tag);
+            }
+            else
+            {
+                return (false, string.Empty);
+            }
         }
+        
+        if (Physics.Raycast(transform.position - new Vector3(0.6f, 0.8f, 0), dir, out hit, wallRunClearance))
+        {
+            if (!hit.transform.gameObject.CompareTag("VaultTrigger"))
+            {
+                return (true, hit.transform.gameObject.tag);
+            }
+            else
+            {
+                return (false, string.Empty);
+            }
+        }
+        
+        
+        return (false, string.Empty);
+        
     }
 }

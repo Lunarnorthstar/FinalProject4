@@ -1803,7 +1803,8 @@ GameObject:
   - component: {fileID: 8080021295153742370}
   - component: {fileID: 8930372991060860692}
   - component: {fileID: 8298616337437797826}
-  - component: {fileID: 5449472615938852967}
+  - component: {fileID: 7361024846788135499}
+  - component: {fileID: 4258942193034355420}
   m_Layer: 0
   m_Name: TrainWindows (1)
   m_TagString: Untagged
@@ -1876,8 +1877,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &5449472615938852967
-MeshCollider:
+--- !u!65 &7361024846788135499
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1894,10 +1895,30 @@ MeshCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 8315304638460755378, guid: 19d3a586e08365a42b0709bd455f7373, type: 3}
+  serializedVersion: 3
+  m_Size: {x: 17.824163, y: 1.2895925, z: 0.2079428}
+  m_Center: {x: 0.000007878096, y: 0.0000018041708, z: -2.0991247}
+--- !u!65 &4258942193034355420
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5056360350107471287}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 17.824163, y: 1.2895925, z: 0.18272601}
+  m_Center: {x: 0.000007878095, y: 0.0000018041708, z: 2.0227084}
 --- !u!1 &5682492097158601521
 GameObject:
   m_ObjectHideFlags: 0

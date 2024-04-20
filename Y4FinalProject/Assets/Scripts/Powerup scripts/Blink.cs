@@ -18,10 +18,25 @@ public class Blink : MonoBehaviour
     public GameObject camera;
     public GameObject player;
     [HideInInspector] public bool ready = false;
+    public Valid checker;
 
     // Update is called once per frame
     void Update()
     {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, playerCam.transform.forward, out hit, blinkDistance))
+        {
+            if (hit.collider.CompareTag("Blinkblock"))
+            {
+                checker.unblocked = false;
+            }
+            else
+            {
+                checker.unblocked = true;
+            }
+        }
+        
+        
         ready = !coolingDown;
 
 
