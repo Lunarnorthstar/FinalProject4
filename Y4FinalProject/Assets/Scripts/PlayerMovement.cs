@@ -204,7 +204,11 @@ public class PlayerMovement : MonoBehaviour
         //reset scene if R is pressed
         if (controls.PlayerMovement.Reset.triggered)
         {
+            //Restart the scene twice isnt a great solution, but worry about later if time
+            SceneManager.LoadSceneAsync(
+                SceneManager.GetActiveScene().buildIndex);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
         }
 
         //send input to camera
