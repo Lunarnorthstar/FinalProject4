@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6638.407, g: 5076.114, b: 3480.8208, a: 1}
+  m_IndirectSpecularColor: {r: 6638.454, g: 5076.1216, b: 3480.809, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 12061222}
   - component: {fileID: 12061221}
   - component: {fileID: 12061220}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: COLLIDER
   m_TagString: Blinkblock
   m_Icon: {fileID: 0}
@@ -646,7 +646,7 @@ GameObject:
   - component: {fileID: 125835869}
   - component: {fileID: 125835868}
   - component: {fileID: 125835867}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: COLLIDER
   m_TagString: Blinkblock
   m_Icon: {fileID: 0}
@@ -6344,7 +6344,7 @@ GameObject:
   - component: {fileID: 288973824}
   - component: {fileID: 288973823}
   - component: {fileID: 288973822}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: COLLIDER
   m_TagString: Blinkblock
   m_Icon: {fileID: 0}
@@ -13421,7 +13421,7 @@ GameObject:
   - component: {fileID: 689282035}
   - component: {fileID: 689282034}
   - component: {fileID: 689282033}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: COLLIDER
   m_TagString: Blinkblock
   m_Icon: {fileID: 0}
@@ -17798,6 +17798,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7536612109293498051, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: nameInput
+      value: 
+      objectReference: {fileID: 2000262561}
+    - target: {fileID: -7536612109293498051, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: finishPanel
+      value: 
+      objectReference: {fileID: 726942248}
+    - target: {fileID: -7536612109293498051, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: timerDisplay
+      value: 
+      objectReference: {fileID: 685811163}
     - target: {fileID: 209428965428089303, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: finishPanel
       value: 
@@ -18545,7 +18557,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
 --- !u!114 &1379833875 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 209428965428089303, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+  m_CorrespondingSourceObject: {fileID: -7536612109293498051, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
   m_PrefabInstance: {fileID: 1379833874}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 442791024}
@@ -32770,6 +32782,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 952cf7491aa500346a18f50165bcaa16, type: 3}
+--- !u!1 &2000262561 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3807287017478864102, guid: 00c55ef519019434d87bf54728021438, type: 3}
+  m_PrefabInstance: {fileID: 726942244}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2003002129
 PrefabInstance:
   m_ObjectHideFlags: 0

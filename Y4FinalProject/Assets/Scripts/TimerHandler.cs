@@ -193,7 +193,6 @@ public class TimerHandler : MonoBehaviour
         else if(handler.hundredpercent)
         {
             InsertLastHundredTime(lastTime, "ANON");
-            
         }
         SaveGameStatus();
     }
@@ -202,11 +201,14 @@ public class TimerHandler : MonoBehaviour
     private int findMeHundred;
     private void InsertLastTime(float time, string name)
     {
+        Debug.Log(time);
         if (time == 0)
         {
             return;
         }
-        
+
+        int fluff = dataScore[levelIndex].lastTimes.Count;
+        Debug.Log(fluff);
         
         if (dataScore[levelIndex].lastTimes.Count == 0)
         {
@@ -241,6 +243,9 @@ public class TimerHandler : MonoBehaviour
         }
 
 
+        int fluff = dataScore[levelIndex].lastTimesHundred.Count;
+        Debug.Log(fluff);
+        
         if (dataScore[levelIndex].lastTimesHundred.Count == 0)
         {
             dataScore[levelIndex].lastTimesHundred.Insert(0, time);
@@ -287,6 +292,7 @@ public class TimerHandler : MonoBehaviour
     {
         dataScore = new LeaderboardStats[6];
 
+        
         SaveGameStatus();
         Debug.Log("File not found...Creating");
     }
@@ -344,6 +350,8 @@ public class TimerHandler : MonoBehaviour
             Debug.Log("Corrected Name");
         }
 
+        Debug.Log("WHAT IS THE FINDME: '" + findMe + "'");
+        
         if (lastTime == bestTime || bestTime <= 0)
         {
             dataScore[levelIndex].highName = name;
@@ -353,7 +361,7 @@ public class TimerHandler : MonoBehaviour
             dataScore[levelIndex].lastNames[findMe] = name;
         }
         
-        Debug.Log("WHAT IS THE FINDME: '" + findMe + "'");
+        
 
         if (handler.hundredpercent && (lastTime == bestHundredpercentTime || bestHundredpercentTime <= 0))
         {

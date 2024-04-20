@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6558.829, g: 4994.067, b: 3403.4927, a: 1}
+  m_IndirectSpecularColor: {r: 6558.8447, g: 4993.9575, b: 3403.559, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4703,7 +4703,7 @@ GameObject:
   - component: {fileID: 312010978}
   - component: {fileID: 312010977}
   - component: {fileID: 312010976}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: COLLIDER
   m_TagString: Blinkblock
   m_Icon: {fileID: 0}
@@ -6758,7 +6758,7 @@ GameObject:
   - component: {fileID: 447141905}
   m_Layer: 0
   m_Name: Fog Of War (4)
-  m_TagString: Untagged
+  m_TagString: Blinkblock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16362,6 +16362,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00c55ef519019434d87bf54728021438, type: 3}
+--- !u!1 &801521588 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3807287017478864102, guid: 00c55ef519019434d87bf54728021438, type: 3}
+  m_PrefabInstance: {fileID: 801521587}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &801521591 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 243001530444969550, guid: 00c55ef519019434d87bf54728021438, type: 3}
@@ -23965,7 +23970,7 @@ GameObject:
   - component: {fileID: 1370877395}
   m_Layer: 0
   m_Name: Fog Of War (2)
-  m_TagString: Untagged
+  m_TagString: Blinkblock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -30402,6 +30407,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7536612109293498051, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: nameInput
+      value: 
+      objectReference: {fileID: 801521588}
+    - target: {fileID: -7536612109293498051, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: finishPanel
+      value: 
+      objectReference: {fileID: 433085937}
+    - target: {fileID: -7536612109293498051, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: timerDisplay
+      value: 
+      objectReference: {fileID: 801521592}
     - target: {fileID: 209428965428089303, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: finishPanel
       value: 
@@ -31385,7 +31402,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
 --- !u!114 &1482879132 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 209428965428089303, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+  m_CorrespondingSourceObject: {fileID: -7536612109293498051, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
   m_PrefabInstance: {fileID: 1482879131}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 546865733}
@@ -31626,7 +31643,7 @@ GameObject:
   - component: {fileID: 1495505329}
   m_Layer: 0
   m_Name: Fog Of War (3)
-  m_TagString: Untagged
+  m_TagString: Blinkblock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36611,7 +36628,7 @@ GameObject:
   - component: {fileID: 1520704157}
   - component: {fileID: 1520704156}
   - component: {fileID: 1520704155}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: COLLIDER
   m_TagString: Blinkblock
   m_Icon: {fileID: 0}
@@ -37767,7 +37784,7 @@ GameObject:
   - component: {fileID: 1603089484}
   - component: {fileID: 1603089483}
   - component: {fileID: 1603089482}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: COLLIDER
   m_TagString: Blinkblock
   m_Icon: {fileID: 0}
@@ -41170,7 +41187,7 @@ GameObject:
   - component: {fileID: 1815960611}
   m_Layer: 0
   m_Name: Fog Of War (5)
-  m_TagString: Untagged
+  m_TagString: Blinkblock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -49005,7 +49022,7 @@ GameObject:
   - component: {fileID: 2069789987}
   - component: {fileID: 2069789986}
   - component: {fileID: 2069789985}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: COLLIDER
   m_TagString: Blinkblock
   m_Icon: {fileID: 0}
@@ -50075,13 +50092,13 @@ SceneRoots:
   - {fileID: 1079525961}
   - {fileID: 2048718843}
   - {fileID: 801521587}
+  - {fileID: 1482879131}
   - {fileID: 799354440}
   - {fileID: 469207874}
   - {fileID: 1815960613}
   - {fileID: 447141907}
   - {fileID: 1370877397}
   - {fileID: 1495505331}
-  - {fileID: 1482879131}
   - {fileID: 1164696678}
   - {fileID: 4495393900696468326}
   - {fileID: 1123502432}

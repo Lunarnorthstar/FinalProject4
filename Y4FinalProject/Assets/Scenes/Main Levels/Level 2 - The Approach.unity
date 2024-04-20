@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6638.407, g: 5076.114, b: 3480.8208, a: 1}
+  m_IndirectSpecularColor: {r: 6638.454, g: 5076.1216, b: 3480.809, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6555,6 +6555,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7536612109293498051, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: nameInput
+      value: 
+      objectReference: {fileID: 1952785474}
+    - target: {fileID: -7536612109293498051, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: finishPanel
+      value: 
+      objectReference: {fileID: 726942245}
+    - target: {fileID: -7536612109293498051, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+      propertyPath: timerDisplay
+      value: 
+      objectReference: {fileID: 685811163}
     - target: {fileID: 209428965428089303, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: finishPanel
       value: 
@@ -7246,7 +7258,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
 --- !u!114 &556229108 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 209428965428089303, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+  m_CorrespondingSourceObject: {fileID: -7536612109293498051, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
   m_PrefabInstance: {fileID: 556229107}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
@@ -14343,7 +14355,7 @@ GameObject:
   - component: {fileID: 1129502825}
   - component: {fileID: 1129502824}
   - component: {fileID: 1129502823}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: COLLIDER
   m_TagString: Blinkblock
   m_Icon: {fileID: 0}
@@ -14887,7 +14899,7 @@ GameObject:
   - component: {fileID: 1215495053}
   - component: {fileID: 1215495052}
   - component: {fileID: 1215495051}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: COLLIDER
   m_TagString: Blinkblock
   m_Icon: {fileID: 0}
@@ -17649,7 +17661,7 @@ GameObject:
   - component: {fileID: 1804051328}
   - component: {fileID: 1804051327}
   - component: {fileID: 1804051326}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: COLLIDER
   m_TagString: Blinkblock
   m_Icon: {fileID: 0}
@@ -17958,6 +17970,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92dcfcff849fa834c83dae14a4c57f25, type: 3}
+--- !u!1 &1952785474 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3807287017478864102, guid: 00c55ef519019434d87bf54728021438, type: 3}
+  m_PrefabInstance: {fileID: 726942244}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1959154589 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8137037193455991456, guid: 0c5a8c91402235c47b5aee27b5c84c54, type: 3}
@@ -23008,7 +23025,7 @@ GameObject:
   - component: {fileID: 2001484617}
   - component: {fileID: 2001484616}
   - component: {fileID: 2001484615}
-  m_Layer: 2
+  m_Layer: 3
   m_Name: COLLIDER
   m_TagString: Blinkblock
   m_Icon: {fileID: 0}

@@ -173,7 +173,6 @@ public class JuiceBehaviours : MonoBehaviour
     public void playJumpAnimation()
     {
         walkAni.SetBool("jump", true);
-        Debug.Log(walkAni.GetBool("jump"));
     }
 
     public void playfootStep()

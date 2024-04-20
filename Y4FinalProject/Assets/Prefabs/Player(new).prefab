@@ -2002,12 +2002,12 @@ GameObject:
   - component: {fileID: 7683079130267281877}
   - component: {fileID: 4912140733957525477}
   - component: {fileID: 6554611238728626299}
-  - component: {fileID: 209428965428089303}
   - component: {fileID: 4457539464997032814}
   - component: {fileID: 1602628692272568796}
   - component: {fileID: 9047786906308234829}
   - component: {fileID: 7092140875933171672}
   - component: {fileID: 2369064654116496527}
+  - component: {fileID: -7536612109293498051}
   m_Layer: 6
   m_Name: Player(new)
   m_TagString: Player
@@ -2499,28 +2499,6 @@ MonoBehaviour:
   countdown: {fileID: 0}
   slider: {fileID: 0}
   equipped: 0
---- !u!114 &209428965428089303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4804837165726689245}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da76f9fd363be8b4c9cca82c25b36992, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PC: {fileID: 11400000, guid: a344158dcdf3c524bad703ccf9505535, type: 2}
-  levelTime: 0
-  timerDisplay: {fileID: 0}
-  timerActive: 0
-  significantDecimals: 2
-  lastTimesSaved: 10
-  finishPanel: {fileID: 0}
-  nameInput: {fileID: 0}
-  handler: {fileID: 6496619680366919905}
-  timerSpeedMultx60: 0
 --- !u!114 &4457539464997032814
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7571,6 +7549,28 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
+--- !u!114 &-7536612109293498051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4804837165726689245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da76f9fd363be8b4c9cca82c25b36992, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PC: {fileID: 11400000, guid: a344158dcdf3c524bad703ccf9505535, type: 2}
+  levelTime: 0
+  timerDisplay: {fileID: 0}
+  timerActive: 0
+  significantDecimals: 2
+  lastTimesSaved: 10
+  finishPanel: {fileID: 0}
+  nameInput: {fileID: 0}
+  handler: {fileID: 6496619680366919905}
+  timerSpeedMultx60: 0
 --- !u!1 &4840608093800416896
 GameObject:
   m_ObjectHideFlags: 0
@@ -13430,6 +13430,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7894964835133546545}
+  - component: {fileID: 4802524433838940396}
+  - component: {fileID: 8004662886534386340}
   m_Layer: 6
   m_Name: HumanBaseFinal (1)
   m_TagString: Untagged
@@ -13457,6 +13459,43 @@ Transform:
   - {fileID: 7790944719402577710}
   m_Father: {fileID: 8329050076016796603}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &4802524433838940396
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7411618889964305035}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 797f587dd0ce78b4084efaf240364d33, type: 3}
+  m_Controller: {fileID: 9100000, guid: 2309260f6bd5e6d42986abe9912dfeab, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8004662886534386340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7411618889964305035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcd114d2c47e2404791630afd53c31d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ikActive: 0
+  vaultPoint: {x: 0, y: 0, z: 0}
+  handDistance: 0.4
+  IKTime: 0
 --- !u!1 &7753856947102246394
 GameObject:
   m_ObjectHideFlags: 0

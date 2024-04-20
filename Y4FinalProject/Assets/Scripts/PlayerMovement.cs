@@ -138,7 +138,7 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         playerManager = GetComponent<PlayerManager>();
         ani = GetComponent<Animator>();
-        // playerIK = GetComponentInChildren<IKControl>();
+        playerIK = GetComponentInChildren<IKControl>();
         playerCamera = GetComponentInChildren<CameraMove>();
         powerUps = GetComponent<Powerups>();
 
@@ -149,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
         canJump = true;
     }
 
-    private float failsafe = 7;
+    private float failsafe = 8;
     private bool failsafebool = true;
     public void EndCutscene()
     {
@@ -356,7 +356,7 @@ public class PlayerMovement : MonoBehaviour
 
         ani.Play("Vault");
 
-        // playerIK.ikActive = true; //Touch stuff
+        playerIK.ikActive = true; //Touch stuff
 
         hasJustVaulted = true;
         InvokeRepeating("resetVaultBoost", 0, 0.05f);
@@ -580,33 +580,33 @@ public class PlayerMovement : MonoBehaviour
             case "vault":
                 RaycastHit hit;
                 Physics.Raycast(transform.position, transform.forward - transform.up, out hit, 10.0f);
-                // playerIK.vaultPoint = hit.point;
-                // playerIK.IKTime = IKGrabTime;
-                // playerIK.ikActive = true;
+                playerIK.vaultPoint = hit.point;
+                playerIK.IKTime = IKGrabTime;
+                playerIK.ikActive = true;
                 break;
             case "climb":
                 RaycastHit climbHit;
                 Physics.Raycast(transform.position, transform.forward, out climbHit, 10.0f);
-                // playerIK.vaultPoint = climbHit.point;
-                // playerIK.IKTime = 10000;
-                // playerIK.ikActive = true;
+                playerIK.vaultPoint = climbHit.point;
+                playerIK.IKTime = 10000;
+                playerIK.ikActive = true;
                 break;
             case "wallRunR":
                 RaycastHit WallRHit;
                 Physics.Raycast(transform.position + new Vector3(0, 0, 1), transform.forward + transform.right, out WallRHit, 10.0f);
-                // playerIK.vaultPoint = WallRHit.point;
-                // playerIK.IKTime = IKGrabTime;
-                // playerIK.ikActive = true;
+                playerIK.vaultPoint = WallRHit.point;
+                playerIK.IKTime = IKGrabTime;
+                playerIK.ikActive = true;
                 break;
             case "wallRunL":
                 RaycastHit WallLHit;
                 Physics.Raycast(transform.position + new Vector3(0, 0, 1), transform.forward - transform.right, out WallLHit, 10.0f);
-                // playerIK.vaultPoint = WallLHit.point;
-                // playerIK.IKTime = IKGrabTime;
-                // // playerIK.ikActive = true;
+                playerIK.vaultPoint = WallLHit.point;
+                playerIK.IKTime = IKGrabTime;
+                playerIK.ikActive = true;
                 break;
             case "release":
-                //                // playerIK.ikActive = false;
+                playerIK.ikActive = false;
                 break;
         }
     }
@@ -643,7 +643,7 @@ public class PlayerMovement : MonoBehaviour
         if (other.gameObject.CompareTag("VaultTrigger"))
         {
             isInVaultTrigger = false;
-            //// playerIK.ikActive = false; //Stop touching stuff.
+            playerIK.ikActive = false; //Stop touching stuff.
         }
 
         if (other.gameObject.CompareTag("ClimbTrigger"))

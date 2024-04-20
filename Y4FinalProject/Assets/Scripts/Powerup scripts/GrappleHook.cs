@@ -32,7 +32,9 @@ public class GrappleHook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mask = ~LayerMask.GetMask("MovingObject");
+        mask = LayerMask.GetMask("MovingObject");
+        mask += LayerMask.GetMask("Ignore Raycast");
+        mask = ~mask;
         lr = GetComponent<LineRenderer>();
     }
 

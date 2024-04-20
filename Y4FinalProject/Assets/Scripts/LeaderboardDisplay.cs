@@ -189,8 +189,8 @@ public class LeaderboardDisplay : MonoBehaviour
         dataScore = new LeaderboardStats[6];
         for (int i = 0; i < dataScore.Length; i++)
         {
-            dataScore[i].lastTimes = new List<float>(3);
-            dataScore[i].lastTimesHundred = new List<float>(3);
+            dataScore[i].lastTimes = new List<float>(10);
+            dataScore[i].lastTimesHundred = new List<float>(10);
         }
 
         string scoreJson = JsonHelper.ToJson(dataScore, true);
