@@ -476,9 +476,19 @@ public class PlayerMovement : MonoBehaviour
         if (controls.PlayerMovement.Grab.triggered && !isOnGround && isAgainstLedge && !isClimbing && !climbCool)
         {
             isClimbing = true;
-            transform.Translate(cameraHolder.transform.forward * -0.5f, Space.World);
-            transform.position =
-                new Vector3(transform.position.x, climbObject.transform.position.y, transform.position.z);
+
+            if (ladder)
+            {
+                //transform.Translate(cameraHolder.transform.forward * -0.5f, Space.World);
+                transform.position =
+                    new Vector3(transform.position.x, climbObject.transform.position.y + 1.8f, transform.position.z);
+            }
+            else
+            {
+                transform.Translate(cameraHolder.transform.forward * -0.5f, Space.World);
+                transform.position =
+                    new Vector3(transform.position.x, climbObject.transform.position.y, transform.position.z);
+            }
 
             GetIKTarget("climb");
         }
@@ -618,6 +628,7 @@ public class PlayerMovement : MonoBehaviour
     }
 
     private GameObject climbObject;
+    private bool ladder = false;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("VaultTrigger"))
@@ -627,7 +638,7 @@ public class PlayerMovement : MonoBehaviour
             GetIKTarget("vault"); //Find the point you grab and grab it
         }
 
-        if (other.gameObject.CompareTag("ClimbTrigger"))
+        if (other.gameObject.CompareTag("ClimbTrigger") || other.gameObject.CompareTag("Ladder"))
         {
             /*Transform[] childrenTransforms = other.transform.GetComponentsInChildren<Transform>();
             for (int i = 0; i < childrenTransforms.Length; i++)
@@ -644,6 +655,14 @@ public class PlayerMovement : MonoBehaviour
             }*/
             climbObject = other.gameObject;
             isAgainstLedge = true;
+            if (other.gameObject.CompareTag("Ladder"))
+            {
+                ladder = true;
+            }
+            else
+            {
+                ladder = false;
+            }
         }
     }
     private void OnTriggerExit(Collider other)
@@ -654,7 +673,7 @@ public class PlayerMovement : MonoBehaviour
             playerIK.ikActive = false; //Stop touching stuff.
         }
 
-        if (other.gameObject.CompareTag("ClimbTrigger"))
+        if (other.gameObject.CompareTag("ClimbTrigger") || other.gameObject.CompareTag("Ladder"))
         {
             ClimbLookTarget = null;
             hangPos = null;
