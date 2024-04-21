@@ -127,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
     public string wallFacingTag;
 
     private bool climbCool = false;
-    
+
     void Awake()
     {
         Time.timeScale = 1;
@@ -476,7 +476,9 @@ public class PlayerMovement : MonoBehaviour
         if (controls.PlayerMovement.Grab.triggered && !isOnGround && isAgainstLedge && !isClimbing && !climbCool)
         {
             isClimbing = true;
-            transform.Translate(-transform.forward * 0.5f);
+            transform.Translate(cameraHolder.transform.forward * -0.5f, Space.World);
+            transform.position =
+                new Vector3(transform.position.x, climbObject.transform.position.y, transform.position.z);
 
             GetIKTarget("climb");
         }
@@ -615,6 +617,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private GameObject climbObject;
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("VaultTrigger"))
@@ -639,6 +642,7 @@ public class PlayerMovement : MonoBehaviour
                         break;
                 }
             }*/
+            climbObject = other.gameObject;
             isAgainstLedge = true;
         }
     }
