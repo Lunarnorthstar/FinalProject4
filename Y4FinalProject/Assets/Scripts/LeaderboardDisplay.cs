@@ -59,7 +59,7 @@ public class LeaderboardDisplay : MonoBehaviour
             hundredLeaderboardTitle.text = "Best 100% Times (Tutorial)";
         }
 
-        leaderboard.text = dataScore[selector].highName + " " + CleanTimeConversion(dataScore[selector].highSave, 2) + "\n Last Times";
+        leaderboard.text = dataScore[selector].highName + " " + CleanTimeConversion(dataScore[selector].highSave, 2) + "\n \n Last Times";
 
         if (dataScore[selector].lastTimes.Count > 0)
         {
