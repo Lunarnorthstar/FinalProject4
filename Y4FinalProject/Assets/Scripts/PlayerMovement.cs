@@ -154,7 +154,16 @@ public class PlayerMovement : MonoBehaviour
     public void EndCutscene()
     {
         Debug.Log("Called");
+
+
+        string rebinds = PlayerPrefs.GetString("Rebinds", string.Empty);
+        if (!string.IsNullOrEmpty(rebinds))
+        {
+            controls.LoadBindingOverridesFromJson(rebinds);
+        }
+        
         controls.PlayerMovement.Enable();
+        
     }
 
     // Update is called once per frame
