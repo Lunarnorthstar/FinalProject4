@@ -154,7 +154,7 @@ public class TimerHandler : MonoBehaviour
 
     public void StopTimer()
     {
-        ResetRepeat();
+        //ResetRepeat();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         GetComponent<PlayerMovement>().controls.PlayerMovement.Disable();
