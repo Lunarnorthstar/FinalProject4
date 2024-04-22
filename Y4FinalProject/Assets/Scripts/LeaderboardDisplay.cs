@@ -21,6 +21,9 @@ public class LeaderboardDisplay : MonoBehaviour
     public TextMeshProUGUI leaderboardTitle;
     public TextMeshProUGUI hundredLeaderboardTitle;
 
+    public Button forwardButton;
+    public Button backwardButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,49 +48,33 @@ public class LeaderboardDisplay : MonoBehaviour
         filePath = Application.dataPath;
         Debug.Log(filePath);
         LoadGameStatus();
+        UpdateLeaderboard();
     }
 
     // Update is called once per frame
     void Update()
     {
-        leaderboardTitle.text = "Best Times (Level" + selector + ")";
-        hundredLeaderboardTitle.text = "Best 100% Times (Level" + selector + ")";
-
         if (selector == 0)
         {
-            leaderboardTitle.text = "Best Times (Tutorial)";
-            hundredLeaderboardTitle.text = "Best 100% Times (Tutorial)";
+            backwardButton.gameObject.SetActive(false);
         }
-
-        leaderboard.text = dataScore[selector].highName + " " + CleanTimeConversion(dataScore[selector].highSave, 2) + "\n \n Last Times";
-
-        if (dataScore[selector].lastTimes.Count > 0)
+        else
         {
-            int i = 0;
-            foreach (float score in dataScore[selector].lastTimes)
-            {
-                if (i < dataScore[selector].lastNames.Count)
-                {
-                    leaderboard.text += "\n" + dataScore[selector].lastNames[i] + " " + CleanTimeConversion(score, 2);
-                }
-                i++;
-            }
+            backwardButton.gameObject.SetActive(true);
         }
 
-        hundredpercentLeaderboard.text = dataScore[selector].highHundredName + " " + CleanTimeConversion(dataScore[selector].highHundredpercentSave, 2) + "\n Last Times";
-
-        if (dataScore[selector].lastTimesHundred.Count > 0)
+        if (selector == L.levels.Length - 1)
         {
-            int i = 0;
-            foreach (float score in dataScore[selector].lastTimesHundred)
-            {
-                if (i < dataScore[selector].lastHundredNames.Count)
-                {
-                    hundredpercentLeaderboard.text += "\n" + dataScore[selector].lastHundredNames[i] + " " + CleanTimeConversion(score, 2);
-                }
-                i++;
-            }
+            forwardButton.gameObject.SetActive(false);
         }
+        else
+        {
+            forwardButton.gameObject.SetActive(true);
+        }
+        
+        
+        
+        
 
         if (purgeActive)
         {
@@ -138,9 +125,50 @@ public class LeaderboardDisplay : MonoBehaviour
         }
         
         GameObject.FindObjectOfType<AudioManager>().buttonGeneral();
+        UpdateLeaderboard();
     }
-    
-    
+
+    public void UpdateLeaderboard()
+    {
+        leaderboardTitle.text = "Best Times (Level" + selector + ")";
+        hundredLeaderboardTitle.text = "Best 100% Times (Level" + selector + ")";
+
+        if (selector == 0)
+        {
+            leaderboardTitle.text = "Best Times (Tutorial)";
+            hundredLeaderboardTitle.text = "Best 100% Times (Tutorial)";
+        }
+
+        leaderboard.text = dataScore[selector].highName + " " + CleanTimeConversion(dataScore[selector].highSave, 2) + "\n \n Last Times";
+
+        if (dataScore[selector].lastTimes.Count > 0)
+        {
+            int i = 0;
+            foreach (float score in dataScore[selector].lastTimes)
+            {
+                if (i < dataScore[selector].lastNames.Count)
+                {
+                    leaderboard.text += "\n" + dataScore[selector].lastNames[i] + " " + CleanTimeConversion(score, 2);
+                }
+                i++;
+            }
+        }
+
+        hundredpercentLeaderboard.text = dataScore[selector].highHundredName + " " + CleanTimeConversion(dataScore[selector].highHundredpercentSave, 2) + "\n Last Times";
+
+        if (dataScore[selector].lastTimesHundred.Count > 0)
+        {
+            int i = 0;
+            foreach (float score in dataScore[selector].lastTimesHundred)
+            {
+                if (i < dataScore[selector].lastHundredNames.Count)
+                {
+                    hundredpercentLeaderboard.text += "\n" + dataScore[selector].lastHundredNames[i] + " " + CleanTimeConversion(score, 2);
+                }
+                i++;
+            }
+        }
+    }
     
     
     
@@ -202,5 +230,6 @@ public class LeaderboardDisplay : MonoBehaviour
         
         purgeButton.GetComponentInChildren<TextMeshProUGUI>().text = "Reset Leaderboards";
         Debug.Log("Your leaderboard data has been reset.");
+        UpdateLeaderboard();
     }
 }

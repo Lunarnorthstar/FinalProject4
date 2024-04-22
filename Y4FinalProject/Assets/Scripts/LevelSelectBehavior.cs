@@ -19,6 +19,8 @@ public class LevelSelectBehavior : MonoBehaviour
     public RawImage levelImage;
     public TextMeshProUGUI title;
     public TextMeshProUGUI description;
+    public Button forwardButton;
+    public Button backwardButton;
 
     // Update is called once per frame
     void Update()
@@ -26,6 +28,24 @@ public class LevelSelectBehavior : MonoBehaviour
         levelImage.texture = levelPictures[selection];
         title.text = levelTitles[selection];
         description.text = levelDescriptions[selection];
+
+        if (selection == 0)
+        {
+            backwardButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            backwardButton.gameObject.SetActive(true);
+        }
+
+        if (selection == levels.Length - 1)
+        {
+            forwardButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            forwardButton.gameObject.SetActive(true);
+        }
         
         
     }
@@ -38,11 +58,13 @@ public class LevelSelectBehavior : MonoBehaviour
         {
             selection = 0;
         }
+        
 
         if (selection >= levels.Length)
         {
             selection = levels.Length - 1;
         }
+        
 
         GameObject.FindObjectOfType<AudioManager>().buttonGeneral();
     }
