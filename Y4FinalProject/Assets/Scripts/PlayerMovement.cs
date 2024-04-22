@@ -161,7 +161,8 @@ public class PlayerMovement : MonoBehaviour
         {
             controls.LoadBindingOverridesFromJson(rebinds);
         }
-        
+
+        failsafebool = false;
         controls.PlayerMovement.Enable();
         
     }
@@ -316,8 +317,8 @@ public class PlayerMovement : MonoBehaviour
             }
             else if (!isAtMaxSpeed)
             {
-                rb.AddForce(transform.forward * xMove * accSpeed * airSpeedMultiplier * moveSpeedMult * Time.deltaTime);
-                rb.AddForce(transform.right * zMove * accStrafe * airSpeedMultiplier * moveSpeedMult * Time.deltaTime);
+                rb.AddForce(transform.forward * xMove * accSpeed * airSpeedMultiplier * /*moveSpeedMult * */ Time.deltaTime);
+                rb.AddForce(transform.right * zMove * accStrafe * airSpeedMultiplier * /*moveSpeedMult * */ Time.deltaTime);
             }
 
 
