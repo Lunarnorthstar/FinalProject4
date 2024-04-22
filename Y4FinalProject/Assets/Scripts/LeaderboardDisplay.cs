@@ -139,7 +139,7 @@ public class LeaderboardDisplay : MonoBehaviour
             hundredLeaderboardTitle.text = "Best 100% Times (Tutorial)";
         }
 
-        leaderboard.text = dataScore[selector].highName + " " + CleanTimeConversion(dataScore[selector].highSave, 2) + "\n \n Last Times";
+        leaderboard.text = dataScore[selector].highName + " " + CleanTimeConversion(dataScore[selector].highSave, 2) + "\n \n Previous Times";
 
         if (dataScore[selector].lastTimes.Count > 0)
         {
@@ -154,7 +154,7 @@ public class LeaderboardDisplay : MonoBehaviour
             }
         }
 
-        hundredpercentLeaderboard.text = dataScore[selector].highHundredName + " " + CleanTimeConversion(dataScore[selector].highHundredpercentSave, 2) + "\n Last Times";
+        hundredpercentLeaderboard.text = dataScore[selector].highHundredName + " " + CleanTimeConversion(dataScore[selector].highHundredpercentSave, 2) + "\n \n Previous Times";
 
         if (dataScore[selector].lastTimesHundred.Count > 0)
         {

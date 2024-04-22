@@ -48,7 +48,7 @@ public class SecondaryLeaderboard : MonoBehaviour
     void Update()
     {
         lastTimeDisplay.text = CleanTimeConversion(TH.levelTime, 2);
-        leaderboard.text =  dataScore[selector].highName + " " + CleanTimeConversion(dataScore[selector].highSave, 2) + "\n Last Times";
+        leaderboard.text =  "Best Time \n " + dataScore[selector].highName + " " + CleanTimeConversion(dataScore[selector].highSave, 2) + "\n \n Previous Times";
 
         if (dataScore[selector].lastTimes.Count > 0)
         {
@@ -63,7 +63,7 @@ public class SecondaryLeaderboard : MonoBehaviour
             }
         }
 
-        hundredpercentLeaderboard.text = "Area 100% Record \n" + dataScore[selector].highHundredName + " " + CleanTimeConversion(dataScore[selector].highHundredpercentSave, 2) + "\n Last Times";
+        hundredpercentLeaderboard.text = "Area 100% Best Time \n" + dataScore[selector].highHundredName + " " + CleanTimeConversion(dataScore[selector].highHundredpercentSave, 2) + "\n \n Previous Times";
 
         if (dataScore[selector].lastTimesHundred.Count > 0)
         {
