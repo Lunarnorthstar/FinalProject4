@@ -30,7 +30,7 @@ public struct LeaderboardStats
 
 public class TimerHandler : MonoBehaviour
 {
-    public float bandaidStopTimer = 0;
+    private bool bandaid = false;
     public PersistanceCounter PC;
     public float levelTime = 0;
     public GameObject timerDisplay;
@@ -165,8 +165,7 @@ public class TimerHandler : MonoBehaviour
         dataScore[levelIndex].previousSave = lastTime;
 
         //StopTimer is being called twice
-        if (bandaidStopTimer == 0)
-        {
+        
             if (lastTime < bestTime || bestTime <= 0) //If the time you just got is better than the best...
             {
                 bestTime = lastTime;
@@ -202,9 +201,7 @@ public class TimerHandler : MonoBehaviour
             {
                 InsertLastHundredTime(lastTime, "Anon");
             }
-            bandaidStopTimer = 1;
-        }
-        SaveGameStatus();
+            SaveGameStatus();
     }
 
     private int findMe;
@@ -228,7 +225,7 @@ public class TimerHandler : MonoBehaviour
             return;
         }
 
-        Debug.Log("WEEEEEEEEEEWOOOOOOOOOWEEEEEEEEEWOOOOOOOO WORST TIME IS: " + dataScore[levelIndex].lastTimes[^1]);
+        Debug.Log("WORST TIME IS: " + dataScore[levelIndex].lastTimes[^1]);
         if (time > dataScore[levelIndex].lastTimes[^1])
         {
             dataScore[levelIndex].lastNames.Add(name);
@@ -357,6 +354,15 @@ public class TimerHandler : MonoBehaviour
     {
         if (other.tag == "FinishTrigger")
         {
+            if (bandaid)
+            {
+                return;
+            }
+
+            bandaid = true; //Because Unity is dumb and calls this function twice for LITERALLY NO REASON
+            
+            
+            Debug.Log(other.gameObject.name);
             finishPanel.SetActive(true);
             gameObject.GetComponent<PlayerManager>().lockMouse();
             gameObject.GetComponent<PlayerMovement>().controls.Disable();

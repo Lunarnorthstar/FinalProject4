@@ -582,7 +582,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Physics.Raycast(transform.position, transform.up, 0.6f)) //If there's something above you...
         {
-            Debug.Log("Bonk");
+            //Debug.Log("Bonk");
             rb.AddForce(transform.forward * 25 * Time.deltaTime, ForceMode.Impulse); //Go forward so there isn't
         }
         

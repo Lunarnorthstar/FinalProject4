@@ -43,9 +43,7 @@ public class TerrainHandler : MonoBehaviour
             {
                 if (modifiesMoveSpeed)
                 {
-                    Debug.Log("MULT:" + moveSpeedMult);
                     target.moveSpeedMult = moveSpeedMult;
-                    Debug.Log("MULTAFTER:" + moveSpeedMult);
                 }
 
                 if (modifiesJumpHeight)

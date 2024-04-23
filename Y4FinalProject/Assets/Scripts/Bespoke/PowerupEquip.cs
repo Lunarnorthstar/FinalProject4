@@ -44,8 +44,6 @@ public class PowerupEquip : MonoBehaviour
                     break;
                 case "dash":
                     dashButton.GetComponentInParent<Animator>().Play("DashSelect");
-                    Debug.Log("nfdo");
-
                     break;
                 case "glider":
                     glideButton.GetComponentInParent<Animator>().Play("GlideSelect");
