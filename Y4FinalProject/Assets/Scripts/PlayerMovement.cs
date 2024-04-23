@@ -580,8 +580,18 @@ public class PlayerMovement : MonoBehaviour
             // hasSlid = true; //you were just in a slide - only way for variable to change is with a release of the slide button
         }
 
+        if (Physics.Raycast(transform.position, transform.up, 0.6f)) //If there's something above you...
+        {
+            Debug.Log("Bonk");
+            rb.AddForce(transform.forward * 25 * Time.deltaTime, ForceMode.Impulse); //Go forward so there isn't
+        }
+        
         if (isSliding && HorizontalVelocityf <= slideStopSpeed)//if currently sliding but then go too slow, no slide for u  
         {
+            
+            
+            
+            
             isSliding = false;
             hasSlid = true; //you were just in a slide - only way for variable to change is with a release of the slide button
         }
