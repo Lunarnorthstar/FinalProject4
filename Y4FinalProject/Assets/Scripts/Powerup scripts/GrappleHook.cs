@@ -83,18 +83,18 @@ public class GrappleHook : MonoBehaviour
         RaycastHit project;
         if (Physics.Raycast(transform.position, playerCam.transform.forward, out project, grappleRange, mask)) //If it's hitting something you can grapple to...
         {
-            grappleShadow.GetComponent<RawImage>().color = shadowValid;
+            grappleShadow.GetComponent<Image>().color = shadowValid;
         }
         else if (Physics.Raycast(transform.position, playerCam.transform.forward, out project)) //Otherwise, if it's hitting anything at all...
         {
-            grappleShadow.GetComponent<RawImage>().color = shadowInvalid;
+            grappleShadow.GetComponent<Image>().color = shadowInvalid;
         }
 
 
 
         if (!ready)
         {
-            grappleShadow.GetComponent<RawImage>().color = shadowInvalid;
+            grappleShadow.GetComponent<Image>().color = shadowInvalid;
         }
 
 
