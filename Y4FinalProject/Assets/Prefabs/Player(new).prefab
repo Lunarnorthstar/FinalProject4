@@ -2132,6 +2132,8 @@ MonoBehaviour:
   isMouseLocked: 0
   isonGroundClearance: 1.05
   wallRunClearance: 1.5
+  CurrentSurface: 
+  isLockedAudio: 0
 --- !u!54 &5168208971755655890
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2574,9 +2576,10 @@ MonoBehaviour:
   isOnGround_: 1
   walkAni: {fileID: 315422648236467302}
   verticalVelocity: 0
-  lowImpactThreshold: 13
+  lowImpactThreshold: 10
+  medImpactThreshold: 13
   highImpactTheshold: 16
-  defaultFov: 75
+  defaultFov: 70
   fovChange:
     serializedVersion: 2
     m_Curve:
@@ -2648,12 +2651,13 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   speedParticleAMount: 400
-  landImpact: {fileID: 2806632260062223613, guid: 2292acef6cf858644b4c28efdfd663bb, type: 3}
-  jumpParticle: {fileID: 302474103496762684, guid: f61f9b596e9845844b073afccfdc316f, type: 3}
+  landImpact: {fileID: 0}
+  jumpParticle: {fileID: 0}
   headBobToggle: {fileID: 0}
   powerUpIndicator: {fileID: 8313011171880000269}
   powerupIndicatorGood: {fileID: 2100000, guid: a1ef83675f6f98140b041ffd11b73a71, type: 2}
   powerupIndicatorNoGood: {fileID: 2100000, guid: 4275726a6142613459254bc6b0ad8851, type: 2}
+  currentTerrain: 
 --- !u!120 &9047786906308234829
 LineRenderer:
   serializedVersion: 2
@@ -7563,7 +7567,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da76f9fd363be8b4c9cca82c25b36992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bandaidStopTimer: 0
   PC: {fileID: 11400000, guid: a344158dcdf3c524bad703ccf9505535, type: 2}
   levelTime: 0
   timerDisplay: {fileID: 0}

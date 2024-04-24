@@ -159,11 +159,12 @@ public class Glider : MonoBehaviour
     {
         if (!isCoolingDown)
         {
-            GetComponent<JuiceBehaviours>().playPowerupAni(true);
-
+            if (!isEnabled)
+            {
+                AudioManager.instance.GenerateSound(AudioReference.instance.glideDeploy, Vector3.zero);
+                GetComponent<JuiceBehaviours>().playPowerupAni(true);
+            }
             isEnabled = true;
-
-            AudioManager.instance.GenerateSound(AudioReference.instance.glideDeploy, Vector3.zero);
         }
         else
         {

@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class JuiceBehaviours : MonoBehaviour
 {
     public PlayerMovement playerMovement;
+    PlayerManager playerManager;
 
     public bool canBob;
     public float currentSpeed;
@@ -22,6 +23,7 @@ public class JuiceBehaviours : MonoBehaviour
 
     public float verticalVelocity;
     public float lowImpactThreshold;
+    public float medImpactThreshold;
     public float highImpactTheshold;
     bool isDueForImpact;
 
@@ -46,9 +48,11 @@ public class JuiceBehaviours : MonoBehaviour
     public Material powerupIndicatorGood;
     public Material powerupIndicatorNoGood;
 
+    public string currentTerrain;
+
     void Start()
     {
-        //cam = Camera.main;
+        playerManager = GetComponent<PlayerManager>();
 
         //load settings
         if (headBobToggle)
@@ -129,33 +133,38 @@ public class JuiceBehaviours : MonoBehaviour
         //particles
         var emission = speedParticles.emission;
         emission.rateOverTime = speedParticleMulti.Evaluate(lerpSpeed) * speedParticleAMount;
+
+        //get in audio data from current terrain
+
+        currentTerrain = playerManager.CurrentSurface;
     }
 
     void playImpact()
     {
+        return;
 
         if (Mathf.Abs(verticalVelocity) >= highImpactTheshold)
         {
             AudioManager.instance.GenerateSound(AudioReference.instance.landHard, Vector3.zero);
             //walkAni.SetTrigger("hard Landing");
-            GameObject landingParticleTemp = GameObject.Instantiate(landImpact, particleSpawnPoint.position, Quaternion.identity);
-            Destroy(landingParticleTemp, 1f);
+            //  GameObject landingParticleTemp = GameObject.Instantiate(landImpact, particleSpawnPoint.position, Quaternion.identity);
+            // Destroy(landingParticleTemp, 1f);
         }
-        else if (Mathf.Abs(verticalVelocity) >= lowImpactThreshold)
+        else if (Mathf.Abs(verticalVelocity) >= medImpactThreshold)
         {
             AudioManager.instance.GenerateSound(AudioReference.instance.landMedium, Vector3.zero);
             walkAni.SetTrigger("medium Landing");
 
-            GameObject landingParticleTemp = GameObject.Instantiate(landImpact, particleSpawnPoint.position, Quaternion.identity);
-            Destroy(landingParticleTemp, 1f);
+            //GameObject landingParticleTemp = GameObject.Instantiate(landImpact, particleSpawnPoint.position, Quaternion.identity);
+            // Destroy(landingParticleTemp, 1f);
         }
-        else
+        else if (Mathf.Abs(verticalVelocity) >= lowImpactThreshold)
         {
             AudioManager.instance.GenerateSound(AudioReference.instance.landSoft, Vector3.zero);
             walkAni.SetTrigger("soft Landing");
 
-            GameObject landingParticleTemp = GameObject.Instantiate(landImpact, particleSpawnPoint.position, Quaternion.identity);
-            Destroy(landingParticleTemp, 1f);
+            //            GameObject landingParticleTemp = GameObject.Instantiate(landImpact, particleSpawnPoint.position, Quaternion.identity);
+            //Destroy(landingParticleTemp, 1f);
         }
 
     }
@@ -177,7 +186,33 @@ public class JuiceBehaviours : MonoBehaviour
 
     public void playfootStep()
     {
-        AudioManager.instance.GenerateSound(AudioReference.instance.walk, Vector3.zero);
+        switch (currentTerrain)
+        {
+            case ("hard"):
+                AudioManager.instance.GenerateSound(AudioReference.instance.hardStep, Vector3.zero);
+                break;
+            case ("grass"):
+                AudioManager.instance.GenerateSound(AudioReference.instance.grassStep, Vector3.zero);
+                break;
+            case ("mulch"):
+                AudioManager.instance.GenerateSound(AudioReference.instance.mulchyStep, Vector3.zero);
+                break;
+            case ("metal"):
+                AudioManager.instance.GenerateSound(AudioReference.instance.metalStep, Vector3.zero);
+                break;
+            case ("wood"):
+                AudioManager.instance.GenerateSound(AudioReference.instance.woodStep, Vector3.zero);
+                break;
+            case ("unkown"):
+                AudioManager.instance.GenerateSound(AudioReference.instance.hardStep, Vector3.zero);
+                break;
+            default:
+                AudioManager.instance.GenerateSound(AudioReference.instance.hardStep, Vector3.zero);
+                break;
+        }
+
+        AudioManager.instance.GenerateSound(AudioReference.instance.robotWhir, Vector3.zero);
+
     }
 
     public void playSlideSound()
