@@ -400,10 +400,10 @@ public class TimerHandler : MonoBehaviour
         {
             dataScore[levelIndex].highName = name;
         }
-        else if (findMe == 0)
+        /*else if (findMe == 0)
         {
             dataScore[levelIndex].lastNames[1] = name;
-        }
+        }*/
         else
         {
             dataScore[levelIndex].lastNames[findMe] = name;
