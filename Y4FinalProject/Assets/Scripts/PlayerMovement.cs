@@ -215,8 +215,8 @@ public class PlayerMovement : MonoBehaviour
         if (controls.PlayerMovement.Reset.triggered)
         {
             //Restart the scene twice isnt a great solution, but worry about later if time
-            //SceneManager.LoadSceneAsync(
-                //SceneManager.GetActiveScene().buildIndex);
+            SceneManager.LoadSceneAsync(
+                SceneManager.GetActiveScene().buildIndex);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 
         }
