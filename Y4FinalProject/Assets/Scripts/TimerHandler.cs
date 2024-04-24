@@ -177,7 +177,7 @@ public class TimerHandler : MonoBehaviour
                 dataScore[levelIndex].highName = "ANON"; //Placehold the name
 
             }
-            else if (dataScore[levelIndex].lastTimes.Count != 0)//If it's not the new best time...
+            else /*if (dataScore[levelIndex].lastTimes.Count != 0)//If it's not the new best time...*/
             {
                 Debug.Log("Not the best time is being called");
 
@@ -230,6 +230,7 @@ public class TimerHandler : MonoBehaviour
         {
             dataScore[levelIndex].lastNames.Add(name);
             dataScore[levelIndex].lastTimes.Add(time);
+            findMe = dataScore[levelIndex].lastNames.Count - 1;
             return;
         }
 
@@ -269,10 +270,11 @@ public class TimerHandler : MonoBehaviour
 
 
 
-        if (time > dataScore[levelIndex].lastTimesHundred[^1])
+        if (time > dataScore[levelIndex].lastTimesHundred[^1] && dataScore[levelIndex].lastTimesHundred.Count < lastTimesSaved)
         {
             dataScore[levelIndex].lastHundredNames.Add(name);
             dataScore[levelIndex].lastTimesHundred.Add(time);
+            findMe = dataScore[levelIndex].lastHundredNames.Count - 1;
             return;
         }
 
@@ -400,6 +402,10 @@ public class TimerHandler : MonoBehaviour
         {
             dataScore[levelIndex].highName = name;
         }
+        /*else if (dataScore[levelIndex].lastNames.Count == 0)
+        {
+            dataScore[levelIndex].lastNames.Add(name);
+        }*/
         else
         {
             dataScore[levelIndex].lastNames[findMe] = name;
