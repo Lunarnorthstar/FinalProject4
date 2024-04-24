@@ -219,14 +219,14 @@ public class TimerHandler : MonoBehaviour
         
         if (dataScore[levelIndex].lastTimes.Count == 0)
         {
-            dataScore[levelIndex].lastTimes.Insert(0, time);
-            dataScore[levelIndex].lastNames.Insert(0, name);
+            dataScore[levelIndex].lastTimes.Add(time);
+            dataScore[levelIndex].lastNames.Add(name);
             findMe = 0;
             return;
         }
 
         Debug.Log("WORST TIME IS: " + dataScore[levelIndex].lastTimes[^1]);
-        if (time > dataScore[levelIndex].lastTimes[^1])
+        if (time > dataScore[levelIndex].lastTimes[^1] && dataScore[levelIndex].lastTimes.Count < lastTimesSaved)
         {
             dataScore[levelIndex].lastNames.Add(name);
             dataScore[levelIndex].lastTimes.Add(time);
@@ -400,17 +400,11 @@ public class TimerHandler : MonoBehaviour
         {
             dataScore[levelIndex].highName = name;
         }
-        /*else if (findMe == 0)
-        {
-            dataScore[levelIndex].lastNames[1] = name;
-        }*/
         else
         {
             dataScore[levelIndex].lastNames[findMe] = name;
         }
         
-        
-
         if (handler.hundredpercent && (lastTime == bestHundredpercentTime || bestHundredpercentTime <= 0))
         {
             dataScore[levelIndex].highHundredName = name;
