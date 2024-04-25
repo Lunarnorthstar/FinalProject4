@@ -34,6 +34,7 @@ public class GrappleHook : MonoBehaviour
     {
         mask = LayerMask.GetMask("MovingObject");
         mask += LayerMask.GetMask("Ignore Raycast");
+        mask += LayerMask.GetMask("Train");
         mask = ~mask;
         lr = GetComponent<LineRenderer>();
     }
@@ -129,6 +130,8 @@ public class GrappleHook : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, playerCam.transform.forward, out hit, grappleRange, mask))
         {
+
+            Debug.Log(hit.collider.gameObject.name);
             GetComponent<JuiceBehaviours>().playPowerupAni(true);
 
             AudioManager.instance.GenerateSound(AudioReference.instance.grappleDeploy, Vector3.zero);
