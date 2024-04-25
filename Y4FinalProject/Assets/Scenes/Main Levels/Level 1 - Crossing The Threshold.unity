@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6558.8447, g: 4993.9575, b: 3403.559, a: 1}
+  m_IndirectSpecularColor: {r: 6558.829, g: 4994.067, b: 3403.4927, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -329,6 +329,7 @@ GameObject:
   - component: {fileID: 39482516}
   - component: {fileID: 39482515}
   - component: {fileID: 39482514}
+  - component: {fileID: 39482519}
   m_Layer: 0
   m_Name: TreeLog (26)
   m_TagString: Blinkblock
@@ -445,6 +446,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -277.577}
+--- !u!114 &39482519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39482513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &42734374 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2759482209480902050, guid: 0f11ea5627ccaa04a9bca4b9733ed161, type: 3}
@@ -551,6 +565,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 32f08b5ccd85327439a478f43f76846e, type: 3}
   m_PrefabInstance: {fileID: 45538471}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &49781126 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6503749967180322697, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &49781130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49781126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &51180147
 GameObject:
   m_ObjectHideFlags: 0
@@ -564,6 +596,7 @@ GameObject:
   - component: {fileID: 51180150}
   - component: {fileID: 51180149}
   - component: {fileID: 51180148}
+  - component: {fileID: 51180153}
   m_Layer: 0
   m_Name: TreeLog (5)
   m_TagString: Blinkblock
@@ -680,6 +713,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &51180153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 51180147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1001 &53321393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -825,6 +871,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4985686033841965610, guid: 3e123344afb12f641ad16d6719071183, type: 3}
   m_PrefabInstance: {fileID: 62610125}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &64547702 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5154887916668554085, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &64547706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 64547702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &65675529 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f08b5ccd85327439a478f43f76846e, type: 3}
@@ -1096,9 +1160,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.01
+  near clip plane: 0.1
   far clip plane: 5000
-  field of view: 70.00001
+  field of view: 75
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -1124,8 +1188,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 66671358}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -76.86, y: 18.788, z: -54.85}
+  m_LocalRotation: {x: 0.045374814, y: 0.32343492, z: -0.015529383, w: 0.9450343}
+  m_LocalPosition: {x: -90.03396, y: 49.17188, z: -55.757305}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1374,6 +1438,24 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1471724454}
   m_SourcePrefab: {fileID: 100100000, guid: 169eb79af33c9b14aa71702ae0863330, type: 3}
+--- !u!1 &77168003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1393087574505548577, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &77168008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77168003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &77732472
 GameObject:
   m_ObjectHideFlags: 0
@@ -1387,6 +1469,7 @@ GameObject:
   - component: {fileID: 77732475}
   - component: {fileID: 77732474}
   - component: {fileID: 77732473}
+  - component: {fileID: 77732478}
   m_Layer: 0
   m_Name: TreeLog (17)
   m_TagString: Blinkblock
@@ -1503,6 +1586,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 83.435}
+--- !u!114 &77732478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 77732472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &81113383 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f08b5ccd85327439a478f43f76846e, type: 3}
@@ -1552,6 +1648,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &81204582 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1144560638802867910, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &81204587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81204582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &90463440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1899,6 +2013,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6855290115760218767, guid: e3ed7c3b2124c4b4fb204a58fd738da1, type: 3}
   m_PrefabInstance: {fileID: 135717544}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &148917086 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3945406894342967361, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &148917090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 148917086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &150933575
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1996,6 +2128,7 @@ GameObject:
   - component: {fileID: 152552084}
   - component: {fileID: 152552083}
   - component: {fileID: 152552082}
+  - component: {fileID: 152552087}
   m_Layer: 0
   m_Name: TreeLog (43)
   m_TagString: Blinkblock
@@ -2112,6 +2245,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &152552087
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152552081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &154974653
 GameObject:
   m_ObjectHideFlags: 0
@@ -2244,6 +2390,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5798157943916587367, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &157129206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 157129198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &158736855 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f08b5ccd85327439a478f43f76846e, type: 3}
@@ -2293,6 +2452,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &160712167 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7950726017061241542, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &160712172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160712167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: 
 --- !u!1 &168000333 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5296247751948953000, guid: f0addf14abb812546a0b3af41c22fafb, type: 3}
@@ -2402,6 +2579,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4985686033841965610, guid: 3e123344afb12f641ad16d6719071183, type: 3}
   m_PrefabInstance: {fileID: 168609319}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &173379981 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7832529139748345198, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &173379986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173379981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &173757059
 GameObject:
   m_ObjectHideFlags: 0
@@ -2415,6 +2610,7 @@ GameObject:
   - component: {fileID: 173757062}
   - component: {fileID: 173757061}
   - component: {fileID: 173757060}
+  - component: {fileID: 173757065}
   m_Layer: 0
   m_Name: TreeLog (36)
   m_TagString: Blinkblock
@@ -2531,6 +2727,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -143.55}
+--- !u!114 &173757065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 173757059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1001 &180125825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2655,6 +2864,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6870234349218361675, guid: 50c7d67e0c10daf45a2e4a7bc72c6857, type: 3}
   m_PrefabInstance: {fileID: 183110193}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &185961096 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 556497724124199887, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &185961101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185961096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
+--- !u!1 &185984964 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6201020924626376759, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &185984968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185984964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &193663055 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2777306831678491992, guid: 00c55ef519019434d87bf54728021438, type: 3}
@@ -2692,6 +2937,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6527112190105385453, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &197603369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 197603361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &198270771 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2680188184998636794, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -2732,6 +2990,7 @@ GameObject:
   - component: {fileID: 204569458}
   - component: {fileID: 204569457}
   - component: {fileID: 204569456}
+  - component: {fileID: 204569461}
   m_Layer: 0
   m_Name: TreeLog (41)
   m_TagString: Blinkblock
@@ -2848,6 +3107,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &204569461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 204569455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!4 &205899470 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 169eb79af33c9b14aa71702ae0863330, type: 3}
@@ -3295,6 +3567,7 @@ GameObject:
   - component: {fileID: 209503062}
   - component: {fileID: 209503061}
   - component: {fileID: 209503060}
+  - component: {fileID: 209503065}
   m_Layer: 0
   m_Name: TreeLog (32)
   m_TagString: Blinkblock
@@ -3411,6 +3684,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &209503065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209503059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &211196040
 GameObject:
   m_ObjectHideFlags: 0
@@ -3490,6 +3776,24 @@ Transform:
   - {fileID: 1211028148}
   m_Father: {fileID: 901170525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &216333525 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7987599122732055485, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &216333529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 216333525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &225017764 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1972481180161191016, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -3691,6 +3995,7 @@ GameObject:
   - component: {fileID: 233506129}
   - component: {fileID: 233506128}
   - component: {fileID: 233506127}
+  - component: {fileID: 233506131}
   m_Layer: 0
   m_Name: Object010
   m_TagString: Untagged
@@ -3785,6 +4090,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 901170525}
   m_LocalEulerAnglesHint: {x: 1.782, y: -0.252, z: -8.056}
+--- !u!114 &233506131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233506126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: hard
 --- !u!1001 &233829823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4014,6 +4332,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1658199413673387437, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &258278562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258278554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &262488386
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4086,6 +4417,24 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1416587859}
   m_SourcePrefab: {fileID: 100100000, guid: 991b8e056ca70194e84882fee463f9b3, type: 3}
+--- !u!1 &267914284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3577347658671251060, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &267914288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267914284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &270038927 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5444038124119190370, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -4113,6 +4462,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1141464603633071787, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &270038935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270038927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &270126453
 GameObject:
   m_ObjectHideFlags: 0
@@ -4231,7 +4593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TerrainType: metal
+  TerrainType: hard
 --- !u!1001 &270309774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4655,7 +5017,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TerrainType: metal
+  TerrainType: hard
 --- !u!1 &280529217 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2759482209480902050, guid: 0f11ea5627ccaa04a9bca4b9733ed161, type: 3}
@@ -4674,6 +5036,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TerrainType: hard
+--- !u!1 &282883365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7361220955479842248, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &282883370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282883365}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &286249419 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f08b5ccd85327439a478f43f76846e, type: 3}
@@ -4892,6 +5272,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4399843388218701863, guid: 80ea6d0efc5a82947a5672e3c9d33c26, type: 3}
+--- !u!1 &303127921 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3590110789168181045, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &303127926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303127921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &312010974
 GameObject:
   m_ObjectHideFlags: 0
@@ -5056,6 +5454,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -353145847419166158, guid: 80ea6d0efc5a82947a5672e3c9d33c26, type: 3}
+--- !u!1 &319761150 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1294357257273535715, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &319761154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 319761150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &327750145 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7268109815524260122, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -5096,6 +5512,7 @@ GameObject:
   - component: {fileID: 328454057}
   - component: {fileID: 328454056}
   - component: {fileID: 328454055}
+  - component: {fileID: 328454060}
   m_Layer: 0
   m_Name: TreeLog (7)
   m_TagString: Blinkblock
@@ -5212,6 +5629,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &328454060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 328454054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1001 &332600163
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5275,6 +5705,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6855290115760218767, guid: e3ed7c3b2124c4b4fb204a58fd738da1, type: 3}
   m_PrefabInstance: {fileID: 332600163}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &337566379 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3152075136883768622, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &337566384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 337566379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &339612676
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5614,6 +6062,7 @@ GameObject:
   - component: {fileID: 364539269}
   - component: {fileID: 364539268}
   - component: {fileID: 364539267}
+  - component: {fileID: 364539272}
   m_Layer: 0
   m_Name: TreeLog (11)
   m_TagString: Blinkblock
@@ -5730,6 +6179,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 134.204}
+--- !u!114 &364539272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364539266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &366240950 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f08b5ccd85327439a478f43f76846e, type: 3}
@@ -6158,6 +6620,7 @@ GameObject:
   - component: {fileID: 391312815}
   - component: {fileID: 391312814}
   - component: {fileID: 391312813}
+  - component: {fileID: 391312817}
   m_Layer: 0
   m_Name: Object009
   m_TagString: Untagged
@@ -6184,7 +6647,7 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4944557015945844418, guid: 66e6d475c6d5e384c9dd63d9cb1aa9e3, type: 3}
 --- !u!23 &391312814
@@ -6252,6 +6715,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 901170525}
   m_LocalEulerAnglesHint: {x: -2.054, y: 0, z: 19.173}
+--- !u!114 &391312817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391312812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: hard
 --- !u!1 &402441943 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4173619513432958541, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -6341,6 +6817,7 @@ GameObject:
   - component: {fileID: 408518611}
   - component: {fileID: 408518610}
   - component: {fileID: 408518609}
+  - component: {fileID: 408518614}
   m_Layer: 0
   m_Name: TreeLog (4)
   m_TagString: Blinkblock
@@ -6457,6 +6934,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &408518614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408518608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &412709442 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7045330552219578825, guid: e7177c29521714c459ac35f5106e1d82, type: 3}
@@ -6656,6 +7146,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7643229109163234770, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &419894484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419894476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &420166186
 GameObject:
   m_ObjectHideFlags: 0
@@ -6774,7 +7277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TerrainType: metal
+  TerrainType: hard
 --- !u!1001 &424395320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6995,6 +7498,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5539292401989558479, guid: 80ea6d0efc5a82947a5672e3c9d33c26, type: 3}
+--- !u!1 &443835729 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2866249050241702240, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &443835733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 443835729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &447141904
 GameObject:
   m_ObjectHideFlags: 0
@@ -11879,6 +12400,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6637382640520475244, guid: 80ea6d0efc5a82947a5672e3c9d33c26, type: 3}
+--- !u!1 &457694703 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 824239538243412696, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &457694707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 457694703}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &458194514
 GameObject:
   m_ObjectHideFlags: 0
@@ -12357,6 +12896,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3e6eee601a6a68340a67ed38579db110, type: 3}
   m_PrefabInstance: {fileID: 473286623}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &473318803 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4773051646931739806, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &473318808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 473318803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &479741317 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 169eb79af33c9b14aa71702ae0863330, type: 3}
@@ -12388,6 +12945,7 @@ GameObject:
   - component: {fileID: 480209322}
   - component: {fileID: 480209321}
   - component: {fileID: 480209320}
+  - component: {fileID: 480209325}
   m_Layer: 0
   m_Name: TreeLog (23)
   m_TagString: Blinkblock
@@ -12504,6 +13062,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &480209325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 480209319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &488349325
 GameObject:
   m_ObjectHideFlags: 0
@@ -12517,6 +13088,7 @@ GameObject:
   - component: {fileID: 488349328}
   - component: {fileID: 488349327}
   - component: {fileID: 488349326}
+  - component: {fileID: 488349331}
   m_Layer: 0
   m_Name: TreeLog (48)
   m_TagString: Blinkblock
@@ -12633,6 +13205,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -253.268}
+--- !u!114 &488349331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488349325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &492432944 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6255113497265411632, guid: 169eb79af33c9b14aa71702ae0863330, type: 3}
@@ -12931,6 +13516,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6018422378889459822, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &509930245
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509930237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &516380397
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13117,10 +13715,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1644755842556632618, guid: 0ff6a8e1b7c22a9409b52a638135285e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 693170714}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ff6a8e1b7c22a9409b52a638135285e, type: 3}
 --- !u!4 &522310706 stripped
 Transform:
@@ -13505,6 +14100,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6527112190105385453, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &524825624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524825616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!114 &535837120 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5067579232876817798, guid: 00c55ef519019434d87bf54728021438, type: 3}
@@ -13654,13 +14262,34 @@ PrefabInstance:
     - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 165496624654412659, guid: 006b22c511a3eb44fa30fcf76ebfd8fb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2144193671}
   m_SourcePrefab: {fileID: 100100000, guid: 006b22c511a3eb44fa30fcf76ebfd8fb, type: 3}
 --- !u!4 &558170878 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 597338777762745409, guid: 006b22c511a3eb44fa30fcf76ebfd8fb, type: 3}
   m_PrefabInstance: {fileID: 558170877}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &563013228 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6364008692199929477, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &563013233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563013228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!114 &567042562 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1128479881501749094, guid: 00c55ef519019434d87bf54728021438, type: 3}
@@ -13746,10 +14375,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1644755842556632618, guid: 0ff6a8e1b7c22a9409b52a638135285e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1082885161}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ff6a8e1b7c22a9409b52a638135285e, type: 3}
 --- !u!1 &595012253
 GameObject:
@@ -14077,6 +14703,42 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1851261269}
   m_SourcePrefab: {fileID: 100100000, guid: 0f11ea5627ccaa04a9bca4b9733ed161, type: 3}
+--- !u!1 &614124284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4437857441034612663, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &614124288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614124284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
+--- !u!1 &622699236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9181536722099790995, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &622699239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622699236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: 
 --- !u!1 &623588926 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 295454877887403944, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -14391,6 +15053,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -346524354640381961, guid: d5922187bebe748499908c163a0b0e4a, type: 3}
+--- !u!114 &642607956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642607944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &643501432 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2441718917821888020, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -14418,6 +15093,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3941715523697911101, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &643501440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 643501432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &643971063
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14653,6 +15341,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4399843388218701863, guid: 80ea6d0efc5a82947a5672e3c9d33c26, type: 3}
+--- !u!1 &665740338 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8542965110166377507, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &665740343
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665740338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &667279977
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14815,6 +15521,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 32f08b5ccd85327439a478f43f76846e, type: 3}
   m_PrefabInstance: {fileID: 672078718}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &678537465 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1478470905401982423, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &678537469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678537465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &683653203
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15102,24 +15826,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6855290115760218767, guid: e3ed7c3b2124c4b4fb204a58fd738da1, type: 3}
   m_PrefabInstance: {fileID: 691980026}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &693170713 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1644755842556632618, guid: 0ff6a8e1b7c22a9409b52a638135285e, type: 3}
-  m_PrefabInstance: {fileID: 522310705}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &693170714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 693170713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TerrainType: wood
 --- !u!1 &707787669 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3319250466524411009, guid: 991b8e056ca70194e84882fee463f9b3, type: 3}
@@ -15170,6 +15876,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6637382640520475244, guid: 80ea6d0efc5a82947a5672e3c9d33c26, type: 3}
+--- !u!1 &711186276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1304926808278925300, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &711186281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711186276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &714760383 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5550347470066860586, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -15197,6 +15921,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 7643229109163234770, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &714760391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 714760383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &716989732 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2467294569036018473, guid: e7177c29521714c459ac35f5106e1d82, type: 3}
@@ -15224,6 +15961,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5539292401989558479, guid: 80ea6d0efc5a82947a5672e3c9d33c26, type: 3}
+--- !u!1 &720068584 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7299227283290045568, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &720068588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 720068584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &728723319
 GameObject:
   m_ObjectHideFlags: 0
@@ -15342,7 +16097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TerrainType: metal
+  TerrainType: hard
 --- !u!4 &732279197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2132604051150750864, guid: 0ff6a8e1b7c22a9409b52a638135285e, type: 3}
@@ -15410,6 +16165,24 @@ Transform:
   - {fileID: 1684697673}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &740629234 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8596470333502413032, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &740629239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740629234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &755432859
 GameObject:
   m_ObjectHideFlags: 0
@@ -15423,6 +16196,7 @@ GameObject:
   - component: {fileID: 755432862}
   - component: {fileID: 755432861}
   - component: {fileID: 755432860}
+  - component: {fileID: 755432865}
   m_Layer: 0
   m_Name: TreeLog (40)
   m_TagString: Blinkblock
@@ -15539,6 +16313,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &755432865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 755432859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &756468481
 GameObject:
   m_ObjectHideFlags: 0
@@ -15552,6 +16339,7 @@ GameObject:
   - component: {fileID: 756468484}
   - component: {fileID: 756468483}
   - component: {fileID: 756468482}
+  - component: {fileID: 756468487}
   m_Layer: 0
   m_Name: TreeLog (8)
   m_TagString: Blinkblock
@@ -15668,6 +16456,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &756468487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756468481}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &757209008 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6026725953899369294, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -15695,6 +16496,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1857916439425390961, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &757209016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757209008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &758903518
 GameObject:
   m_ObjectHideFlags: 0
@@ -15885,6 +16699,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6870234349218361675, guid: 50c7d67e0c10daf45a2e4a7bc72c6857, type: 3}
   m_PrefabInstance: {fileID: 772880613}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &773241789 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7058235275478463583, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &773241794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773241789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &779959823
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16335,6 +17167,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1141464603633071787, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &781271221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781271213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &785254435
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16712,6 +17557,7 @@ GameObject:
   - component: {fileID: 804761204}
   - component: {fileID: 804761203}
   - component: {fileID: 804761202}
+  - component: {fileID: 804761207}
   m_Layer: 0
   m_Name: TreeLog (12)
   m_TagString: Blinkblock
@@ -16828,6 +17674,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &804761207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804761201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &814541955
 GameObject:
   m_ObjectHideFlags: 0
@@ -16964,6 +17823,24 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 42734380}
   m_SourcePrefab: {fileID: 100100000, guid: 0f11ea5627ccaa04a9bca4b9733ed161, type: 3}
+--- !u!1 &820184660 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8812024828192158353, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &820184665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820184660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &838582914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17027,6 +17904,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6855290115760218767, guid: e3ed7c3b2124c4b4fb204a58fd738da1, type: 3}
   m_PrefabInstance: {fileID: 838582914}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &839689123 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1502087592704340699, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &839689128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 839689123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &840164103
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17099,6 +17994,24 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1010949208}
   m_SourcePrefab: {fileID: 100100000, guid: 991b8e056ca70194e84882fee463f9b3, type: 3}
+--- !u!1 &846349594 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 209181650362694339, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &846349598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 846349594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &849335528 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1644755842556632618, guid: 0ff6a8e1b7c22a9409b52a638135285e, type: 3}
@@ -17131,6 +18044,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5783707781615440777, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &851905261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 851905253}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &858635217
 GameObject:
   m_ObjectHideFlags: 0
@@ -17144,6 +18070,7 @@ GameObject:
   - component: {fileID: 858635220}
   - component: {fileID: 858635219}
   - component: {fileID: 858635218}
+  - component: {fileID: 858635223}
   m_Layer: 0
   m_Name: TreeLog (2)
   m_TagString: Blinkblock
@@ -17260,6 +18187,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 88.828}
+--- !u!114 &858635223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858635217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &864421068 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1094407066568309574, guid: 3e6eee601a6a68340a67ed38579db110, type: 3}
@@ -17522,6 +18462,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Blinkblock
       objectReference: {fileID: 0}
+    - target: {fileID: 2297525304568904019, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2301939898695150068, guid: 4eec9064445bfb848999130291313c27, type: 3}
       propertyPath: m_TagString
       value: Blinkblock
@@ -17557,6 +18501,10 @@ PrefabInstance:
     - target: {fileID: 3152075136883768622, guid: 4eec9064445bfb848999130291313c27, type: 3}
       propertyPath: m_TagString
       value: Blinkblock
+      objectReference: {fileID: 0}
+    - target: {fileID: 3487904752225177997, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      propertyPath: m_Convex
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3590110789168181045, guid: 4eec9064445bfb848999130291313c27, type: 3}
       propertyPath: m_TagString
@@ -17897,96 +18845,399 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 316512591}
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3152075136883768622, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 337566384}
+    - targetCorrespondingSourceObject: {fileID: 1144560638802867910, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 81204587}
+    - targetCorrespondingSourceObject: {fileID: 1304926808278925300, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 711186281}
+    - targetCorrespondingSourceObject: {fileID: 5858503781152594975, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1531843238}
+    - targetCorrespondingSourceObject: {fileID: 5363849918307916412, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1747914454}
+    - targetCorrespondingSourceObject: {fileID: 4773051646931739806, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 473318808}
+    - targetCorrespondingSourceObject: {fileID: 6970119039544123530, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 977892019}
+    - targetCorrespondingSourceObject: {fileID: 8383160614559903844, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1749771051}
+    - targetCorrespondingSourceObject: {fileID: 387694481335050120, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1099345254}
+    - targetCorrespondingSourceObject: {fileID: 7832529139748345198, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 173379986}
+    - targetCorrespondingSourceObject: {fileID: 773093235974717310, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1207084114}
+    - targetCorrespondingSourceObject: {fileID: 5417303031836245124, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1035115210}
+    - targetCorrespondingSourceObject: {fileID: 1569404310793918051, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1794391432}
+    - targetCorrespondingSourceObject: {fileID: 7025033077277189927, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1628807150}
+    - targetCorrespondingSourceObject: {fileID: 3750881562995273865, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1701047106}
+    - targetCorrespondingSourceObject: {fileID: 1502087592704340699, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 839689128}
+    - targetCorrespondingSourceObject: {fileID: 5956705227718192052, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2060334241}
+    - targetCorrespondingSourceObject: {fileID: 8596470333502413032, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 740629239}
+    - targetCorrespondingSourceObject: {fileID: 695087570057427258, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1053638318}
+    - targetCorrespondingSourceObject: {fileID: 9181536722099790995, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 622699239}
+    - targetCorrespondingSourceObject: {fileID: 6364008692199929477, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 563013233}
+    - targetCorrespondingSourceObject: {fileID: 8938977052722347373, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 913605088}
+    - targetCorrespondingSourceObject: {fileID: 7058235275478463583, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 773241794}
+    - targetCorrespondingSourceObject: {fileID: 2495695358915319732, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1638705011}
+    - targetCorrespondingSourceObject: {fileID: 4152268854428389847, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1187652858}
+    - targetCorrespondingSourceObject: {fileID: 3590110789168181045, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 303127926}
+    - targetCorrespondingSourceObject: {fileID: 1393087574505548577, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 77168008}
+    - targetCorrespondingSourceObject: {fileID: 556497724124199887, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 185961101}
+    - targetCorrespondingSourceObject: {fileID: 8542965110166377507, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 665740343}
+    - targetCorrespondingSourceObject: {fileID: 2260050909629750981, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1420314340}
+    - targetCorrespondingSourceObject: {fileID: 8743034582382195925, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1932494225}
+    - targetCorrespondingSourceObject: {fileID: 4089774190635382575, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2138729911}
+    - targetCorrespondingSourceObject: {fileID: 7361220955479842248, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 282883370}
+    - targetCorrespondingSourceObject: {fileID: 1338138429709806732, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1376691664}
+    - targetCorrespondingSourceObject: {fileID: 5179743729052433186, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2129544948}
+    - targetCorrespondingSourceObject: {fileID: 7437579507578894704, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1452751828}
+    - targetCorrespondingSourceObject: {fileID: 2397494221650386975, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2097672954}
+    - targetCorrespondingSourceObject: {fileID: 334154408852411203, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2131392718}
+    - targetCorrespondingSourceObject: {fileID: 8812024828192158353, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 820184665}
+    - targetCorrespondingSourceObject: {fileID: 7950726017061241542, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 160712172}
     - targetCorrespondingSourceObject: {fileID: 8369223303855249800, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1061646764}
+    - targetCorrespondingSourceObject: {fileID: 8369223303855249800, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1061646768}
     - targetCorrespondingSourceObject: {fileID: 5550347470066860586, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 714760387}
+    - targetCorrespondingSourceObject: {fileID: 5550347470066860586, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 714760391}
     - targetCorrespondingSourceObject: {fileID: 8705309590768046037, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 781271217}
+    - targetCorrespondingSourceObject: {fileID: 8705309590768046037, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 781271221}
     - targetCorrespondingSourceObject: {fileID: 1342311613563589283, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 966888277}
+    - targetCorrespondingSourceObject: {fileID: 1342311613563589283, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 966888281}
     - targetCorrespondingSourceObject: {fileID: 7626893253685608655, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1907133580}
+    - targetCorrespondingSourceObject: {fileID: 7626893253685608655, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1907133584}
     - targetCorrespondingSourceObject: {fileID: 870637954979693185, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1129900798}
+    - targetCorrespondingSourceObject: {fileID: 870637954979693185, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1129900802}
     - targetCorrespondingSourceObject: {fileID: 4460135650176219221, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1681810231}
+    - targetCorrespondingSourceObject: {fileID: 4460135650176219221, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1681810235}
     - targetCorrespondingSourceObject: {fileID: 1965386500123678513, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1856293924}
+    - targetCorrespondingSourceObject: {fileID: 1965386500123678513, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1856293928}
     - targetCorrespondingSourceObject: {fileID: 6756757336949433086, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 197603365}
+    - targetCorrespondingSourceObject: {fileID: 6756757336949433086, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 197603369}
     - targetCorrespondingSourceObject: {fileID: 4494859749976680906, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 258278558}
+    - targetCorrespondingSourceObject: {fileID: 4494859749976680906, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 258278562}
     - targetCorrespondingSourceObject: {fileID: 1651867077732551924, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 851905257}
+    - targetCorrespondingSourceObject: {fileID: 1651867077732551924, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 851905261}
     - targetCorrespondingSourceObject: {fileID: 4092928381933398243, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 920288150}
+    - targetCorrespondingSourceObject: {fileID: 4092928381933398243, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 920288154}
     - targetCorrespondingSourceObject: {fileID: 1729703543502397911, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1706832712}
+    - targetCorrespondingSourceObject: {fileID: 1729703543502397911, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1706832716}
     - targetCorrespondingSourceObject: {fileID: 6026725953899369294, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 757209012}
+    - targetCorrespondingSourceObject: {fileID: 6026725953899369294, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 757209016}
     - targetCorrespondingSourceObject: {fileID: 9186233319544517797, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1609264726}
+    - targetCorrespondingSourceObject: {fileID: 9186233319544517797, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1609264730}
+    - targetCorrespondingSourceObject: {fileID: 397026558167594230, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1805464155}
+    - targetCorrespondingSourceObject: {fileID: 357474391191112475, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1318074067}
+    - targetCorrespondingSourceObject: {fileID: 25612275765075875, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1860891809}
+    - targetCorrespondingSourceObject: {fileID: 7567055646545474366, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1256526278}
+    - targetCorrespondingSourceObject: {fileID: 824239538243412696, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 457694707}
+    - targetCorrespondingSourceObject: {fileID: 209181650362694339, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 846349598}
+    - targetCorrespondingSourceObject: {fileID: 6201020924626376759, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 185984968}
+    - targetCorrespondingSourceObject: {fileID: 7057996383341608205, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1985275117}
+    - targetCorrespondingSourceObject: {fileID: 8416018344443031506, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1204673069}
+    - targetCorrespondingSourceObject: {fileID: 2866249050241702240, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 443835733}
+    - targetCorrespondingSourceObject: {fileID: 2301939898695150068, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1303773530}
+    - targetCorrespondingSourceObject: {fileID: 1068493252815489792, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1553835691}
+    - targetCorrespondingSourceObject: {fileID: 6745200591395577610, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1151547650}
+    - targetCorrespondingSourceObject: {fileID: 2500650317305464916, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1318269133}
+    - targetCorrespondingSourceObject: {fileID: 3927723050924669223, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1485383272}
+    - targetCorrespondingSourceObject: {fileID: 6707201350996682353, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 912640114}
     - targetCorrespondingSourceObject: {fileID: 5145106830485077311, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2087742703}
+    - targetCorrespondingSourceObject: {fileID: 5145106830485077311, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2087742707}
     - targetCorrespondingSourceObject: {fileID: 9098582665339856541, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 419894480}
+    - targetCorrespondingSourceObject: {fileID: 9098582665339856541, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 419894484}
     - targetCorrespondingSourceObject: {fileID: 5444038124119190370, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 270038931}
+    - targetCorrespondingSourceObject: {fileID: 5444038124119190370, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 270038935}
     - targetCorrespondingSourceObject: {fileID: 2441718917821888020, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 643501436}
+    - targetCorrespondingSourceObject: {fileID: 2441718917821888020, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 643501440}
     - targetCorrespondingSourceObject: {fileID: 6528609941891589240, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 157129202}
+    - targetCorrespondingSourceObject: {fileID: 6528609941891589240, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 157129206}
     - targetCorrespondingSourceObject: {fileID: 4564191225464268342, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1466687403}
+    - targetCorrespondingSourceObject: {fileID: 4564191225464268342, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1466687407}
     - targetCorrespondingSourceObject: {fileID: 1056083776989699298, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2003317691}
+    - targetCorrespondingSourceObject: {fileID: 1056083776989699298, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2003317695}
     - targetCorrespondingSourceObject: {fileID: 2883455759263298438, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1653191685}
+    - targetCorrespondingSourceObject: {fileID: 2883455759263298438, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1653191689}
     - targetCorrespondingSourceObject: {fileID: 7964248534405580361, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 524825620}
+    - targetCorrespondingSourceObject: {fileID: 7964248534405580361, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 524825624}
     - targetCorrespondingSourceObject: {fileID: 946477231486963069, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1974120752}
+    - targetCorrespondingSourceObject: {fileID: 946477231486963069, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1974120756}
     - targetCorrespondingSourceObject: {fileID: 2715388538930620483, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1955348252}
+    - targetCorrespondingSourceObject: {fileID: 2715388538930620483, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1955348256}
     - targetCorrespondingSourceObject: {fileID: 832993901014420564, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1300633435}
+    - targetCorrespondingSourceObject: {fileID: 832993901014420564, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1300633439}
     - targetCorrespondingSourceObject: {fileID: 3117413513588950368, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1821430542}
+    - targetCorrespondingSourceObject: {fileID: 3117413513588950368, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1821430546}
     - targetCorrespondingSourceObject: {fileID: 6980958158051457017, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1553704854}
+    - targetCorrespondingSourceObject: {fileID: 6980958158051457017, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1553704858}
     - targetCorrespondingSourceObject: {fileID: 5493949194647883794, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 509930241}
+    - targetCorrespondingSourceObject: {fileID: 5493949194647883794, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 509930245}
+    - targetCorrespondingSourceObject: {fileID: 3945406894342967361, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 148917090}
+    - targetCorrespondingSourceObject: {fileID: 4013941157019512748, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1036347713}
+    - targetCorrespondingSourceObject: {fileID: 3681865443734518548, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1922273843}
+    - targetCorrespondingSourceObject: {fileID: 6503749967180322697, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 49781130}
+    - targetCorrespondingSourceObject: {fileID: 4049345579059086959, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1270863362}
+    - targetCorrespondingSourceObject: {fileID: 3577347658671251060, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 267914288}
+    - targetCorrespondingSourceObject: {fileID: 7299227283290045568, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 720068588}
+    - targetCorrespondingSourceObject: {fileID: 5958659743644408250, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1910967519}
+    - targetCorrespondingSourceObject: {fileID: 5154887916668554085, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 64547706}
+    - targetCorrespondingSourceObject: {fileID: 1478470905401982423, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 678537469}
+    - targetCorrespondingSourceObject: {fileID: 3220145218977058115, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1111700121}
+    - targetCorrespondingSourceObject: {fileID: 4437857441034612663, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 614124288}
+    - targetCorrespondingSourceObject: {fileID: 7987599122732055485, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 216333529}
+    - targetCorrespondingSourceObject: {fileID: 1294357257273535715, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 319761154}
+    - targetCorrespondingSourceObject: {fileID: 414454764948118928, guid: 4eec9064445bfb848999130291313c27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1449528125}
     - targetCorrespondingSourceObject: {fileID: 5925181017506944035, guid: 4eec9064445bfb848999130291313c27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1494095297}
@@ -18460,6 +19711,42 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4399843388218701863, guid: 80ea6d0efc5a82947a5672e3c9d33c26, type: 3}
+--- !u!1 &912640109 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6707201350996682353, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &912640114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912640109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: 
+--- !u!1 &913605083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8938977052722347373, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &913605088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 913605083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &914538116
 GameObject:
   m_ObjectHideFlags: 0
@@ -18578,7 +19865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TerrainType: metal
+  TerrainType: hard
 --- !u!114 &917223509 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 673684503859025636, guid: 00c55ef519019434d87bf54728021438, type: 3}
@@ -18617,6 +19904,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5235648689648786991, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &920288154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920288146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &929519489 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7406852854632132122, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -18736,11 +20036,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 280529223}
   m_SourcePrefab: {fileID: 100100000, guid: 0f11ea5627ccaa04a9bca4b9733ed161, type: 3}
---- !u!1 &938829039 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1644755842556632618, guid: 0ff6a8e1b7c22a9409b52a638135285e, type: 3}
-  m_PrefabInstance: {fileID: 1616000984}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &941732393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18860,9 +20155,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d5922187bebe748499908c163a0b0e4a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1425689379}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d5922187bebe748499908c163a0b0e4a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1425689382}
     - targetCorrespondingSourceObject: {fileID: -7186598929195201980, guid: d5922187bebe748499908c163a0b0e4a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1219064181}
+    - targetCorrespondingSourceObject: {fileID: -7186598929195201980, guid: d5922187bebe748499908c163a0b0e4a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1219064185}
   m_SourcePrefab: {fileID: 100100000, guid: d5922187bebe748499908c163a0b0e4a, type: 3}
 --- !u!4 &941732394 stripped
 Transform:
@@ -19050,7 +20351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TerrainType: metal
+  TerrainType: hard
 --- !u!1 &966888273 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1342311613563589283, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -19078,6 +20379,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 3941715523697911101, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &966888281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966888273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &974746519
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19161,6 +20475,24 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 272433177}
   m_SourcePrefab: {fileID: 100100000, guid: 32f08b5ccd85327439a478f43f76846e, type: 3}
+--- !u!1 &977892014 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6970119039544123530, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &977892019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977892014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &987886525
 GameObject:
   m_ObjectHideFlags: 0
@@ -19174,6 +20506,7 @@ GameObject:
   - component: {fileID: 987886528}
   - component: {fileID: 987886527}
   - component: {fileID: 987886526}
+  - component: {fileID: 987886531}
   m_Layer: 0
   m_Name: TreeLog (19)
   m_TagString: Blinkblock
@@ -19290,6 +20623,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -62.069, y: -73.407, z: 150.331}
+--- !u!114 &987886531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987886525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1001 &994622470
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19615,6 +20961,7 @@ GameObject:
   - component: {fileID: 1034460236}
   - component: {fileID: 1034460235}
   - component: {fileID: 1034460234}
+  - component: {fileID: 1034460239}
   m_Layer: 0
   m_Name: TreeLog (42)
   m_TagString: Blinkblock
@@ -19731,6 +21078,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &1034460239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1034460233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1001 &1035061447
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19813,6 +21173,42 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3e6eee601a6a68340a67ed38579db110, type: 3}
   m_PrefabInstance: {fileID: 1035061447}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1035115205 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5417303031836245124, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1035115210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035115205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
+--- !u!1 &1036347709 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4013941157019512748, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1036347713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036347709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1046391833
 GameObject:
   m_ObjectHideFlags: 0
@@ -19826,6 +21222,7 @@ GameObject:
   - component: {fileID: 1046391836}
   - component: {fileID: 1046391835}
   - component: {fileID: 1046391834}
+  - component: {fileID: 1046391839}
   m_Layer: 0
   m_Name: TreeLog (29)
   m_TagString: Blinkblock
@@ -19942,6 +21339,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &1046391839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046391833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &1049830365 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5148848895697433699, guid: e7177c29521714c459ac35f5106e1d82, type: 3}
@@ -19974,6 +21384,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4710344426648648707, guid: 80ea6d0efc5a82947a5672e3c9d33c26, type: 3}
+--- !u!1 &1053638313 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 695087570057427258, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1053638318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1053638313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1061646760 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8369223303855249800, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -20001,6 +21429,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 587366007896238738, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &1061646768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061646760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1079525960
 GameObject:
   m_ObjectHideFlags: 0
@@ -20055,24 +21496,6 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079805159}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TerrainType: wood
---- !u!1 &1082885160 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1644755842556632618, guid: 0ff6a8e1b7c22a9409b52a638135285e, type: 3}
-  m_PrefabInstance: {fileID: 570051116}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1082885161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1082885160}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
@@ -20194,6 +21617,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 32f08b5ccd85327439a478f43f76846e, type: 3}
   m_PrefabInstance: {fileID: 1087125440}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1099345249 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 387694481335050120, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1099345254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1099345249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1101922507
 GameObject:
   m_ObjectHideFlags: 0
@@ -20207,6 +21648,7 @@ GameObject:
   - component: {fileID: 1101922510}
   - component: {fileID: 1101922509}
   - component: {fileID: 1101922508}
+  - component: {fileID: 1101922513}
   m_Layer: 0
   m_Name: TreeLog (31)
   m_TagString: Blinkblock
@@ -20323,6 +21765,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &1101922513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1101922507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &1102637628 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8976368775060204557, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -20632,6 +22087,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 901170525}
   m_LocalEulerAnglesHint: {x: 6.378, y: -19.965, z: -0.953}
+--- !u!1 &1111700117 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3220145218977058115, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1111700121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111700117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1112690547 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f08b5ccd85327439a478f43f76846e, type: 3}
@@ -20826,7 +22299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TerrainType: metal
+  TerrainType: hard
 --- !u!1 &1119006995
 GameObject:
   m_ObjectHideFlags: 0
@@ -20840,6 +22313,7 @@ GameObject:
   - component: {fileID: 1119006998}
   - component: {fileID: 1119006997}
   - component: {fileID: 1119006996}
+  - component: {fileID: 1119007001}
   m_Layer: 0
   m_Name: TreeLog (22)
   m_TagString: Blinkblock
@@ -20956,6 +22430,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -114.593, y: -11.3220215, z: 0}
+--- !u!114 &1119007001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1119006995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1001 &1123502432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21048,6 +22535,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6558347715830034149, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &1129900802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129900794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1143520201 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2467294569036018473, guid: e7177c29521714c459ac35f5106e1d82, type: 3}
@@ -21240,6 +22740,24 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &1151547646 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6745200591395577610, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1151547650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1151547646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1151584231 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5828029022775859326, guid: 6267d0fa68cf8ca46909a32d27e594be, type: 3}
@@ -21381,7 +22899,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TerrainType: metal
+  TerrainType: hard
 --- !u!1 &1163883779 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1821784239898852200, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -21791,6 +23309,7 @@ GameObject:
   - component: {fileID: 1185827515}
   - component: {fileID: 1185827514}
   - component: {fileID: 1185827513}
+  - component: {fileID: 1185827518}
   m_Layer: 0
   m_Name: TreeLog (33)
   m_TagString: Blinkblock
@@ -21907,6 +23426,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &1185827518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185827512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
+--- !u!1 &1187652853 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4152268854428389847, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1187652858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187652853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!4 &1190973413 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2132604051150750864, guid: 0ff6a8e1b7c22a9409b52a638135285e, type: 3}
@@ -21968,7 +23518,10 @@ PrefabInstance:
     - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 165496624654412659, guid: 006b22c511a3eb44fa30fcf76ebfd8fb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1681493630}
   m_SourcePrefab: {fileID: 100100000, guid: 006b22c511a3eb44fa30fcf76ebfd8fb, type: 3}
 --- !u!4 &1191674844 stripped
 Transform:
@@ -22058,6 +23611,24 @@ Transform:
   - {fileID: 389539254}
   m_Father: {fileID: 901170525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1204673065 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8416018344443031506, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1204673069
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204673065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &1205175109
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22118,6 +23689,24 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1107488212}
   m_SourcePrefab: {fileID: 100100000, guid: 6267d0fa68cf8ca46909a32d27e594be, type: 3}
+--- !u!1 &1207084109 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 773093235974717310, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1207084114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207084109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &1208852819
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22194,6 +23783,7 @@ GameObject:
   - component: {fileID: 1211028146}
   - component: {fileID: 1211028145}
   - component: {fileID: 1211028144}
+  - component: {fileID: 1211028149}
   m_Layer: 0
   m_Name: TreeLog (3)
   m_TagString: Blinkblock
@@ -22310,6 +23900,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 88.828}
+--- !u!114 &1211028149
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211028143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &1211749101
 GameObject:
   m_ObjectHideFlags: 0
@@ -22323,6 +23926,7 @@ GameObject:
   - component: {fileID: 1211749104}
   - component: {fileID: 1211749103}
   - component: {fileID: 1211749102}
+  - component: {fileID: 1211749107}
   m_Layer: 0
   m_Name: TreeLog (44)
   m_TagString: Blinkblock
@@ -22439,6 +24043,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &1211749107
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211749101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &1219064179 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7186598929195201980, guid: d5922187bebe748499908c163a0b0e4a, type: 3}
@@ -22466,6 +24083,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 407282623488803026, guid: d5922187bebe748499908c163a0b0e4a, type: 3}
+--- !u!114 &1219064185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219064179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1001 &1228230574
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22793,7 +24423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TerrainType: metal
+  TerrainType: hard
 --- !u!1001 &1251968665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22804,7 +24434,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 32f08b5ccd85327439a478f43f76846e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.924042
+      value: 17.6
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 32f08b5ccd85327439a478f43f76846e, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22812,7 +24442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 32f08b5ccd85327439a478f43f76846e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 157.42912
+      value: 162.41
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 32f08b5ccd85327439a478f43f76846e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -22988,7 +24618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TerrainType: metal
+  TerrainType: hard
 --- !u!1 &1255219492
 GameObject:
   m_ObjectHideFlags: 0
@@ -23002,6 +24632,7 @@ GameObject:
   - component: {fileID: 1255219495}
   - component: {fileID: 1255219494}
   - component: {fileID: 1255219493}
+  - component: {fileID: 1255219498}
   m_Layer: 0
   m_Name: TreeLog (34)
   m_TagString: Blinkblock
@@ -23118,6 +24749,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &1255219498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255219492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
+--- !u!1 &1256526274 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7567055646545474366, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1256526278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1256526274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &1262689813
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23214,6 +24876,24 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1784394255}
   m_SourcePrefab: {fileID: 100100000, guid: 0f11ea5627ccaa04a9bca4b9733ed161, type: 3}
+--- !u!1 &1270863358 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4049345579059086959, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1270863362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1270863358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1273057803 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3185139326193968934, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -23501,6 +25181,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 2067350120}
   m_SourcePrefab: {fileID: 100100000, guid: e7177c29521714c459ac35f5106e1d82, type: 3}
+--- !u!1 &1298064767 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 165496624654412659, guid: 006b22c511a3eb44fa30fcf76ebfd8fb, type: 3}
+  m_PrefabInstance: {fileID: 1848536937}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1300633431 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 832993901014420564, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -23528,6 +25213,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5235648689648786991, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &1300633439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1300633431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1300962333 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1644755842556632618, guid: 0ff6a8e1b7c22a9409b52a638135285e, type: 3}
@@ -23569,6 +25267,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TerrainType: wood
+--- !u!1 &1303773526 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2301939898695150068, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1303773530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303773526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &1304720322
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23726,6 +25442,7 @@ GameObject:
   - component: {fileID: 1314164087}
   - component: {fileID: 1314164086}
   - component: {fileID: 1314164085}
+  - component: {fileID: 1314164090}
   m_Layer: 0
   m_Name: TreeLog (9)
   m_TagString: Blinkblock
@@ -23842,6 +25559,55 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &1314164090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1314164084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
+--- !u!1 &1318074063 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 357474391191112475, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1318074067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318074063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
+--- !u!1 &1318269129 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2500650317305464916, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1318269133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318269129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1318911972
 GameObject:
   m_ObjectHideFlags: 0
@@ -23960,6 +25726,7 @@ GameObject:
   - component: {fileID: 1333176536}
   - component: {fileID: 1333176535}
   - component: {fileID: 1333176534}
+  - component: {fileID: 1333176539}
   m_Layer: 0
   m_Name: TreeLog (10)
   m_TagString: Blinkblock
@@ -24076,6 +25843,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -117.147995, y: -72.94202, z: -147.492}
+--- !u!114 &1333176539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1333176533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &1336545513
 GameObject:
   m_ObjectHideFlags: 3
@@ -24190,6 +25970,7 @@ GameObject:
   - component: {fileID: 1336601523}
   - component: {fileID: 1336601522}
   - component: {fileID: 1336601521}
+  - component: {fileID: 1336601526}
   m_Layer: 0
   m_Name: TreeLog (30)
   m_TagString: Blinkblock
@@ -24306,6 +26087,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &1336601526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1336601520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &1342391866 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5148848895697433699, guid: e7177c29521714c459ac35f5106e1d82, type: 3}
@@ -24411,6 +26205,7 @@ GameObject:
   - component: {fileID: 1344398497}
   - component: {fileID: 1344398496}
   - component: {fileID: 1344398495}
+  - component: {fileID: 1344398500}
   m_Layer: 0
   m_Name: TreeLog (37)
   m_TagString: Blinkblock
@@ -24527,6 +26322,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &1344398500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1344398494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1001 &1354121670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -29438,6 +31246,7 @@ GameObject:
   - component: {fileID: 1373968280}
   - component: {fileID: 1373968279}
   - component: {fileID: 1373968278}
+  - component: {fileID: 1373968283}
   m_Layer: 0
   m_Name: TreeLog (13)
   m_TagString: Blinkblock
@@ -29554,6 +31363,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 62.672}
+--- !u!114 &1373968283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1373968277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &1375388936 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f08b5ccd85327439a478f43f76846e, type: 3}
@@ -29603,6 +31425,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &1376691659 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1338138429709806732, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1376691664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1376691659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1395049302
 GameObject:
   m_ObjectHideFlags: 0
@@ -29616,6 +31456,7 @@ GameObject:
   - component: {fileID: 1395049305}
   - component: {fileID: 1395049304}
   - component: {fileID: 1395049303}
+  - component: {fileID: 1395049308}
   m_Layer: 0
   m_Name: TreeLog (24)
   m_TagString: Blinkblock
@@ -29732,6 +31573,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &1395049308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395049302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &1406903726 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f08b5ccd85327439a478f43f76846e, type: 3}
@@ -30070,6 +31924,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TerrainType: wood
+--- !u!1 &1420314335 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2260050909629750981, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1420314340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420314335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1425689373 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d5922187bebe748499908c163a0b0e4a, type: 3}
@@ -30097,6 +31969,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -346524354640381961, guid: d5922187bebe748499908c163a0b0e4a, type: 3}
+--- !u!114 &1425689382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425689373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: wood
 --- !u!1 &1438214195 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8936318333289889487, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -30242,7 +32127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TerrainType: metal
+  TerrainType: hard
 --- !u!1001 &1442167075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30355,6 +32240,42 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &1449528121 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 414454764948118928, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1449528125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1449528121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
+--- !u!1 &1452751823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7437579507578894704, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1452751828
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452751823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1463363534
 GameObject:
   m_ObjectHideFlags: 0
@@ -30473,7 +32394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TerrainType: metal
+  TerrainType: hard
 --- !u!1001 &1463786992
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30610,6 +32531,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6558347715830034149, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &1466687407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466687399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1467122729 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: 169eb79af33c9b14aa71702ae0863330, type: 3}
@@ -30896,6 +32830,7 @@ GameObject:
   - component: {fileID: 1473665200}
   - component: {fileID: 1473665199}
   - component: {fileID: 1473665198}
+  - component: {fileID: 1473665203}
   m_Layer: 0
   m_Name: TreeLog (16)
   m_TagString: Blinkblock
@@ -31012,6 +32947,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 83.435}
+--- !u!114 &1473665203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1473665197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &1474422999 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7466588715634895716, guid: f0addf14abb812546a0b3af41c22fafb, type: 3}
@@ -31942,19 +33890,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8329050076016796603, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.71175814
       objectReference: {fileID: 0}
     - target: {fileID: 8329050076016796603, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8329050076016796603, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.7024247
       objectReference: {fileID: 0}
     - target: {fileID: 8329050076016796603, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8329050076016796603, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -31962,7 +33910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8329050076016796603, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 89.244
       objectReference: {fileID: 0}
     - target: {fileID: 8329050076016796603, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -32107,6 +34055,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 325f7c7baa875eb46b1bf94b65826a72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1485383268 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3927723050924669223, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1485383272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485383268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1493523631
 GameObject:
   m_ObjectHideFlags: 0
@@ -37158,6 +39124,7 @@ GameObject:
   - component: {fileID: 1497470779}
   - component: {fileID: 1497470778}
   - component: {fileID: 1497470777}
+  - component: {fileID: 1497470782}
   m_Layer: 0
   m_Name: TreeLog (27)
   m_TagString: Blinkblock
@@ -37274,6 +39241,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &1497470782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1497470776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &1501716254 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1094407066568309574, guid: 3e6eee601a6a68340a67ed38579db110, type: 3}
@@ -37411,6 +39391,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2132604051150750864, guid: 0ff6a8e1b7c22a9409b52a638135285e, type: 3}
   m_PrefabInstance: {fileID: 425859640}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1531843233 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5858503781152594975, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1531843238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531843233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1546872488 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1498935733432635557, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -37492,6 +39490,37 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1857916439425390961, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &1553704858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553704850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
+--- !u!1 &1553835687 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1068493252815489792, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1553835691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1553835687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1554968352
 GameObject:
   m_ObjectHideFlags: 0
@@ -37505,6 +39534,7 @@ GameObject:
   - component: {fileID: 1554968355}
   - component: {fileID: 1554968354}
   - component: {fileID: 1554968353}
+  - component: {fileID: 1554968358}
   m_Layer: 0
   m_Name: TreeLog (46)
   m_TagString: Blinkblock
@@ -37621,6 +39651,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -253.268}
+--- !u!114 &1554968358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554968352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &1555696579
 GameObject:
   m_ObjectHideFlags: 0
@@ -37944,6 +39987,7 @@ GameObject:
   - component: {fileID: 1574205210}
   - component: {fileID: 1574205209}
   - component: {fileID: 1574205208}
+  - component: {fileID: 1574205213}
   m_Layer: 0
   m_Name: TreeLog (18)
   m_TagString: Blinkblock
@@ -38060,6 +40104,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 83.435}
+--- !u!114 &1574205213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1574205207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1001 &1581247300
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38221,6 +40278,7 @@ GameObject:
   - component: {fileID: 1594642798}
   - component: {fileID: 1594642797}
   - component: {fileID: 1594642796}
+  - component: {fileID: 1594642801}
   m_Layer: 0
   m_Name: TreeLog (1)
   m_TagString: Blinkblock
@@ -38337,6 +40395,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1594642801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1594642795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &1598362409 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f08b5ccd85327439a478f43f76846e, type: 3}
@@ -38606,6 +40677,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 6018422378889459822, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &1609264730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1609264722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &1616000984
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38701,29 +40785,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1644755842556632618, guid: 0ff6a8e1b7c22a9409b52a638135285e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1616000986}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ff6a8e1b7c22a9409b52a638135285e, type: 3}
 --- !u!4 &1616000985 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2132604051150750864, guid: 0ff6a8e1b7c22a9409b52a638135285e, type: 3}
   m_PrefabInstance: {fileID: 1616000984}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1616000986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 938829039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TerrainType: wood
 --- !u!1 &1621949895 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f08b5ccd85327439a478f43f76846e, type: 3}
@@ -38878,6 +40946,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1624795049}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1628807145 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7025033077277189927, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1628807150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628807145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1631431127
 GameObject:
   m_ObjectHideFlags: 0
@@ -38891,6 +40977,7 @@ GameObject:
   - component: {fileID: 1631431130}
   - component: {fileID: 1631431129}
   - component: {fileID: 1631431128}
+  - component: {fileID: 1631431133}
   m_Layer: 0
   m_Name: TreeLog (38)
   m_TagString: Blinkblock
@@ -39007,6 +41094,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &1631431133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1631431127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &1637545520 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f08b5ccd85327439a478f43f76846e, type: 3}
@@ -39056,6 +41156,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &1638705006 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2495695358915319732, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1638705011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638705006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1639468304 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 169eb79af33c9b14aa71702ae0863330, type: 3}
@@ -39194,12 +41312,18 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d5922187bebe748499908c163a0b0e4a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2098172978}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d5922187bebe748499908c163a0b0e4a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2098172981}
     - targetCorrespondingSourceObject: {fileID: -7186598929195201980, guid: d5922187bebe748499908c163a0b0e4a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 642607948}
     - targetCorrespondingSourceObject: {fileID: -7186598929195201980, guid: d5922187bebe748499908c163a0b0e4a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 642607952}
+    - targetCorrespondingSourceObject: {fileID: -7186598929195201980, guid: d5922187bebe748499908c163a0b0e4a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 642607956}
   m_SourcePrefab: {fileID: 100100000, guid: d5922187bebe748499908c163a0b0e4a, type: 3}
 --- !u!4 &1641215849 stripped
 Transform:
@@ -39233,6 +41357,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4382602644814197676, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &1653191689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1653191681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &1653677735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39328,6 +41465,7 @@ GameObject:
   - component: {fileID: 1665529421}
   - component: {fileID: 1665529420}
   - component: {fileID: 1665529419}
+  - component: {fileID: 1665529424}
   m_Layer: 0
   m_Name: TreeLog (45)
   m_TagString: Blinkblock
@@ -39444,6 +41582,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -253.268}
+--- !u!114 &1665529424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1665529418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1001 &1677656667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39570,6 +41721,24 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!1 &1681493629 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 165496624654412659, guid: 006b22c511a3eb44fa30fcf76ebfd8fb, type: 3}
+  m_PrefabInstance: {fileID: 1191674843}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1681493630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681493629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: hard
 --- !u!1 &1681810227 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4460135650176219221, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -39597,6 +41766,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1444909868921906229, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &1681810235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681810227}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1684697672
 GameObject:
   m_ObjectHideFlags: 0
@@ -39799,6 +41981,7 @@ GameObject:
   - component: {fileID: 1688732598}
   - component: {fileID: 1688732597}
   - component: {fileID: 1688732596}
+  - component: {fileID: 1688732601}
   m_Layer: 0
   m_Name: TreeLog (47)
   m_TagString: Blinkblock
@@ -39915,6 +42098,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -253.268}
+--- !u!114 &1688732601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1688732595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &1689021606
 GameObject:
   m_ObjectHideFlags: 0
@@ -39928,6 +42124,7 @@ GameObject:
   - component: {fileID: 1689021609}
   - component: {fileID: 1689021608}
   - component: {fileID: 1689021607}
+  - component: {fileID: 1689021612}
   m_Layer: 0
   m_Name: TreeLog (14)
   m_TagString: Blinkblock
@@ -40044,6 +42241,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 83.435}
+--- !u!114 &1689021612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1689021606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &1689495102 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5148848895697433699, guid: e7177c29521714c459ac35f5106e1d82, type: 3}
@@ -40172,6 +42382,24 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1151584234}
   m_SourcePrefab: {fileID: 100100000, guid: 6267d0fa68cf8ca46909a32d27e594be, type: 3}
+--- !u!1 &1701047101 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3750881562995273865, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1701047106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701047101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1706270109 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6284447284218368581, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -40275,6 +42503,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6750423293286134506, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &1706832716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1706832708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &1707367542
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40481,7 +42722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TerrainType: metal
+  TerrainType: hard
 --- !u!1001 &1711915689
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -40753,7 +42994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TerrainType: metal
+  TerrainType: hard
 --- !u!1 &1729470887
 GameObject:
   m_ObjectHideFlags: 0
@@ -40767,6 +43008,7 @@ GameObject:
   - component: {fileID: 1729470890}
   - component: {fileID: 1729470889}
   - component: {fileID: 1729470888}
+  - component: {fileID: 1729470893}
   m_Layer: 0
   m_Name: TreeLog (35)
   m_TagString: Blinkblock
@@ -40883,6 +43125,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &1729470893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1729470887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &1732076600 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5828029022775859326, guid: 6267d0fa68cf8ca46909a32d27e594be, type: 3}
@@ -40946,6 +43201,7 @@ GameObject:
   - component: {fileID: 1745169961}
   - component: {fileID: 1745169960}
   - component: {fileID: 1745169959}
+  - component: {fileID: 1745169964}
   m_Layer: 0
   m_Name: TreeLog (39)
   m_TagString: Blinkblock
@@ -41062,6 +43318,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &1745169964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1745169958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!114 &1745308421 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 991042485315852974, guid: 00c55ef519019434d87bf54728021438, type: 3}
@@ -41100,6 +43369,42 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -353145847419166158, guid: 80ea6d0efc5a82947a5672e3c9d33c26, type: 3}
+--- !u!1 &1747914449 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5363849918307916412, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1747914454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747914449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
+--- !u!1 &1749771046 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8383160614559903844, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1749771051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749771046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1750906834
 GameObject:
   m_ObjectHideFlags: 0
@@ -41307,6 +43612,7 @@ GameObject:
   - component: {fileID: 1767501060}
   - component: {fileID: 1767501059}
   - component: {fileID: 1767501058}
+  - component: {fileID: 1767501063}
   m_Layer: 0
   m_Name: TreeLog (6)
   m_TagString: Blinkblock
@@ -41423,6 +43729,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &1767501063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767501057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &1774731556
 GameObject:
   m_ObjectHideFlags: 0
@@ -41903,6 +44222,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TerrainType: metal
+--- !u!1 &1794391427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1569404310793918051, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1794391432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794391427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &1796781829
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -41962,6 +44299,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2189193827893773026, guid: f0addf14abb812546a0b3af41c22fafb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1796781832}
+    - targetCorrespondingSourceObject: {fileID: 2189193827893773026, guid: f0addf14abb812546a0b3af41c22fafb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1796781833}
     - targetCorrespondingSourceObject: {fileID: 6169579089863480979, guid: f0addf14abb812546a0b3af41c22fafb, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1464864195}
@@ -42004,9 +44344,40 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &1796781833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796781831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: hard
+--- !u!1 &1805464151 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 397026558167594230, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1805464155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805464151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1814844356 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3708117107329670374, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -46940,6 +49311,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6750423293286134506, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &1821430546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821430538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1821712897 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 268060833643371857, guid: 00c55ef519019434d87bf54728021438, type: 3}
@@ -47145,6 +49529,7 @@ GameObject:
   - component: {fileID: 1837952313}
   - component: {fileID: 1837952312}
   - component: {fileID: 1837952311}
+  - component: {fileID: 1837952316}
   m_Layer: 0
   m_Name: TreeLog (20)
   m_TagString: Blinkblock
@@ -47261,6 +49646,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &1837952316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1837952310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1001 &1848536937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47317,13 +49715,29 @@ PrefabInstance:
     - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 165496624654412659, guid: 006b22c511a3eb44fa30fcf76ebfd8fb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1848536939}
   m_SourcePrefab: {fileID: 100100000, guid: 006b22c511a3eb44fa30fcf76ebfd8fb, type: 3}
 --- !u!4 &1848536938 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 597338777762745409, guid: 006b22c511a3eb44fa30fcf76ebfd8fb, type: 3}
   m_PrefabInstance: {fileID: 1848536937}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1848536939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298064767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: hard
 --- !u!1 &1849936133
 GameObject:
   m_ObjectHideFlags: 0
@@ -47337,6 +49751,7 @@ GameObject:
   - component: {fileID: 1849936136}
   - component: {fileID: 1849936135}
   - component: {fileID: 1849936134}
+  - component: {fileID: 1849936139}
   m_Layer: 0
   m_Name: TreeLog (15)
   m_TagString: Blinkblock
@@ -47453,6 +49868,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 83.435}
+--- !u!114 &1849936139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849936133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &1851261263 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2759482209480902050, guid: 0f11ea5627ccaa04a9bca4b9733ed161, type: 3}
@@ -47521,6 +49949,37 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4382602644814197676, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &1856293928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856293920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
+--- !u!1 &1860891805 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 25612275765075875, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1860891809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860891805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1869719999
 GameObject:
   m_ObjectHideFlags: 0
@@ -47534,6 +49993,7 @@ GameObject:
   - component: {fileID: 1869720002}
   - component: {fileID: 1869720001}
   - component: {fileID: 1869720000}
+  - component: {fileID: 1869720005}
   m_Layer: 0
   m_Name: TreeLog (28)
   m_TagString: Blinkblock
@@ -47650,6 +50110,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &1869720005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869719999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1001 &1876909965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47723,6 +50196,7 @@ GameObject:
   - component: {fileID: 1890108879}
   - component: {fileID: 1890108878}
   - component: {fileID: 1890108877}
+  - component: {fileID: 1890108882}
   m_Layer: 0
   m_Name: TreeLog (25)
   m_TagString: Blinkblock
@@ -47839,6 +50313,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: -217.333}
+--- !u!114 &1890108882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1890108876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1 &1907133576 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7626893253685608655, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -47866,6 +50353,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -5798157943916587367, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &1907133584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907133576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &1908009728
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -47929,6 +50429,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6855290115760218767, guid: e3ed7c3b2124c4b4fb204a58fd738da1, type: 3}
   m_PrefabInstance: {fileID: 1908009728}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1910967515 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5958659743644408250, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1910967519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910967515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1916333648 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2806632260062223613, guid: 2292acef6cf858644b4c28efdfd663bb, type: 3}
@@ -47946,6 +50464,7 @@ GameObject:
   - component: {fileID: 1917115616}
   - component: {fileID: 1917115615}
   - component: {fileID: 1917115614}
+  - component: {fileID: 1917115618}
   m_Layer: 0
   m_Name: Object011
   m_TagString: Untagged
@@ -48040,6 +50559,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 901170525}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1917115618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1917115613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: hard
 --- !u!1001 &1918902426
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48103,6 +50635,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6855290115760218767, guid: e3ed7c3b2124c4b4fb204a58fd738da1, type: 3}
   m_PrefabInstance: {fileID: 1918902426}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1922273839 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3681865443734518548, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1922273843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922273839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1925088894 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: 3e6eee601a6a68340a67ed38579db110, type: 3}
@@ -48157,6 +50707,24 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -4399843388218701863, guid: 80ea6d0efc5a82947a5672e3c9d33c26, type: 3}
+--- !u!1 &1932494220 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8743034582382195925, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1932494225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1932494220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1940885514 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 32f08b5ccd85327439a478f43f76846e, type: 3}
@@ -48396,6 +50964,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 5783707781615440777, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &1955348256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1955348248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1960744442 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2317798435057673257, guid: e7177c29521714c459ac35f5106e1d82, type: 3}
@@ -48541,7 +51122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TerrainType: metal
+  TerrainType: hard
 --- !u!1001 &1968260156
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -48632,6 +51213,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1658199413673387437, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &1974120756
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1974120748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1976797210 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4254922066393639555, guid: 4eec9064445bfb848999130291313c27, type: 3}
@@ -48756,6 +51350,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1985275113 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7057996383341608205, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1985275117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1985275113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &1986524905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49111,6 +51723,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -1444909868921906229, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &2003317695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2003317687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &2009011333
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49665,6 +52290,7 @@ GameObject:
   - component: {fileID: 2045331884}
   - component: {fileID: 2045331883}
   - component: {fileID: 2045331882}
+  - component: {fileID: 2045331887}
   m_Layer: 0
   m_Name: TreeLog (21)
   m_TagString: Blinkblock
@@ -49781,6 +52407,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 211196041}
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!114 &2045331887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2045331881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: grass
 --- !u!1001 &2048718843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49909,6 +52548,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6855290115760218767, guid: e3ed7c3b2124c4b4fb204a58fd738da1, type: 3}
   m_PrefabInstance: {fileID: 2054862631}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2060334236 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5956705227718192052, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2060334241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060334236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &2065960677 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7045330552219578825, guid: e7177c29521714c459ac35f5106e1d82, type: 3}
@@ -50244,6 +52901,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 587366007896238738, guid: 1578ecb331825d94897aa3f2c2bc0bee, type: 3}
+--- !u!114 &2087742707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2087742699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &2091258837
 GameObject:
   m_ObjectHideFlags: 0
@@ -50362,7 +53032,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TerrainType: metal
+  TerrainType: hard
 --- !u!1001 &2094214217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50426,6 +53096,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6855290115760218767, guid: e3ed7c3b2124c4b4fb204a58fd738da1, type: 3}
   m_PrefabInstance: {fileID: 2094214217}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2097672949 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2397494221650386975, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2097672954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2097672949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &2098172972 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d5922187bebe748499908c163a0b0e4a, type: 3}
@@ -50453,6 +53141,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -346524354640381961, guid: d5922187bebe748499908c163a0b0e4a, type: 3}
+--- !u!114 &2098172981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2098172972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: wood
 --- !u!1001 &2104427119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50732,6 +53433,78 @@ Transform:
   m_Children: []
   m_Father: {fileID: 901170525}
   m_LocalEulerAnglesHint: {x: -27.313, y: -39.268, z: -16.466}
+--- !u!1 &2129544943 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5179743729052433186, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2129544948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129544943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
+--- !u!1 &2131392713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 334154408852411203, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2131392718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131392713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
+--- !u!1 &2138729906 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4089774190635382575, guid: 4eec9064445bfb848999130291313c27, type: 3}
+  m_PrefabInstance: {fileID: 873084937}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2138729911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2138729906}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
+--- !u!1 &2144193670 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 165496624654412659, guid: 006b22c511a3eb44fa30fcf76ebfd8fb, type: 3}
+  m_PrefabInstance: {fileID: 558170877}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2144193671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144193670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: hard
 --- !u!1001 &2558071342166140308
 PrefabInstance:
   m_ObjectHideFlags: 0

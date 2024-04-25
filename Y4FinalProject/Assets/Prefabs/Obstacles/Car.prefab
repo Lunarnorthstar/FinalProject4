@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8124955784078142566}
   - component: {fileID: 6573039406594137106}
   - component: {fileID: 3543666588499964707}
+  - component: {fileID: 588046775684800000}
   m_Layer: 0
   m_Name: CarLight
   m_TagString: Untagged
@@ -106,6 +107,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 9058406384642093232, guid: 12a23a2eee6de1c4b835449030acc092, type: 3}
+--- !u!114 &588046775684800000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343890538679454099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &528429601614697959
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +132,7 @@ GameObject:
   - component: {fileID: 5472762881744185580}
   - component: {fileID: 4086947164881649828}
   - component: {fileID: 2947820107675633276}
+  - component: {fileID: 16148596416968462}
   m_Layer: 0
   m_Name: Tire1
   m_TagString: Untagged
@@ -212,6 +227,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2027844809183866891, guid: d3985c16b81b6bb40a1586924095893d, type: 3}
+--- !u!114 &16148596416968462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528429601614697959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &598893026220311192
 GameObject:
   m_ObjectHideFlags: 0
@@ -224,6 +252,7 @@ GameObject:
   - component: {fileID: 958106645053535513}
   - component: {fileID: 4943771969324320068}
   - component: {fileID: 6954383958942526953}
+  - component: {fileID: 5293000872214730813}
   m_Layer: 0
   m_Name: CarHandle
   m_TagString: Untagged
@@ -318,6 +347,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 905485977951547768, guid: 89dc2fc6be177034992f1c39db2f25c3, type: 3}
+--- !u!114 &5293000872214730813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 598893026220311192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &616186251608747442
 GameObject:
   m_ObjectHideFlags: 0
@@ -330,6 +372,7 @@ GameObject:
   - component: {fileID: 8930541895054899643}
   - component: {fileID: 7616725391293708184}
   - component: {fileID: 7345142884685381102}
+  - component: {fileID: 4157310340163730036}
   m_Layer: 0
   m_Name: TireCenter1 (1)
   m_TagString: Untagged
@@ -424,6 +467,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -191691190407970605, guid: d3985c16b81b6bb40a1586924095893d, type: 3}
+--- !u!114 &4157310340163730036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616186251608747442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1005893014645218788
 GameObject:
   m_ObjectHideFlags: 0
@@ -436,6 +492,7 @@ GameObject:
   - component: {fileID: 6512360485804911950}
   - component: {fileID: 3797724591093790970}
   - component: {fileID: 2935635752277699117}
+  - component: {fileID: 5136508085317339496}
   m_Layer: 0
   m_Name: Tire1 (2)
   m_TagString: Untagged
@@ -530,6 +587,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2027844809183866891, guid: d3985c16b81b6bb40a1586924095893d, type: 3}
+--- !u!114 &5136508085317339496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005893014645218788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1477650055568964667
 GameObject:
   m_ObjectHideFlags: 0
@@ -647,6 +717,7 @@ GameObject:
   - component: {fileID: 8882376025111432618}
   - component: {fileID: 4401627419011478012}
   - component: {fileID: 5231081720113858175}
+  - component: {fileID: 6563023548657307113}
   m_Layer: 0
   m_Name: CarBody
   m_TagString: Untagged
@@ -741,6 +812,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -8039613103989778838, guid: df64258f4ba90894a99ac3962d16bde9, type: 3}
+--- !u!114 &6563023548657307113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2599731334571274293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &2684461243816186570
 GameObject:
   m_ObjectHideFlags: 0
@@ -753,6 +837,7 @@ GameObject:
   - component: {fileID: 3626747540823310062}
   - component: {fileID: 9140359892299095279}
   - component: {fileID: 7469959536447688331}
+  - component: {fileID: 6560803608571504028}
   m_Layer: 0
   m_Name: CarBackTireCover (2)
   m_TagString: Untagged
@@ -847,6 +932,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1799058431039570274, guid: 2fda723bd21558741ad438a2c67244d0, type: 3}
+--- !u!114 &6560803608571504028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2684461243816186570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &2892035503628313075
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,6 +957,7 @@ GameObject:
   - component: {fileID: 5679981410004574767}
   - component: {fileID: 7878494323168478474}
   - component: {fileID: 2099583946153809320}
+  - component: {fileID: 2024283297758371916}
   m_Layer: 0
   m_Name: Tire1 (3)
   m_TagString: Untagged
@@ -953,6 +1052,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2027844809183866891, guid: d3985c16b81b6bb40a1586924095893d, type: 3}
+--- !u!114 &2024283297758371916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2892035503628313075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &2954503042609796079
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,6 +1077,7 @@ GameObject:
   - component: {fileID: 5982432176675217914}
   - component: {fileID: 3095612389419765310}
   - component: {fileID: 6675200492446654756}
+  - component: {fileID: 7586317760427932783}
   m_Layer: 0
   m_Name: Tire1 (1)
   m_TagString: Untagged
@@ -1059,6 +1172,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2027844809183866891, guid: d3985c16b81b6bb40a1586924095893d, type: 3}
+--- !u!114 &7586317760427932783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2954503042609796079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &2999582228495101510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,6 +1197,7 @@ GameObject:
   - component: {fileID: 2729246947101836551}
   - component: {fileID: 3198160266293778404}
   - component: {fileID: 7758717554174843853}
+  - component: {fileID: 8214797124392944224}
   m_Layer: 0
   m_Name: CarBackTireCover
   m_TagString: Untagged
@@ -1165,6 +1292,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1799058431039570274, guid: 2fda723bd21558741ad438a2c67244d0, type: 3}
+--- !u!114 &8214797124392944224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2999582228495101510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &3122087071511951442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,6 +1317,7 @@ GameObject:
   - component: {fileID: 1236621239124655016}
   - component: {fileID: 4504184836088916561}
   - component: {fileID: 6797854308062565155}
+  - component: {fileID: 2462664228669987882}
   m_Layer: 0
   m_Name: CarLight (1)
   m_TagString: Untagged
@@ -1271,6 +1412,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 9058406384642093232, guid: 12a23a2eee6de1c4b835449030acc092, type: 3}
+--- !u!114 &2462664228669987882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3122087071511951442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &3196492047308881996
 GameObject:
   m_ObjectHideFlags: 0
@@ -1283,6 +1437,7 @@ GameObject:
   - component: {fileID: 8271826342788147022}
   - component: {fileID: 4924065675121089187}
   - component: {fileID: 2403311585825633557}
+  - component: {fileID: 3453918507319379181}
   m_Layer: 0
   m_Name: CarBackTireCover (1)
   m_TagString: Untagged
@@ -1377,6 +1532,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1799058431039570274, guid: 2fda723bd21558741ad438a2c67244d0, type: 3}
+--- !u!114 &3453918507319379181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3196492047308881996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &3233677598333576715
 GameObject:
   m_ObjectHideFlags: 0
@@ -1389,6 +1557,7 @@ GameObject:
   - component: {fileID: 4477569889308479526}
   - component: {fileID: 4117627108180063286}
   - component: {fileID: 5631263759264209871}
+  - component: {fileID: 3984755328565233836}
   m_Layer: 0
   m_Name: CarLight (3)
   m_TagString: Untagged
@@ -1483,6 +1652,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 9058406384642093232, guid: 12a23a2eee6de1c4b835449030acc092, type: 3}
+--- !u!114 &3984755328565233836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3233677598333576715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &3521504875593574928
 GameObject:
   m_ObjectHideFlags: 0
@@ -1495,6 +1677,7 @@ GameObject:
   - component: {fileID: 8050635667388723889}
   - component: {fileID: 6654743931594086330}
   - component: {fileID: 5950127603717547934}
+  - component: {fileID: 8327560988603285030}
   m_Layer: 0
   m_Name: CarHandle (1)
   m_TagString: Untagged
@@ -1589,6 +1772,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 905485977951547768, guid: 89dc2fc6be177034992f1c39db2f25c3, type: 3}
+--- !u!114 &8327560988603285030
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3521504875593574928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &4054052899228157531
 GameObject:
   m_ObjectHideFlags: 0
@@ -1601,6 +1797,7 @@ GameObject:
   - component: {fileID: 5865665842854874536}
   - component: {fileID: 6633496190132818640}
   - component: {fileID: 8541118652434110941}
+  - component: {fileID: 4089118304004448927}
   m_Layer: 0
   m_Name: CarLight (4)
   m_TagString: Untagged
@@ -1695,6 +1892,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 9058406384642093232, guid: 12a23a2eee6de1c4b835449030acc092, type: 3}
+--- !u!114 &4089118304004448927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4054052899228157531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &4950423676239857905
 GameObject:
   m_ObjectHideFlags: 0
@@ -1707,6 +1917,7 @@ GameObject:
   - component: {fileID: 2164695724438284858}
   - component: {fileID: 9218346785775266382}
   - component: {fileID: 4964427009691820044}
+  - component: {fileID: 2659892232060176980}
   m_Layer: 0
   m_Name: CarHandle (3)
   m_TagString: Untagged
@@ -1801,6 +2012,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 905485977951547768, guid: 89dc2fc6be177034992f1c39db2f25c3, type: 3}
+--- !u!114 &2659892232060176980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4950423676239857905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &5064819271835772425
 GameObject:
   m_ObjectHideFlags: 0
@@ -1813,6 +2037,7 @@ GameObject:
   - component: {fileID: 5464058737510381989}
   - component: {fileID: 2190464229225912428}
   - component: {fileID: 1074143069386784455}
+  - component: {fileID: 5472626889858958486}
   m_Layer: 0
   m_Name: CarBackTireCover (3)
   m_TagString: Untagged
@@ -1907,6 +2132,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 1799058431039570274, guid: 2fda723bd21558741ad438a2c67244d0, type: 3}
+--- !u!114 &5472626889858958486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5064819271835772425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &5463323107551811790
 GameObject:
   m_ObjectHideFlags: 0
@@ -1919,6 +2157,7 @@ GameObject:
   - component: {fileID: 2955447704448968833}
   - component: {fileID: 998036639098584520}
   - component: {fileID: 2675059437137143008}
+  - component: {fileID: 1070670391031489788}
   m_Layer: 0
   m_Name: TireCenter1
   m_TagString: Untagged
@@ -2013,6 +2252,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -191691190407970605, guid: d3985c16b81b6bb40a1586924095893d, type: 3}
+--- !u!114 &1070670391031489788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5463323107551811790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &5759103296959033383
 GameObject:
   m_ObjectHideFlags: 0
@@ -2025,6 +2277,7 @@ GameObject:
   - component: {fileID: 1627255307587789289}
   - component: {fileID: 7875859840637333317}
   - component: {fileID: 4231578676848739380}
+  - component: {fileID: 7589875746943962145}
   m_Layer: 0
   m_Name: TireCenter1 (3)
   m_TagString: Untagged
@@ -2119,6 +2372,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -191691190407970605, guid: d3985c16b81b6bb40a1586924095893d, type: 3}
+--- !u!114 &7589875746943962145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5759103296959033383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &5828029022775859326
 GameObject:
   m_ObjectHideFlags: 0
@@ -2209,6 +2475,7 @@ GameObject:
   - component: {fileID: 5286888229474086930}
   - component: {fileID: 7870344287077954307}
   - component: {fileID: 2074237322998310896}
+  - component: {fileID: 1306753061624774941}
   m_Layer: 0
   m_Name: TireCenter1 (2)
   m_TagString: Untagged
@@ -2303,6 +2570,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -191691190407970605, guid: d3985c16b81b6bb40a1586924095893d, type: 3}
+--- !u!114 &1306753061624774941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6561203539165630869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &7906375897976934533
 GameObject:
   m_ObjectHideFlags: 0
@@ -2315,6 +2595,7 @@ GameObject:
   - component: {fileID: 7638194018285736192}
   - component: {fileID: 8751962679566187259}
   - component: {fileID: 246458687501577954}
+  - component: {fileID: 6071039410139804681}
   m_Layer: 0
   m_Name: CarBlackPlate
   m_TagString: Untagged
@@ -2409,6 +2690,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2833383142526304046, guid: 53cf7f153035b82449aa9e23cc03b401, type: 3}
+--- !u!114 &6071039410139804681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7906375897976934533}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &8552046879491831275
 GameObject:
   m_ObjectHideFlags: 0
@@ -2421,6 +2715,7 @@ GameObject:
   - component: {fileID: 139629847605234467}
   - component: {fileID: 7587602974124080235}
   - component: {fileID: 4659334539697313654}
+  - component: {fileID: 2359156913590129109}
   m_Layer: 0
   m_Name: CarFrontPlate
   m_TagString: Untagged
@@ -2515,6 +2810,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4471488270406054397, guid: f24407d3419ea5749bd05adc6e05d2cc, type: 3}
+--- !u!114 &2359156913590129109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8552046879491831275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &8792098533649400617
 GameObject:
   m_ObjectHideFlags: 0
@@ -2527,6 +2835,7 @@ GameObject:
   - component: {fileID: 6234172974282101816}
   - component: {fileID: 6796405294276172646}
   - component: {fileID: 4990947276754561438}
+  - component: {fileID: 2409942382644124175}
   m_Layer: 0
   m_Name: CarHandle (2)
   m_TagString: Untagged
@@ -2621,3 +2930,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 905485977951547768, guid: 89dc2fc6be177034992f1c39db2f25c3, type: 3}
+--- !u!114 &2409942382644124175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8792098533649400617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal

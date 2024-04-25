@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 6866153563749588741}
   - component: {fileID: 718776356692509597}
   - component: {fileID: 5842561067272582341}
-  - component: {fileID: 732504247535812878}
   m_Layer: 2
   m_Name: StartZone
   m_TagString: StartTrigger
@@ -107,19 +106,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &732504247535812878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8100553362729260898}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  TerrainType: hard
 --- !u!1001 &5607029913289655048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -191,8 +177,53 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ce92550460dc9d545ad3f8d0fc1c3a95, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3788127287961500970}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: ce92550460dc9d545ad3f8d0fc1c3a95, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3698042019707679462}
   m_SourcePrefab: {fileID: 100100000, guid: ce92550460dc9d545ad3f8d0fc1c3a95, type: 3}
+--- !u!1 &4688601453857848921 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ce92550460dc9d545ad3f8d0fc1c3a95, type: 3}
+  m_PrefabInstance: {fileID: 5607029913289655048}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3788127287961500970
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4688601453857848921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: hard
+--- !u!65 &3698042019707679462
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4688601453857848921}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15.100002, y: 15.1, z: 0.19999999}
+  m_Center: {x: -0.0000076293945, y: 0.0000038146973, z: 0.09999809}
 --- !u!4 &5357755797178934499 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ce92550460dc9d545ad3f8d0fc1c3a95, type: 3}

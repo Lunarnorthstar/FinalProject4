@@ -175,9 +175,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -5568371526223589888, guid: 169eb79af33c9b14aa71702ae0863330, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2267496434690646778}
+    - targetCorrespondingSourceObject: {fileID: -5568371526223589888, guid: 169eb79af33c9b14aa71702ae0863330, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5637484824840888178}
     - targetCorrespondingSourceObject: {fileID: -6255113497265411632, guid: 169eb79af33c9b14aa71702ae0863330, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2640165169709029807}
+    - targetCorrespondingSourceObject: {fileID: -6255113497265411632, guid: 169eb79af33c9b14aa71702ae0863330, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2911980330366876591}
   m_SourcePrefab: {fileID: 100100000, guid: 169eb79af33c9b14aa71702ae0863330, type: 3}
 --- !u!4 &2132604051150750864 stripped
 Transform:
@@ -211,6 +217,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2534964839176971238, guid: 169eb79af33c9b14aa71702ae0863330, type: 3}
+--- !u!114 &5637484824840888178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2930465608947477883}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: wood
 --- !u!1 &3684909878484486827 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -6255113497265411632, guid: 169eb79af33c9b14aa71702ae0863330, type: 3}
@@ -238,3 +257,16 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -293502825896984990, guid: 169eb79af33c9b14aa71702ae0863330, type: 3}
+--- !u!114 &2911980330366876591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3684909878484486827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: wood

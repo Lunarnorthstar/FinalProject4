@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 5264.2856, g: 3876.141, b: 2529.0627, a: 1}
+  m_IndirectSpecularColor: {r: 5264.2856, g: 3876.1255, b: 2529.0393, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3567,6 +3567,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TerrainType: metal
+--- !u!65 &75717796
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75717786}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.7828164, y: 0.3319342, z: 1.7828165}
+  m_Center: {x: 0.00000017881392, y: 0.06526644, z: 0}
 --- !u!1 &76267718 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1100193307887434829, guid: a178d3f4d1a8866498f9b7edb3409f40, type: 3}
@@ -30815,6 +30836,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8950772193525233872, guid: 87da34e49d2c0034a820dd6f1d913374, type: 3}
       insertIndex: -1
       addedObject: {fileID: 75717791}
+    - targetCorrespondingSourceObject: {fileID: 8950772193525233872, guid: 87da34e49d2c0034a820dd6f1d913374, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 75717796}
   m_SourcePrefab: {fileID: 100100000, guid: 87da34e49d2c0034a820dd6f1d913374, type: 3}
 --- !u!1 &522603644
 GameObject:
