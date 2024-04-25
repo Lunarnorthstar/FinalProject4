@@ -142,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
         playerCamera = GetComponentInChildren<CameraMove>();
         powerUps = GetComponent<Powerups>();
 
-        playerManager.lockMouse();
+        playerManager.lockMouse(true);
         //enable controls
         controls = new PlayerControls();
 
@@ -164,7 +164,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         failsafebool = false;
-        playerManager.lockMouse();
+        playerManager.lockMouse(true);
         controls.PlayerMovement.Enable();
 
     }
@@ -232,7 +232,7 @@ public class PlayerMovement : MonoBehaviour
         if (controls.PlayerMovement.Pause.triggered)
         {
             pauseMenu.SetActive(!pauseMenu.activeSelf);
-            playerManager.lockMouse();
+            playerManager.lockMouse(!pauseMenu.activeSelf);
 
             if (controls.PlayerMovement.Ability.enabled) //We have to do it like this because disabling the entire playercontrols makes it impossible to unpause.
             {

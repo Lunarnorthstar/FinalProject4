@@ -370,7 +370,7 @@ public class TimerHandler : MonoBehaviour
             
             Debug.Log(other.gameObject.name);
             finishPanel.SetActive(true);
-            gameObject.GetComponent<PlayerManager>().lockMouse();
+            gameObject.GetComponent<PlayerManager>().lockMouse(false);
             gameObject.GetComponent<PlayerMovement>().controls.Disable();
             StopTimer();
 

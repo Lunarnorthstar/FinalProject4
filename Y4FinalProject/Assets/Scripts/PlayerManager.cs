@@ -15,13 +15,13 @@ public class PlayerManager : MonoBehaviour
 
     void Start()
     {
-        lockMouse();
+        lockMouse(true);
     }
 
 
-    public void lockMouse()
+    public void lockMouse(bool _lock)
     {
-        if (isMouseLocked)
+        if (!_lock)
         {
             isMouseLocked = false;
             Cursor.lockState = CursorLockMode.None;
