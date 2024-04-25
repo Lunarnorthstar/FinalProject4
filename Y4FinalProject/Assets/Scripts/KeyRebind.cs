@@ -24,7 +24,7 @@ public class KeyRebind : MonoBehaviour
     public void StartRebinding()
     {
         inputWaitUI.SetActive(true);
-        //playermovement.controls.PlayerMovement.Disable();
+        jumpKey.action.Disable();
         rebindingOperation = jumpKey.action.PerformInteractiveRebinding()
             .WithControlsExcluding("Mouse")
             .OnMatchWaitForAnother(0.1f)
@@ -37,13 +37,13 @@ public class KeyRebind : MonoBehaviour
         bindingDisplay.text = InputControlPath.ToHumanReadableString(jumpKey.action.bindings[0].effectivePath);
         rebindingOperation.Dispose();
         inputWaitUI.SetActive(false);
-        //playermovement.controls.PlayerMovement.Enable();
-        //Save();
+        jumpKey.action.Enable();
+        Save();
     }
 
     public void Save()
     {
-        string rebinds = playermovement.controls.SaveBindingOverridesAsJson();
+        string rebinds = jumpKey.action.SaveBindingOverridesAsJson();
         PlayerPrefs.SetString("Rebinds", rebinds);
     }
 }
