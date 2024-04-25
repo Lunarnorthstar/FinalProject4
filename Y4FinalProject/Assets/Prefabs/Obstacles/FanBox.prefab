@@ -100,6 +100,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 102b2fede483fd4458af37acd7f5fe70, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3792514900772230526}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 102b2fede483fd4458af37acd7f5fe70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7995791607258747553}
   m_SourcePrefab: {fileID: 100100000, guid: 102b2fede483fd4458af37acd7f5fe70, type: 3}
 --- !u!1 &1696419847935246139 stripped
 GameObject:
@@ -128,6 +131,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2969732625113774183, guid: 102b2fede483fd4458af37acd7f5fe70, type: 3}
+--- !u!114 &7995791607258747553
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1696419847935246139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!4 &2071994965661738369 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 102b2fede483fd4458af37acd7f5fe70, type: 3}
@@ -143,15 +159,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.78
+      value: -0.74092746
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5641098
+      value: -1.601841
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.75041205
+      value: 0.7566834
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -196,6 +212,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6145274521186902128}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5645623152748335977}
   m_SourcePrefab: {fileID: 100100000, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
 --- !u!4 &3928311614187162421 stripped
 Transform:
@@ -229,6 +248,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4236268024495968267, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
+--- !u!114 &5645623152748335977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4454053662034661775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &4303417933571351866
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -239,15 +271,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.7259996
+      value: -0.74092746
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5641099
+      value: -1.6018411
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.7415771
+      value: -2.7502594
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -292,6 +324,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4169577142116048082}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8717630535827630309}
   m_SourcePrefab: {fileID: 100100000, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
 --- !u!1 &3997408794305747051 stripped
 GameObject:
@@ -320,6 +355,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4236268024495968267, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
+--- !u!114 &8717630535827630309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3997408794305747051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!4 &4337659898460209873 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
@@ -388,6 +436,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 102b2fede483fd4458af37acd7f5fe70, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7509909425039990898}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 102b2fede483fd4458af37acd7f5fe70, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1494258118731558541}
   m_SourcePrefab: {fileID: 100100000, guid: 102b2fede483fd4458af37acd7f5fe70, type: 3}
 --- !u!1 &3720854664264732570 stripped
 GameObject:
@@ -416,6 +467,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2969732625113774183, guid: 102b2fede483fd4458af37acd7f5fe70, type: 3}
+--- !u!114 &1494258118731558541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3720854664264732570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!4 &4100792679093933344 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 102b2fede483fd4458af37acd7f5fe70, type: 3}
@@ -431,15 +495,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.7249999
+      value: 0.7409284
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5641098
+      value: -1.601841
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.75041205
+      value: 0.7566834
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -484,6 +548,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 9046676749341191446}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 746170118595457668}
   m_SourcePrefab: {fileID: 100100000, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
 --- !u!1 &5033874114299940628 stripped
 GameObject:
@@ -512,6 +579,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4236268024495968267, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
+--- !u!114 &746170118595457668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5033874114299940628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!4 &5661087929906337198 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
@@ -527,15 +607,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.77900004
+      value: 0.7409284
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.5641099
+      value: -1.6018411
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.7415771
+      value: -2.7502594
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
       propertyPath: m_LocalRotation.w
@@ -580,6 +660,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3372254361129254652}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1617716471513397335}
   m_SourcePrefab: {fileID: 100100000, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
 --- !u!1 &8310867571565780459 stripped
 GameObject:
@@ -608,6 +691,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4236268024495968267, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
+--- !u!114 &1617716471513397335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8310867571565780459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!4 &8655340873397929809 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 87d936d28d8b7e743bd7ee3b753b25d6, type: 3}
