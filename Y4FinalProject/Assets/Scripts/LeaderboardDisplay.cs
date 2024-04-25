@@ -46,7 +46,7 @@ public class LeaderboardDisplay : MonoBehaviour
 
         L = GetComponent<LevelSelectBehavior>();
         filePath = Application.dataPath;
-        Debug.Log(filePath);
+        //Debug.Log(filePath);
         LoadGameStatus();
         UpdateLeaderboard();
     }

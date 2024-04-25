@@ -5,10 +5,13 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
-    
+
     public bool isMouseLocked = true;
     public float isonGroundClearance;
     public float wallRunClearance;
+
+    public string CurrentSurface;
+    public bool isLockedAudio;
 
     void Start()
     {
@@ -40,9 +43,23 @@ public class PlayerManager : MonoBehaviour
 
         if (Physics.Raycast(transform.position, Vector3.down, out hit, isonGroundClearance))
         {
+            TerrainAudioData terrainAudioData_ = hit.transform.GetComponent<TerrainAudioData>();
+
+
+            if (terrainAudioData_ != null && !isLockedAudio)
+            {
+                CurrentSurface = terrainAudioData_.TerrainType;
+            }
+            else if (!isLockedAudio)
+            {
+                CurrentSurface = "unknown";
+            }
+
             if (!hit.transform.gameObject.CompareTag("VaultTrigger"))
             {
                 return true;
+
+
             }
             else
             {
@@ -84,7 +101,7 @@ public class PlayerManager : MonoBehaviour
                 return (false, string.Empty);
             }
         }
-        
+
         //These two are to keep you on the wall when you're looking towards it
         if (Physics.Raycast(transform.position + new Vector3(0.2f, 0.8f, 0), dir, out hit, wallRunClearance))
         {
@@ -97,7 +114,7 @@ public class PlayerManager : MonoBehaviour
                 return (false, string.Empty);
             }
         }
-        
+
         if (Physics.Raycast(transform.position + new Vector3(-0.2f, 0.8f, 0), dir, out hit, wallRunClearance))
         {
             if (!hit.transform.gameObject.CompareTag("VaultTrigger"))
@@ -109,9 +126,9 @@ public class PlayerManager : MonoBehaviour
                 return (false, string.Empty);
             }
         }
-        
-        
+
+
         return (false, string.Empty);
-        
+
     }
 }

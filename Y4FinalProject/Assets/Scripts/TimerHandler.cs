@@ -30,7 +30,7 @@ public struct LeaderboardStats
 
 public class TimerHandler : MonoBehaviour
 {
-    public float bandaidStopTimer = 0;
+    private bool bandaid = false;
     public PersistanceCounter PC;
     public float levelTime = 0;
     public GameObject timerDisplay;
@@ -165,8 +165,7 @@ public class TimerHandler : MonoBehaviour
         dataScore[levelIndex].previousSave = lastTime;
 
         //StopTimer is being called twice
-        if (bandaidStopTimer == 0)
-        {
+        
             if (lastTime < bestTime || bestTime <= 0) //If the time you just got is better than the best...
             {
                 bestTime = lastTime;
@@ -178,7 +177,7 @@ public class TimerHandler : MonoBehaviour
                 dataScore[levelIndex].highName = "ANON"; //Placehold the name
 
             }
-            else if (dataScore[levelIndex].lastTimes.Count != 0)//If it's not the new best time...
+            else /*if (dataScore[levelIndex].lastTimes.Count != 0)//If it's not the new best time...*/
             {
                 Debug.Log("Not the best time is being called");
 
@@ -202,9 +201,7 @@ public class TimerHandler : MonoBehaviour
             {
                 InsertLastHundredTime(lastTime, "Anon");
             }
-            bandaidStopTimer = 1;
-        }
-        SaveGameStatus();
+            SaveGameStatus();
     }
 
     private int findMe;
@@ -222,17 +219,18 @@ public class TimerHandler : MonoBehaviour
         
         if (dataScore[levelIndex].lastTimes.Count == 0)
         {
-            dataScore[levelIndex].lastTimes.Insert(0, time);
-            dataScore[levelIndex].lastNames.Insert(0, name);
+            dataScore[levelIndex].lastTimes.Add(time);
+            dataScore[levelIndex].lastNames.Add(name);
             findMe = 0;
             return;
         }
 
-        Debug.Log("WEEEEEEEEEEWOOOOOOOOOWEEEEEEEEEWOOOOOOOO WORST TIME IS: " + dataScore[levelIndex].lastTimes[^1]);
-        if (time > dataScore[levelIndex].lastTimes[^1])
+        Debug.Log("WORST TIME IS: " + dataScore[levelIndex].lastTimes[^1]);
+        if (time > dataScore[levelIndex].lastTimes[^1] && dataScore[levelIndex].lastTimes.Count < lastTimesSaved)
         {
             dataScore[levelIndex].lastNames.Add(name);
             dataScore[levelIndex].lastTimes.Add(time);
+            findMe = dataScore[levelIndex].lastNames.Count - 1;
             return;
         }
 
@@ -272,10 +270,11 @@ public class TimerHandler : MonoBehaviour
 
 
 
-        if (time > dataScore[levelIndex].lastTimesHundred[^1])
+        if (time > dataScore[levelIndex].lastTimesHundred[^1] && dataScore[levelIndex].lastTimesHundred.Count < lastTimesSaved)
         {
             dataScore[levelIndex].lastHundredNames.Add(name);
             dataScore[levelIndex].lastTimesHundred.Add(time);
+            findMe = dataScore[levelIndex].lastHundredNames.Count - 1;
             return;
         }
 
@@ -357,6 +356,15 @@ public class TimerHandler : MonoBehaviour
     {
         if (other.tag == "FinishTrigger")
         {
+            if (bandaid)
+            {
+                return;
+            }
+
+            bandaid = true; //Because Unity is dumb and calls this function twice for LITERALLY NO REASON
+            
+            
+            Debug.Log(other.gameObject.name);
             finishPanel.SetActive(true);
             gameObject.GetComponent<PlayerManager>().lockMouse();
             gameObject.GetComponent<PlayerMovement>().controls.Disable();
@@ -394,17 +402,15 @@ public class TimerHandler : MonoBehaviour
         {
             dataScore[levelIndex].highName = name;
         }
-        else if (dataScore[levelIndex].lastNames[^1] == "Anon")
+        /*else if (dataScore[levelIndex].lastNames.Count == 0)
         {
-            dataScore[levelIndex].lastNames[^1] = name;
-        }
+            dataScore[levelIndex].lastNames.Add(name);
+        }*/
         else
         {
             dataScore[levelIndex].lastNames[findMe] = name;
         }
         
-        
-
         if (handler.hundredpercent && (lastTime == bestHundredpercentTime || bestHundredpercentTime <= 0))
         {
             dataScore[levelIndex].highHundredName = name;

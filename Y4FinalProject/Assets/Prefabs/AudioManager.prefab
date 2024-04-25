@@ -58,7 +58,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4531825864731029170}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
   m_Name: 
@@ -73,7 +73,7 @@ MonoBehaviour:
     Path: 
   Event: 
   PlayEvent: 0
-  StopEvent: 2
+  StopEvent: 1
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
@@ -100,14 +100,21 @@ MonoBehaviour:
       Data2: 1151059439
       Data3: 1429098132
       Data4: 1193387506
-    Path: event:/Button
+    Path: event:/sfx/Button
   <pageTurning>k__BackingField:
     Guid:
       Data1: 1620725815
       Data2: 1332234156
       Data3: -1369882974
       Data4: 284420078
-    Path: event:/Page Turn
+    Path: event:/sfx/Page Turn
+  <powerupEquip>k__BackingField:
+    Guid:
+      Data1: -417293078
+      Data2: 1098227793
+      Data3: -984664175
+      Data4: 1952785146
+    Path: event:/sfx/robot
   <menuMusic>k__BackingField:
     Guid:
       Data1: 804743585
@@ -157,13 +164,48 @@ MonoBehaviour:
       Data3: -60908641
       Data4: -2029401568
     Path: event:/powerups/Glider
-  <walk>k__BackingField:
+  <hardStep>k__BackingField:
     Guid:
       Data1: -1975546953
       Data2: 1153294385
       Data3: -909741680
       Data4: -1283325916
-    Path: event:/step
+    Path: event:/steps/step
+  <robotWhir>k__BackingField:
+    Guid:
+      Data1: 1394384714
+      Data2: 1111627937
+      Data3: -810092399
+      Data4: -980462031
+    Path: event:/steps/WhirStep
+  <grassStep>k__BackingField:
+    Guid:
+      Data1: 1385985761
+      Data2: 1326775461
+      Data3: 172113030
+      Data4: -1939460898
+    Path: event:/steps/grass step
+  <mulchyStep>k__BackingField:
+    Guid:
+      Data1: 1323818554
+      Data2: 1261866851
+      Data3: 618715046
+      Data4: 118679307
+    Path: event:/steps/Mulchy Step
+  <woodStep>k__BackingField:
+    Guid:
+      Data1: 253903071
+      Data2: 1301300470
+      Data3: -460099669
+      Data4: -1504274555
+    Path: event:/steps/Wood Step
+  <metalStep>k__BackingField:
+    Guid:
+      Data1: 1627465600
+      Data2: 1259210987
+      Data3: -509867093
+      Data4: 91793841
+    Path: event:/steps/Metal Step
   <slide>k__BackingField:
     Guid:
       Data1: 1438740927

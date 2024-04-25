@@ -9,26 +9,29 @@ using UnityEngine;
 public class TerrainHandler : MonoBehaviour
 {
 
-    [Header("Effects")] 
+    [Header("Effects")]
     public bool modifiesMoveSpeed = false;
     public bool modifiesJumpHeight = false;
     public bool modifiesFriction = false;
-    
+
     [Header("Modifiers")]
     public float moveSpeedMult = 1;
     public float jumpHeightMult = 1;
     public float frictionMult = 1;
-    
+
+    [Header("Audio Type")]
+    public string AudioType;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -36,16 +39,17 @@ public class TerrainHandler : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
-            
+            PlayerManager playerManager_ = other.gameObject.GetComponentInParent<PlayerManager>();
             PlayerMovement target = other.gameObject.GetComponentInParent<PlayerMovement>(); //Get the playermovement script for easy access
+
+            playerManager_.isLockedAudio = true;
+            playerManager_.CurrentSurface = AudioType;
 
             if (target.isAffectedByTerrain)
             {
                 if (modifiesMoveSpeed)
                 {
-                    Debug.Log("MULT:" + moveSpeedMult);
                     target.moveSpeedMult = moveSpeedMult;
-                    Debug.Log("MULTAFTER:" + moveSpeedMult);
                 }
 
                 if (modifiesJumpHeight)
@@ -75,7 +79,7 @@ public class TerrainHandler : MonoBehaviour
                     target.fricitonMult = 1;
                 }
             }
-            
+
         }
     }
 
@@ -88,6 +92,9 @@ public class TerrainHandler : MonoBehaviour
             target.moveSpeedMult = 1;
             target.jumpHeightMult = 1;
             target.fricitonMult = 1;
+
+            PlayerManager playerManager_ = other.gameObject.GetComponentInParent<PlayerManager>();
+            playerManager_.isLockedAudio = false;
         }
     }
 }

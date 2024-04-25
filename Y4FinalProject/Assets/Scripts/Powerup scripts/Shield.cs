@@ -97,15 +97,22 @@ public class Shield : MonoBehaviour
     {
         if (!coolingDown)
         {
-            GetComponent<JuiceBehaviours>().playPowerupAni(true);
-
-            if (!active) AudioManager.instance.GenerateSound(AudioReference.instance.shieldDeploy, Vector3.zero);
-            active = true;
+            if (!active)
+            {
+                AudioManager.instance.GenerateSound(AudioReference.instance.shieldDeploy, Vector3.zero);
+                active = true;
+                GetComponent<JuiceBehaviours>().playPowerupAni(false);
+            }
+            else
+            {
+                GetComponent<JuiceBehaviours>().playPowerupAni(true);
+            }
         }
         else
         {
             GetComponent<JuiceBehaviours>().playPowerupAni(false);
         }
+
     }
 
     public string CleanTimeConversion(float rawTime, int Dplaces)
