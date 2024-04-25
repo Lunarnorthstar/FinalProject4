@@ -1004,9 +1004,10 @@ GameObject:
   - component: {fileID: 8155540549982585361}
   - component: {fileID: 5505435145816139826}
   - component: {fileID: 1988381874008637103}
+  - component: {fileID: 2570508396639952326}
   m_Layer: 0
   m_Name: CraneTowerLadder
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1109,6 +1110,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2394985833497583912, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
+--- !u!65 &2570508396639952326
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302095817043203912}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4, y: 4, z: 1}
+  m_Center: {x: 0, y: 0.0000035762787, z: -0.5}
 --- !u!1 &327516139226773544
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,6 +1661,126 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -69708530320845239, guid: 4586989edc0f3a648ad9f836d675bac1, type: 3}
+--- !u!1 &454534911872986247
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4347948213066571615}
+  - component: {fileID: 8482086685216534787}
+  - component: {fileID: 8515002296750337668}
+  - component: {fileID: 3596104307038809094}
+  - component: {fileID: 6386305910331995837}
+  m_Layer: 0
+  m_Name: CraneJibInner (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4347948213066571615
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454534911872986247}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.2579299, y: 1.8033372, z: 1.6441735}
+  m_LocalScale: {x: 1.2382222, y: 1, z: 0.9661836}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7884773683705771263}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &8482086685216534787
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454534911872986247}
+  m_Mesh: {fileID: 224659109308805967, guid: 1eb532229b0b23347a1526d1fa3a67b6, type: 3}
+--- !u!23 &8515002296750337668
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454534911872986247}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 257
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 4c42bda7cc3cb8444a5175fd08b939a6, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3596104307038809094
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454534911872986247}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 224659109308805967, guid: 1eb532229b0b23347a1526d1fa3a67b6, type: 3}
+--- !u!114 &6386305910331995837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454534911872986247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &464129570375684878
 GameObject:
   m_ObjectHideFlags: 0
@@ -2014,9 +2156,10 @@ GameObject:
   - component: {fileID: 6959174228877673651}
   - component: {fileID: 7320381773521405939}
   - component: {fileID: 7003303542872985854}
+  - component: {fileID: 1702562719200997880}
   m_Layer: 0
   m_Name: CraneTowerLadder
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2119,6 +2262,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2394985833497583912, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
+--- !u!65 &1702562719200997880
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543223715197119349}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4, y: 4, z: 1}
+  m_Center: {x: -0.000007688999, y: -0.0000002384187, z: 0.6}
 --- !u!1 &545412709979679658
 GameObject:
   m_ObjectHideFlags: 0
@@ -2555,6 +2719,7 @@ GameObject:
   - component: {fileID: 5626899361306190663}
   - component: {fileID: 8185806359364850796}
   - component: {fileID: 172499652695904661}
+  - component: {fileID: 3307814005384457561}
   m_Layer: 0
   m_Name: Trolley
   m_TagString: Untagged
@@ -2571,7 +2736,7 @@ Transform:
   m_GameObject: {fileID: 728822793902729428}
   serializedVersion: 2
   m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -17.625902, y: 0.49085617, z: 0.16912931}
+  m_LocalPosition: {x: -36.05, y: 0.49085617, z: 0.16912931}
   m_LocalScale: {x: 0.95693785, y: 1, z: 0.9661836}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2635,6 +2800,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3307814005384457561
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728822793902729428}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3240379114154728525, guid: 7a4fab47bad240e4ea23abede3e6e9d0, type: 3}
 --- !u!1 &744184089390527433
 GameObject:
   m_ObjectHideFlags: 0
@@ -4596,6 +4783,7 @@ GameObject:
   - component: {fileID: 7152131770848300041}
   - component: {fileID: 5133384333720637967}
   - component: {fileID: 7106447400082863772}
+  - component: {fileID: 4832748393301194987}
   m_Layer: 0
   m_Name: CraneJibBars (14)
   m_TagString: Untagged
@@ -4690,6 +4878,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &4832748393301194987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232368573579293983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1333459118444807175
 GameObject:
   m_ObjectHideFlags: 0
@@ -4808,6 +5009,7 @@ GameObject:
   - component: {fileID: 638690948068009689}
   - component: {fileID: 8359690074592530170}
   - component: {fileID: 3530663410819115074}
+  - component: {fileID: 4858068918559605872}
   m_Layer: 0
   m_Name: CraneJibBars (3)
   m_TagString: Untagged
@@ -4902,6 +5104,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &4858068918559605872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370080260030827967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1394451912089101112
 GameObject:
   m_ObjectHideFlags: 0
@@ -5008,6 +5223,126 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6225412317256557879, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
+--- !u!1 &1405536329297503823
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3239843399143247926}
+  - component: {fileID: 7923035588145092684}
+  - component: {fileID: 3684679977604462808}
+  - component: {fileID: 1699895994000686112}
+  - component: {fileID: 5397345036239078474}
+  m_Layer: 0
+  m_Name: CraneJibBars (17)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3239843399143247926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405536329297503823}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 1, z: -0.000000021855694, w: 0}
+  m_LocalPosition: {x: -15.01, y: 3.375969, z: 0.5118866}
+  m_LocalScale: {x: 0.95693785, y: 1, z: 0.9661836}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7884773683705771263}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!33 &7923035588145092684
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405536329297503823}
+  m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!23 &3684679977604462808
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405536329297503823}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 257
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1c7575ba47b8499428b99d929534f2f0, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1699895994000686112
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405536329297503823}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &5397345036239078474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1405536329297503823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1410920156271298804
 GameObject:
   m_ObjectHideFlags: 0
@@ -5125,6 +5460,7 @@ GameObject:
   - component: {fileID: 441448410372977090}
   - component: {fileID: 6650887776535218163}
   - component: {fileID: 7299686951609557201}
+  - component: {fileID: 6884051094042843954}
   m_Layer: 0
   m_Name: HookConnector
   m_TagString: Untagged
@@ -5197,6 +5533,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6884051094042843954
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1425729963027941595}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6975212812562875068, guid: 5413825da83f80344b8f4db1841e61f9, type: 3}
 --- !u!1 &1439591787598882705
 GameObject:
   m_ObjectHideFlags: 0
@@ -5738,6 +6096,7 @@ GameObject:
   - component: {fileID: 1513596660175783303}
   - component: {fileID: 751990287855293053}
   - component: {fileID: 2321260210004229792}
+  - component: {fileID: 509406349584210931}
   m_Layer: 0
   m_Name: Cable (1)
   m_TagString: Untagged
@@ -5810,6 +6169,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &509406349584210931
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531286263920378741}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5818063044284238064, guid: cb40562b493bcc5418a97ef492401c9b, type: 3}
 --- !u!1 &1543497203882593394
 GameObject:
   m_ObjectHideFlags: 0
@@ -6730,6 +7111,7 @@ GameObject:
   - component: {fileID: 3582687081587509974}
   - component: {fileID: 5725054458820422541}
   - component: {fileID: 7682381495455403003}
+  - component: {fileID: 6086361985641876505}
   m_Layer: 0
   m_Name: CraneHalfLeg (3)
   m_TagString: Untagged
@@ -6802,6 +7184,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6086361985641876505
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1746281832145851437}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2791284034196158496, guid: d5d16fc048346554487ac179c131fff6, type: 3}
 --- !u!1 &1763126916633635347
 GameObject:
   m_ObjectHideFlags: 0
@@ -6919,6 +7323,7 @@ GameObject:
   - component: {fileID: 284412640556518331}
   - component: {fileID: 1184630728985942390}
   - component: {fileID: 1091183259399206504}
+  - component: {fileID: 6792608874020280649}
   m_Layer: 0
   m_Name: CableConnectors (1)
   m_TagString: Untagged
@@ -6991,6 +7396,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6792608874020280649
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771141467068767196}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4254769481335329328, guid: 632df62f087233b44bf5d983c6d39b2c, type: 3}
 --- !u!1 &1779133055498057066
 GameObject:
   m_ObjectHideFlags: 0
@@ -7003,6 +7430,7 @@ GameObject:
   - component: {fileID: 2805902307296581209}
   - component: {fileID: 1726401886179879531}
   - component: {fileID: 9153647987262387646}
+  - component: {fileID: 3698241043177962265}
   m_Layer: 0
   m_Name: Object059
   m_TagString: Untagged
@@ -7097,6 +7525,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8146333293907604950, guid: c3bfe41a877cc1b439e029c62b060ef7, type: 3}
+--- !u!114 &3698241043177962265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779133055498057066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1802197362458586199
 GameObject:
   m_ObjectHideFlags: 0
@@ -7109,6 +7550,7 @@ GameObject:
   - component: {fileID: 4619412921469607955}
   - component: {fileID: 4829016661882486460}
   - component: {fileID: 175290715284693660}
+  - component: {fileID: 8321094977090101380}
   m_Layer: 0
   m_Name: CraneJibBars
   m_TagString: Untagged
@@ -7203,6 +7645,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &8321094977090101380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1802197362458586199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1848991574038187412
 GameObject:
   m_ObjectHideFlags: 0
@@ -7321,6 +7776,7 @@ GameObject:
   - component: {fileID: 7783575060544110307}
   - component: {fileID: 2313151006561852268}
   - component: {fileID: 8338593920351612751}
+  - component: {fileID: 4499276420738284535}
   m_Layer: 0
   m_Name: CraneJibBars (9)
   m_TagString: Untagged
@@ -7415,6 +7871,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &4499276420738284535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856860698043569963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1903712585001896504
 GameObject:
   m_ObjectHideFlags: 0
@@ -7839,6 +8308,126 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 6601691970475039226, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
+--- !u!1 &1947032118125808026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5980868403272996430}
+  - component: {fileID: 4845065136761656950}
+  - component: {fileID: 549425996775002387}
+  - component: {fileID: 5961669371194612723}
+  - component: {fileID: 767316194413358413}
+  m_Layer: 0
+  m_Name: CraneJibBars (18)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5980868403272996430
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947032118125808026}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -17.77, y: 3.3759692, z: 2.7437682}
+  m_LocalScale: {x: 0.95693785, y: 1, z: 0.9661836}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7884773683705771263}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &4845065136761656950
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947032118125808026}
+  m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!23 &549425996775002387
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947032118125808026}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 257
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1c7575ba47b8499428b99d929534f2f0, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5961669371194612723
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947032118125808026}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &767316194413358413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1947032118125808026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1958074937472212855
 GameObject:
   m_ObjectHideFlags: 0
@@ -7957,6 +8546,7 @@ GameObject:
   - component: {fileID: 6463958303031375031}
   - component: {fileID: 6491819322506048380}
   - component: {fileID: 3029308880287328026}
+  - component: {fileID: 757181332601531199}
   m_Layer: 0
   m_Name: Object059 (1)
   m_TagString: Untagged
@@ -8051,6 +8641,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8146333293907604950, guid: c3bfe41a877cc1b439e029c62b060ef7, type: 3}
+--- !u!114 &757181332601531199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1962803688919852336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &1977415964761125055
 GameObject:
   m_ObjectHideFlags: 0
@@ -8381,6 +8984,7 @@ GameObject:
   - component: {fileID: 4078810318613317046}
   - component: {fileID: 3598300092364037901}
   - component: {fileID: 9127518129358428087}
+  - component: {fileID: 582078937071181822}
   m_Layer: 0
   m_Name: CraneJibBars (12)
   m_TagString: Untagged
@@ -8475,6 +9079,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &582078937071181822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2005179323130265316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &2012969008890694598
 GameObject:
   m_ObjectHideFlags: 0
@@ -9313,6 +9930,7 @@ GameObject:
   - component: {fileID: 5921444535820223786}
   - component: {fileID: 6112257833631210169}
   - component: {fileID: 3326528657625707402}
+  - component: {fileID: 2529424845027198519}
   m_Layer: 0
   m_Name: CraneJibBars (11)
   m_TagString: Untagged
@@ -9407,6 +10025,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &2529424845027198519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2238920451723474639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &2293540759837310575
 GameObject:
   m_ObjectHideFlags: 0
@@ -9419,6 +10050,7 @@ GameObject:
   - component: {fileID: 8594051403914949814}
   - component: {fileID: 2041184925198219311}
   - component: {fileID: 2729480433617008240}
+  - component: {fileID: 5353258311087446041}
   m_Layer: 0
   m_Name: CraneJibPart (5)
   m_TagString: Untagged
@@ -9513,6 +10145,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3292925553009838691, guid: 2d687846d5415e743937ec2e32a7b6da, type: 3}
+--- !u!114 &5353258311087446041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2293540759837310575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &2316058391082296939
 GameObject:
   m_ObjectHideFlags: 0
@@ -9619,112 +10264,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -69708530320845239, guid: 4586989edc0f3a648ad9f836d675bac1, type: 3}
---- !u!1 &2345801996675325370
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1135235642264515663}
-  - component: {fileID: 502385640915913148}
-  - component: {fileID: 2710349291812076322}
-  - component: {fileID: 7142878564220989124}
-  m_Layer: 0
-  m_Name: Box154
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1135235642264515663
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2345801996675325370}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.67397714, y: -0.794, z: 0.015943527}
-  m_LocalScale: {x: 1, y: 0.83715, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5818721576497719810}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &502385640915913148
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2345801996675325370}
-  m_Mesh: {fileID: 6601691970475039226, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
---- !u!23 &2710349291812076322
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2345801996675325370}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 257
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 9c8da8f7c0b95c243a812e0cb0a3430f, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7142878564220989124
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2345801996675325370}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 6601691970475039226, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
 --- !u!1 &2356899151802240738
 GameObject:
   m_ObjectHideFlags: 0
@@ -10073,6 +10612,7 @@ GameObject:
   - component: {fileID: 4555548190195785982}
   - component: {fileID: 8723832575139550681}
   - component: {fileID: 7068627265249922918}
+  - component: {fileID: 5410388241932018399}
   m_Layer: 0
   m_Name: CraneJibUnderBars (5)
   m_TagString: Untagged
@@ -10167,6 +10707,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -416608722631961527, guid: 2cf280f507be8b44ca64595b00fed7b5, type: 3}
+--- !u!114 &5410388241932018399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2418727476013286476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &2438609338618745798
 GameObject:
   m_ObjectHideFlags: 0
@@ -11003,6 +11556,7 @@ GameObject:
   - component: {fileID: 1123166317914994172}
   - component: {fileID: 5168385568511271761}
   - component: {fileID: 3223346305822838365}
+  - component: {fileID: 7816866541911446679}
   m_Layer: 0
   m_Name: Cable 1
   m_TagString: Untagged
@@ -11075,6 +11629,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7816866541911446679
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2588432870112278973}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 849032210722914114, guid: 007a541c85b272f4b98a62e5996d2195, type: 3}
 --- !u!1 &2632559730388060699
 GameObject:
   m_ObjectHideFlags: 0
@@ -12112,6 +12688,126 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4996861437628621093, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
+--- !u!1 &3238879184550498939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3729147348838679450}
+  - component: {fileID: 4048030022465075567}
+  - component: {fileID: 2228240669977648897}
+  - component: {fileID: 4253918662527995059}
+  - component: {fileID: 4871393619574445386}
+  m_Layer: 0
+  m_Name: CraneJibBars (21)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3729147348838679450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3238879184550498939}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 1, z: -0.000000021855694, w: 0}
+  m_LocalPosition: {x: -20.2, y: 3.375969, z: 0.5118866}
+  m_LocalScale: {x: 0.95693785, y: 1, z: 0.9661836}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7884773683705771263}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!33 &4048030022465075567
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3238879184550498939}
+  m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!23 &2228240669977648897
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3238879184550498939}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 257
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1c7575ba47b8499428b99d929534f2f0, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4253918662527995059
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3238879184550498939}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &4871393619574445386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3238879184550498939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &3250948727957469452
 GameObject:
   m_ObjectHideFlags: 0
@@ -12802,6 +13498,7 @@ GameObject:
   - component: {fileID: 1678318494207534898}
   - component: {fileID: 5316491177231773569}
   - component: {fileID: 379074397352641866}
+  - component: {fileID: 2596886629644489044}
   m_Layer: 0
   m_Name: CraneJibBars (4)
   m_TagString: Untagged
@@ -12896,6 +13593,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &2596886629644489044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3467787073408332631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &3468880143296885598
 GameObject:
   m_ObjectHideFlags: 0
@@ -13120,9 +13830,10 @@ GameObject:
   - component: {fileID: 7117675514063107761}
   - component: {fileID: 8631679177112423872}
   - component: {fileID: 4967488523816679919}
+  - component: {fileID: 1739170038389840581}
   m_Layer: 0
   m_Name: CraneTowerLadder
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13225,6 +13936,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2394985833497583912, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
+--- !u!65 &1739170038389840581
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3503868847354830645}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4, y: 4, z: 1}
+  m_Center: {x: 0, y: 0.0000035762787, z: -0.5}
 --- !u!1 &3516506345098559053
 GameObject:
   m_ObjectHideFlags: 0
@@ -13661,6 +14393,7 @@ GameObject:
   - component: {fileID: 6437838459564927158}
   - component: {fileID: 8036826125801090900}
   - component: {fileID: 3070598535101581924}
+  - component: {fileID: 4688083840792996508}
   m_Layer: 0
   m_Name: CraneJibEnd
   m_TagString: Untagged
@@ -13677,7 +14410,7 @@ Transform:
   m_GameObject: {fileID: 3619226737508456162}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -9.965565, y: 1.505375, z: 1.6291249}
+  m_LocalPosition: {x: -17.61913, y: 1.5053674, z: 1.6291212}
   m_LocalScale: {x: 0.95693785, y: 1, z: 0.9661836}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13755,6 +14488,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3531946766418785785, guid: ebc1172f8c29cb84689c62c0fbdb6aed, type: 3}
+--- !u!114 &4688083840792996508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3619226737508456162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &3663645539223219000
 GameObject:
   m_ObjectHideFlags: 0
@@ -14191,6 +14937,7 @@ GameObject:
   - component: {fileID: 133416001689010215}
   - component: {fileID: 3516433231941472016}
   - component: {fileID: 918438180452240608}
+  - component: {fileID: 6742174498748324855}
   m_Layer: 0
   m_Name: CraneJibUnderBars (1)
   m_TagString: Untagged
@@ -14285,6 +15032,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -416608722631961527, guid: 2cf280f507be8b44ca64595b00fed7b5, type: 3}
+--- !u!114 &6742174498748324855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3711349903237635926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &3775875584166679207
 GameObject:
   m_ObjectHideFlags: 0
@@ -14297,6 +15057,7 @@ GameObject:
   - component: {fileID: 1920479195098793534}
   - component: {fileID: 2522410724479618545}
   - component: {fileID: 2880164939133194679}
+  - component: {fileID: 7831269351681468365}
   m_Layer: 0
   m_Name: CraneJibUnderBars
   m_TagString: Untagged
@@ -14391,6 +15152,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -416608722631961527, guid: 2cf280f507be8b44ca64595b00fed7b5, type: 3}
+--- !u!114 &7831269351681468365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3775875584166679207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &3785476984854080268
 GameObject:
   m_ObjectHideFlags: 0
@@ -14402,6 +15176,7 @@ GameObject:
   - component: {fileID: 4711064918912731687}
   - component: {fileID: 3232058899417458285}
   - component: {fileID: 2974248622807009376}
+  - component: {fileID: 4641895799991573070}
   m_Layer: 0
   m_Name: CableConnectors (2)
   m_TagString: Untagged
@@ -14474,6 +15249,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4641895799991573070
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3785476984854080268}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4254769481335329328, guid: 632df62f087233b44bf5d983c6d39b2c, type: 3}
 --- !u!1 &3800293069161673006
 GameObject:
   m_ObjectHideFlags: 0
@@ -14592,6 +15389,7 @@ GameObject:
   - component: {fileID: 6586041220474749019}
   - component: {fileID: 256388986772373198}
   - component: {fileID: 4170579389139138596}
+  - component: {fileID: 6901636204599841073}
   m_Layer: 0
   m_Name: CraneJibPart (3)
   m_TagString: Untagged
@@ -14686,6 +15484,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3292925553009838691, guid: 2d687846d5415e743937ec2e32a7b6da, type: 3}
+--- !u!114 &6901636204599841073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3818197419089285916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &3844196512360100443
 GameObject:
   m_ObjectHideFlags: 0
@@ -14950,6 +15761,7 @@ GameObject:
   - component: {fileID: 2569758175209906796}
   - component: {fileID: 7322509161412560834}
   - component: {fileID: 6424198464557668029}
+  - component: {fileID: 8688560468510932102}
   m_Layer: 0
   m_Name: TurntableBottom
   m_TagString: Untagged
@@ -15022,6 +15834,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8688560468510932102
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3879019397819269923}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5395582760244232606, guid: 22d86c7c909d6f74ca0f4474e5349e8f, type: 3}
 --- !u!1 &3894628363806524336
 GameObject:
   m_ObjectHideFlags: 0
@@ -15458,9 +16292,10 @@ GameObject:
   - component: {fileID: 1782116243704701728}
   - component: {fileID: 4929728923357582563}
   - component: {fileID: 108636992177272375}
+  - component: {fileID: 8026409638166268207}
   m_Layer: 0
   m_Name: CraneTowerLadder
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15478,9 +16313,6 @@ Transform:
   m_LocalScale: {x: 0.92494, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 174089777076839182}
-  - {fileID: 1135235642264515663}
-  - {fileID: 3057724853130666442}
   - {fileID: 4746617888487249159}
   - {fileID: 6925998337246929093}
   - {fileID: 6144425546180607805}
@@ -15563,6 +16395,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2394985833497583912, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
+--- !u!65 &8026409638166268207
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4087243357857332379}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4, y: 4, z: 1}
+  m_Center: {x: -0.000007688999, y: -0.0000002384187, z: 0.6}
 --- !u!1 &4099463403596394795
 GameObject:
   m_ObjectHideFlags: 0
@@ -15786,6 +16639,7 @@ GameObject:
   - component: {fileID: 6553313571083418277}
   - component: {fileID: 4409604603728753862}
   - component: {fileID: 8055416157580177502}
+  - component: {fileID: 7745017494971240191}
   m_Layer: 0
   m_Name: CableConnectors
   m_TagString: Untagged
@@ -15858,6 +16712,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7745017494971240191
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4195869855009993858}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4254769481335329328, guid: 632df62f087233b44bf5d983c6d39b2c, type: 3}
 --- !u!1 &4196794897711633268
 GameObject:
   m_ObjectHideFlags: 0
@@ -16082,6 +16958,7 @@ GameObject:
   - component: {fileID: 2273084449662381867}
   - component: {fileID: 3136969634489457943}
   - component: {fileID: 6761206028986823657}
+  - component: {fileID: 7022791622208631799}
   m_Layer: 0
   m_Name: CraneJibBars (15)
   m_TagString: Untagged
@@ -16176,6 +17053,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &7022791622208631799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4230778744992137046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &4305457957515946273
 GameObject:
   m_ObjectHideFlags: 0
@@ -16188,6 +17078,7 @@ GameObject:
   - component: {fileID: 6603712652137445151}
   - component: {fileID: 1090807336827997794}
   - component: {fileID: 2710864922793830827}
+  - component: {fileID: 2517374382091152864}
   m_Layer: 0
   m_Name: CraneJibUnderBars (3)
   m_TagString: Untagged
@@ -16282,6 +17173,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -416608722631961527, guid: 2cf280f507be8b44ca64595b00fed7b5, type: 3}
+--- !u!114 &2517374382091152864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4305457957515946273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &4337106320965799418
 GameObject:
   m_ObjectHideFlags: 0
@@ -16612,6 +17516,7 @@ GameObject:
   - component: {fileID: 5671733377200240925}
   - component: {fileID: 1849157062623745176}
   - component: {fileID: 7279102555703098201}
+  - component: {fileID: 1990750570353680810}
   m_Layer: 0
   m_Name: CraneJibBars (6)
   m_TagString: Untagged
@@ -16706,6 +17611,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &1990750570353680810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4367397142595857547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &4389692911131659553
 GameObject:
   m_ObjectHideFlags: 0
@@ -16824,9 +17742,10 @@ GameObject:
   - component: {fileID: 248877470730267161}
   - component: {fileID: 1496360069780603388}
   - component: {fileID: 975360763895900088}
+  - component: {fileID: 3219535987779047546}
   m_Layer: 0
   m_Name: CraneTowerLadder
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16929,6 +17848,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2394985833497583912, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
+--- !u!65 &3219535987779047546
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4395057394301165437}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4, y: 4, z: 1}
+  m_Center: {x: 0, y: -0.0000021457672, z: -0.5}
 --- !u!1 &4411705028427399894
 GameObject:
   m_ObjectHideFlags: 0
@@ -17152,9 +18092,10 @@ GameObject:
   - component: {fileID: 4245110475231684301}
   - component: {fileID: 2125254937247724249}
   - component: {fileID: 44551204512859845}
+  - component: {fileID: 248076220055873778}
   m_Layer: 0
   m_Name: CraneTowerLadder
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17236,6 +18177,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &248076220055873778
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4521330449284920046}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4, y: 4, z: 1}
+  m_Center: {x: -0.000000059604645, y: -0.00000023841858, z: 0.6}
 --- !u!1 &4525196736277085354
 GameObject:
   m_ObjectHideFlags: 0
@@ -17247,6 +18209,7 @@ GameObject:
   - component: {fileID: 5945694624920487116}
   - component: {fileID: 2743200184112942668}
   - component: {fileID: 4707277548926747839}
+  - component: {fileID: 3362529813944347804}
   m_Layer: 0
   m_Name: Cable
   m_TagString: Untagged
@@ -17319,6 +18282,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3362529813944347804
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4525196736277085354}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5818063044284238064, guid: cb40562b493bcc5418a97ef492401c9b, type: 3}
 --- !u!1 &4537115418349741233
 GameObject:
   m_ObjectHideFlags: 0
@@ -17796,6 +18781,7 @@ GameObject:
   - component: {fileID: 1724846697249538380}
   - component: {fileID: 8601523586114034937}
   - component: {fileID: 2119198892314562602}
+  - component: {fileID: 4998989262405873061}
   m_Layer: 0
   m_Name: CraneJibUnderBars (4)
   m_TagString: Untagged
@@ -17890,6 +18876,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -416608722631961527, guid: 2cf280f507be8b44ca64595b00fed7b5, type: 3}
+--- !u!114 &4998989262405873061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4655711360453367935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &4692681908184961261
 GameObject:
   m_ObjectHideFlags: 0
@@ -18643,6 +19642,7 @@ GameObject:
   - component: {fileID: 6763268164583191160}
   - component: {fileID: 8353603836546037131}
   - component: {fileID: 1537773105190127389}
+  - component: {fileID: 508394798360284360}
   m_Layer: 0
   m_Name: CraneHalfLeg
   m_TagString: Untagged
@@ -18715,6 +19715,148 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &508394798360284360
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4884384703572921958}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2791284034196158496, guid: d5d16fc048346554487ac179c131fff6, type: 3}
+--- !u!1 &4924518281696298696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6920249285183854337}
+  - component: {fileID: 3394200602611308251}
+  - component: {fileID: 5937084496582162294}
+  - component: {fileID: 4600675129989783049}
+  - component: {fileID: 3928360775607398254}
+  m_Layer: 0
+  m_Name: CraneJibBars (16)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6920249285183854337
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4924518281696298696}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -15.01, y: 3.3759692, z: 2.7437682}
+  m_LocalScale: {x: 0.95693785, y: 1, z: 0.9661836}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7884773683705771263}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &3394200602611308251
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4924518281696298696}
+  m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!23 &5937084496582162294
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4924518281696298696}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 257
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1c7575ba47b8499428b99d929534f2f0, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4600675129989783049
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4924518281696298696}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &3928360775607398254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4924518281696298696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &4924755558286357844
 GameObject:
   m_ObjectHideFlags: 0
@@ -18832,6 +19974,8 @@ GameObject:
   - component: {fileID: 8004119821994841432}
   - component: {fileID: 2049631209662352732}
   - component: {fileID: 137232837366253944}
+  - component: {fileID: 2149832939530616841}
+  - component: {fileID: 1532547743146638977}
   m_Layer: 0
   m_Name: TurntableTop
   m_TagString: Untagged
@@ -18904,6 +20048,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2149832939530616841
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4943310332311660030}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7325388952582132057, guid: 7527fda594ca5a64eb99255f107308a5, type: 3}
+--- !u!114 &1532547743146638977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4943310332311660030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &4966914143567273339
 GameObject:
   m_ObjectHideFlags: 0
@@ -19503,6 +20682,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7884773683705771263}
+  - component: {fileID: 5124020218346821023}
   m_Layer: 0
   m_Name: CraneJib
   m_TagString: Untagged
@@ -19526,11 +20706,14 @@ Transform:
   - {fileID: 220649108159163683}
   - {fileID: 2508225465904514325}
   - {fileID: 2862976952140785827}
+  - {fileID: 5957639071470384598}
+  - {fileID: 1086528774121936010}
   - {fileID: 1420036900922917699}
   - {fileID: 7891779266537999021}
   - {fileID: 5798209080672953169}
   - {fileID: 9221944573261199683}
   - {fileID: 6937559823912557601}
+  - {fileID: 4347948213066571615}
   - {fileID: 1425105616511962609}
   - {fileID: 5804500794624864281}
   - {fileID: 3387391390333357819}
@@ -19553,9 +20736,28 @@ Transform:
   - {fileID: 2579528444560938461}
   - {fileID: 8448972264793027200}
   - {fileID: 3981013452467158473}
+  - {fileID: 6920249285183854337}
+  - {fileID: 5980868403272996430}
+  - {fileID: 1773874698157737016}
+  - {fileID: 4718118518767675785}
+  - {fileID: 3729147348838679450}
+  - {fileID: 3239843399143247926}
   - {fileID: 4923035898872115951}
   m_Father: {fileID: 6954444302023860396}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5124020218346821023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5213601144866216612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &5242692884774698821
 GameObject:
   m_ObjectHideFlags: 0
@@ -19886,6 +21088,7 @@ GameObject:
   - component: {fileID: 8295132698048228366}
   - component: {fileID: 9037874201892439901}
   - component: {fileID: 3617030130239724521}
+  - component: {fileID: 8667819332971813102}
   m_Layer: 0
   m_Name: CraneJibBars (5)
   m_TagString: Untagged
@@ -19980,6 +21183,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &8667819332971813102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5309080442743336903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &5339553076267593884
 GameObject:
   m_ObjectHideFlags: 0
@@ -20204,6 +21420,7 @@ GameObject:
   - component: {fileID: 2374144929702790677}
   - component: {fileID: 8402553252118509196}
   - component: {fileID: 3698947481566261043}
+  - component: {fileID: 3111941721973133851}
   m_Layer: 0
   m_Name: Box096
   m_TagString: Untagged
@@ -20298,6 +21515,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5947953963563170544, guid: c3bfe41a877cc1b439e029c62b060ef7, type: 3}
+--- !u!114 &3111941721973133851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5370007641391482425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &5373269028385350228
 GameObject:
   m_ObjectHideFlags: 0
@@ -20415,9 +21645,11 @@ GameObject:
   - component: {fileID: 1319226104144579971}
   - component: {fileID: 623172145765371628}
   - component: {fileID: 3080556599891463401}
+  - component: {fileID: 2579441456199238898}
+  - component: {fileID: 7234326326093922608}
   m_Layer: 0
   m_Name: CraneCockpit
-  m_TagString: Untagged
+  m_TagString: Blinkblock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20487,6 +21719,41 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2579441456199238898
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5383529668807074983}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5369315709208034699, guid: 7edee17d89bb29040b50eef462ece837, type: 3}
+--- !u!114 &7234326326093922608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5383529668807074983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: 
 --- !u!1 &5390655123285156332
 GameObject:
   m_ObjectHideFlags: 0
@@ -20964,6 +22231,7 @@ GameObject:
   - component: {fileID: 1882974232554647652}
   - component: {fileID: 7149523822191257920}
   - component: {fileID: 4722377778995230932}
+  - component: {fileID: 4142932809307923006}
   m_Layer: 0
   m_Name: CraneJibBars (2)
   m_TagString: Untagged
@@ -21058,6 +22326,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &4142932809307923006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5442820177978217915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &5444544114956268380
 GameObject:
   m_ObjectHideFlags: 0
@@ -21388,6 +22669,7 @@ GameObject:
   - component: {fileID: 3880717855503663914}
   - component: {fileID: 6811023928288173227}
   - component: {fileID: 5177331985555900736}
+  - component: {fileID: 4048591212546878771}
   m_Layer: 0
   m_Name: CraneJibPart (2)
   m_TagString: Untagged
@@ -21482,6 +22764,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3292925553009838691, guid: 2d687846d5415e743937ec2e32a7b6da, type: 3}
+--- !u!114 &4048591212546878771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5482250787597019671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &5522383616460929184
 GameObject:
   m_ObjectHideFlags: 0
@@ -21600,6 +22895,7 @@ GameObject:
   - component: {fileID: 7072447826171381400}
   - component: {fileID: 4580755271346409974}
   - component: {fileID: 7953364840712783229}
+  - component: {fileID: 5198755854039295154}
   m_Layer: 0
   m_Name: CraneJibBars (13)
   m_TagString: Untagged
@@ -21694,6 +22990,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &5198755854039295154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5544224585382556046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &5556456663203608398
 GameObject:
   m_ObjectHideFlags: 0
@@ -21917,6 +23226,7 @@ GameObject:
   - component: {fileID: 6844906284382099908}
   - component: {fileID: 7390090686481720878}
   - component: {fileID: 2665083194965789}
+  - component: {fileID: 3390925470231750682}
   m_Layer: 0
   m_Name: CraneHalfLeg (1)
   m_TagString: Untagged
@@ -21989,6 +23299,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3390925470231750682
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5601151561393586629}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2791284034196158496, guid: d5d16fc048346554487ac179c131fff6, type: 3}
 --- !u!1 &5611401425842237250
 GameObject:
   m_ObjectHideFlags: 0
@@ -22530,6 +23862,7 @@ GameObject:
   - component: {fileID: 3188479221773890271}
   - component: {fileID: 7896004515709132501}
   - component: {fileID: 9066691354379834320}
+  - component: {fileID: 3150416168478608577}
   m_Layer: 0
   m_Name: CraneCableTop
   m_TagString: Untagged
@@ -22608,6 +23941,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3150416168478608577
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5771576369548411616}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7335688690754545078, guid: 8d303ce5eeb1c1c42a02f26f45c2b56d, type: 3}
 --- !u!1 &5808209767696220894
 GameObject:
   m_ObjectHideFlags: 0
@@ -23256,6 +24611,7 @@ GameObject:
   - component: {fileID: 416876103008052554}
   - component: {fileID: 2864003540555158899}
   - component: {fileID: 833169172956096639}
+  - component: {fileID: 3038665933987288896}
   m_Layer: 0
   m_Name: CraneJibPart (4)
   m_TagString: Untagged
@@ -23350,6 +24706,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3292925553009838691, guid: 2d687846d5415e743937ec2e32a7b6da, type: 3}
+--- !u!114 &3038665933987288896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5957298294063039500}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &5962672683003163502
 GameObject:
   m_ObjectHideFlags: 0
@@ -23574,6 +24943,7 @@ GameObject:
   - component: {fileID: 2063126034277424235}
   - component: {fileID: 3347836992459380380}
   - component: {fileID: 6653256056803956423}
+  - component: {fileID: 6157806145707481909}
   m_Layer: 0
   m_Name: Box101
   m_TagString: Untagged
@@ -23668,6 +25038,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3251879260377608855, guid: c3bfe41a877cc1b439e029c62b060ef7, type: 3}
+--- !u!114 &6157806145707481909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6001551345884426261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &6019047365421517266
 GameObject:
   m_ObjectHideFlags: 0
@@ -23785,6 +25168,7 @@ GameObject:
   - component: {fileID: 5653367937911395928}
   - component: {fileID: 1215023426690652520}
   - component: {fileID: 1536069721876990946}
+  - component: {fileID: 1759331523223468292}
   m_Layer: 0
   m_Name: HookStart
   m_TagString: Untagged
@@ -23857,6 +25241,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1759331523223468292
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6039612545015576330}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3600287743064244957, guid: 85d9bd47e6541fc458668acb0fa466b9, type: 3}
 --- !u!1 &6044921249328555372
 GameObject:
   m_ObjectHideFlags: 0
@@ -24947,6 +26353,7 @@ GameObject:
   - component: {fileID: 5480330627513628709}
   - component: {fileID: 4916659963526306012}
   - component: {fileID: 6030818868983839244}
+  - component: {fileID: 1312221435876690611}
   m_Layer: 0
   m_Name: CraneJibBars (1)
   m_TagString: Untagged
@@ -25041,6 +26448,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &1312221435876690611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6348170043040408755}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &6356128740989201955
 GameObject:
   m_ObjectHideFlags: 0
@@ -25996,112 +27416,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 2954858793080512207, guid: d994ece83deb5de4697d92ee01b6546c, type: 3}
---- !u!1 &6593565887444524834
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 174089777076839182}
-  - component: {fileID: 723449926773641484}
-  - component: {fileID: 5437595583379397484}
-  - component: {fileID: 4679619105345735083}
-  m_Layer: 0
-  m_Name: Box118
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &174089777076839182
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6593565887444524834}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.66632557, y: -0.794, z: 0.01594162}
-  m_LocalScale: {x: 1, y: 0.83715, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5818721576497719810}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &723449926773641484
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6593565887444524834}
-  m_Mesh: {fileID: -4996861437628621093, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
---- !u!23 &5437595583379397484
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6593565887444524834}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 257
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 9c8da8f7c0b95c243a812e0cb0a3430f, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4679619105345735083
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6593565887444524834}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -4996861437628621093, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
 --- !u!1 &6631406450973762693
 GameObject:
   m_ObjectHideFlags: 0
@@ -26208,6 +27522,126 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8379123867385170646, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
+--- !u!1 &6643499456772883960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1773874698157737016}
+  - component: {fileID: 8421589200980551844}
+  - component: {fileID: 2940070008193000509}
+  - component: {fileID: 7690440837204478409}
+  - component: {fileID: 6550465165685527665}
+  m_Layer: 0
+  m_Name: CraneJibBars (19)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1773874698157737016
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6643499456772883960}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: 1, z: -0.000000021855694, w: 0}
+  m_LocalPosition: {x: -17.77, y: 3.375969, z: 0.5118866}
+  m_LocalScale: {x: 0.95693785, y: 1, z: 0.9661836}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7884773683705771263}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!33 &8421589200980551844
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6643499456772883960}
+  m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!23 &2940070008193000509
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6643499456772883960}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 257
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1c7575ba47b8499428b99d929534f2f0, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7690440837204478409
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6643499456772883960}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &6550465165685527665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6643499456772883960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &6643542657760596815
 GameObject:
   m_ObjectHideFlags: 0
@@ -26750,9 +28184,10 @@ GameObject:
   - component: {fileID: 3826740428095439642}
   - component: {fileID: 8187943627914417586}
   - component: {fileID: 8770475767266879617}
+  - component: {fileID: 8327514316943921848}
   m_Layer: 0
   m_Name: CraneTowerLadder
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26857,6 +28292,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2394985833497583912, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
+--- !u!65 &8327514316943921848
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6813279017174006303}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4, y: 4, z: 1}
+  m_Center: {x: -0.000000059604645, y: 0.0000016689299, z: 0.6}
 --- !u!1 &6852374233230577833
 GameObject:
   m_ObjectHideFlags: 0
@@ -26975,9 +28431,10 @@ GameObject:
   - component: {fileID: 3861606482303578313}
   - component: {fileID: 8569098310765750016}
   - component: {fileID: 3961334571483813984}
+  - component: {fileID: 387985566507987491}
   m_Layer: 0
   m_Name: CraneTowerLadder
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27080,6 +28537,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2394985833497583912, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
+--- !u!65 &387985566507987491
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6877725631087206015}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4, y: 4, z: 1}
+  m_Center: {x: -0.000007688999, y: 0.0000035762787, z: 0.6}
 --- !u!1 &6879066188282289618
 GameObject:
   m_ObjectHideFlags: 0
@@ -27410,6 +28888,7 @@ GameObject:
   - component: {fileID: 3389863156697267450}
   - component: {fileID: 1765140318906183315}
   - component: {fileID: 7013887418646236558}
+  - component: {fileID: 5938939212340557930}
   m_Layer: 0
   m_Name: CraneJibPart (1)
   m_TagString: Untagged
@@ -27504,6 +28983,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3292925553009838691, guid: 2d687846d5415e743937ec2e32a7b6da, type: 3}
+--- !u!114 &5938939212340557930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7011303551181123655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &7030994801405835048
 GameObject:
   m_ObjectHideFlags: 0
@@ -27516,6 +29008,7 @@ GameObject:
   - component: {fileID: 1116071215128326891}
   - component: {fileID: 8086502708853067396}
   - component: {fileID: 8887794619895249909}
+  - component: {fileID: 3866453424421003600}
   m_Layer: 0
   m_Name: CraneJibUnderBars (2)
   m_TagString: Untagged
@@ -27610,6 +29103,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -416608722631961527, guid: 2cf280f507be8b44ca64595b00fed7b5, type: 3}
+--- !u!114 &3866453424421003600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7030994801405835048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &7056954279156262796
 GameObject:
   m_ObjectHideFlags: 0
@@ -27716,6 +29222,126 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -69708530320845239, guid: 4586989edc0f3a648ad9f836d675bac1, type: 3}
+--- !u!1 &7059808174797221825
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1086528774121936010}
+  - component: {fileID: 8738413335567052207}
+  - component: {fileID: 4736059536030540471}
+  - component: {fileID: 8755660732719689286}
+  - component: {fileID: 921288041633034147}
+  m_Layer: 0
+  m_Name: CraneJibPart (7)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1086528774121936010
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7059808174797221825}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.965645, y: 1.5053711, z: -0.1451258}
+  m_LocalScale: {x: 0.95693785, y: 1, z: 0.9661836}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7884773683705771263}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &8738413335567052207
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7059808174797221825}
+  m_Mesh: {fileID: -3292925553009838691, guid: 2d687846d5415e743937ec2e32a7b6da, type: 3}
+--- !u!23 &4736059536030540471
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7059808174797221825}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 257
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 36d146c77abadf1499c11d9592a532e9, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8755660732719689286
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7059808174797221825}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3292925553009838691, guid: 2d687846d5415e743937ec2e32a7b6da, type: 3}
+--- !u!114 &921288041633034147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7059808174797221825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &7074687178172864597
 GameObject:
   m_ObjectHideFlags: 0
@@ -28046,9 +29672,10 @@ GameObject:
   - component: {fileID: 5780272905452987051}
   - component: {fileID: 4423548925184049762}
   - component: {fileID: 1246944582435287941}
+  - component: {fileID: 2222814862037429990}
   m_Layer: 0
   m_Name: CraneTowerLadder
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -28151,6 +29778,147 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2394985833497583912, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
+--- !u!65 &2222814862037429990
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7194620425740621061}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4, y: 4, z: 1}
+  m_Center: {x: -0.000007688999, y: 0.0000054836273, z: 0.6}
+--- !u!1 &7223846841203664237
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5957639071470384598}
+  - component: {fileID: 5534811578458547191}
+  - component: {fileID: 7810891408139403333}
+  - component: {fileID: 2449160274454939544}
+  - component: {fileID: 6784408209208549947}
+  m_Layer: 0
+  m_Name: CraneJibPart (6)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5957639071470384598
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7223846841203664237}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -9.965645, y: 1.5053711, z: 3.4033608}
+  m_LocalScale: {x: 0.95693785, y: 1, z: 0.9661836}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7884773683705771263}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &5534811578458547191
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7223846841203664237}
+  m_Mesh: {fileID: -3292925553009838691, guid: 2d687846d5415e743937ec2e32a7b6da, type: 3}
+--- !u!23 &7810891408139403333
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7223846841203664237}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 257
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 36d146c77abadf1499c11d9592a532e9, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2449160274454939544
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7223846841203664237}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3292925553009838691, guid: 2d687846d5415e743937ec2e32a7b6da, type: 3}
+--- !u!114 &6784408209208549947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7223846841203664237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &7271892574754165291
 GameObject:
   m_ObjectHideFlags: 0
@@ -28698,6 +30466,126 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7468150656009935624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4718118518767675785}
+  - component: {fileID: 5309555415788670050}
+  - component: {fileID: 7512022613802264292}
+  - component: {fileID: 7159266658567796173}
+  - component: {fileID: 6671455843281870158}
+  m_Layer: 0
+  m_Name: CraneJibBars (20)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4718118518767675785
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7468150656009935624}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -20.2, y: 3.3759692, z: 2.7437682}
+  m_LocalScale: {x: 0.95693785, y: 1, z: 0.9661836}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7884773683705771263}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &5309555415788670050
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7468150656009935624}
+  m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!23 &7512022613802264292
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7468150656009935624}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 257
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 1c7575ba47b8499428b99d929534f2f0, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7159266658567796173
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7468150656009935624}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &6671455843281870158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7468150656009935624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &7525459282487106869
 GameObject:
   m_ObjectHideFlags: 0
@@ -28804,113 +30692,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2080375642655452318, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
---- !u!1 &7573257363343707453
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4801209997771338378}
-  - component: {fileID: 4350775016539595527}
-  - component: {fileID: 3930999144839225372}
-  - component: {fileID: 3180141984742230097}
-  m_Layer: 0
-  m_Name: CraneTowerPlatform
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4801209997771338378
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7573257363343707453}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 4910598272942548105}
-  m_Father: {fileID: 1703439537534176441}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &4350775016539595527
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7573257363343707453}
-  m_Mesh: {fileID: 3557879054105070054, guid: 411906a93f2781f4aafec5fe0cb4233f, type: 3}
---- !u!23 &3930999144839225372
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7573257363343707453}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 257
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: ba2de49ab20145f40913ab512eb0265f, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &3180141984742230097
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7573257363343707453}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 3557879054105070054, guid: 411906a93f2781f4aafec5fe0cb4233f, type: 3}
 --- !u!1 &7578849151962930228
 GameObject:
   m_ObjectHideFlags: 0
@@ -28964,6 +30745,7 @@ GameObject:
   - component: {fileID: 7206484869448347763}
   - component: {fileID: 8694705720373499300}
   - component: {fileID: 3532830522646834527}
+  - component: {fileID: 5677984529286505267}
   m_Layer: 0
   m_Name: CraneJibPart
   m_TagString: Untagged
@@ -29058,6 +30840,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3292925553009838691, guid: 2d687846d5415e743937ec2e32a7b6da, type: 3}
+--- !u!114 &5677984529286505267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7590070541960997236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &7614945824574452142
 GameObject:
   m_ObjectHideFlags: 0
@@ -29471,9 +31266,10 @@ GameObject:
   - component: {fileID: 8249131990277093272}
   - component: {fileID: 6943410285821641430}
   - component: {fileID: 2630431466557633092}
+  - component: {fileID: 1951549808611493292}
   m_Layer: 0
   m_Name: CraneTowerLadder
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29576,6 +31372,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2394985833497583912, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
+--- !u!65 &1951549808611493292
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7670782329806637850}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4, y: 4, z: 1}
+  m_Center: {x: -0.000007688999, y: -0.0000002384187, z: 0.6}
 --- !u!1 &7711864608746584178
 GameObject:
   m_ObjectHideFlags: 0
@@ -29977,218 +31794,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8379123867385170646, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
---- !u!1 &7761441425593066021
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3057724853130666442}
-  - component: {fileID: 8196148464415161666}
-  - component: {fileID: 2318448795921190875}
-  - component: {fileID: 7739420404230127577}
-  m_Layer: 0
-  m_Name: Object035
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3057724853130666442
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7761441425593066021}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0, y: 1.4706821, z: 0.0000019073486}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5818721576497719810}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &8196148464415161666
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7761441425593066021}
-  m_Mesh: {fileID: -5079571484100782257, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
---- !u!23 &2318448795921190875
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7761441425593066021}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 257
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 121a0bd9dc53fce4f9752169f9fc73ed, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7739420404230127577
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7761441425593066021}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5079571484100782257, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
---- !u!1 &7799226104768149002
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4910598272942548105}
-  - component: {fileID: 1298935644535542714}
-  - component: {fileID: 5004898184661031722}
-  - component: {fileID: 7416920634907525857}
-  m_Layer: 0
-  m_Name: Object055
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4910598272942548105
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7799226104768149002}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0.000000059604645, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000047683716, y: 0.0000038146973, z: -0.000005722046}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4801209997771338378}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1298935644535542714
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7799226104768149002}
-  m_Mesh: {fileID: -7550262638168013577, guid: 411906a93f2781f4aafec5fe0cb4233f, type: 3}
---- !u!23 &5004898184661031722
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7799226104768149002}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 257
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 5f1d5cb4e78ea8f439ecd74986031789, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &7416920634907525857
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7799226104768149002}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7550262638168013577, guid: 411906a93f2781f4aafec5fe0cb4233f, type: 3}
 --- !u!1 &7814005912717861457
 GameObject:
   m_ObjectHideFlags: 0
@@ -30201,6 +31806,7 @@ GameObject:
   - component: {fileID: 7180715846808726027}
   - component: {fileID: 5641663056073191389}
   - component: {fileID: 4930109031892071359}
+  - component: {fileID: 1745638895182657743}
   m_Layer: 0
   m_Name: CraneJibBars (7)
   m_TagString: Untagged
@@ -30295,6 +31901,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &1745638895182657743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7814005912717861457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &7821498978717782621
 GameObject:
   m_ObjectHideFlags: 0
@@ -30776,6 +32395,7 @@ GameObject:
   - component: {fileID: 7060399272350745517}
   - component: {fileID: 3239849851345842604}
   - component: {fileID: 488951990502300065}
+  - component: {fileID: 2510483609554051850}
   m_Layer: 0
   m_Name: CraneJibTop
   m_TagString: Untagged
@@ -30792,8 +32412,8 @@ Transform:
   m_GameObject: {fileID: 8034194996571959875}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.7668114, y: 5.3659706, z: 1.5940074}
-  m_LocalScale: {x: 0.95693785, y: 1.1256, z: 0.9661836}
+  m_LocalPosition: {x: -3.18894, y: 5.47, z: 1.77}
+  m_LocalScale: {x: 1.2262201, y: 1.1256, z: 0.9661836}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7884773683705771263}
@@ -30870,6 +32490,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5047528748317851287, guid: 3ed72b2d485be3846a35c1bf34027fba, type: 3}
+--- !u!114 &2510483609554051850
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8034194996571959875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &8045818092144335246
 GameObject:
   m_ObjectHideFlags: 0
@@ -31895,6 +33528,7 @@ GameObject:
   - component: {fileID: 153001118087008617}
   - component: {fileID: 5989472505282838792}
   - component: {fileID: 8302090308647305008}
+  - component: {fileID: 648036031901806617}
   m_Layer: 0
   m_Name: CableConnectors (3)
   m_TagString: Untagged
@@ -31967,6 +33601,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &648036031901806617
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8331019017873324249}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -4254769481335329328, guid: 632df62f087233b44bf5d983c6d39b2c, type: 3}
 --- !u!1 &8356597363928981147
 GameObject:
   m_ObjectHideFlags: 0
@@ -31979,6 +33635,7 @@ GameObject:
   - component: {fileID: 1382002926662963118}
   - component: {fileID: 5521407268627215350}
   - component: {fileID: 5186554220133795451}
+  - component: {fileID: 916285216363974623}
   m_Layer: 0
   m_Name: CraneJibBars (8)
   m_TagString: Untagged
@@ -32073,6 +33730,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &916285216363974623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8356597363928981147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &8416817047080285743
 GameObject:
   m_ObjectHideFlags: 0
@@ -33075,9 +34745,10 @@ GameObject:
   - component: {fileID: 4630406082334908428}
   - component: {fileID: 7784399379181072593}
   - component: {fileID: 4450472081039963763}
+  - component: {fileID: 6016927636253968900}
   m_Layer: 0
   m_Name: CraneTowerLadder
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33180,6 +34851,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2394985833497583912, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
+--- !u!65 &6016927636253968900
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8576800451394676165}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4, y: 4, z: 1}
+  m_Center: {x: 0, y: -0.0000002384187, z: -0.5}
 --- !u!1 &8580055671611360828
 GameObject:
   m_ObjectHideFlags: 0
@@ -33192,9 +34884,10 @@ GameObject:
   - component: {fileID: 8422390194853148292}
   - component: {fileID: 3218688107607033163}
   - component: {fileID: 3931361378719694939}
+  - component: {fileID: 6234122504746225197}
   m_Layer: 0
   m_Name: CraneCounterWeight
-  m_TagString: Untagged
+  m_TagString: Blinkblock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33290,6 +34983,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8233853958292350519, guid: c3bfe41a877cc1b439e029c62b060ef7, type: 3}
+--- !u!114 &6234122504746225197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8580055671611360828}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &8641753700782980962
 GameObject:
   m_ObjectHideFlags: 0
@@ -33514,9 +35220,10 @@ GameObject:
   - component: {fileID: 8656078310102336277}
   - component: {fileID: 5711508215791377741}
   - component: {fileID: 7038710462543214420}
+  - component: {fileID: 297128595267169674}
   m_Layer: 0
   m_Name: CraneTowerLadder
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33619,6 +35326,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2394985833497583912, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
+--- !u!65 &297128595267169674
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8673374701736639984}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4, y: 4, z: 1}
+  m_Center: {x: 0, y: -0.00000023841852, z: -0.5}
 --- !u!1 &8675648996165933132
 GameObject:
   m_ObjectHideFlags: 0
@@ -34056,9 +35784,10 @@ GameObject:
   - component: {fileID: 7412488671091614447}
   - component: {fileID: 6734625313016500825}
   - component: {fileID: 8097906233111092393}
+  - component: {fileID: 1141043658313751783}
   m_Layer: 0
   m_Name: CraneTowerLadder
-  m_TagString: Untagged
+  m_TagString: Ladder
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -34161,6 +35890,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2394985833497583912, guid: 19d1ffb1350e72e4ea5970dfd53da625, type: 3}
+--- !u!65 &1141043658313751783
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8735497625271291494}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.4, y: 4, z: 1}
+  m_Center: {x: 0, y: 0.0000035762787, z: -0.5}
 --- !u!1 &8736121903362412068
 GameObject:
   m_ObjectHideFlags: 0
@@ -35126,6 +36876,7 @@ GameObject:
   - component: {fileID: 1286965213400869891}
   - component: {fileID: 1996014636684367742}
   - component: {fileID: 7701490017195811382}
+  - component: {fileID: 6443451067291509953}
   m_Layer: 0
   m_Name: CraneHalfLeg (2)
   m_TagString: Untagged
@@ -35198,6 +36949,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6443451067291509953
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8990033633012606731}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2791284034196158496, guid: d5d16fc048346554487ac179c131fff6, type: 3}
 --- !u!1 &9009568450262151942
 GameObject:
   m_ObjectHideFlags: 0
@@ -35235,7 +37008,6 @@ Transform:
   - {fileID: 9174750176869273212}
   - {fileID: 6950487333388969587}
   - {fileID: 8509868933681904802}
-  - {fileID: 4801209997771338378}
   - {fileID: 5818721576497719810}
   m_Father: {fileID: 7672340136987809500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -35463,6 +37235,7 @@ GameObject:
   - component: {fileID: 8062426880876424349}
   - component: {fileID: 1614481673689490121}
   - component: {fileID: 3765224153810486970}
+  - component: {fileID: 2375452403431518282}
   m_Layer: 0
   m_Name: CraneJibBars (10)
   m_TagString: Untagged
@@ -35557,6 +37330,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1141464603633071787, guid: 49867215112d174449571a202c7342f8, type: 3}
+--- !u!114 &2375452403431518282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9088146559502982799}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &9191362884337562362
 GameObject:
   m_ObjectHideFlags: 0
@@ -35675,6 +37461,7 @@ GameObject:
   - component: {fileID: 8799150095108878814}
   - component: {fileID: 1433433556844541521}
   - component: {fileID: 3473647862008313418}
+  - component: {fileID: 7241971204148815961}
   m_Layer: 0
   m_Name: Hook
   m_TagString: Untagged
@@ -35747,6 +37534,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7241971204148815961
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9193410052519308536}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3581950024818948009, guid: 5e3d818afa51ab548a6dacad46aa7882, type: 3}
 --- !u!1 &9193609989005333201
 GameObject:
   m_ObjectHideFlags: 0
@@ -36183,13 +37992,14 @@ GameObject:
   - component: {fileID: 6918988477875663661}
   - component: {fileID: 7286187867468615828}
   - component: {fileID: 4507257568992720839}
+  - component: {fileID: 4153352881558302157}
   m_Layer: 0
   m_Name: CraneJibInner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6937559823912557601
 Transform:
   m_ObjectHideFlags: 0
@@ -36277,3 +38087,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 224659109308805967, guid: 1eb532229b0b23347a1526d1fa3a67b6, type: 3}
+--- !u!114 &4153352881558302157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9216032262774994276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
