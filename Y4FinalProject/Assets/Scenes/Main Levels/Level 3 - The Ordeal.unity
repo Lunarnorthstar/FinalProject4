@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6638.454, g: 5076.1216, b: 3480.809, a: 1}
+  m_IndirectSpecularColor: {r: 6638.2666, g: 5076.192, b: 3480.7349, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -565,6 +565,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4845950283555384015, guid: 3e123344afb12f641ad16d6719071183, type: 3}
       insertIndex: -1
       addedObject: {fileID: 72388513}
+    - targetCorrespondingSourceObject: {fileID: 4845950283555384015, guid: 3e123344afb12f641ad16d6719071183, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 72388517}
   m_SourcePrefab: {fileID: 100100000, guid: 3e123344afb12f641ad16d6719071183, type: 3}
 --- !u!4 &72388505 stripped
 Transform:
@@ -631,6 +634,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &72388517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72388507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!4 &90345020 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7151038110161782323, guid: a350d19a07c5eb448a6b10e99ea3c428, type: 3}
@@ -6030,7 +6046,7 @@ Transform:
   m_GameObject: {fileID: 216967349}
   serializedVersion: 2
   m_LocalRotation: {x: 0.7071068, y: -0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -120.74, y: -49.6, z: -0.1}
+  m_LocalPosition: {x: -120.74, y: -49.6, z: -0.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11929,6 +11945,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Terrain
       objectReference: {fileID: 0}
+    - target: {fileID: 2759482209480902050, guid: 0f11ea5627ccaa04a9bca4b9733ed161, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4067811013556622404, guid: 0f11ea5627ccaa04a9bca4b9733ed161, type: 3}
+      propertyPath: AudioType
+      value: mulch
+      objectReference: {fileID: 0}
     - target: {fileID: 4067811013556622404, guid: 0f11ea5627ccaa04a9bca4b9733ed161, type: 3}
       propertyPath: moveSpeedMult
       value: 0.4
@@ -15817,7 +15841,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041833884}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.2665148, z: 0, w: 0.9638308}
   m_LocalPosition: {x: 29.013113, y: 20.569, z: -141.125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -16981,6 +17005,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4845950283555384015, guid: 3e123344afb12f641ad16d6719071183, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1279152809}
+    - targetCorrespondingSourceObject: {fileID: 4845950283555384015, guid: 3e123344afb12f641ad16d6719071183, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1279152813}
   m_SourcePrefab: {fileID: 100100000, guid: 3e123344afb12f641ad16d6719071183, type: 3}
 --- !u!1 &1279152800 stripped
 GameObject:
@@ -17042,6 +17069,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1279152813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1279152800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1001 &1280437272
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17449,7 +17489,7 @@ MonoBehaviour:
   moveSpeedMult: 1.8
   jumpHeightMult: 1
   frictionMult: 1
-  AudioType: 
+  AudioType: hard
 --- !u!154 &1314189031
 TerrainCollider:
   m_ObjectHideFlags: 0
@@ -18823,19 +18863,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8329050076016796603, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.9638308
       objectReference: {fileID: 0}
     - target: {fileID: 8329050076016796603, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8329050076016796603, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0.2665148
       objectReference: {fileID: 0}
     - target: {fileID: 8329050076016796603, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8329050076016796603, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -18843,7 +18883,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8329050076016796603, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -30.914
       objectReference: {fileID: 0}
     - target: {fileID: 8329050076016796603, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -34369,6 +34409,10 @@ PrefabInstance:
     - target: {fileID: 2759482209480902050, guid: 0f11ea5627ccaa04a9bca4b9733ed161, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2759482209480902050, guid: 0f11ea5627ccaa04a9bca4b9733ed161, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4067811013556622404, guid: 0f11ea5627ccaa04a9bca4b9733ed161, type: 3}
       propertyPath: AudioType

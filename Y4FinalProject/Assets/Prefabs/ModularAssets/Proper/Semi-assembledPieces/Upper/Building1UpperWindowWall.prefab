@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4313514678053033850}
   - component: {fileID: 2033474149365064624}
   - component: {fileID: 4332561678028900415}
+  - component: {fileID: 8577049930938085794}
   m_Layer: 0
   m_Name: Building1Window (1)
   m_TagString: Untagged
@@ -106,6 +107,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5646758126827862573, guid: 2cd5f0e06738c1447917fb311432fa1f, type: 3}
+--- !u!114 &8577049930938085794
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 520347757181370981}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: hard
 --- !u!1 &6005646585726656670
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +132,7 @@ GameObject:
   - component: {fileID: 8051412461577385345}
   - component: {fileID: 5213105341795516747}
   - component: {fileID: 2661346389838717678}
+  - component: {fileID: 4958152156681132294}
   m_Layer: 0
   m_Name: Building1UpperWindowSilll
   m_TagString: Untagged
@@ -214,6 +229,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2239972958216944008, guid: 961d3e7903161cf47a6365d705abeedf, type: 3}
+--- !u!114 &4958152156681132294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6005646585726656670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: hard
 --- !u!1 &6511864892009961602
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,6 +254,7 @@ GameObject:
   - component: {fileID: 7402441864519355805}
   - component: {fileID: 4710262656227408215}
   - component: {fileID: 5164686611330441912}
+  - component: {fileID: 2382290926856371511}
   m_Layer: 0
   m_Name: Building1Window (2)
   m_TagString: Untagged
@@ -320,6 +349,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5646758126827862573, guid: 2cd5f0e06738c1447917fb311432fa1f, type: 3}
+--- !u!114 &2382290926856371511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6511864892009961602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: hard
 --- !u!1 &8771102459030160693
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +374,7 @@ GameObject:
   - component: {fileID: 4998217195695837226}
   - component: {fileID: 7113940592775914720}
   - component: {fileID: 9177339122617073524}
+  - component: {fileID: 4992629442735577632}
   m_Layer: 0
   m_Name: Building1UpperWindowWall
   m_TagString: Untagged
@@ -427,3 +470,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1088214213176173524, guid: fcd2e9474343d7b4187f3ba49156e0bd, type: 3}
+--- !u!114 &4992629442735577632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8771102459030160693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: hard
