@@ -36,7 +36,7 @@ public class CameraMove : MonoBehaviour
 
     void Start()
     {
-        defaultRot = Player.transform.localEulerAngles.y;
+        startRot = Player.transform.localEulerAngles.y;
 
         InvokeRepeating("moveCam", 0, 0.01f);
         //changeFov(0);
