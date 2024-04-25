@@ -7527,7 +7527,7 @@ GameObject:
   - component: {fileID: 447141907}
   - component: {fileID: 447141906}
   - component: {fileID: 447141905}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fog Of War (4)
   m_TagString: Blinkblock
   m_Icon: {fileID: 0}
@@ -12531,9 +12531,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1221382118395589105, guid: 9746e0d8c6333b0489ad73ce1c9b3f15, type: 3}
+      propertyPath: m_Radius
+      value: 0.45
+      objectReference: {fileID: 0}
     - target: {fileID: 2099705467050773634, guid: 9746e0d8c6333b0489ad73ce1c9b3f15, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 76.5
+      value: 73.88
       objectReference: {fileID: 0}
     - target: {fileID: 2099705467050773634, guid: 9746e0d8c6333b0489ad73ce1c9b3f15, type: 3}
       propertyPath: m_LocalPosition.y
@@ -12541,7 +12545,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2099705467050773634, guid: 9746e0d8c6333b0489ad73ce1c9b3f15, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 154.82
+      value: 152.87
       objectReference: {fileID: 0}
     - target: {fileID: 2099705467050773634, guid: 9746e0d8c6333b0489ad73ce1c9b3f15, type: 3}
       propertyPath: m_LocalRotation.w
@@ -12570,6 +12574,14 @@ PrefabInstance:
     - target: {fileID: 2099705467050773634, guid: 9746e0d8c6333b0489ad73ce1c9b3f15, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661552788958426369, guid: 9746e0d8c6333b0489ad73ce1c9b3f15, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.015
+      objectReference: {fileID: 0}
+    - target: {fileID: 2661552788958426369, guid: 9746e0d8c6333b0489ad73ce1c9b3f15, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.008
       objectReference: {fileID: 0}
     - target: {fileID: 8011050746790064937, guid: 9746e0d8c6333b0489ad73ce1c9b3f15, type: 3}
       propertyPath: m_Name
@@ -26414,7 +26426,7 @@ GameObject:
   - component: {fileID: 1370877397}
   - component: {fileID: 1370877396}
   - component: {fileID: 1370877395}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fog Of War (2)
   m_TagString: Blinkblock
   m_Icon: {fileID: 0}
@@ -34292,7 +34304,7 @@ GameObject:
   - component: {fileID: 1495505331}
   - component: {fileID: 1495505330}
   - component: {fileID: 1495505329}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fog Of War (3)
   m_TagString: Blinkblock
   m_Icon: {fileID: 0}
@@ -44416,7 +44428,7 @@ GameObject:
   - component: {fileID: 1815960613}
   - component: {fileID: 1815960612}
   - component: {fileID: 1815960611}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Fog Of War (5)
   m_TagString: Blinkblock
   m_Icon: {fileID: 0}
@@ -53631,6 +53643,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1912440805422048783, guid: 984e27da8fc4f624aa14b08b80f51601, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3613231382938863588, guid: 984e27da8fc4f624aa14b08b80f51601, type: 3}
       propertyPath: m_LocalScale.y
       value: 119.65
@@ -53646,6 +53662,10 @@ PrefabInstance:
     - target: {fileID: 5078361451537751491, guid: 984e27da8fc4f624aa14b08b80f51601, type: 3}
       propertyPath: m_Name
       value: Map Edge
+      objectReference: {fileID: 0}
+    - target: {fileID: 5614137454988742772, guid: 984e27da8fc4f624aa14b08b80f51601, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5861283724148169478, guid: 984e27da8fc4f624aa14b08b80f51601, type: 3}
       propertyPath: m_LocalScale.y
@@ -53694,6 +53714,14 @@ PrefabInstance:
     - target: {fileID: 6880610120065889712, guid: 984e27da8fc4f624aa14b08b80f51601, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7101807059657072611, guid: 984e27da8fc4f624aa14b08b80f51601, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8447270435218550549, guid: 984e27da8fc4f624aa14b08b80f51601, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8930449191864961163, guid: 984e27da8fc4f624aa14b08b80f51601, type: 3}
       propertyPath: m_LocalScale.y
