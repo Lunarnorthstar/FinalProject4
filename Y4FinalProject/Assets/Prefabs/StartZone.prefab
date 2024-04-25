@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6866153563749588741}
   - component: {fileID: 718776356692509597}
   - component: {fileID: 5842561067272582341}
+  - component: {fileID: 732504247535812878}
   m_Layer: 2
   m_Name: StartZone
   m_TagString: StartTrigger
@@ -106,6 +107,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &732504247535812878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8100553362729260898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: hard
 --- !u!1001 &5607029913289655048
 PrefabInstance:
   m_ObjectHideFlags: 0

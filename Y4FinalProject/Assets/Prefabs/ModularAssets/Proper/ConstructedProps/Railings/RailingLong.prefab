@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5321735662672590911}
   - component: {fileID: 8015583167624189972}
   - component: {fileID: 4550934788223603979}
+  - component: {fileID: 9067685936368959066}
   m_Layer: 0
   m_Name: RailingTopFull
   m_TagString: Untagged
@@ -106,6 +107,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8113768720884857512, guid: 727960177a2b03940b70807f466b9366, type: 3}
+--- !u!114 &9067685936368959066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621854143024415309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &3477788603425562936
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,6 +132,7 @@ GameObject:
   - component: {fileID: 4171282653562123676}
   - component: {fileID: 8134829616363610406}
   - component: {fileID: 753096639863080845}
+  - component: {fileID: 8213873912792860691}
   m_Layer: 0
   m_Name: RailingBttomFull
   m_TagString: Untagged
@@ -212,6 +227,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 1226723149311242300, guid: affe9fc2d57a95342a5b07a0c4c7e67b, type: 3}
+--- !u!114 &8213873912792860691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3477788603425562936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
 --- !u!1 &7063560885493796120
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,10 +329,31 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2676276906170063036, guid: 3c53d4a39b4ac5d4f9254bfe7fb7698e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5468302425068389981}
   m_SourcePrefab: {fileID: 100100000, guid: 3c53d4a39b4ac5d4f9254bfe7fb7698e, type: 3}
 --- !u!4 &1326192589484951315 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2373319396477352419, guid: 3c53d4a39b4ac5d4f9254bfe7fb7698e, type: 3}
   m_PrefabInstance: {fileID: 3641208988987703024}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1705782211511002700 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2676276906170063036, guid: 3c53d4a39b4ac5d4f9254bfe7fb7698e, type: 3}
+  m_PrefabInstance: {fileID: 3641208988987703024}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5468302425068389981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705782211511002700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: metal
