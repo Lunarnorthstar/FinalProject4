@@ -31,11 +31,12 @@ public class CameraMove : MonoBehaviour
     [Header("Camera Settings")]
     public float defaultFOV;
     public float fovSmooth;
-    public float defaultRot;
+    private float startRot;
     public float targetFov;
 
     void Start()
     {
+        defaultRot = Player.transform.localEulerAngles.y;
 
         InvokeRepeating("moveCam", 0, 0.01f);
         //changeFov(0);
@@ -63,7 +64,7 @@ public class CameraMove : MonoBehaviour
         sCamRotX = Mathf.Lerp(sCamRotX, CamRotX, mouseSmooth);
         sCamRotY = Mathf.Lerp(sCamRotY, CamRotY, mouseSmooth);
 
-        Player.transform.rotation = Quaternion.Euler(0, sCamRotX + defaultRot, 0);
+        Player.transform.rotation = Quaternion.Euler(0, sCamRotX + startRot, 0);
 
         transform.localRotation = Quaternion.Euler(-sCamRotY, transform.localEulerAngles.y, 0);
     }
