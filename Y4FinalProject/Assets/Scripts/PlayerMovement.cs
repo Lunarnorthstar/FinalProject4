@@ -142,6 +142,7 @@ public class PlayerMovement : MonoBehaviour
         playerCamera = GetComponentInChildren<CameraMove>();
         powerUps = GetComponent<Powerups>();
 
+        playerManager.lockMouse();
         //enable controls
         controls = new PlayerControls();
 
@@ -163,6 +164,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         failsafebool = false;
+        playerManager.lockMouse();
         controls.PlayerMovement.Enable();
 
     }
