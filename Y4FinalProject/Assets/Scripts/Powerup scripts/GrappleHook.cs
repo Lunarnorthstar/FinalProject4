@@ -85,7 +85,7 @@ public class GrappleHook : MonoBehaviour
         {
             grappleShadow.GetComponent<Image>().color = shadowValid;
         }
-        else if (Physics.Raycast(transform.position, playerCam.transform.forward, out project)) //Otherwise, if it's hitting anything at all...
+        else //Otherwise...
         {
             grappleShadow.GetComponent<Image>().color = shadowInvalid;
         }
