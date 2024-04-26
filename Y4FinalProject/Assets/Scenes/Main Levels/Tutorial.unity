@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 5264.2856, g: 3876.141, b: 2529.0627, a: 1}
+  m_IndirectSpecularColor: {r: 5264.2856, g: 3876.1255, b: 2529.0393, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -71278,10 +71278,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 2309260f6bd5e6d42986abe9912dfeab, type: 2}
     - target: {fileID: 4802524433838940396, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'CATRigRArm1'\n\tTransform 'CATRigLArm1'\n\tFrom
-        animation clip 'Idle'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4802524433838940396, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_ApplyRootMotion
@@ -71399,10 +71396,6 @@ PrefabInstance:
       propertyPath: powerupUI.Array.data[1]
       value: 
       objectReference: {fileID: 1418154261}
-    - target: {fileID: 6925726874476504858, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
-      propertyPath: m_Name
-      value: CATRigLArm1
-      objectReference: {fileID: 0}
     - target: {fileID: 8329050076016796603, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalPosition.x
       value: -52.039997
@@ -71454,10 +71447,6 @@ PrefabInstance:
     - target: {fileID: 8577524436170320151, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalRotation.z
       value: -0.000000059604634
-      objectReference: {fileID: 0}
-    - target: {fileID: 8596456028039264319, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
-      propertyPath: m_Name
-      value: CATRigRArm1
       objectReference: {fileID: 0}
     - target: {fileID: 8958546144531924991, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -105086,11 +105075,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60.000004
+  near clip plane: 0.01
+  far clip plane: 5000
+  field of view: 70.00001
   orthographic: 0
-  orthographic size: 5
+  orthographic size: 10
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -105114,8 +105103,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125478826}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.010491933, y: 0.937576, z: -0.02839278, w: -0.34646073}
-  m_LocalPosition: {x: 51.03576, y: -3.751091, z: -102.51041}
+  m_LocalRotation: {x: 0, y: 0.7071023, z: -0, w: -0.70711136}
+  m_LocalPosition: {x: -52.039997, y: -22.751, z: -104.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
