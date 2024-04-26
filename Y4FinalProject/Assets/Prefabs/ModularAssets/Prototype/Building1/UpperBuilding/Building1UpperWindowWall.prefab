@@ -63,8 +63,29 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7986652722420891167, guid: a29020a677c854246bbded86006eeacb, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6927508908611608957}
   m_SourcePrefab: {fileID: 100100000, guid: a29020a677c854246bbded86006eeacb, type: 3}
+--- !u!1 &3814617144727576876 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7986652722420891167, guid: a29020a677c854246bbded86006eeacb, type: 3}
+  m_PrefabInstance: {fileID: 6496007344073711411}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6927508908611608957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3814617144727576876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: hard
 --- !u!4 &4592526725571312534 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7322178970307126437, guid: a29020a677c854246bbded86006eeacb, type: 3}
@@ -136,6 +157,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 761d1e75228bc0649afbcd0d4d9f7d43, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8424750618019000636}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 761d1e75228bc0649afbcd0d4d9f7d43, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 299238868900177135}
   m_SourcePrefab: {fileID: 100100000, guid: 761d1e75228bc0649afbcd0d4d9f7d43, type: 3}
 --- !u!4 &7218382316545431787 stripped
 Transform:
@@ -169,3 +193,16 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -4932564861677742839, guid: 761d1e75228bc0649afbcd0d4d9f7d43, type: 3}
+--- !u!114 &299238868900177135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8027394569519137361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ed62f0d28e25134884ae1646cbb8b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TerrainType: hard
