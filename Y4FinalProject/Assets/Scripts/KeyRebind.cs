@@ -138,7 +138,7 @@ public class KeyRebind : MonoBehaviour
 
     public void CancelRebind()
     {
-        if (rebindingOperation.started)
+        if (rebindingOperation != null)
         {
             rebindingOperation.Dispose();
             inputWaitUI.SetActive(false);
