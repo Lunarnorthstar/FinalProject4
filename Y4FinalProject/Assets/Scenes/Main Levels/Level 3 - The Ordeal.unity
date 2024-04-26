@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6638.2666, g: 5076.192, b: 3480.7349, a: 1}
+  m_IndirectSpecularColor: {r: 6638.3135, g: 5076.1997, b: 3480.77, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15813,9 +15813,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.01
+  near clip plane: 0.1
   far clip plane: 5000
-  field of view: 70.00001
+  field of view: 60.000004
   orthographic: 0
   orthographic size: 10
   m_Depth: 0
@@ -15841,8 +15841,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1041833884}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0.2665148, z: 0, w: 0.9638308}
-  m_LocalPosition: {x: 29.013113, y: 20.569, z: -141.125}
+  m_LocalRotation: {x: 0.1702834, y: 0.7412692, z: -0.20488822, w: 0.61607176}
+  m_LocalPosition: {x: 9.211609, y: 38.839565, z: -23.58559}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17602,7 +17602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1317687289
 Transform:
   m_ObjectHideFlags: 0
@@ -27208,6 +27208,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1564618483}
     m_Modifications:
+    - target: {fileID: 72560825756097506, guid: 952cf7491aa500346a18f50165bcaa16, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0e4bbd97b5b482b499721723580a3497, type: 2}
     - target: {fileID: 2559407603842242097, guid: 952cf7491aa500346a18f50165bcaa16, type: 3}
       propertyPath: m_LocalPosition.x
       value: -104.7
@@ -27248,6 +27252,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4018418452351147703, guid: 952cf7491aa500346a18f50165bcaa16, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0e4bbd97b5b482b499721723580a3497, type: 2}
+    - target: {fileID: 4696485655206913101, guid: 952cf7491aa500346a18f50165bcaa16, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0e4bbd97b5b482b499721723580a3497, type: 2}
+    - target: {fileID: 4773434989984191189, guid: 952cf7491aa500346a18f50165bcaa16, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0e4bbd97b5b482b499721723580a3497, type: 2}
+    - target: {fileID: 6600439368086411861, guid: 952cf7491aa500346a18f50165bcaa16, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0e4bbd97b5b482b499721723580a3497, type: 2}
     - target: {fileID: 6985460768816824409, guid: 952cf7491aa500346a18f50165bcaa16, type: 3}
       propertyPath: m_Name
       value: Skyscraper (1)
@@ -33338,7 +33358,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 1452719334}
-  m_PathPosition: 4.999842
+  m_PathPosition: 0.5064613
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
