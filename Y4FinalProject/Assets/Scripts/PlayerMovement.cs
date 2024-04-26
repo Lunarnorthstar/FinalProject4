@@ -142,7 +142,7 @@ public class PlayerMovement : MonoBehaviour
         playerCamera = GetComponentInChildren<CameraMove>();
         powerUps = GetComponent<Powerups>();
 
-        playerManager.lockMouse(true);
+        playerManager.lockMouse(false);
         //enable controls
         controls = new PlayerControls();
 
@@ -155,12 +155,35 @@ public class PlayerMovement : MonoBehaviour
     public void EndCutscene()
     {
         Debug.Log("Called");
-
-
-        string rebinds = PlayerPrefs.GetString("Rebinds", string.Empty);
-        if (!string.IsNullOrEmpty(rebinds))
+        
+        string rebindsS = PlayerPrefs.GetString("RebindsS", string.Empty);
+        if (!string.IsNullOrEmpty(rebindsS))
         {
-            controls.LoadBindingOverridesFromJson(rebinds);
+            controls.PlayerMovement.ControlKey.LoadBindingOverridesFromJson(rebindsS);
+        }
+        
+        string rebindsA = PlayerPrefs.GetString("RebindsA", string.Empty);
+        if (!string.IsNullOrEmpty(rebindsA))
+        {
+            controls.PlayerMovement.Ability.LoadBindingOverridesFromJson(rebindsA);
+        }
+        
+        string rebindsB = PlayerPrefs.GetString("RebindsB", string.Empty);
+        if (!string.IsNullOrEmpty(rebindsB))
+        {
+            controls.PlayerMovement.ChangeAbility.LoadBindingOverridesFromJson(rebindsB);
+        }
+        
+        string rebindsW = PlayerPrefs.GetString("RebindsW", string.Empty);
+        if (!string.IsNullOrEmpty(rebindsW))
+        {
+            controls.PlayerMovement.SpeedKey.LoadBindingOverridesFromJson(rebindsW);
+        }
+        
+        string rebindsG = PlayerPrefs.GetString("RebindsG", string.Empty);
+        if (!string.IsNullOrEmpty(rebindsG))
+        {
+            controls.PlayerMovement.Grab.LoadBindingOverridesFromJson(rebindsG);
         }
 
         failsafebool = false;

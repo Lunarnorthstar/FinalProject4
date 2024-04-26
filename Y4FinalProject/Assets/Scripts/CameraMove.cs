@@ -55,6 +55,8 @@ public class CameraMove : MonoBehaviour
     void moveCam()
     {
         if (!playerManager.isMouseLocked) return;
+        
+        Debug.Log("Cam. DO.");
 
         CamRotX += (Input.GetAxis("Mouse X") * Mousesens) + joyCamera.x;
         CamRotY += (Input.GetAxis("Mouse Y") * Mousesens) + joyCamera.y;
