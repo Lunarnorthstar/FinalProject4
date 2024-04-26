@@ -152,8 +152,12 @@ public class TimerHandler : MonoBehaviour
         levelTime = 0;
     }
 
+    private bool isBest = false;
+    private bool isHundredBest = false;
     public void StopTimer()
     {
+        isBest = false;
+        isHundredBest = false;
         timeTooSlow = false; //Just in case...
         //ResetRepeat();
         Cursor.lockState = CursorLockMode.None;
@@ -165,11 +169,10 @@ public class TimerHandler : MonoBehaviour
         lastTime = levelTime;
         dataScore[levelIndex].previousSave = lastTime;
 
-        //StopTimer is being called twice
-        
             if (lastTime < bestTime || bestTime <= 0) //If the time you just got is better than the best...
             {
                 bestTime = lastTime; //Make it the best
+                isBest = true;
 
                 InsertLastTime(dataScore[levelIndex].highSave, dataScore[levelIndex].highName); //Shunt the previous best to the list.
 
@@ -190,6 +193,7 @@ public class TimerHandler : MonoBehaviour
             {
 
                 bestHundredpercentTime = lastTime;
+                isHundredBest = true;
                 InsertLastHundredTime(dataScore[levelIndex].highHundredpercentSave, dataScore[levelIndex].highHundredName); //Same as above but for hundred% times
 
                 dataScore[levelIndex].highHundredpercentSave = bestHundredpercentTime;
@@ -409,7 +413,7 @@ public class TimerHandler : MonoBehaviour
 
         Debug.Log("WHAT IS THE FINDME: '" + findMe + "'");
 
-        if (lastTime == bestTime || bestTime <= 0)
+        if (isBest)
         {
             dataScore[levelIndex].highName = name; //If you scored a best time, put the name in the best time spot.
         }
@@ -418,7 +422,7 @@ public class TimerHandler : MonoBehaviour
             dataScore[levelIndex].lastNames[findMe] = name; //Otherwise, put it where the target has been set.
         }
         
-        if (handler.hundredpercent && (lastTime == bestHundredpercentTime || bestHundredpercentTime <= 0)) //If you scored a 100% time and it was the best...
+        if (handler.hundredpercent && isHundredBest) //If you scored a 100% time and it was the best...
         {
             dataScore[levelIndex].highHundredName = name; //Put the name in the best hundred percent time spot.
         }
