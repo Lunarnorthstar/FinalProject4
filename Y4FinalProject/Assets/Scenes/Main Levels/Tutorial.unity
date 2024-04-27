@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 5264.2856, g: 3876.1255, b: 2529.0393, a: 1}
+  m_IndirectSpecularColor: {r: 5264.2856, g: 3876.141, b: 2529.0627, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -69035,7 +69035,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Press SPACE In the air to grab and cling off handlebars
+  m_text: Press SPACE again while in the air to grab and cling off handlebars. Press
+    space while grabbing to jump off
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -105075,11 +105076,11 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.01
-  far clip plane: 5000
-  field of view: 70.00001
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60.000004
   orthographic: 0
-  orthographic size: 10
+  orthographic size: 5
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -105103,8 +105104,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2125478826}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071023, z: -0, w: -0.70711136}
-  m_LocalPosition: {x: -52.039997, y: -22.751, z: -104.6}
+  m_LocalRotation: {x: -0.010491933, y: 0.937576, z: -0.02839278, w: -0.34646073}
+  m_LocalPosition: {x: 51.03576, y: -3.751091, z: -102.51041}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -106785,7 +106786,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1321969977916782718, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1486784778443320367, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_Name
@@ -106793,7 +106794,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1543195573209028401, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1572078487142819587, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -106801,11 +106802,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1981803199075967025, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2215992300690468636, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2688529267538479674, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -106861,7 +106862,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4852360547409720546, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4870418737469513214, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_SizeDelta.x
@@ -106897,7 +106898,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6871206493473913177, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7070420494751756090, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: cinematic
@@ -106913,11 +106914,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7511968969667714654, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7528936788387208984, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7648212488658681573, guid: 00c55ef519019434d87bf54728021438, type: 3}
       propertyPath: m_text
