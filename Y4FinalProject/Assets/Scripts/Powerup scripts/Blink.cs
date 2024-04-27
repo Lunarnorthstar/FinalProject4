@@ -35,6 +35,10 @@ public class Blink : MonoBehaviour
                 checker.unblocked = true;
             }
         }
+        else
+        {
+            checker.unblocked = true;
+        }
         
         
         ready = !coolingDown;
