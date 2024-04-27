@@ -23,16 +23,21 @@ public class CollectibleHandler : MonoBehaviour
     }
 
 
+    private float bandaid = 0;
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Collectible"))
         {
-            Destroy(other.gameObject);
-            collected++;
-
-            if (collected == maxInStage)
+            if (bandaid <= 0)
             {
-                hundredpercent = true;
+                bandaid = 0.05f;
+                Destroy(other.gameObject);
+                collected++;
+
+                if (collected == maxInStage)
+                {
+                    hundredpercent = true;
+                }
             }
         }
     }
