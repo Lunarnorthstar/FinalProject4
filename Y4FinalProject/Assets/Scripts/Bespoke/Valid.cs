@@ -13,10 +13,6 @@ public class Valid : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("VP: " + validPosition + " R: " + ready + " UB: " + unblocked);
-        
-        
-        
         if (validPosition && ready && unblocked)
         {
             GetComponent<MeshRenderer>().material = validMaterial;
