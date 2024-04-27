@@ -101,11 +101,11 @@ public class Shield : MonoBehaviour
             {
                 AudioManager.instance.GenerateSound(AudioReference.instance.shieldDeploy, Vector3.zero);
                 active = true;
-                GetComponent<JuiceBehaviours>().playPowerupAni(false);
+                GetComponent<JuiceBehaviours>().playPowerupAni(true);
             }
             else
             {
-                GetComponent<JuiceBehaviours>().playPowerupAni(true);
+                GetComponent<JuiceBehaviours>().playPowerupAni(false);
             }
         }
         else
