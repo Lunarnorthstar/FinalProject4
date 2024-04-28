@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 6638.2666, g: 5076.192, b: 3480.7349, a: 1}
+  m_IndirectSpecularColor: {r: 6638.3135, g: 5076.1997, b: 3480.77, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6739,6 +6739,8 @@ PlayableDirector:
     value: {fileID: 442791024}
   - key: {fileID: -400745228981148761, guid: c763cd976fb054f4088c56d362df53f8, type: 2}
     value: {fileID: 1317687290}
+  - key: {fileID: -2733951133083163351, guid: c763cd976fb054f4088c56d362df53f8, type: 2}
+    value: {fileID: 1806657756}
   m_ExposedReferences:
     m_References: []
 --- !u!114 &314347154
@@ -17302,7 +17304,7 @@ Transform:
   m_GameObject: {fileID: 1041833884}
   serializedVersion: 2
   m_LocalRotation: {x: 0.1702834, y: 0.7412692, z: -0.20488822, w: 0.61607176}
-  m_LocalPosition: {x: 9.211609, y: 38.839565, z: -23.58559}
+  m_LocalPosition: {x: 15.451348, y: 80.43169, z: -139.93457}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30443,6 +30445,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TerrainType: metal
+--- !u!1 &1806657756 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 101849701308101718, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+  m_PrefabInstance: {fileID: 1379833874}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1811844307
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36258,7 +36265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 1452719334}
-  m_PathPosition: 0.5064613
+  m_PathPosition: 4.999889
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
