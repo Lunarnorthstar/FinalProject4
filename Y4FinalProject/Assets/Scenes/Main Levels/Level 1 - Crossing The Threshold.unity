@@ -1188,8 +1188,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 66671358}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.045375165, y: 0.32343528, z: -0.015529522, w: 0.94503415}
-  m_LocalPosition: {x: -90.03379, y: 49.17202, z: -55.75677}
+  m_LocalRotation: {x: 0.04537485, y: 0.32343495, z: -0.0155294, w: 0.9450343}
+  m_LocalPosition: {x: -90.03393, y: 49.171894, z: -55.757244}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -16547,7 +16547,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 758903518}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.045375165, y: 0.32343528, z: -0.015529522, w: 0.94503415}
+  m_LocalRotation: {x: 0.04537485, y: 0.32343495, z: -0.0155294, w: 0.9450343}
   m_LocalPosition: {x: 104.98282, y: 27.220581, z: 117.65831}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -24270,6 +24270,8 @@ PlayableDirector:
     value: {fileID: 549754475}
   - key: {fileID: -6766124839625778663, guid: 5b4922f316726d840bee0a19940d6abb, type: 2}
     value: {fileID: 546865733}
+  - key: {fileID: -5778798461577985593, guid: 5b4922f316726d840bee0a19940d6abb, type: 2}
+    value: {fileID: 1891737095}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &1232660674
@@ -25915,7 +25917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Path: {fileID: 378242391}
-  m_PathPosition: 4.999991
+  m_PathPosition: 4.999999
   m_PositionUnits: 0
   m_PathOffset: {x: 0, y: 0, z: 0}
   m_XDamping: 0
@@ -50338,6 +50340,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TerrainType: grass
+--- !u!1 &1891737095 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 101849701308101718, guid: 78be76812f1bbbe4eade994c1360fd24, type: 3}
+  m_PrefabInstance: {fileID: 1482879131}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1907133576 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7626893253685608655, guid: 4eec9064445bfb848999130291313c27, type: 3}
