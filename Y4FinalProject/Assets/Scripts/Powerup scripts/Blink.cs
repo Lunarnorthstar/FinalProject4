@@ -81,13 +81,25 @@ public class Blink : MonoBehaviour
 
     public void Activate()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, playerCam.transform.forward, out hit, blinkDistance))
+        RaycastHit hit; //Get ready to store the target of a raycast
+        if (Physics.Raycast(transform.position, playerCam.transform.forward, out hit, blinkDistance)) //Raycast. If it hits something...
         {
-            if (hit.collider.CompareTag("Blinkblock"))
+            if (hit.collider.CompareTag("Blinkblock")) //If that something has the Blinkblock tag...
             {
-                GetComponent<JuiceBehaviours>().playPowerupAni(false);
-                return;
+                GetComponent<JuiceBehaviours>().playPowerupAni(false); //Don't work.
+                return; //Stop trying to use the grapple.
+            }
+            else
+            {
+                RaycastHit secondHit; //Get ready to store another target of a raycast...
+                if (Physics.Raycast(transform.position + Vector3.down, playerCam.transform.forward, out secondHit, blinkDistance)) //Raycast again. If it hits something...
+                {
+                    if (secondHit.collider.CompareTag("Blinkblock")) //If that something has the Blinkblock tag...
+                    {
+                        GetComponent<JuiceBehaviours>().playPowerupAni(false); //Don't work.
+                        return; //Stop trying to use the grapple.
+                    }
+                }
             }
         }
 

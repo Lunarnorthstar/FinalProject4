@@ -763,8 +763,8 @@ public class PlayerMovement : MonoBehaviour
 
     void resetWallRun()
     {
-        if (wallRunDir != 0 && !wallRunCheck) hasJustWallRun = true;//currently wallrunnin
-        if (wallRunDir == 0 && !wallRunCheck) wallRunCheck = true;//was but now isnt
+        if (wallRunDir != 0 && !wallRunCheck) hasJustWallRun = true;//currently wallrunning
+        if (wallRunDir == 0 && !wallRunCheck) wallRunCheck = true;//was but now isn't
         if (wallRunDir != 0 && wallRunCheck) hasJustWallRun = false;
 
         if (hasJustWallRun)
