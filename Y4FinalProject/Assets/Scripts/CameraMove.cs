@@ -64,7 +64,7 @@ public class CameraMove : MonoBehaviour
         sCamRotX = Mathf.Lerp(sCamRotX, CamRotX, mouseSmooth);
         sCamRotY = Mathf.Lerp(sCamRotY, CamRotY, mouseSmooth);
 
-        Player.transform.rotation = Quaternion.Euler(0, sCamRotX + startRot, 0);
+        if(!playerMovement.isClimbing) Player.transform.rotation = Quaternion.Euler(0, sCamRotX + startRot, 0);
 
         transform.localRotation = Quaternion.Euler(-sCamRotY, transform.localEulerAngles.y, 0);
     }

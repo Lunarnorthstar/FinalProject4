@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
@@ -37,6 +38,7 @@ public class PlayerManager : MonoBehaviour
         //        Debug.Log(isMouseLocked + ", the mouse is (hmmm?)");
     }
 
+    
     public bool isOnGround()
     {
         RaycastHit hit;

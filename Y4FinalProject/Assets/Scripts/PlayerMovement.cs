@@ -99,7 +99,7 @@ public class PlayerMovement : MonoBehaviour
 
     bool isAtMaxSpeed;
     bool isAtMaxSprintSpeed;
-    bool isClimbing;
+    public bool isClimbing;
     [SerializeField] bool canJump = true;
     bool jumpCheck;
     bool wallRunCheck;
@@ -128,6 +128,8 @@ public class PlayerMovement : MonoBehaviour
     public string wallFacingTag;
 
     private bool climbCool = false;
+
+    private float distFromGround;
 
     void Awake()
     {
@@ -196,10 +198,17 @@ public class PlayerMovement : MonoBehaviour
         controls.PlayerMovement.Enable();
 
     }
-
+    
+    
+    [HideInInspector]public float distToGround;
     // Update is called once per frame
     void Update()
     {
+        RaycastHit groundDist;
+        Physics.Raycast(transform.position, -transform.up, out groundDist);
+        distToGround = math.distance(transform.position, groundDist.point);
+        ani.SetFloat("GroundDistance", distToGround);
+        
         failsafe -= Time.deltaTime;
         if (failsafe <= 0 && failsafebool)
         {
