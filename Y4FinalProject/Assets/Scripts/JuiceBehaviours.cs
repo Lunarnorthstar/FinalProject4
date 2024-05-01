@@ -94,6 +94,9 @@ public class JuiceBehaviours : MonoBehaviour
         isOnGround_ = playerMovement.isOnGround;
         verticalVelocity = playerMovement.verticalVelocity;
 
+        walkAni.SetBool("onGround", isOnGround_);
+        walkAni.SetFloat("Vertical Vel", verticalVelocity);
+
         //set bobSpeed
         if (canBob)
             currentBobSpeed = bobSpeedMutliplier.Evaluate(currentSpeed);
@@ -139,8 +142,16 @@ public class JuiceBehaviours : MonoBehaviour
         currentTerrain = playerManager.CurrentSurface;
     }
 
+    public void playGrapple(bool on)
+    {
+        walkAni.SetBool("grapple", on);
+    }
+
     void playImpact()
     {
+        walkAni.SetBool("Land", true);
+        walkAni.SetBool("isMidJump", false);
+        Debug.Log("land");
         return;
 
         if (Mathf.Abs(verticalVelocity) >= highImpactTheshold)
@@ -181,7 +192,9 @@ public class JuiceBehaviours : MonoBehaviour
 
     public void playJumpAnimation()
     {
+        walkAni.SetBool("Land", false);
         walkAni.SetBool("jump", true);
+        walkAni.SetBool("isMidJump", true);
     }
 
     public void playfootStep()

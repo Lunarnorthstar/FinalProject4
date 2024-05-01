@@ -33,8 +33,8 @@ public class PlayerManager : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             Cursor.visible = false;
         }
-        
-        Debug.Log(isMouseLocked + ", the mouse is (hmmm?)");
+
+        //        Debug.Log(isMouseLocked + ", the mouse is (hmmm?)");
     }
 
     public bool isOnGround()

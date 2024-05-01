@@ -28,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
     IKControl playerIK;
     CameraMove playerCamera;
     Powerups powerUps;
+    JuiceBehaviours juiceBehaviours_;
 
     [Header("Movement Characteristics")]
     [Tooltip("The base maximum movement speed the player starts at")] public float startMaxSpeed = 10;
@@ -141,6 +142,7 @@ public class PlayerMovement : MonoBehaviour
         playerIK = GetComponentInChildren<IKControl>();
         playerCamera = GetComponentInChildren<CameraMove>();
         powerUps = GetComponent<Powerups>();
+        juiceBehaviours_ = GetComponent<JuiceBehaviours>();
 
         playerManager.lockMouse(false);
         //enable controls
@@ -148,38 +150,41 @@ public class PlayerMovement : MonoBehaviour
 
         canSideJump = true;
         canJump = true;
+
+
     }
 
     private float failsafe = 8;
     private bool failsafebool = true;
+
     public void EndCutscene()
     {
         Debug.Log("Called");
-        
+
         string rebindsS = PlayerPrefs.GetString("RebindsS", string.Empty);
         if (!string.IsNullOrEmpty(rebindsS))
         {
             controls.PlayerMovement.ControlKey.LoadBindingOverridesFromJson(rebindsS);
         }
-        
+
         string rebindsA = PlayerPrefs.GetString("RebindsA", string.Empty);
         if (!string.IsNullOrEmpty(rebindsA))
         {
             controls.PlayerMovement.Ability.LoadBindingOverridesFromJson(rebindsA);
         }
-        
+
         string rebindsB = PlayerPrefs.GetString("RebindsB", string.Empty);
         if (!string.IsNullOrEmpty(rebindsB))
         {
             controls.PlayerMovement.ChangeAbility.LoadBindingOverridesFromJson(rebindsB);
         }
-        
+
         string rebindsW = PlayerPrefs.GetString("RebindsW", string.Empty);
         if (!string.IsNullOrEmpty(rebindsW))
         {
             controls.PlayerMovement.SpeedKey.LoadBindingOverridesFromJson(rebindsW);
         }
-        
+
         string rebindsG = PlayerPrefs.GetString("RebindsG", string.Empty);
         if (!string.IsNullOrEmpty(rebindsG))
         {
@@ -427,7 +432,7 @@ public class PlayerMovement : MonoBehaviour
                 rb.drag = inAirDrag; //Make sure the drag is set consistently - if you're jumping you are by definition going to be in the air.
                 rb.velocity = new Vector3(rb.velocity.x, 0, rb.velocity.z);//
 
-                GetComponent<JuiceBehaviours>().playJumpAnimation();
+                juiceBehaviours_.playJumpAnimation();
 
                 rb.AddForce(Vector3.up * jumpForce * jumpHeightMult, ForceMode.Impulse);
                 InvokeRepeating("resetJump", 0f, 0.02f);
@@ -494,6 +499,8 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = Vector3.zero;
             moveSpeedMult = 0;
 
+            juiceBehaviours_.playGrapple(true);
+
             if (controls.PlayerMovement.Jump.triggered)
             {
                 GetIKTarget("release");
@@ -504,6 +511,8 @@ public class PlayerMovement : MonoBehaviour
                 rb.AddForce(transform.up * ClimbUpForce, ForceMode.Impulse);
                 rb.AddForce(transform.forward * ClimbForwardsForce, ForceMode.Impulse);
                 Invoke("resetClimb", 0.5f);
+
+                juiceBehaviours_.playGrapple(false);
             }
         }
 
