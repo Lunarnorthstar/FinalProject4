@@ -428,6 +428,7 @@ public class PlayerMovement : MonoBehaviour
                 // rb.AddForce(transform.forward * vaultBoost, ForceMode.Impulse);
                 // rb.AddForce(transform.up * vaultHeight, ForceMode.Impulse);
                 smallVault();
+                
             }
         }
 
@@ -513,6 +514,7 @@ public class PlayerMovement : MonoBehaviour
             if (controls.PlayerMovement.Jump.triggered)
             {
                 GetIKTarget("release");
+                ani.enabled = true;
                 isClimbing = false;
                 climbCool = true;
                 rb.useGravity = true;
@@ -544,6 +546,7 @@ public class PlayerMovement : MonoBehaviour
             }
 
             GetIKTarget("climb");
+            ani.enabled = false;
         }
     }
 
