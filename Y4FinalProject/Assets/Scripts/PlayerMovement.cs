@@ -669,7 +669,7 @@ public class PlayerMovement : MonoBehaviour
             case "climb":
                 RaycastHit climbHit;
                 Physics.Raycast(transform.position, transform.forward, out climbHit, 10.0f);
-                playerIK.vaultPoint = climbHit.point;
+                playerIK.vaultPoint = climbHit.point - (transform.forward/2);
                 playerIK.IKTime = 10000;
                 playerIK.ikActive = true;
                 break;
