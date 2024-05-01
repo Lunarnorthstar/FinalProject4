@@ -540,7 +540,8 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                transform.Translate(cameraHolder.transform.forward * -0.5f, Space.World);
+                float disToGrab = math.distance(transform.position, climbObject.transform.position);
+                transform.Translate(cameraHolder.transform.forward * (-1.3f - disToGrab), Space.World);
                 transform.position =
                     new Vector3(transform.position.x, climbObject.transform.position.y, transform.position.z);
             }
