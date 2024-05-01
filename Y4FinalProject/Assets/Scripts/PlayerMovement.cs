@@ -541,7 +541,7 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 float disToGrab = math.distance(transform.position, climbObject.transform.position);
-                transform.Translate(cameraHolder.transform.forward * (-1.3f - disToGrab), Space.World);
+                transform.Translate(cameraHolder.transform.forward * (-0.8f - disToGrab), Space.World);
                 transform.position =
                     new Vector3(transform.position.x, climbObject.transform.position.y, transform.position.z);
             }
@@ -670,7 +670,7 @@ public class PlayerMovement : MonoBehaviour
             case "climb":
                 RaycastHit climbHit;
                 Physics.Raycast(transform.position, transform.forward, out climbHit, 10.0f);
-                playerIK.vaultPoint = climbHit.point - (transform.forward/2);
+                playerIK.vaultPoint = climbHit.point + new Vector3(-0.8f, 0.5f,0);
                 playerIK.IKTime = 10000;
                 playerIK.ikActive = true;
                 break;
