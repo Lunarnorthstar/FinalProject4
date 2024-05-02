@@ -540,10 +540,11 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                float disToGrab = math.distance(transform.position, climbObject.transform.position);
-                transform.Translate(cameraHolder.transform.forward * (-0.8f - disToGrab), Space.World);
-                transform.position =
-                    new Vector3(transform.position.x, climbObject.transform.position.y, transform.position.z);
+                float disToGrab = math.distance(transform.position,new Vector3(ClimbLookTarget.transform.position.x, transform.position.y, climbObject.transform.position.z));
+                Debug.Log("DISTANCE: " + disToGrab);
+                transform.Translate(climbObject.transform.right * (3.2f - disToGrab), Space.World);
+
+                transform.position = new Vector3(transform.position.x, climbObject.transform.position.y + 0.3f, transform.position.z);
             }
 
             GetIKTarget("climb");
@@ -670,7 +671,7 @@ public class PlayerMovement : MonoBehaviour
             case "climb":
                 RaycastHit climbHit;
                 Physics.Raycast(transform.position, transform.forward, out climbHit, 10.0f);
-                playerIK.vaultPoint = climbHit.point + new Vector3(-0.8f, 0.5f,0);
+                playerIK.vaultPoint = climbHit.point + new Vector3(-0.8f, 0.7f,0);
                 playerIK.IKTime = 10000;
                 playerIK.ikActive = true;
                 break;
@@ -707,7 +708,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.CompareTag("ClimbTrigger") || other.gameObject.CompareTag("Ladder"))
         {
-            /*Transform[] childrenTransforms = other.transform.GetComponentsInChildren<Transform>();
+            Transform[] childrenTransforms = other.transform.GetComponentsInChildren<Transform>();
             for (int i = 0; i < childrenTransforms.Length; i++)
             {
                 switch (childrenTransforms[i].name)
@@ -719,7 +720,7 @@ public class PlayerMovement : MonoBehaviour
                         hangPos = childrenTransforms[i];
                         break;
                 }
-            }*/
+            }
             climbObject = other.gameObject;
             isAgainstLedge = true;
             if (other.gameObject.CompareTag("Ladder"))
