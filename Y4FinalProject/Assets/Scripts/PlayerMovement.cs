@@ -541,13 +541,13 @@ public class PlayerMovement : MonoBehaviour
             else
             {
 
-                RaycastHit distHit;
-                Physics.Raycast(transform.position, (climbObject.transform.position - transform.position), out distHit);
-                float disToGrab = distHit.distance;
-                Debug.Log("DISTANCE: " + distHit.distance);
-                transform.Translate(climbObject.transform.right * (3.2f - disToGrab), Space.World);
 
+                float disToGrab = math.distance(transform.position,
+                    climbObject.GetComponent<BoxCollider>().ClosestPoint(transform.position));
+                Debug.Log("DISTANCE: " + disToGrab);
+                transform.Translate(climbObject.transform.right * (1.8f - disToGrab), Space.World);
                 transform.position = new Vector3(transform.position.x, climbObject.transform.position.y + 0.3f, transform.position.z);
+                
             }
 
             GetIKTarget("climb");
@@ -673,8 +673,8 @@ public class PlayerMovement : MonoBehaviour
                 break;
             case "climb":
                 RaycastHit climbHit;
-                Physics.Raycast(transform.position, transform.forward, out climbHit, 10.0f);
-                playerIK.vaultPoint = climbHit.point + new Vector3(-0.8f, 0.7f,0);
+                Physics.Raycast(transform.position, climbObject.GetComponent<BoxCollider>().ClosestPoint(transform.position) - transform.position, out climbHit, 10.0f);
+                playerIK.vaultPoint = climbHit.point + new Vector3(-0.8f, 0.6f,0);
                 playerIK.IKTime = 10000;
                 playerIK.ikActive = true;
                 break;
