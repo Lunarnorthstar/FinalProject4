@@ -540,8 +540,11 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                float disToGrab = math.distance(transform.position,new Vector3(ClimbLookTarget.transform.position.x, transform.position.y, climbObject.transform.position.z));
-                Debug.Log("DISTANCE: " + disToGrab);
+
+                RaycastHit distHit;
+                Physics.Raycast(transform.position, (climbObject.transform.position - transform.position), out distHit);
+                float disToGrab = distHit.distance;
+                Debug.Log("DISTANCE: " + distHit.distance);
                 transform.Translate(climbObject.transform.right * (3.2f - disToGrab), Space.World);
 
                 transform.position = new Vector3(transform.position.x, climbObject.transform.position.y + 0.3f, transform.position.z);
@@ -708,7 +711,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (other.gameObject.CompareTag("ClimbTrigger") || other.gameObject.CompareTag("Ladder"))
         {
-            Transform[] childrenTransforms = other.transform.GetComponentsInChildren<Transform>();
+            /*Transform[] childrenTransforms = other.transform.GetComponentsInChildren<Transform>();
             for (int i = 0; i < childrenTransforms.Length; i++)
             {
                 switch (childrenTransforms[i].name)
@@ -720,7 +723,7 @@ public class PlayerMovement : MonoBehaviour
                         hangPos = childrenTransforms[i];
                         break;
                 }
-            }
+            }*/
             climbObject = other.gameObject;
             isAgainstLedge = true;
             if (other.gameObject.CompareTag("Ladder"))
