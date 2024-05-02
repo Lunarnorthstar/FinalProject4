@@ -20,6 +20,7 @@ public class CollectibleHandler : MonoBehaviour
     public void Update()
     {
         UIDisplay.text = String.Format("{0}/{1}", collected, maxInStage);
+        bandaid -= Time.deltaTime;
     }
 
 
