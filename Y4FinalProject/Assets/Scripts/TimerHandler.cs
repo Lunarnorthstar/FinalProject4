@@ -65,7 +65,7 @@ public class TimerHandler : MonoBehaviour
         }
         
         
-        PC.repeat = true;
+        
         nameInput = FindInActiveObjectByTag("NameInput");
         
         
@@ -119,6 +119,7 @@ public class TimerHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (timerActive)
         {
             if (timerSpeedMultx60)

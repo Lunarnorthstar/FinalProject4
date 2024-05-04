@@ -158,9 +158,11 @@ public class PlayerMovement : MonoBehaviour
 
     private float failsafe = 8;
     private bool failsafebool = true;
+    public PersistanceCounter PC;
 
     public void EndCutscene()
     {
+        PC.repeat = true;
         Debug.Log("Called");
 
         string rebindsS = PlayerPrefs.GetString("RebindsS", string.Empty);
