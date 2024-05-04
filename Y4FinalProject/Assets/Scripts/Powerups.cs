@@ -14,6 +14,8 @@ public class Powerups : MonoBehaviour
 {
     //Following the changes, this script now only handles whether a powerup is equipped or not, and handles the UI. Individual powerups have been moved to their own scripts for readability's sake.
 
+    private PlayerMovement PM;
+    
     public Dash dash;
     public Glider glider;
     public Blink blink;
@@ -45,6 +47,7 @@ public class Powerups : MonoBehaviour
 
     private void Start()
     {
+        PM = GetComponent<PlayerMovement>();
         powerupSlider = new Slider[powerupUI.Length];
         countdownText = new TextMeshProUGUI[powerupUI.Length];
         powerupImage = new RawImage[powerupUI.Length];
@@ -227,11 +230,18 @@ public class Powerups : MonoBehaviour
     {
         switch (equippedPowerups[selection - 1])
         {
-            case "dash": dash.Activate(); break;
-            case "glider": glider.Activate(); break;
+            case "dash": 
+                PM.StopClimb();
+                dash.Activate(); break;
+            case "glider": 
+                PM.StopClimb();
+                glider.Activate(); break;
             case "blink": blinkShadow.GetComponent<MeshRenderer>().enabled = true; break;
-            case "boots": shield.Activate(); break;
-            case "grapple": grappleHook.Activate(); break;
+            case "boots":
+                shield.Activate(); break;
+            case "grapple": 
+                PM.StopClimb();
+                grappleHook.Activate(); break;
             default: break;
         }
     }
@@ -243,7 +253,11 @@ public class Powerups : MonoBehaviour
             case "dash": break;
             case "glider": break;
             case "blink":
-                if (blinkShadow.GetComponent<Valid>().validPosition) blink.Activate();
+                if (blinkShadow.GetComponent<Valid>().validPosition)
+                {
+                    PM.StopClimb();
+                    blink.Activate();
+                }
                 blinkShadow.GetComponent<MeshRenderer>().enabled = false;
                 break;
             case "boots": break;

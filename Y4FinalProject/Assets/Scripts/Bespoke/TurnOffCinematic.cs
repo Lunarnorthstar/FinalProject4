@@ -6,13 +6,20 @@ public class TurnOffCinematic : MonoBehaviour
 {
     public PersistanceCounter PC;
 
-    public GameObject cinematic;
+    //public GameObject cinematic;
     // Start is called before the first frame update
     void Start()
     {
         if (PC.repeat)
         {
-            cinematic.SetActive(false);
+            GameObject[] cutsceneItems = GameObject.FindGameObjectsWithTag("Cutscene Item");
+            foreach (var item in cutsceneItems)
+            {
+                item.SetActive(false);
+            }
+            
+            
+            //cinematic.SetActive(false);
         }
     }
 

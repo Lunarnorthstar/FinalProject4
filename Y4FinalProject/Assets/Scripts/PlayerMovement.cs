@@ -366,11 +366,13 @@ public class PlayerMovement : MonoBehaviour
         //abilities
         if (controls.PlayerMovement.Ability.triggered)
         {
+            //StopClimb();
             powerUps.ActivatePowerup(1);
         }
 
         if (controls.PlayerMovement.ChangeAbility.triggered) //Probably could change the name of this or make it some vector2d whatever whatever but this works fine as is.
         {
+            //StopClimb();
             powerUps.ActivatePowerup(2);
         }
 
@@ -505,25 +507,10 @@ public class PlayerMovement : MonoBehaviour
 
         if (isClimbing)
         {
-            rb.useGravity = false;
-            rb.velocity = Vector3.zero;
-            moveSpeedMult = 0;
-
-            juiceBehaviours_.playGrapple(true);
-
+            StartClimb();
             if (controls.PlayerMovement.Jump.triggered)
             {
-                GetIKTarget("release");
-                ani.enabled = true;
-                isClimbing = false;
-                climbCool = true;
-                rb.useGravity = true;
-                moveSpeedMult = 1;
-                rb.AddForce(transform.up * ClimbUpForce, ForceMode.Impulse);
-                rb.AddForce(transform.forward * ClimbForwardsForce, ForceMode.Impulse);
-                Invoke("resetClimb", 0.5f);
-
-                juiceBehaviours_.playGrapple(false);
+                StopClimb();
             }
         }
 
@@ -555,6 +542,29 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    public void StartClimb()
+    {
+        rb.useGravity = false;
+        rb.velocity = Vector3.zero;
+        moveSpeedMult = 0;
+
+        juiceBehaviours_.playGrapple(true);
+    }
+
+    public void StopClimb()
+    {
+        GetIKTarget("release");
+        ani.enabled = true;
+        isClimbing = false;
+        climbCool = true;
+        rb.useGravity = true;
+        moveSpeedMult = 1;
+        rb.AddForce(transform.up * ClimbUpForce, ForceMode.Impulse);
+        rb.AddForce(transform.forward * ClimbForwardsForce, ForceMode.Impulse);
+        Invoke("resetClimb", 0.5f);
+
+        juiceBehaviours_.playGrapple(false);
+    }
     public void wallSliding()
     {
 
