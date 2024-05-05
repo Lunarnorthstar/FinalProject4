@@ -555,6 +555,9 @@ public class PlayerMovement : MonoBehaviour
 
     public void StopClimb()
     {
+        if (!isClimbing) return;
+        
+        
         GetIKTarget("release");
         ani.enabled = true;
         isClimbing = false;
