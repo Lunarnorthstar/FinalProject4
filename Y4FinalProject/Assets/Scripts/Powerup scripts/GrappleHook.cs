@@ -25,7 +25,7 @@ public class GrappleHook : MonoBehaviour
     private SpringJoint joint;
     private LineRenderer lr;
     
-    public Animator walkAni;
+    private Animator walkAni;
 
 
     public bool Active;
@@ -39,6 +39,7 @@ public class GrappleHook : MonoBehaviour
         mask += LayerMask.GetMask("Train");
         mask = ~mask;
         lr = GetComponent<LineRenderer>();
+        walkAni = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -66,7 +67,6 @@ public class GrappleHook : MonoBehaviour
 
             if (Active)
             {
-                walkAni.SetBool("isMidJump", false);
                 joint.maxDistance += gameObject.GetComponent<PlayerMovement>().controls.PlayerMovement.Reel.ReadValue<float>() * reelSpeed * 0.01f;
             }
         }
@@ -135,6 +135,7 @@ public class GrappleHook : MonoBehaviour
         {
 
             GetComponent<PlayerMovement>().StopClimb();
+            walkAni.SetBool("isMidJump", false);
             Debug.Log(hit.collider.gameObject.name);
             GetComponent<JuiceBehaviours>().playPowerupAni(true);
 

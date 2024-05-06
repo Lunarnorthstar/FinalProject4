@@ -18,6 +18,13 @@ public class Shield : MonoBehaviour
     public PlayerMovement player;
     public GameObject shieldObject;
     [HideInInspector] public bool ready = false;
+    
+    private Animator walkAni;
+
+    private void Start()
+    {
+        walkAni = gameObject.GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -99,6 +106,7 @@ public class Shield : MonoBehaviour
         {
             if (!active)
             {
+                walkAni.SetBool("isMidJump", false);
                 AudioManager.instance.GenerateSound(AudioReference.instance.shieldDeploy, Vector3.zero);
                 active = true;
                 GetComponent<JuiceBehaviours>().playPowerupAni(true);

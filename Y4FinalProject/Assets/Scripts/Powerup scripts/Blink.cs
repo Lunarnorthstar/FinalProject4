@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -19,6 +20,13 @@ public class Blink : MonoBehaviour
     public GameObject player;
     [HideInInspector] public bool ready = false;
     public Valid checker;
+    
+    private Animator walkAni;
+
+    private void Start()
+    {
+        walkAni = gameObject.GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -108,6 +116,7 @@ public class Blink : MonoBehaviour
         if (!coolingDown) //If you're not on cooldown...
         {
             GetComponent<PlayerMovement>().StopClimb();
+            walkAni.SetBool("isMidJump", false);
             GetComponent<JuiceBehaviours>().playPowerupAni(true);
 
             Vector3 blinkDirection = Vector3.Normalize(camera.transform.forward);

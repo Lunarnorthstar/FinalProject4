@@ -42,10 +42,13 @@ public class Glider : MonoBehaviour
     [SerializeField] float totalLift;
     [SerializeField] float angleOfAttack;
     [SerializeField] float totalForwardsForce;
+    
+    private Animator walkAni;
 
     // Start is called before the first frame update
     void Start()
     {
+        walkAni = gameObject.GetComponent<Animator>();
         rb = GetComponent<Rigidbody>();
         playerMovement = GetComponent<PlayerMovement>();
         powerups = GetComponent<Powerups>();
@@ -162,6 +165,7 @@ public class Glider : MonoBehaviour
             if (!isEnabled)
             {
                 GetComponent<PlayerMovement>().StopClimb();
+                walkAni.SetBool("isMidJump", false);
                 AudioManager.instance.GenerateSound(AudioReference.instance.glideDeploy, Vector3.zero);
                 GetComponent<JuiceBehaviours>().playPowerupAni(true);
             }

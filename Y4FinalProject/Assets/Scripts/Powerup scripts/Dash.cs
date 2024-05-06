@@ -23,10 +23,13 @@ public class Dash : MonoBehaviour
 
 
     private Rigidbody rb;
+    
+    private Animator walkAni;
 
     // Start is called before the first frame update
     void Start()
     {
+        walkAni = gameObject.GetComponent<Animator>();
         rb = player.GetComponent<Rigidbody>();
     }
 
@@ -108,6 +111,7 @@ public class Dash : MonoBehaviour
         if (ready)
         {
             GetComponent<PlayerMovement>().StopClimb();
+            walkAni.SetBool("isMidJump", false);
             
             GetComponent<JuiceBehaviours>().playPowerupAni(true);
 

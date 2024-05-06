@@ -15,6 +15,7 @@ public class Powerups : MonoBehaviour
     //Following the changes, this script now only handles whether a powerup is equipped or not, and handles the UI. Individual powerups have been moved to their own scripts for readability's sake.
 
     private PlayerMovement PM;
+    public Animator walkAni;
     
     public Dash dash;
     public Glider glider;
