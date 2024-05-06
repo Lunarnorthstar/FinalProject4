@@ -87,7 +87,7 @@ public class Blink : MonoBehaviour
             if (hit.collider.CompareTag("Blinkblock")) //If that something has the Blinkblock tag...
             {
                 GetComponent<JuiceBehaviours>().playPowerupAni(false); //Don't work.
-                return; //Stop trying to use the grapple.
+                return; //Stop trying to blink.
             }
             else
             {
@@ -97,15 +97,17 @@ public class Blink : MonoBehaviour
                     if (secondHit.collider.CompareTag("Blinkblock")) //If that something has the Blinkblock tag...
                     {
                         GetComponent<JuiceBehaviours>().playPowerupAni(false); //Don't work.
-                        return; //Stop trying to use the grapple.
+                        return; //Stop trying to blink.
                     }
                 }
             }
         }
 
+        //If you didn't hit anything invalid...
 
-        if (!coolingDown)
+        if (!coolingDown) //If you're not on cooldown...
         {
+            GetComponent<PlayerMovement>().StopClimb();
             GetComponent<JuiceBehaviours>().playPowerupAni(true);
 
             Vector3 blinkDirection = Vector3.Normalize(camera.transform.forward);

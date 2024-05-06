@@ -161,6 +161,7 @@ public class Glider : MonoBehaviour
         {
             if (!isEnabled)
             {
+                GetComponent<PlayerMovement>().StopClimb();
                 AudioManager.instance.GenerateSound(AudioReference.instance.glideDeploy, Vector3.zero);
                 GetComponent<JuiceBehaviours>().playPowerupAni(true);
             }

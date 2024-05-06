@@ -107,6 +107,8 @@ public class Dash : MonoBehaviour
     {
         if (ready)
         {
+            GetComponent<PlayerMovement>().StopClimb();
+            
             GetComponent<JuiceBehaviours>().playPowerupAni(true);
 
             dashing = true;

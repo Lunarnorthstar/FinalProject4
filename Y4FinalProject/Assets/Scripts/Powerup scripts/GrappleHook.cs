@@ -131,6 +131,7 @@ public class GrappleHook : MonoBehaviour
         if (Physics.Raycast(transform.position, playerCam.transform.forward, out hit, grappleRange, mask))
         {
 
+            GetComponent<PlayerMovement>().StopClimb();
             Debug.Log(hit.collider.gameObject.name);
             GetComponent<JuiceBehaviours>().playPowerupAni(true);
 
