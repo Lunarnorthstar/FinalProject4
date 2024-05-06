@@ -50,6 +50,8 @@ public class JuiceBehaviours : MonoBehaviour
 
     public string currentTerrain;
 
+    public RuntimeAnimatorController[] controller = new RuntimeAnimatorController[2];
+    
     void Start()
     {
         playerManager = GetComponent<PlayerManager>();
@@ -63,7 +65,7 @@ public class JuiceBehaviours : MonoBehaviour
 
                     headBobToggle.isOn = true;
                 else
-                    headBobToggle.isOn = true;
+                    headBobToggle.isOn = false;
             }
             else
             {
@@ -96,17 +98,12 @@ public class JuiceBehaviours : MonoBehaviour
 
         walkAni.SetBool("onGround", isOnGround_);
         walkAni.SetFloat("Vertical Vel", verticalVelocity);
+        currentBobSpeed = bobSpeedMutliplier.Evaluate(currentSpeed);
 
         //set bobSpeed
         if (canBob)
-            currentBobSpeed = bobSpeedMutliplier.Evaluate(currentSpeed);
-        else currentBobSpeed = 0;
-
-        //if on the ground set the bob speed to the bob speed
-        if (isOnGround_)
-            walkAni.SetFloat("walkSpeed", currentBobSpeed);
-        else
-            walkAni.SetFloat("walkSpeed", 0);
+            GetComponent<Animator>().runtimeAnimatorController = controller[0];
+        else GetComponent<Animator>().runtimeAnimatorController = controller[1];
 
         if (currentSpeed > 0.1f)
             walkAni.SetBool("moving", true);
