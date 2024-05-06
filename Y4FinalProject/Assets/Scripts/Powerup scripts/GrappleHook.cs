@@ -24,6 +24,8 @@ public class GrappleHook : MonoBehaviour
     private Vector3 grapplePoint;
     private SpringJoint joint;
     private LineRenderer lr;
+    
+    public Animator walkAni;
 
 
     public bool Active;
@@ -64,6 +66,7 @@ public class GrappleHook : MonoBehaviour
 
             if (Active)
             {
+                walkAni.SetBool("isMidJump", false);
                 joint.maxDistance += gameObject.GetComponent<PlayerMovement>().controls.PlayerMovement.Reel.ReadValue<float>() * reelSpeed * 0.01f;
             }
         }
