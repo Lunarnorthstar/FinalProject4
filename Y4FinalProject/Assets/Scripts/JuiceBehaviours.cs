@@ -195,6 +195,7 @@ public class JuiceBehaviours : MonoBehaviour
         walkAni.SetBool("Land", false);
         walkAni.SetBool("jump", true);
         walkAni.SetBool("isMidJump", true);
+        walkAni.SetInteger("jumpIndex", UnityEngine.Random.Range(1, 4));
     }
 
     public void playfootStep()
