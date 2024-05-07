@@ -27,7 +27,7 @@ public class TimedEvent : MonoBehaviour
     private Rigidbody RB;
     private int currentWaypoint = -1;
     private float eventCountdown = 0;
-    private bool moving = false;
+    [SerializeField] private bool moving = false;
     private TimerHandler timer;
 
 
@@ -89,6 +89,7 @@ public class TimedEvent : MonoBehaviour
     {
         if (math.distance(target.destination.transform.position, transform.position) < goalFlexibility)
         {
+            transform.position = target.destination.transform.position;
             foreach (GameObject item in target.toggleActive)
             {
                 item.SetActive(!item.activeSelf);
