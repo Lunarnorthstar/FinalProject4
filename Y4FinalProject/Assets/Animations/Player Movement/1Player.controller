@@ -309,7 +309,7 @@ AnimatorStateTransition:
     m_EventTreshold: 0
   - m_ConditionMode: 3
     m_ConditionEvent: GroundDistance
-    m_EventTreshold: 1.6
+    m_EventTreshold: 2
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -6698898822853493767}
   m_Solo: 0
@@ -545,9 +545,9 @@ AnimatorStateMachine:
   - {fileID: -1343440823199734845}
   m_EntryTransitions: []
   m_StateMachineTransitions:
-  - first: {fileID: 2500540662766414440}
-    second: []
   - first: {fileID: 4230255338117337559}
+    second: []
+  - first: {fileID: 2500540662766414440}
     second: []
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 120, y: 520, z: 0}
