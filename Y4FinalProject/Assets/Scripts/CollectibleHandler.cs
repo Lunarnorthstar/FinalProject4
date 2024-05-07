@@ -39,6 +39,8 @@ public class CollectibleHandler : MonoBehaviour
                 {
                     hundredpercent = true;
                 }
+
+                AudioManager.instance.GenerateSound(AudioReference.instance.bloomCollect, Vector3.zero);
             }
         }
     }

@@ -9,6 +9,7 @@ public class AudioReference : MonoBehaviour
     [field: SerializeField] public EventReference buttonClick { get; private set; }
     [field: SerializeField] public EventReference pageTurning { get; private set; }
     [field: SerializeField] public EventReference powerupEquip { get; private set; }
+    [field: SerializeField] public EventReference bloomCollect { get; private set; }
 
     [field: Header("Music")]
     [field: SerializeField] public EventReference menuMusic { get; private set; }
@@ -19,9 +20,11 @@ public class AudioReference : MonoBehaviour
     [field: SerializeField] public EventReference dashDeploy { get; private set; }
     [field: SerializeField] public EventReference shieldDeploy { get; private set; }
     [field: SerializeField] public EventReference grappleDeploy { get; private set; }
+    [field: SerializeField] public EventReference grappleRetract { get; private set; }
     [field: SerializeField] public EventReference glideDeploy { get; private set; }
 
     [field: Header("Player Sounds")]
+    [field: SerializeField] public EventReference jump { get; private set; }
     [field: SerializeField] public EventReference hardStep { get; private set; }
     [field: SerializeField] public EventReference robotWhir { get; private set; }
     [field: SerializeField] public EventReference grassStep { get; private set; }

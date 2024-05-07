@@ -24,7 +24,7 @@ public class GrappleHook : MonoBehaviour
     private Vector3 grapplePoint;
     private SpringJoint joint;
     private LineRenderer lr;
-    
+
     private Animator walkAni;
 
 
@@ -140,12 +140,12 @@ public class GrappleHook : MonoBehaviour
             GetComponent<JuiceBehaviours>().playPowerupAni(true);
 
             AudioManager.instance.GenerateSound(AudioReference.instance.grappleDeploy, Vector3.zero);
-            
+
             grapplePoint = hit.point;
             joint = gameObject.AddComponent<SpringJoint>();
             joint.autoConfigureConnectedAnchor = false;
             joint.connectedAnchor = grapplePoint;
-            
+
             grappleHead.SetActive(true);
 
             float distanceFromPoint = math.distance(gameObject.transform.position, grapplePoint);
@@ -177,6 +177,8 @@ public class GrappleHook : MonoBehaviour
         grappleHead.SetActive(false);
         Destroy(joint);
         Active = false;
+
+        AudioManager.instance.GenerateSound(AudioReference.instance.grappleRetract, Vector3.zero);
     }
 
     private void DrawRope()

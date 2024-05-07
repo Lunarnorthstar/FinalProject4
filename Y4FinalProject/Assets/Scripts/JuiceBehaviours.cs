@@ -51,7 +51,7 @@ public class JuiceBehaviours : MonoBehaviour
     public string currentTerrain;
 
     public RuntimeAnimatorController[] controller = new RuntimeAnimatorController[2];
-    
+
     void Start()
     {
         playerManager = GetComponent<PlayerManager>();
@@ -148,7 +148,7 @@ public class JuiceBehaviours : MonoBehaviour
     {
         walkAni.SetBool("Land", true);
         walkAni.SetBool("isMidJump", false);
-        Debug.Log("land");
+        //        Debug.Log("land");
         return;
 
         if (Mathf.Abs(verticalVelocity) >= highImpactTheshold)
@@ -193,6 +193,13 @@ public class JuiceBehaviours : MonoBehaviour
         walkAni.SetBool("jump", true);
         walkAni.SetBool("isMidJump", true);
         walkAni.SetInteger("jumpIndex", UnityEngine.Random.Range(1, 4));
+
+
+    }
+
+    public void playJumpSound()
+    {
+        AudioManager.instance.GenerateSound(AudioReference.instance.jump, Vector3.zero);
     }
 
     public void playfootStep()

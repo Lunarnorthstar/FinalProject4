@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/Assets/Fmod_Holder/Sound System FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638495683469035441
+  lastModified: 638506651585441448
   FileSizes:
   - Name: Desktop
-    Value: 1778
+    Value: 1916
   Exists: 1
 --- !u!114 &-8544838532854283259
 MonoBehaviour:
@@ -101,6 +101,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-8097824702136998649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/powerups/BLink
+  m_EditorClassIdentifier: 
+  Path: event:/powerups/BLink
+  Guid:
+    Data1: -358126443
+    Data2: 1073958316
+    Data3: 1899132577
+    Data4: 1786293125
+  Banks:
+  - {fileID: 6913381890978473037}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-6325556266146297873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,7 +155,7 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 112000
---- !u!114 &-5520415444007119294
+--- !u!114 &-5746425815006088212
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,14 +165,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/powerups/blink
+  m_Name: event:/powerups/BLoom Collect
   m_EditorClassIdentifier: 
-  Path: event:/powerups/blink
+  Path: event:/powerups/BLoom Collect
   Guid:
-    Data1: -358126443
-    Data2: 1073958316
-    Data3: 1899132577
-    Data4: 1786293125
+    Data1: 850917780
+    Data2: 1200406105
+    Data3: 1405092499
+    Data4: 100985238
   Banks:
   - {fileID: 6913381890978473037}
   IsStream: 0
@@ -332,7 +359,7 @@ MonoBehaviour:
   Path: Assets/Assets/Fmod_Holder/Sound System FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638454228790608391
+  lastModified: 638506651585421356
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -363,7 +390,6 @@ MonoBehaviour:
   - {fileID: 6304021073092740032}
   - {fileID: 7322043629760485573}
   - {fileID: 2630586936725401487}
-  - {fileID: -5520415444007119294}
   - {fileID: -8519541085905371671}
   - {fileID: -4254822446251685595}
   - {fileID: -5349161694484503965}
@@ -376,12 +402,16 @@ MonoBehaviour:
   - {fileID: -8544838532854283259}
   - {fileID: 8704346933537072500}
   - {fileID: 2424781634320576227}
+  - {fileID: 9014351319840519046}
+  - {fileID: 7148040998344385325}
+  - {fileID: -5746425815006088212}
+  - {fileID: -8097824702136998649}
   EditorParameters: []
   MasterBanks:
   - {fileID: -817147611383966875}
   StringsBanks:
   - {fileID: -8892198496911042209}
-  cacheTime: 638495683469369866
+  cacheTime: 638506651587632706
   cacheVersion: 131616
 --- !u!114 &2424781634320576227
 MonoBehaviour:
@@ -506,7 +536,7 @@ MonoBehaviour:
   Path: Assets/Assets/Fmod_Holder/Sound System FMOD/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638495683469185037
+  lastModified: 638506345046210898
   FileSizes:
   - Name: Desktop
     Value: 1808992
@@ -607,11 +637,38 @@ MonoBehaviour:
   Path: Assets/Assets/Fmod_Holder/Sound System FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638495683469369866
+  lastModified: 638506651587632706
   FileSizes:
   - Name: Desktop
-    Value: 3898144
+    Value: 3989248
   Exists: 1
+--- !u!114 &7148040998344385325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/powerups/GrappleRetract
+  m_EditorClassIdentifier: 
+  Path: event:/powerups/GrappleRetract
+  Guid:
+    Data1: -484259293
+    Data2: 1125826251
+    Data3: -54376043
+    Data4: -1179938736
+  Banks:
+  - {fileID: 6913381890978473037}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &7322043629760485573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -711,6 +768,33 @@ MonoBehaviour:
     Data2: 1301300470
     Data3: -460099669
     Data4: -1504274555
+  Banks:
+  - {fileID: 6913381890978473037}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &9014351319840519046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/sfx/Jump
+  m_EditorClassIdentifier: 
+  Path: event:/sfx/Jump
+  Guid:
+    Data1: -1777075488
+    Data2: 1218487218
+    Data3: 91306642
+    Data4: 2116087860
   Banks:
   - {fileID: 6913381890978473037}
   IsStream: 0
