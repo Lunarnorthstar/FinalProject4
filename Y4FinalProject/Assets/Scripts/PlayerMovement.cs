@@ -640,26 +640,40 @@ public class PlayerMovement : MonoBehaviour
                 isSliding = false;
             }
         }
-        else// if button isnt even being pressed, then no slide
+        else if(isSliding) // if button isnt even being pressed, then no slide
         {
-            isSliding = false;
-            // hasSlid = true; //you were just in a slide - only way for variable to change is with a release of the slide button
-        }
+            Debug.DrawRay(transform.position - (transform.forward * 0.2f), transform.up, Color.red);
+            RaycastHit test;
+            if (!Physics.Raycast(transform.position + transform.forward * 0.2f, transform.up, 1.6f)) //If there's something above you...
+            {
+                if (Physics.Raycast(transform.position  + transform.forward * 0.2f, transform.up, out test, 1.6f))
+                {
+                    Debug.Log(test.collider.gameObject.name);
+                }
+                else
+                {
+                    Debug.Log("Didn't bonk on anything, standing up");
+                }
+                
+                //rb.AddForce(transform.forward * 25 * Time.deltaTime, ForceMode.Impulse); //Go forward so there isn't
+                isSliding = false;
+            }
 
-        if (Physics.Raycast(transform.position, transform.up, 0.6f)) //If there's something above you...
-        {
-            //Debug.Log("Bonk");
-            rb.AddForce(transform.forward * 25 * Time.deltaTime, ForceMode.Impulse); //Go forward so there isn't
+            // hasSlid = true; //you were just in a slide - only way for variable to change is with a release of the slide button
         }
 
         if (isSliding && HorizontalVelocityf <= slideStopSpeed)//if currently sliding but then go too slow, no slide for u  
         {
-
-
-
-
-            isSliding = false;
-            hasSlid = true; //you were just in a slide - only way for variable to change is with a release of the slide button
+            if (Physics.Raycast(transform.position, transform.up, 1.6f)) //If there's something above you...
+            {
+                //Debug.Log("Force");
+                rb.AddForce(transform.forward * 35 * Time.deltaTime, ForceMode.Impulse); //Go forward so there isn't
+            }
+            else
+            {
+                isSliding = false;
+                hasSlid = true; //you were just in a slide - only way for variable to change is with a release of the slide button
+            }
         }
 
 
