@@ -71,12 +71,12 @@ public class AudioManager : MonoBehaviour
         if (PlayerPrefs.HasKey("musicVol"))
             musicVolume = PlayerPrefs.GetFloat("musicVol");
         else
-            PlayerPrefs.SetFloat("musicVol", 0.7f);
+            PlayerPrefs.SetFloat("musicVol", 0.5f);
 
         if (PlayerPrefs.HasKey("sfxVol"))
             sfxVolume = PlayerPrefs.GetFloat("sfxVol");
         else
-            PlayerPrefs.SetFloat("sfxVol", 0.7f);
+            PlayerPrefs.SetFloat("sfxVol", 0.5f);
 
 
         switch (currentLevel)
