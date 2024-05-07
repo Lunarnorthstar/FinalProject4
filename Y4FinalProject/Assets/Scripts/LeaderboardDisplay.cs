@@ -130,8 +130,8 @@ public class LeaderboardDisplay : MonoBehaviour
 
     public void UpdateLeaderboard()
     {
-        leaderboardTitle.text = "Best Times (Level" + selector + ")";
-        hundredLeaderboardTitle.text = "Best 100% Times (Level" + selector + ")";
+        leaderboardTitle.text = "Best Times (Level " + selector + ")";
+        hundredLeaderboardTitle.text = "Best 100% Times (Level " + selector + ")";
 
         if (selector == 0)
         {

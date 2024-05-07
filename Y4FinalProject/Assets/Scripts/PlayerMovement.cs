@@ -17,8 +17,8 @@ public class PlayerMovement : MonoBehaviour
     public SettingsHolder SH;
     public CameraMove cam;
 
-    [Tooltip("a list of animation names that when playing, the camera should stop moving")]
-    public string[] camPauseAniStates;
+    //[Tooltip("a list of animation names that when playing, the camera should stop moving")]
+    //public string[] camPauseAniStates;
 
     public PlayerControls controls;
 
