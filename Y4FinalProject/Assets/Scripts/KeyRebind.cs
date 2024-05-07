@@ -23,6 +23,37 @@ public class KeyRebind : MonoBehaviour
 
     private void Start()
     {
+        string rebindsS = PlayerPrefs.GetString("RebindsS", string.Empty);
+        if (!string.IsNullOrEmpty(rebindsS))
+        {
+            slideKey.action.LoadBindingOverridesFromJson(rebindsS);
+        }
+
+        string rebindsA = PlayerPrefs.GetString("RebindsA", string.Empty);
+        if (!string.IsNullOrEmpty(rebindsA))
+        {
+            powerupAKey.action.LoadBindingOverridesFromJson(rebindsA);
+        }
+
+        string rebindsB = PlayerPrefs.GetString("RebindsB", string.Empty);
+        if (!string.IsNullOrEmpty(rebindsB))
+        {
+            powerupBKey.action.LoadBindingOverridesFromJson(rebindsB);
+        }
+
+        string rebindsW = PlayerPrefs.GetString("RebindsW", string.Empty);
+        if (!string.IsNullOrEmpty(rebindsW))
+        {
+            wallrunKey.action.LoadBindingOverridesFromJson(rebindsW);
+        }
+
+        string rebindsG = PlayerPrefs.GetString("RebindsG", string.Empty);
+        if (!string.IsNullOrEmpty(rebindsG))
+        {
+            grabKey.action.LoadBindingOverridesFromJson(rebindsG);
+        }
+        
+        
         bindingDisplay[0].text = InputControlPath.ToHumanReadableString(slideKey.action.bindings[0].effectivePath);
         bindingDisplay[1].text = InputControlPath.ToHumanReadableString(powerupAKey.action.bindings[0].effectivePath);
         bindingDisplay[2].text = InputControlPath.ToHumanReadableString(powerupBKey.action.bindings[0].effectivePath);
