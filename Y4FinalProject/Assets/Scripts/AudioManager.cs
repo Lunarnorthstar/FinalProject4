@@ -24,6 +24,8 @@ public class AudioManager : MonoBehaviour
 
     [Header("Audio")]
     EventInstance musicEventInstance;
+
+    public EventInstance helicopterSound;
     //StudioEventEmitter musicEmiiter;
 
     // public AudioClip menuSong;
@@ -55,6 +57,7 @@ public class AudioManager : MonoBehaviour
     }
 
 
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -91,6 +94,8 @@ public class AudioManager : MonoBehaviour
 
         musicEventInstance.start();
         musicEventInstance.release();
+
+        helicopterSound = RuntimeManager.CreateInstance(AudioReference.instance.Helicopter);
     }
 
     void Update()
@@ -180,7 +185,7 @@ public class AudioManager : MonoBehaviour
     public void GenerateSound(EventReference sound, Vector3 worldPos)// AudioClip audioClip)
     {
         RuntimeManager.PlayOneShot(sfxVolume, sound, worldPos);
-
+        
         // GameObject sound = new GameObject();
         // sound.transform.parent = transform;
 

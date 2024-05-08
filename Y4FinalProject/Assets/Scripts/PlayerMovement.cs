@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using FMOD.Studio;
 using TMPro;
 using Unity.Burst.Intrinsics;
 using Unity.Mathematics;
@@ -132,9 +133,15 @@ public class PlayerMovement : MonoBehaviour
     private float distFromGround;
     int timer = -1;
 
+    private void Start()
+    {
+        AudioManager.instance.helicopterSound.start();
+    }
+
     void Awake()
     {
         Time.timeScale = 1;
+        
         maxMoveSpeed = startMaxSpeed;
         //Application.targetFrameRate = 60;
 
@@ -153,8 +160,6 @@ public class PlayerMovement : MonoBehaviour
 
         canSideJump = true;
         canJump = true;
-
-
     }
 
     private float failsafe = 8;
@@ -163,7 +168,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void EndCutscene()
     {
-        AudioManager.instance.GenerateSound(AudioReference.instance.Helicopter, Vector3.zero);
+        AudioManager.instance.helicopterSound.stop(STOP_MODE.ALLOWFADEOUT);
         PC.repeat = true;
         Debug.Log("Called");
 
