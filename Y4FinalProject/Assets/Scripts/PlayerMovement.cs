@@ -136,6 +136,9 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         AudioManager.instance.helicopterSound.start();
+        PLAYBACK_STATE playstate;
+        AudioManager.instance.helicopterSound.getPlaybackState(out playstate);
+        Debug.Log(playstate);
     }
 
     void Awake()
@@ -761,12 +764,13 @@ public class PlayerMovement : MonoBehaviour
     private bool ladder = false;
     private void OnTriggerEnter(Collider other)
     {
+        /*
         if (other.gameObject.CompareTag("VaultTrigger"))
         {
             isInVaultTrigger = true;
 
             GetIKTarget("vault"); //Find the point you grab and grab it
-        }
+        }*/
 
         if (other.gameObject.CompareTag("ClimbTrigger") || other.gameObject.CompareTag("Ladder"))
         {
@@ -797,11 +801,11 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.CompareTag("VaultTrigger"))
+        /*if (other.gameObject.CompareTag("VaultTrigger"))
         {
             isInVaultTrigger = false;
             playerIK.ikActive = false; //Stop touching stuff.
-        }
+        }*/
 
         if (other.gameObject.CompareTag("ClimbTrigger") || other.gameObject.CompareTag("Ladder"))
         {
