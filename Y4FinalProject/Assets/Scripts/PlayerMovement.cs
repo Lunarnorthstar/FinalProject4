@@ -130,6 +130,7 @@ public class PlayerMovement : MonoBehaviour
     private bool climbCool = false;
 
     private float distFromGround;
+    int timer = -1;
 
     void Awake()
     {
@@ -153,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
         canSideJump = true;
         canJump = true;
 
-
+        
     }
 
     private float failsafe = 8;
@@ -623,8 +624,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    
+
     public void sliding()
     {
+       
+        //Debug.DrawRay(transform.position - (transform.forward * 0.4f), transform.up, Color.red);
+        //Debug.DrawRay(transform.position - (transform.forward * -0.6f), transform.up, Color.blue);
         if (isTryingToSlide)//is button being pressed?
         {
             bool isStraight;
@@ -634,6 +640,7 @@ public class PlayerMovement : MonoBehaviour
             if (isOnGround && /*isSprinting &&*/ HorizontalVelocityf >= minSlideSpeed && !hasSlid && isStraight)//are you sprinting, moving faster than minimum and havent just exited a slide?
             {
                 isSliding = true;
+                 timer = 50;
             }
             else if (!isSliding)//if all this is not the case and is not currently in a slide, no slide for u (you can slide when below the start speed, just not start a slide)
             {
@@ -642,9 +649,13 @@ public class PlayerMovement : MonoBehaviour
         }
         else if(isSliding) // if button isnt even being pressed, then no slide
         {
-            Debug.DrawRay(transform.position - (transform.forward * 0.2f), transform.up, Color.red);
+            
+            //Debug.DrawRay(transform.position - (transform.forward * 0.4f), transform.up, Color.red);
+            //Debug.DrawRay(transform.position - (transform.forward * -0.4f), transform.up, Color.blue);
+           
+            
             RaycastHit test;
-            if (!Physics.Raycast(transform.position + transform.forward * 0.2f, transform.up, 1.6f)) //If there's something above you...
+            if ((!Physics.Raycast(transform.position + transform.forward * 0.4f, transform.up, 1f)) &&  (!Physics.Raycast(transform.position + transform.forward, transform.up, 1f)) && (!Physics.Raycast(transform.position + transform.forward * -0.4f, transform.up, 1f))) //If there's something above you...
             {
                 if (Physics.Raycast(transform.position  + transform.forward * 0.2f, transform.up, out test, 1.6f))
                 {
@@ -657,6 +668,7 @@ public class PlayerMovement : MonoBehaviour
                 
                 //rb.AddForce(transform.forward * 25 * Time.deltaTime, ForceMode.Impulse); //Go forward so there isn't
                 isSliding = false;
+                
             }
 
             // hasSlid = true; //you were just in a slide - only way for variable to change is with a release of the slide button
@@ -664,15 +676,24 @@ public class PlayerMovement : MonoBehaviour
 
         if (isSliding && HorizontalVelocityf <= slideStopSpeed)//if currently sliding but then go too slow, no slide for u  
         {
-            if (Physics.Raycast(transform.position, transform.up, 1.6f)) //If there's something above you...
+            if ((Physics.Raycast(transform.position + transform.forward * 0.4f, transform.up, 1f)) || (Physics.Raycast(transform.position + transform.forward, transform.up, 1f)) || (Physics.Raycast(transform.position + transform.forward * -0.4f, transform.up, 1f))) //If there's something above you...
             {
                 //Debug.Log("Force");
                 rb.AddForce(transform.forward * 35 * Time.deltaTime, ForceMode.Impulse); //Go forward so there isn't
             }
             else
             {
-                isSliding = false;
-                hasSlid = true; //you were just in a slide - only way for variable to change is with a release of the slide button
+                if ((Physics.Raycast(transform.position + transform.forward * 0.4f, transform.up, 1f)) || (Physics.Raycast(transform.position + transform.forward, transform.up, 1f)) || (Physics.Raycast(transform.position + transform.forward * -0.4f, transform.up, 1f))) //If there's something above you...
+                {
+                    //Debug.Log("Force");
+                    rb.AddForce(transform.forward * 35 * Time.deltaTime, ForceMode.Impulse); //Go forward so there isn't
+                }
+                else if (timer <= -1)
+                {
+                   
+                    isSliding = false;
+                    hasSlid = true; //you were just in a slide - only way for variable to change is with a release of the slide button
+                }
             }
         }
 
@@ -688,7 +709,10 @@ public class PlayerMovement : MonoBehaviour
             ani.SetBool("hasSlid", false);
 
     }
-
+    public void FixedUpdate()
+    {
+        timer--;
+    }
     private void GetIKTarget(String type)
     {
         switch (type)

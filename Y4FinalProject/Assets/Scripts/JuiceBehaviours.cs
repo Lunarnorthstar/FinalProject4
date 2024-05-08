@@ -235,6 +235,7 @@ public class JuiceBehaviours : MonoBehaviour
 
     public void playSlideSound()
     {
+        playerMovement.isSliding = true;
         AudioManager.instance.GenerateSound(AudioReference.instance.slide, Vector3.zero);
     }
 }
