@@ -380,7 +380,7 @@ public class TimerHandler : MonoBehaviour
             StopTimer();
 
 
-            AudioManager.instance.GenerateSound(AudioReference.instance.win, Vector3.zero);
+            //AudioManager.instance.GenerateSound(AudioReference.instance.win, Vector3.zero);
             //GameObject.FindObjectOfType<AudioManager>().endLevel();
         }
     }
