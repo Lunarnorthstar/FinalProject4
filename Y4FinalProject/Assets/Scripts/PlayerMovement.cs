@@ -135,10 +135,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        AudioManager.instance.helicopterSound.start();
+        /*AudioManager.instance.helicopterSound.start();
         PLAYBACK_STATE playstate;
         AudioManager.instance.helicopterSound.getPlaybackState(out playstate);
-        Debug.Log(playstate);
+        Debug.Log(playstate);*/
     }
 
     void Awake()
@@ -171,7 +171,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void EndCutscene()
     {
-        AudioManager.instance.helicopterSound.stop(STOP_MODE.ALLOWFADEOUT);
+        //AudioManager.instance.helicopterSound.stop(STOP_MODE.ALLOWFADEOUT);
         PC.repeat = true;
         Debug.Log("Called");
 
