@@ -764,13 +764,13 @@ public class PlayerMovement : MonoBehaviour
     private bool ladder = false;
     private void OnTriggerEnter(Collider other)
     {
-        /*
+        
         if (other.gameObject.CompareTag("VaultTrigger"))
         {
             isInVaultTrigger = true;
 
-            GetIKTarget("vault"); //Find the point you grab and grab it
-        }*/
+            //GetIKTarget("vault"); //Find the point you grab and grab it
+        }
 
         if (other.gameObject.CompareTag("ClimbTrigger") || other.gameObject.CompareTag("Ladder"))
         {
@@ -801,11 +801,11 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
-        /*if (other.gameObject.CompareTag("VaultTrigger"))
+        if (other.gameObject.CompareTag("VaultTrigger"))
         {
             isInVaultTrigger = false;
-            playerIK.ikActive = false; //Stop touching stuff.
-        }*/
+            //playerIK.ikActive = false; //Stop touching stuff.
+        }
 
         if (other.gameObject.CompareTag("ClimbTrigger") || other.gameObject.CompareTag("Ladder"))
         {
