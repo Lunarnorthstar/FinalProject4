@@ -15,7 +15,7 @@ MonoBehaviour:
   Path: Assets/Assets/Fmod_Holder/Sound System FMOD/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638507525754831138
+  lastModified: 638507637419841755
   FileSizes:
   - Name: Desktop
     Value: 1990
@@ -344,6 +344,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 2200
+--- !u!114 &-923657927168778621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Helicopter
+  m_EditorClassIdentifier: 
+  Path: event:/Helicopter
+  Guid:
+    Data1: 51898909
+    Data2: 1299544055
+    Data3: 611903921
+    Data4: -293842179
+  Banks:
+  - {fileID: 6913381890978473037}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &-817147611383966875
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,7 +386,7 @@ MonoBehaviour:
   Path: Assets/Assets/Fmod_Holder/Sound System FMOD/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638507525754806030
+  lastModified: 638454099346672064
   FileSizes:
   - Name: Desktop
     Value: 1036
@@ -406,14 +433,14 @@ MonoBehaviour:
   - {fileID: 7148040998344385325}
   - {fileID: -5746425815006088212}
   - {fileID: -8097824702136998649}
-  - {fileID: 8536358625725618846}
-  - {fileID: 4305340512896675013}
+  - {fileID: -923657927168778621}
+  - {fileID: 6533439435592598230}
   EditorParameters: []
   MasterBanks:
   - {fileID: -817147611383966875}
   StringsBanks:
   - {fileID: -8892198496911042209}
-  cacheTime: 638507525832523491
+  cacheTime: 638507637420101798
   cacheVersion: 131616
 --- !u!114 &2424781634320576227
 MonoBehaviour:
@@ -565,7 +592,7 @@ MonoBehaviour:
   Path: Assets/Assets/Fmod_Holder/Sound System FMOD/Build/Desktop/Music.bank
   Name: Music
   StudioPath: bank:/Music
-  lastModified: 638506345046210898
+  lastModified: 638501825726816022
   FileSizes:
   - Name: Desktop
     Value: 1808992
@@ -624,6 +651,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &6533439435592598230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/win
+  m_EditorClassIdentifier: 
+  Path: event:/win
+  Guid:
+    Data1: -1064348747
+    Data2: 1149822101
+    Data3: -1586890065
+    Data4: -1399797120
+  Banks:
+  - {fileID: 6913381890978473037}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &6541422020857095097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,7 +720,7 @@ MonoBehaviour:
   Path: Assets/Assets/Fmod_Holder/Sound System FMOD/Build/Desktop/SFX.bank
   Name: SFX
   StudioPath: bank:/SFX
-  lastModified: 638507525832523491
+  lastModified: 638507637420101798
   FileSizes:
   - Name: Desktop
     Value: 4127776
