@@ -154,7 +154,7 @@ public class PlayerMovement : MonoBehaviour
         canSideJump = true;
         canJump = true;
 
-        
+
     }
 
     private float failsafe = 8;
@@ -163,6 +163,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void EndCutscene()
     {
+        AudioManager.instance.GenerateSound(AudioReference.instance.Helicopter, Vector3.zero);
         PC.repeat = true;
         Debug.Log("Called");
 
@@ -201,9 +202,9 @@ public class PlayerMovement : MonoBehaviour
         controls.PlayerMovement.Enable();
 
     }
-    
-    
-    [HideInInspector]public float distToGround;
+
+
+    [HideInInspector] public float distToGround;
     // Update is called once per frame
     void Update()
     {
@@ -211,7 +212,7 @@ public class PlayerMovement : MonoBehaviour
         Physics.Raycast(transform.position, -transform.up, out groundDist);
         distToGround = math.distance(transform.position, groundDist.point);
         ani.SetFloat("GroundDistance", distToGround);
-        
+
         failsafe -= Time.deltaTime;
         if (failsafe <= 0 && failsafebool)
         {
@@ -433,7 +434,7 @@ public class PlayerMovement : MonoBehaviour
                 // rb.AddForce(transform.forward * vaultBoost, ForceMode.Impulse);
                 // rb.AddForce(transform.up * vaultHeight, ForceMode.Impulse);
                 smallVault();
-                
+
             }
         }
 
@@ -537,7 +538,7 @@ public class PlayerMovement : MonoBehaviour
                 Debug.Log("DISTANCE: " + disToGrab);
                 transform.Translate(climbObject.transform.right * (1.8f - disToGrab), Space.World);
                 transform.position = new Vector3(transform.position.x, climbObject.transform.position.y + 0.3f, transform.position.z);
-                
+
             }
 
             GetIKTarget("climb");
@@ -557,8 +558,8 @@ public class PlayerMovement : MonoBehaviour
     public void StopClimb()
     {
         if (!isClimbing) return;
-        
-        
+
+
         GetIKTarget("release");
         ani.enabled = true;
         isClimbing = false;
@@ -624,11 +625,11 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    
+
 
     public void sliding()
     {
-       
+
         //Debug.DrawRay(transform.position - (transform.forward * 0.4f), transform.up, Color.red);
         //Debug.DrawRay(transform.position - (transform.forward * -0.6f), transform.up, Color.blue);
         if (isTryingToSlide)//is button being pressed?
@@ -640,24 +641,24 @@ public class PlayerMovement : MonoBehaviour
             if (isOnGround && /*isSprinting &&*/ HorizontalVelocityf >= minSlideSpeed && !hasSlid && isStraight)//are you sprinting, moving faster than minimum and havent just exited a slide?
             {
                 isSliding = true;
-                 timer = 50;
+                timer = 50;
             }
             else if (!isSliding)//if all this is not the case and is not currently in a slide, no slide for u (you can slide when below the start speed, just not start a slide)
             {
                 isSliding = false;
             }
         }
-        else if(isSliding) // if button isnt even being pressed, then no slide
+        else if (isSliding) // if button isnt even being pressed, then no slide
         {
-            
+
             //Debug.DrawRay(transform.position - (transform.forward * 0.4f), transform.up, Color.red);
             //Debug.DrawRay(transform.position - (transform.forward * -0.4f), transform.up, Color.blue);
-           
-            
+
+
             RaycastHit test;
-            if ((!Physics.Raycast(transform.position + transform.forward * 0.4f, transform.up, 1f)) &&  (!Physics.Raycast(transform.position + transform.forward, transform.up, 1f)) && (!Physics.Raycast(transform.position + transform.forward * -0.4f, transform.up, 1f))) //If there's something above you...
+            if ((!Physics.Raycast(transform.position + transform.forward * 0.4f, transform.up, 1f)) && (!Physics.Raycast(transform.position + transform.forward, transform.up, 1f)) && (!Physics.Raycast(transform.position + transform.forward * -0.4f, transform.up, 1f))) //If there's something above you...
             {
-                if (Physics.Raycast(transform.position  + transform.forward * 0.2f, transform.up, out test, 1.6f))
+                if (Physics.Raycast(transform.position + transform.forward * 0.2f, transform.up, out test, 1.6f))
                 {
                     Debug.Log(test.collider.gameObject.name);
                 }
@@ -665,10 +666,10 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Debug.Log("Didn't bonk on anything, standing up");
                 }
-                
+
                 //rb.AddForce(transform.forward * 25 * Time.deltaTime, ForceMode.Impulse); //Go forward so there isn't
                 isSliding = false;
-                
+
             }
 
             // hasSlid = true; //you were just in a slide - only way for variable to change is with a release of the slide button
@@ -690,7 +691,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 else if (timer <= -1)
                 {
-                   
+
                     isSliding = false;
                     hasSlid = true; //you were just in a slide - only way for variable to change is with a release of the slide button
                 }
@@ -727,7 +728,7 @@ public class PlayerMovement : MonoBehaviour
             case "climb":
                 RaycastHit climbHit;
                 Physics.Raycast(transform.position, climbObject.GetComponent<BoxCollider>().ClosestPoint(transform.position) - transform.position, out climbHit, 10.0f);
-                playerIK.vaultPoint = climbHit.point + new Vector3(-0.8f, 0.6f,0);
+                playerIK.vaultPoint = climbHit.point + new Vector3(-0.8f, 0.6f, 0);
                 playerIK.IKTime = 10000;
                 playerIK.ikActive = true;
                 break;

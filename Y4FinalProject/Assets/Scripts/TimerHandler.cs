@@ -63,15 +63,15 @@ public class TimerHandler : MonoBehaviour
         {
             gameObject.GetComponent<PlayerMovement>().EndCutscene();
         }
-        
-        
-        
+
+
+
         nameInput = FindInActiveObjectByTag("NameInput");
-        
-        
+
+
         filePath = Application.dataPath;
         dataScore = new LeaderboardStats[6];
-        
+
         Debug.Log(filePath);
 
         for (int i = 0; i < dataScore.Length; i++)
@@ -113,13 +113,13 @@ public class TimerHandler : MonoBehaviour
         }
         return null;
     }
-    
-    
+
+
 
     // Update is called once per frame
     void Update()
     {
-        
+
         if (timerActive)
         {
             if (timerSpeedMultx60)
@@ -164,47 +164,47 @@ public class TimerHandler : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         GetComponent<PlayerMovement>().controls.PlayerMovement.Disable();
-        
+
         timerActive = false;
         timerDisplay.GetComponent<TextMeshProUGUI>().color = Color.green;
         lastTime = levelTime;
         dataScore[levelIndex].previousSave = lastTime;
 
-            if (lastTime < bestTime || bestTime <= 0) //If the time you just got is better than the best...
-            {
-                bestTime = lastTime; //Make it the best
-                isBest = true;
+        if (lastTime < bestTime || bestTime <= 0) //If the time you just got is better than the best...
+        {
+            bestTime = lastTime; //Make it the best
+            isBest = true;
 
-                InsertLastTime(dataScore[levelIndex].highSave, dataScore[levelIndex].highName); //Shunt the previous best to the list.
+            InsertLastTime(dataScore[levelIndex].highSave, dataScore[levelIndex].highName); //Shunt the previous best to the list.
 
 
-                dataScore[levelIndex].highSave = bestTime; //Convert your new time into the new best
-                dataScore[levelIndex].highName = "ANON"; //Placehold the name
+            dataScore[levelIndex].highSave = bestTime; //Convert your new time into the new best
+            dataScore[levelIndex].highName = "ANON"; //Placehold the name
 
-            }
-            else /*if (dataScore[levelIndex].lastTimes.Count != 0)//If it's not the new best time...*/
-            {
-                Debug.Log("Not the best time is being called");
+        }
+        else /*if (dataScore[levelIndex].lastTimes.Count != 0)//If it's not the new best time...*/
+        {
+            Debug.Log("Not the best time is being called");
 
-                InsertLastTime(lastTime, "Anon"); //Shunt the time into the list (with placeholder name)
+            InsertLastTime(lastTime, "Anon"); //Shunt the time into the list (with placeholder name)
 
-            }
+        }
 
-            if (handler.hundredpercent && (lastTime < bestHundredpercentTime || bestHundredpercentTime <= 0))
-            {
+        if (handler.hundredpercent && (lastTime < bestHundredpercentTime || bestHundredpercentTime <= 0))
+        {
 
-                bestHundredpercentTime = lastTime;
-                isHundredBest = true;
-                InsertLastHundredTime(dataScore[levelIndex].highHundredpercentSave, dataScore[levelIndex].highHundredName); //Same as above but for hundred% times
+            bestHundredpercentTime = lastTime;
+            isHundredBest = true;
+            InsertLastHundredTime(dataScore[levelIndex].highHundredpercentSave, dataScore[levelIndex].highHundredName); //Same as above but for hundred% times
 
-                dataScore[levelIndex].highHundredpercentSave = bestHundredpercentTime;
-                dataScore[levelIndex].highHundredName = "ANON";
-            }
-            else if (handler.hundredpercent)
-            {
-                InsertLastHundredTime(lastTime, "Anon");
-            }
-            SaveGameStatus();
+            dataScore[levelIndex].highHundredpercentSave = bestHundredpercentTime;
+            dataScore[levelIndex].highHundredName = "ANON";
+        }
+        else if (handler.hundredpercent)
+        {
+            InsertLastHundredTime(lastTime, "Anon");
+        }
+        SaveGameStatus();
     }
 
     private int findMe; //This variable is used to track where the name should go when submitted.
@@ -219,7 +219,7 @@ public class TimerHandler : MonoBehaviour
 
         int fluff = dataScore[levelIndex].lastTimes.Count; //Debug - count the entries in lastTimes...
         Debug.Log(fluff); //And push them to the list.
-        
+
         if (dataScore[levelIndex].lastTimes.Count == 0) //If there's nothing in the list of last times...
         {
             dataScore[levelIndex].lastTimes.Add(time); //Add the time...
@@ -244,7 +244,7 @@ public class TimerHandler : MonoBehaviour
             {
                 if (dataScore[levelIndex].lastTimes.Count >= lastTimesSaved) //If the list is full...
                 {
-                    dataScore[levelIndex].lastTimes.RemoveAt(lastTimesSaved -1); //Remove the last element of the list.
+                    dataScore[levelIndex].lastTimes.RemoveAt(lastTimesSaved - 1); //Remove the last element of the list.
                 }
                 dataScore[levelIndex].lastTimes.Insert(i, time); //Insert the time you just got at the point where the saved time becomes slower than the scored time. This moves everything in the list over.
                 dataScore[levelIndex].lastNames.Insert(i, name); //Also insert the name. Same deal as above. This keeps the lines sorted by time.
@@ -289,7 +289,7 @@ public class TimerHandler : MonoBehaviour
 
         int fluff = dataScore[levelIndex].lastTimesHundred.Count;
         Debug.Log(fluff);
-        
+
         if (dataScore[levelIndex].lastTimesHundred.Count == 0)
         {
             dataScore[levelIndex].lastTimesHundred.Insert(0, time);
@@ -297,8 +297,8 @@ public class TimerHandler : MonoBehaviour
             findMeHundred = 0;
             return;
         }
-        
-        
+
+
         for (int i = 0; i < dataScore[levelIndex].lastTimesHundred.Count; i++)
         {
             if (time < dataScore[levelIndex].lastTimesHundred[i])
@@ -313,11 +313,11 @@ public class TimerHandler : MonoBehaviour
                 return;
             }
         }
-        
+
         timeTooSlow = true;
     }
-    
-    
+
+
 
     public void LoadGameStatus()
     {
@@ -338,7 +338,7 @@ public class TimerHandler : MonoBehaviour
     {
         dataScore = new LeaderboardStats[6];
 
-        
+
         SaveGameStatus();
         Debug.Log("File not found...Creating");
     }
@@ -371,14 +371,16 @@ public class TimerHandler : MonoBehaviour
             }
 
             bandaid = true; //Because Unity is dumb and calls this function twice for LITERALLY NO REASON
-            
-            
+
+
             Debug.Log(other.gameObject.name);
             finishPanel.SetActive(true);
             gameObject.GetComponent<PlayerManager>().lockMouse(false);
             gameObject.GetComponent<PlayerMovement>().controls.Disable();
             StopTimer();
 
+
+            AudioManager.instance.GenerateSound(AudioReference.instance.win, Vector3.zero);
             //GameObject.FindObjectOfType<AudioManager>().endLevel();
         }
     }
@@ -388,25 +390,25 @@ public class TimerHandler : MonoBehaviour
         if (other.CompareTag("StartTrigger")) timerActive = true;
 
     }
-    
-    
-    
+
+
+
     public void onNameInput()
     {
         if (timeTooSlow) //If your time is too slow to have fit on the leaderboard...
         {
             return; //You're done here, so don't do anything else.
         }
-        
-        
-        
+
+
+
         string name = nameInput.GetComponent<TMP_InputField>().text; //Get your name from the input field
-        
+
         Debug.Log("PLAYER INPUT THE NAME '" + name + "'");
         Debug.Log("TEXT FIELD READS '" + nameInput.GetComponent<TMP_InputField>().text + "'");
         Debug.Log("YOUR TIME IS: " + lastTime);
-        
-        if ( name != nameInput.GetComponent<TMP_InputField>().text)
+
+        if (name != nameInput.GetComponent<TMP_InputField>().text)
         {
             name = name = nameInput.GetComponent<TMP_InputField>().text;
             Debug.Log("Corrected Name");
@@ -422,12 +424,12 @@ public class TimerHandler : MonoBehaviour
         {
             dataScore[levelIndex].lastNames[findMe] = name; //Otherwise, put it where the target has been set.
         }
-        
+
         if (handler.hundredpercent && isHundredBest) //If you scored a 100% time and it was the best...
         {
             dataScore[levelIndex].highHundredName = name; //Put the name in the best hundred percent time spot.
         }
-        else if(handler.hundredpercent) //Otherwise, if you scored a hundred percent time...
+        else if (handler.hundredpercent) //Otherwise, if you scored a hundred percent time...
         {
             dataScore[levelIndex].lastHundredNames[findMeHundred] = name; //Put the name in the right spot.
         }

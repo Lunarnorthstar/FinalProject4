@@ -5,6 +5,11 @@ using FMODUnity;
 
 public class AudioReference : MonoBehaviour
 {
+
+    [field: SerializeField] public EventReference Helicopter { get; private set; }
+    [field: SerializeField] public EventReference win { get; private set; }
+
+
     [field: Header("Sound Effects")]
     [field: SerializeField] public EventReference buttonClick { get; private set; }
     [field: SerializeField] public EventReference pageTurning { get; private set; }
