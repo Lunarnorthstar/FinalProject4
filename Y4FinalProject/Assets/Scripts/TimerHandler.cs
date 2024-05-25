@@ -155,11 +155,13 @@ public class TimerHandler : MonoBehaviour
 
     private bool isBest = false;
     private bool isHundredBest = false;
+    private bool hundredTimeTooSlow = false;
     public void StopTimer()
     {
         isBest = false;
         isHundredBest = false;
-        timeTooSlow = false; //Just in case...
+        timeTooSlow = false;
+        hundredTimeTooSlow = false;//Just in case...
         //ResetRepeat();
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -314,7 +316,7 @@ public class TimerHandler : MonoBehaviour
             }
         }
 
-        timeTooSlow = true;
+        hundredTimeTooSlow = true;
     }
 
 
@@ -395,18 +397,11 @@ public class TimerHandler : MonoBehaviour
 
     public void onNameInput()
     {
-        if (timeTooSlow) //If your time is too slow to have fit on the leaderboard...
-        {
-            return; //You're done here, so don't do anything else.
-        }
-
-
-
         string name = nameInput.GetComponent<TMP_InputField>().text; //Get your name from the input field
 
-        Debug.Log("PLAYER INPUT THE NAME '" + name + "'");
-        Debug.Log("TEXT FIELD READS '" + nameInput.GetComponent<TMP_InputField>().text + "'");
-        Debug.Log("YOUR TIME IS: " + lastTime);
+        //Debug.Log("PLAYER INPUT THE NAME '" + name + "'");
+        //Debug.Log("TEXT FIELD READS '" + nameInput.GetComponent<TMP_InputField>().text + "'");
+        //Debug.Log("YOUR TIME IS: " + lastTime);
 
         if (name != nameInput.GetComponent<TMP_InputField>().text)
         {
@@ -414,25 +409,34 @@ public class TimerHandler : MonoBehaviour
             Debug.Log("Corrected Name");
         } //Don't ask.
 
-        Debug.Log("WHAT IS THE FINDME: '" + findMe + "'");
+        //Debug.Log("WHAT IS THE FINDME: '" + findMe + "'");
+        
+        
+        if (!timeTooSlow) //If your time is too slow to have fit on the leaderboard...
+        {
+            if (isBest)
+            {
+                dataScore[levelIndex].highName = name; //If you scored a best time, put the name in the best time spot.
+            }
+            else
+            {
+                dataScore[levelIndex].lastNames[findMe] = name; //Otherwise, put it where the target has been set.
+            }
+        }
 
-        if (isBest)
+        if (handler.hundredpercent && !hundredTimeTooSlow)
         {
-            dataScore[levelIndex].highName = name; //If you scored a best time, put the name in the best time spot.
+            if (isHundredBest) //If you scored a 100% time and it was the best...
+            {
+                dataScore[levelIndex].highHundredName = name; //Put the name in the best hundred percent time spot.
+            }
+            else//Otherwise, if you scored a hundred percent time...
+            {
+                dataScore[levelIndex].lastHundredNames[findMeHundred] = name; //Put the name in the right spot.
+            }
         }
-        else
-        {
-            dataScore[levelIndex].lastNames[findMe] = name; //Otherwise, put it where the target has been set.
-        }
-
-        if (handler.hundredpercent && isHundredBest) //If you scored a 100% time and it was the best...
-        {
-            dataScore[levelIndex].highHundredName = name; //Put the name in the best hundred percent time spot.
-        }
-        else if (handler.hundredpercent) //Otherwise, if you scored a hundred percent time...
-        {
-            dataScore[levelIndex].lastHundredNames[findMeHundred] = name; //Put the name in the right spot.
-        }
+        
+        
         SaveGameStatus(); //Push data to file.
         FindObjectOfType<SecondaryLeaderboard>().LoadGameStatus(); //Pull data from file to show the player.
     }
